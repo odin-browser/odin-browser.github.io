@@ -157,6 +157,8 @@
             padding: 15px;
             text-decoration: none;
             color: var(--text-color);
+            border-left: 3px solid transparent;
+            transition: all 0.2s ease;
         }
 
         .site-card .icon {
@@ -270,6 +272,27 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #555;
         }
+
+        /* TV Remote Navigation Focus Styles */
+        .tv-focused {
+            outline: 2px solid var(--accent-color) !important;
+            outline-offset: 2px;
+            box-shadow: 0 0 0 4px rgba(74, 158, 255, 0.25), 0 4px 12px rgba(0, 0, 0, 0.4);
+            z-index: 10;
+            position: relative;
+        }
+
+        .sidebar-menu li a.tv-focused,
+        .site-card a.tv-focused {
+            background-color: var(--hover-bg) !important;
+            border-left-color: var(--accent-color);
+            color: var(--accent-color) !important;
+        }
+
+        /* Hide focus outline for mouse users */
+        :focus:not(.tv-focused) {
+            outline: none;
+        }
     </style>
 </head>
 <body>
@@ -304,11 +327,11 @@
     <script>
         // Site data extracted from original file
         const siteData = {
-            "FIFA": [
+            "Football": [
                 { name: `Pirlo TV`, url: `https://pirlotvenvivo.club/`, desc: `` },
-                { name: `Libre Fú tbol / Fú tbol Libre`, url: `https://futbollibre-tv.com/`, desc: `` },
-                { name: `Libre Fú tbol / Fú tbol Libre`, url: `http://librefutboltv.su`, desc: `` },
-                { name: `Libre Fú tbol / Fú tbol Libre`, url: `https://futbol-libre.su/`, desc: `` },
+                { name: `Libre Fútbol / Fútbol Libre`, url: `https://futbollibre-tv.com/`, desc: `` },
+                { name: `Libre Fútbol / Fútbol Libre`, url: `http://librefutboltv.su`, desc: `` },
+                { name: `Libre Fútbol / Fútbol Libre`, url: `https://futbol-libre.su/`, desc: `` },
                 { name: `Pelota Libre TV`, url: `https://www.pelotalibrevivo.net/`, desc: `` },
                 { name: `Roja Directa (Clone)`, url: `https://rojadirectagol.com/`, desc: `` },
                 { name: `Kooora`, url: `https://kooora.com/`, desc: `` },
@@ -889,7 +912,7 @@
 
         // Icons mapping
         const categoryIcons = {
-            "FIFA": "fas fa-futbol",
+            "Football": "fas fa-futbol",
             "Global": "fas fa-globe",
             "Streaming Site Guide": "fas fa-external-link-alt",
             "Sport": "fas fa-futbol",
@@ -905,6 +928,9 @@
                 const a = document.createElement('a');
                 a.href = `#section-${index}`;
                 a.className = 'smooth';
+                a.setAttribute('tabindex', '0');
+                a.setAttribute('data-zone', 'category');
+                a.setAttribute('data-category', category);
                 a.innerHTML = `<i class="${categoryIcons[category] || categoryIcons.default}"></i><span>${category}</span>`;
                 li.appendChild(a);
                 menu.appendChild(li);
@@ -939,7 +965,7 @@
 
                     col.innerHTML = `
                         <div class="site-card">
-                            <a href="${site.url}" target="_blank" rel="noopener noreferrer">
+                            <a href="${site.url}" target="_blank" rel="noopener noreferrer" tabindex="0" data-zone="site">
                                 <div class="icon">
                                     <img src="${faviconUrl}" alt="" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\\'fas fa-link\\'></i>'">
                                 </div>
@@ -983,7 +1009,195 @@
         document.addEventListener('DOMContentLoaded', function() {
             generateSidebar();
             generateContent();
+            initTvNavigation();
         });
+
+        // ============================================================
+        // TV Remote Navigation (UP/DOWN/LEFT/RIGHT/OK + mouse compat)
+        // Spatial algorithm based on nfx native-dom-focus scoring.
+        // ============================================================
+        function initTvNavigation() {
+            const NAV_KEYS = new Set(['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Enter', ' ']);
+            let tvMode = false;
+
+            // --- Element collection ---
+
+            function getItems(zone) {
+                var sel = zone
+                    ? 'a[data-zone="' + zone + '"]'
+                    : 'a[data-zone]';
+                return Array.from(document.querySelectorAll(sel)).filter(function (el) {
+                    var r = getRect(el);
+                    return r && r.width > 0 && r.height > 0;
+                });
+            }
+
+            // --- Geometry helpers ---
+
+            function getRect(el) {
+                if (!el) return null;
+                try {
+                    var r = el.getBoundingClientRect();
+                    if (r.width < 1 || r.height < 1) return null;
+                    return r;
+                } catch (e) { return null; }
+            }
+
+            function getCenter(el) {
+                var r = getRect(el);
+                if (!r) return { x: 0, y: 0 };
+                return { x: r.left + r.width / 2, y: r.top + r.height / 2 };
+            }
+
+            // --- Focus management ---
+
+            function clearFocus() {
+                var el = document.querySelector('.tv-focused');
+                if (el) el.classList.remove('tv-focused');
+            }
+
+            function setFocus(el) {
+                if (!el) return;
+                clearFocus();
+                el.classList.add('tv-focused');
+                try { el.focus({ preventScroll: true }); } catch (e) {}
+                try { el.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); } catch (e) {}
+            }
+
+            function getCurrentFocused() {
+                return document.querySelector('.tv-focused');
+            }
+
+            // --- Spatial scoring (from nfx scoreDirectionalCandidate) ---
+            //
+            // For UP/DOWN: primary axis is dy (weighted 8x), cross axis is dx.
+            //   Bonus 0 when horizontal overlap > 0, penalty 2x when no overlap.
+            // For LEFT/RIGHT: primary axis is dx (weighted 8x), cross axis is dy.
+            //   Bonus 0 when vertical overlap > 0, penalty 2x when no overlap.
+            // Candidates in the wrong direction get Infinity (filtered out).
+
+            function overlap(aStart, aEnd, bStart, bEnd) {
+                return Math.max(0, Math.min(aEnd, bEnd) - Math.max(aStart, bStart));
+            }
+
+            function scoreCandidate(curCenter, curRect, cCenter, cRect, dir) {
+                var dx = cCenter.x - curCenter.x;
+                var dy = cCenter.y - curCenter.y;
+                var hOverlap = overlap(curRect.left, curRect.right, cRect.left, cRect.right);
+                var vOverlap = overlap(curRect.top, curRect.bottom, cRect.top, cRect.bottom);
+                var minAxis = 8;
+
+                if (dir === 'UP') {
+                    if (dy >= -minAxis) return Infinity;
+                    return Math.abs(dy) * 8 + Math.abs(dx) + (hOverlap > 0 ? 0 : Math.abs(dx) * 2);
+                }
+                if (dir === 'DOWN') {
+                    if (dy <= minAxis) return Infinity;
+                    return Math.abs(dy) * 8 + Math.abs(dx) + (hOverlap > 0 ? 0 : Math.abs(dx) * 2);
+                }
+                if (dir === 'LEFT') {
+                    if (dx >= -minAxis) return Infinity;
+                    return Math.abs(dx) * 8 + Math.abs(dy) + (vOverlap > 0 ? 0 : Math.abs(dy) * 2);
+                }
+                if (dir === 'RIGHT') {
+                    if (dx <= minAxis) return Infinity;
+                    return Math.abs(dx) * 8 + Math.abs(dy) + (vOverlap > 0 ? 0 : Math.abs(dy) * 2);
+                }
+                return Infinity;
+            }
+
+            function findTarget(candidates, current, dir) {
+                var curCenter = getCenter(current);
+                var curRect = getRect(current);
+                if (!curRect) return null;
+
+                var scored = [];
+                for (var i = 0; i < candidates.length; i++) {
+                    var c = candidates[i];
+                    if (c === current) continue;
+                    var cRect = getRect(c);
+                    if (!cRect) continue;
+                    var s = scoreCandidate(curCenter, curRect, getCenter(c), cRect, dir);
+                    if (s < Infinity) scored.push({ el: c, score: s });
+                }
+                scored.sort(function (a, b) { return a.score - b.score; });
+                return scored.length > 0 ? scored[0].el : null;
+            }
+
+            // --- Directional navigation ---
+
+            var DIR_MAP = { ArrowUp: 'UP', ArrowDown: 'DOWN', ArrowLeft: 'LEFT', ArrowRight: 'RIGHT' };
+
+            function navigate(current, dir) {
+                var zone = current.getAttribute('data-zone');
+                var target = null;
+
+                if (zone === 'category') {
+                    if (dir === 'LEFT') return true; // Edge
+                    if (dir === 'RIGHT') {
+                        // Cross-zone: sidebar → grid
+                        target = findTarget(getItems('site'), current, 'RIGHT');
+                    } else {
+                        // UP/DOWN: within sidebar
+                        target = findTarget(getItems('category'), current, dir);
+                    }
+                } else if (zone === 'site') {
+                    if (dir === 'LEFT') {
+                        // Try within grid first; if at left edge, cross-zone to sidebar
+                        target = findTarget(getItems('site'), current, 'LEFT')
+                              || findTarget(getItems('category'), current, 'LEFT');
+                    } else if (dir === 'RIGHT') {
+                        // Within grid only
+                        target = findTarget(getItems('site'), current, 'RIGHT');
+                    } else {
+                        // UP/DOWN: within grid
+                        target = findTarget(getItems('site'), current, dir);
+                    }
+                }
+
+                if (target) setFocus(target);
+                return true;
+            }
+
+            // --- Global keydown handler ---
+
+            document.addEventListener('keydown', function (e) {
+                if (!NAV_KEYS.has(e.key)) return;
+                tvMode = true;
+
+                var current = getCurrentFocused();
+                var dir = DIR_MAP[e.key];
+
+                if (!current) {
+                    var items = getItems('category');
+                    if (items.length > 0) setFocus(items[0]);
+                    e.preventDefault();
+                    return;
+                }
+
+                if (dir) {
+                    navigate(current, dir);
+                    e.preventDefault();
+                    e.stopPropagation();
+                } else if (e.key === 'Enter' || e.key === ' ') {
+                    if (current.getAttribute('data-zone') === 'site') {
+                        window.open(current.href, '_blank', 'noopener');
+                    } else {
+                        current.click();
+                    }
+                    e.preventDefault();
+                    e.stopPropagation();
+                }
+            }, true);
+
+            // Clear TV focus state on mouse interaction
+            document.addEventListener('mousedown', function () {
+                if (tvMode) {
+                    tvMode = false;
+                    clearFocus();
+                }
+            });
+        }
     </script>
 </body>
 </html>
