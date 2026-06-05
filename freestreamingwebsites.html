@@ -143,7 +143,6 @@
             border-radius: 8px;
             margin-bottom: 15px;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
-            overflow: hidden;
         }
 
         .site-card:hover {
@@ -158,6 +157,7 @@
             text-decoration: none;
             color: var(--text-color);
             border-left: 3px solid transparent;
+            border-radius: 8px;
             transition: all 0.2s ease;
         }
 
@@ -273,20 +273,31 @@
             background: #555;
         }
 
-        /* TV Remote Navigation Focus Styles */
+        /* TV Remote Navigation Focus Styles — high-contrast for dark TV platforms */
         .tv-focused {
-            outline: 2px solid var(--accent-color) !important;
+            outline: 3px solid #fff !important;
             outline-offset: 2px;
-            box-shadow: 0 0 0 4px rgba(74, 158, 255, 0.25), 0 4px 12px rgba(0, 0, 0, 0.4);
+            box-shadow:
+                0 0 0 3px var(--accent-color),
+                0 0 16px 4px rgba(74, 158, 255, 0.55),
+                0 0 40px 8px rgba(74, 158, 255, 0.2);
             z-index: 10;
             position: relative;
+            transform: scale(1.04);
+            will-change: transform;
+            transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
         }
 
-        .sidebar-menu li a.tv-focused,
+        .sidebar-menu li a.tv-focused {
+            background-color: #3d4a5c !important;
+            border-left-color: #fff !important;
+            color: #fff !important;
+        }
+
         .site-card a.tv-focused {
-            background-color: var(--hover-bg) !important;
-            border-left-color: var(--accent-color);
-            color: var(--accent-color) !important;
+            background-color: #3a4555 !important;
+            border-left-color: #fff !important;
+            color: #fff !important;
         }
 
         /* Hide focus outline for mouse users */
@@ -1061,7 +1072,74 @@
                 clearFocus();
                 el.classList.add('tv-focused');
                 try { el.focus({ preventScroll: true }); } catch (e) {}
-                try { el.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); } catch (e) {}
+                scrollIntoViewCustom(el);
+            }
+
+            // Custom scroll: keep focused element in the "sweet zone" of the viewport.
+            // - Navigating down: start scrolling when element passes 60% viewport height.
+            // - Navigating up: start scrolling when element goes above 25% viewport height.
+            // - Handles sidebar (own scroll container) vs main content (window scroll).
+            function scrollIntoViewCustom(el) {
+                var DOWN_RATIO = 0.60;
+                var UP_RATIO = 0.25;
+                var PADDING = 10; // px buffer to avoid edge-hugging
+
+                // Determine scroll container
+                var scrollParent = el.closest('.sidebar');
+                var isSidebar = !!scrollParent;
+                var container = isSidebar ? scrollParent : null; // null = window
+
+                var elRect = el.getBoundingClientRect();
+                var containerHeight, containerTop, scrollTop, scrollHeight;
+
+                if (isSidebar) {
+                    var cRect = container.getBoundingClientRect();
+                    containerHeight = cRect.height;
+                    containerTop = cRect.top;
+                    scrollTop = container.scrollTop;
+                    scrollHeight = container.scrollHeight;
+                } else {
+                    containerHeight = window.innerHeight;
+                    containerTop = 0;
+                    scrollTop = window.scrollY || document.documentElement.scrollTop;
+                    scrollHeight = document.documentElement.scrollHeight;
+                }
+
+                // Element position relative to the scrollable container's content
+                var elTopInContent = elRect.top - containerTop + scrollTop;
+                var elBottomInContent = elTopInContent + elRect.height;
+
+                // Visible zone boundaries in content coordinates
+                var viewBottom = scrollTop + containerHeight;
+                var viewTop = scrollTop;
+
+                // Sweet zone thresholds (in content coordinates)
+                var sweetBottom = scrollTop + containerHeight * DOWN_RATIO;
+                var sweetTop = scrollTop + containerHeight * UP_RATIO;
+
+                var newScrollTop = scrollTop;
+
+                // Element extends below the sweet zone bottom → scroll down
+                if (elBottomInContent + PADDING > sweetBottom) {
+                    newScrollTop = elBottomInContent + PADDING - containerHeight * DOWN_RATIO;
+                }
+                // Element extends above the sweet zone top → scroll up
+                else if (elTopInContent - PADDING < sweetTop) {
+                    newScrollTop = elTopInContent - PADDING - containerHeight * UP_RATIO;
+                }
+
+                // Clamp
+                var maxScroll = Math.max(0, scrollHeight - containerHeight);
+                newScrollTop = Math.max(0, Math.min(newScrollTop, maxScroll));
+
+                // Only scroll if actually changed
+                if (Math.abs(newScrollTop - scrollTop) < 1) return;
+
+                if (isSidebar) {
+                    container.scrollTo({ top: newScrollTop, behavior: 'smooth' });
+                } else {
+                    window.scrollTo({ top: newScrollTop, behavior: 'smooth' });
+                }
             }
 
             function getCurrentFocused() {
