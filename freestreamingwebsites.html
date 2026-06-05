@@ -1000,19 +1000,31 @@
             document.getElementById('sidebar').classList.toggle('active');
         }
 
-        // Smooth scroll
+        // Smooth scroll — also clears dual-focus states to prevent two highlights at once
         document.addEventListener('click', function(e) {
-            if (e.target.closest('a.smooth')) {
-                e.preventDefault();
-                const targetId = e.target.closest('a.smooth').getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    // Close sidebar on mobile after click
-                    if (window.innerWidth <= 768) {
-                        document.getElementById('sidebar').classList.remove('active');
-                    }
-                }
+            var link = e.target.closest('a.smooth');
+            if (!link) return;
+            e.preventDefault();
+
+            // Clear any TV focus state (prevents .tv-focused + .active coexisting)
+            var tvFocused = document.querySelector('.tv-focused');
+            if (tvFocused) tvFocused.classList.remove('tv-focused');
+
+            // Clear stale .active classes from all sidebar items, then set on clicked one
+            document.querySelectorAll('#sidebar-menu a').forEach(function(a) {
+                a.classList.remove('active');
+            });
+            link.classList.add('active');
+
+            var targetId = link.getAttribute('href');
+            var targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+
+            // Close sidebar on mobile after click
+            if (window.innerWidth <= 768) {
+                document.getElementById('sidebar').classList.remove('active');
             }
         });
 
@@ -1071,7 +1083,25 @@
                 if (!el) return;
                 clearFocus();
                 el.classList.add('tv-focused');
-                try { el.focus({ preventScroll: true }); } catch (e) {}
+
+                // Clear stale .active from sidebar items (prevents .active + .tv-focused dual-highlight)
+                if (el.closest('.sidebar')) {
+                    document.querySelectorAll('#sidebar-menu a.active').forEach(function(a) {
+                        a.classList.remove('active');
+                    });
+                }
+
+                // focus() with preventScroll fallback for TV browsers that don't support it
+                try {
+                    var winY = window.scrollY || document.documentElement.scrollTop;
+                    var sidebar = document.querySelector('.sidebar');
+                    var sideTop = sidebar ? sidebar.scrollTop : 0;
+                    try { el.focus({ preventScroll: true }); } catch (ex) { el.focus(); }
+                    // Restore scroll if browser ignored preventScroll
+                    window.scrollTo(0, winY);
+                    if (sidebar) sidebar.scrollTop = sideTop;
+                } catch (e) {}
+
                 scrollIntoViewCustom(el);
             }
 
@@ -1136,9 +1166,17 @@
                 if (Math.abs(newScrollTop - scrollTop) < 1) return;
 
                 if (isSidebar) {
-                    container.scrollTo({ top: newScrollTop, behavior: 'smooth' });
+                    try {
+                        container.scrollTo({ top: newScrollTop, behavior: 'smooth' });
+                    } catch (e) {
+                        container.scrollTop = newScrollTop;
+                    }
                 } else {
-                    window.scrollTo({ top: newScrollTop, behavior: 'smooth' });
+                    try {
+                        window.scrollTo({ top: newScrollTop, behavior: 'smooth' });
+                    } catch (e) {
+                        window.scrollTo(0, newScrollTop);
+                    }
                 }
             }
 
