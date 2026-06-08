@@ -333,6 +333,27 @@
             color: #fff !important;
         }
 
+        body.tv-nav-active .sidebar-menu li a,
+        body.tv-nav-active .site-card,
+        body.tv-nav-active .site-card a,
+        body.tv-nav-active .tv-focused {
+            transition: none !important;
+            animation: none !important;
+            will-change: auto !important;
+        }
+
+        body.tv-nav-active .site-card,
+        body.tv-nav-active .site-card:hover,
+        body.tv-nav-active .site-card:focus-within {
+            transform: none !important;
+            box-shadow: none !important;
+        }
+
+        body.tv-nav-active .site-card a:not(.tv-focused),
+        body.tv-nav-active .sidebar-menu li a:not(.tv-focused) {
+            box-shadow: none !important;
+        }
+
         /* Hide focus outline for mouse users */
         :focus:not(.tv-focused) {
             outline: none;
@@ -1164,6 +1185,11 @@
                 currentFocused = null;
             }
 
+            function setTvNavActive(active) {
+                if (!document.body) return;
+                document.body.classList.toggle('tv-nav-active', !!active);
+            }
+
             function suspendPageFocusForToolbar() {
                 var el = currentFocused || document.querySelector('.tv-focused');
                 if (el) {
@@ -1537,6 +1563,7 @@
                     e.stopImmediatePropagation();
                 }
                 tvMode = true;
+                setTvNavActive(true);
 
                 var current = getCurrentFocused();
                 var dir = DIR_MAP[e.key];
@@ -1573,6 +1600,7 @@
             document.addEventListener('mousedown', function () {
                 if (tvMode) {
                     tvMode = false;
+                    setTvNavActive(false);
                     clearFocus();
                 }
             });
