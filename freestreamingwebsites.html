@@ -1106,6 +1106,7 @@
             let currentFocused = null;
             let lastToolbarHandoff = null;
             let lastToolbarHandoffAt = 0;
+            let toolbarFocusActive = false;
             let activeSidebarLink = null;
             let pendingNavDir = null;
             let pendingNavFrame = 0;
@@ -1163,8 +1164,17 @@
                 currentFocused = null;
             }
 
+            function suspendPageFocusForToolbar() {
+                var el = currentFocused || document.querySelector('.tv-focused');
+                if (el) {
+                    el.classList.remove('tv-focused');
+                }
+                toolbarFocusActive = true;
+            }
+
             function setFocus(el) {
                 if (!el) return;
+                toolbarFocusActive = false;
                 if (currentFocused === el) {
                     if (!el.classList.contains('tv-focused')) {
                         el.classList.add('tv-focused');
@@ -1357,6 +1367,7 @@
                             routeKey: route || routeKey(),
                             timestamp: Date.now()
                         };
+                        suspendPageFocusForToolbar();
                         return true;
                     },
                     restoreFromToolbar: function(handoffToken) {
@@ -1367,10 +1378,12 @@
                         if (!target) return false;
                         setFocus(target);
                         lastToolbarHandoff = null;
+                        toolbarFocusActive = false;
                         return true;
                     },
                     clearSession: function() {
                         lastToolbarHandoff = null;
+                        toolbarFocusActive = false;
                         return true;
                     }
                 };
@@ -1527,6 +1540,10 @@
 
                 var current = getCurrentFocused();
                 var dir = DIR_MAP[e.key];
+
+                if (toolbarFocusActive) {
+                    return;
+                }
 
                 if (dir) {
                     if (e.repeat) {
