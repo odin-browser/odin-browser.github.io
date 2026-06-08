@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
     <meta name="keywords" content="Free Streaming Websites all around the world">
     <meta name="description" content="Global Free Streaming Websites Catalog">
     <title>Free Streaming Websites Catalog</title>
@@ -14,6 +15,7 @@
 
     <style>
         :root {
+            color-scheme: dark;
             --bg-color: #1a1a1a;
             --card-bg: #2c2e2f;
             --text-color: #e0e0e0;
@@ -29,6 +31,10 @@
 
         html, body {
             overflow-x: hidden; /* 根源修复：禁止横向滚动 */
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            forced-color-adjust: none;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
@@ -38,6 +44,20 @@
             margin: 0;
             padding: 0;
             min-height: 100vh;
+        }
+
+        .page-container,
+        .sidebar,
+        .sidebar-header,
+        .sidebar-menu,
+        .sidebar-menu li,
+        .sidebar-menu li a,
+        .main-content,
+        .section-header,
+        .site-card,
+        .site-card a,
+        .footer {
+            forced-color-adjust: none;
         }
 
         .page-container {
@@ -87,6 +107,7 @@
             text-decoration: none;
             border-left: 3px solid transparent;
             transition: background-color 0.08s linear, color 0.08s linear;
+            will-change: background-color, color;
         }
 
         .sidebar-menu li a:hover,
@@ -159,6 +180,7 @@
             border-left: 3px solid transparent;
             border-radius: 8px;
             transition: background-color 0.08s linear, color 0.08s linear;
+            will-change: background-color, color;
         }
 
         .site-card .icon {
@@ -281,27 +303,34 @@
             z-index: 10;
             position: relative;
             transform: none;
-            transition: background-color 0.08s linear, color 0.08s linear;
+            transition: none !important;
+            forced-color-adjust: none;
         }
 
-        .sidebar-menu li a.tv-focused {
-            background-color: #fff !important;
+        .sidebar-menu li a.tv-focused,
+        .sidebar-menu li a.tv-focused:hover,
+        .sidebar-menu li a.tv-focused:focus,
+        .sidebar-menu li a.tv-focused:active {
+            background-color: var(--hover-bg) !important;
             border-left-color: #fff !important;
-            color: #181818 !important;
-            box-shadow: none;
+            color: #fff !important;
+            box-shadow: inset 0 0 0 2px #fff;
         }
 
-        .site-card a.tv-focused {
-            background-color: #fff !important;
+        .site-card a.tv-focused,
+        .site-card a.tv-focused:hover,
+        .site-card a.tv-focused:focus,
+        .site-card a.tv-focused:active {
+            background-color: var(--hover-bg) !important;
             border-left-color: #fff !important;
-            color: #181818 !important;
+            color: #fff !important;
         }
 
         .site-card a.tv-focused .desc,
         .site-card a.tv-focused .title,
         .sidebar-menu li a.tv-focused i,
         .sidebar-menu li a.tv-focused span {
-            color: #181818 !important;
+            color: #fff !important;
         }
 
         /* Hide focus outline for mouse users */
@@ -1010,9 +1039,11 @@
             if (!link) return;
             e.preventDefault();
 
-            // Clear any TV focus state (prevents .tv-focused + .active coexisting)
-            var tvFocused = document.querySelector('.tv-focused');
-            if (tvFocused) tvFocused.classList.remove('tv-focused');
+            // Mouse clicks should leave native hover/click styling; remote-triggered clicks keep TV focus.
+            if (e.detail !== 0) {
+                var tvFocused = document.querySelector('.tv-focused');
+                if (tvFocused) tvFocused.classList.remove('tv-focused');
+            }
 
             // Clear stale .active classes from all sidebar items, then set on clicked one
             document.querySelectorAll('#sidebar-menu a').forEach(function(a) {
@@ -1074,17 +1105,35 @@
             let tvMode = false;
             let currentFocused = null;
             let lastToolbarHandoff = null;
+            let lastToolbarHandoffAt = 0;
+            let activeSidebarLink = null;
+            let pendingNavDir = null;
+            let pendingNavFrame = 0;
+            let sidebarRestoreFrame = 0;
+            let sidebarRestoreTimer = 0;
+            const itemCache = {
+                all: null,
+                category: null,
+                site: null
+            };
 
             // --- Element collection ---
 
             function getItems(zone) {
-                var sel = zone
-                    ? 'a[data-zone="' + zone + '"]'
-                    : 'a[data-zone]';
-                return Array.from(document.querySelectorAll(sel)).filter(function (el) {
+                var key = zone || 'all';
+                if (itemCache[key]) return itemCache[key];
+                var sel = zone ? 'a[data-zone="' + zone + '"]' : 'a[data-zone]';
+                itemCache[key] = Array.from(document.querySelectorAll(sel)).filter(function (el) {
                     var r = getRect(el);
                     return r && r.width > 0 && r.height > 0;
                 });
+                return itemCache[key];
+            }
+
+            function invalidateItemCache() {
+                itemCache.all = null;
+                itemCache.category = null;
+                itemCache.site = null;
             }
 
             // --- Geometry helpers ---
@@ -1107,22 +1156,40 @@
             // --- Focus management ---
 
             function clearFocus() {
-                var el = document.querySelector('.tv-focused');
-                if (el) el.classList.remove('tv-focused');
+                var el = currentFocused || document.querySelector('.tv-focused');
+                if (el) {
+                    el.classList.remove('tv-focused');
+                }
                 currentFocused = null;
             }
 
             function setFocus(el) {
                 if (!el) return;
-                clearFocus();
+                if (currentFocused === el) {
+                    if (!el.classList.contains('tv-focused')) {
+                        el.classList.add('tv-focused');
+                    }
+                    scrollIntoViewCustom(el);
+                    return;
+                }
+                var staleFocused = currentFocused || document.querySelector('.tv-focused');
+                if (staleFocused && staleFocused !== el) {
+                    staleFocused.classList.remove('tv-focused');
+                }
                 currentFocused = el;
-                el.classList.add('tv-focused');
+                if (!el.classList.contains('tv-focused')) {
+                    el.classList.add('tv-focused');
+                }
 
                 // Clear stale .active from sidebar items (prevents .active + .tv-focused dual-highlight)
                 if (el.closest('.sidebar')) {
-                    document.querySelectorAll('#sidebar-menu a.active').forEach(function(a) {
-                        a.classList.remove('active');
-                    });
+                    if (!activeSidebarLink || !document.documentElement.contains(activeSidebarLink)) {
+                        activeSidebarLink = document.querySelector('#sidebar-menu a.active');
+                    }
+                    if (activeSidebarLink && activeSidebarLink !== el) {
+                        activeSidebarLink.classList.remove('active');
+                    }
+                    activeSidebarLink = el.classList.contains('active') ? el : null;
                 }
 
                 scrollIntoViewCustom(el);
@@ -1194,11 +1261,7 @@
                     // for deterministic TV D-pad navigation.
                     applySidebarScroll(container, newScrollTop);
                 } else {
-                    try {
-                        window.scrollTo({ top: newScrollTop, behavior: 'smooth' });
-                    } catch (e) {
-                        window.scrollTo(0, newScrollTop);
-                    }
+                    window.scrollTo(0, newScrollTop);
                 }
             }
 
@@ -1209,16 +1272,33 @@
                         container.scrollTo(0, scrollTop);
                     } catch (e) {}
                 }
+                if (sidebarRestoreFrame) {
+                    cancelAnimationFrame(sidebarRestoreFrame);
+                    sidebarRestoreFrame = 0;
+                }
+                if (sidebarRestoreTimer) {
+                    clearTimeout(sidebarRestoreTimer);
+                    sidebarRestoreTimer = 0;
+                }
                 var restore = function() {
                     if (Math.abs(container.scrollTop - scrollTop) > 2) {
                         container.scrollTop = scrollTop;
                     }
                 };
                 try {
-                    requestAnimationFrame(restore);
-                    setTimeout(restore, 80);
+                    sidebarRestoreFrame = requestAnimationFrame(function() {
+                        sidebarRestoreFrame = 0;
+                        restore();
+                    });
+                    sidebarRestoreTimer = setTimeout(function() {
+                        sidebarRestoreTimer = 0;
+                        restore();
+                    }, 80);
                 } catch (e) {
-                    setTimeout(restore, 80);
+                    sidebarRestoreTimer = setTimeout(function() {
+                        sidebarRestoreTimer = 0;
+                        restore();
+                    }, 80);
                 }
             }
 
@@ -1240,6 +1320,11 @@
                 if (!window.NaviSwitch || typeof window.NaviSwitch.requestNavBarFocus !== 'function') {
                     return false;
                 }
+                var now = Date.now();
+                if (now - lastToolbarHandoffAt < 500) {
+                    return true;
+                }
+                lastToolbarHandoffAt = now;
                 var rect = getRect(el) || { left: window.innerWidth / 2, width: 0 };
                 var centerX = rect.left + rect.width / 2;
                 var handoffToken = 'fsw-' + Date.now().toString(36) + '-' +
@@ -1344,17 +1429,27 @@
                 var curRect = getRect(current);
                 if (!curRect) return null;
 
-                var scored = [];
+                var best = null;
+                var bestScore = Infinity;
                 for (var i = 0; i < candidates.length; i++) {
                     var c = candidates[i];
                     if (c === current) continue;
                     var cRect = getRect(c);
                     if (!cRect) continue;
                     var s = scoreCandidate(curCenter, curRect, getCenter(c), cRect, dir);
-                    if (s < Infinity) scored.push({ el: c, score: s });
+                    if (s < bestScore) {
+                        best = c;
+                        bestScore = s;
+                    }
                 }
-                scored.sort(function (a, b) { return a.score - b.score; });
-                return scored.length > 0 ? scored[0].el : null;
+                return best;
+            }
+
+            function findByIndex(candidates, current, delta) {
+                var index = candidates.indexOf(current);
+                if (index < 0) return null;
+                var next = index + delta;
+                return next >= 0 && next < candidates.length ? candidates[next] : null;
             }
 
             // --- Directional navigation ---
@@ -1371,8 +1466,8 @@
                         // Cross-zone: sidebar → grid
                         target = findTarget(getItems('site'), current, 'RIGHT');
                     } else {
-                        // UP/DOWN: within sidebar
-                        target = findTarget(getItems('category'), current, dir);
+                        // UP/DOWN: fixed sidebar order is cheaper and more stable than geometry scoring.
+                        target = findByIndex(getItems('category'), current, dir === 'DOWN' ? 1 : -1);
                     }
                 } else if (zone === 'site') {
                     if (dir === 'LEFT') {
@@ -1398,6 +1493,29 @@
 
             // --- Global keydown handler ---
 
+            function runDirectionalNavigation(dir) {
+                var current = getCurrentFocused();
+                if (!current) {
+                    var items = getItems('category');
+                    if (items.length > 0) setFocus(items[0]);
+                    return;
+                }
+                navigate(current, dir);
+            }
+
+            function scheduleDirectionalNavigation(dir) {
+                pendingNavDir = dir;
+                if (pendingNavFrame) return;
+                pendingNavFrame = requestAnimationFrame(function() {
+                    var nextDir = pendingNavDir;
+                    pendingNavFrame = 0;
+                    pendingNavDir = null;
+                    if (nextDir) {
+                        runDirectionalNavigation(nextDir);
+                    }
+                });
+            }
+
             document.addEventListener('keydown', function (e) {
                 if (!NAV_KEYS.has(e.key)) return;
                 e.preventDefault();
@@ -1410,15 +1528,22 @@
                 var current = getCurrentFocused();
                 var dir = DIR_MAP[e.key];
 
+                if (dir) {
+                    if (e.repeat) {
+                        scheduleDirectionalNavigation(dir);
+                    } else {
+                        runDirectionalNavigation(dir);
+                    }
+                    return;
+                }
+
                 if (!current) {
                     var items = getItems('category');
                     if (items.length > 0) setFocus(items[0]);
                     return;
                 }
 
-                if (dir) {
-                    navigate(current, dir);
-                } else if (e.key === 'Enter' || e.key === ' ') {
+                if (e.key === 'Enter' || e.key === ' ') {
                     if (current.getAttribute('data-zone') === 'site') {
                         window.open(current.href, '_blank', 'noopener');
                     } else {
@@ -1434,6 +1559,7 @@
                     clearFocus();
                 }
             });
+            window.addEventListener('resize', invalidateItemCache);
             installPageNavigationBridge();
         }
     </script>
