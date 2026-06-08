@@ -86,7 +86,7 @@
             color: var(--text-color);
             text-decoration: none;
             border-left: 3px solid transparent;
-            transition: all 0.2s ease;
+            transition: background-color 0.08s linear, color 0.08s linear;
         }
 
         .sidebar-menu li a:hover,
@@ -158,7 +158,7 @@
             color: var(--text-color);
             border-left: 3px solid transparent;
             border-radius: 8px;
-            transition: all 0.2s ease;
+            transition: background-color 0.08s linear, color 0.08s linear;
         }
 
         .site-card .icon {
@@ -273,31 +273,35 @@
             background: #555;
         }
 
-        /* TV Remote Navigation Focus Styles — high-contrast for dark TV platforms */
+        /* TV Remote Navigation Focus Styles — lightweight for Android TV WebView */
         .tv-focused {
             outline: 3px solid #fff !important;
-            outline-offset: 2px;
-            box-shadow:
-                0 0 0 3px var(--accent-color),
-                0 0 16px 4px rgba(74, 158, 255, 0.55),
-                0 0 40px 8px rgba(74, 158, 255, 0.2);
+            outline-offset: -3px;
+            box-shadow: inset 0 0 0 2px #fff;
             z-index: 10;
             position: relative;
-            transform: scale(1.04);
-            will-change: transform;
-            transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+            transform: none;
+            transition: background-color 0.08s linear, color 0.08s linear;
         }
 
         .sidebar-menu li a.tv-focused {
-            background-color: #3d4a5c !important;
+            background-color: #fff !important;
             border-left-color: #fff !important;
-            color: #fff !important;
+            color: #181818 !important;
+            box-shadow: none;
         }
 
         .site-card a.tv-focused {
-            background-color: #3a4555 !important;
+            background-color: #fff !important;
             border-left-color: #fff !important;
-            color: #fff !important;
+            color: #181818 !important;
+        }
+
+        .site-card a.tv-focused .desc,
+        .site-card a.tv-focused .title,
+        .sidebar-menu li a.tv-focused i,
+        .sidebar-menu li a.tv-focused span {
+            color: #181818 !important;
         }
 
         /* Hide focus outline for mouse users */
