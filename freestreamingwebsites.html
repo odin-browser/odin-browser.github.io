@@ -1032,8 +1032,34 @@
         document.addEventListener('DOMContentLoaded', function() {
             generateSidebar();
             generateContent();
+            requestNativePageNavigationMode();
             initTvNavigation();
         });
+
+        function requestNativePageNavigationMode() {
+            var payload = JSON.stringify({
+                runtimeId: 'free_streaming_websites',
+                state: 'mounted',
+                host: location.hostname || 'odin-browser.github.io',
+                createdAt: Date.now(),
+                reason: 'static_catalog_ready'
+            });
+            var requestMode = function() {
+                try {
+                    if (window.NaviSwitch && typeof window.NaviSwitch.setPageNavMode === 'function') {
+                        window.NaviSwitch.setPageNavMode();
+                    }
+                } catch (e) {}
+                try {
+                    if (window.AndroidJSInterface && typeof window.AndroidJSInterface.postMessage === 'function') {
+                        window.AndroidJSInterface.postMessage('watch_mode_state', payload);
+                    }
+                } catch (e) {}
+            };
+            requestMode();
+            setTimeout(requestMode, 150);
+            setTimeout(requestMode, 600);
+        }
 
         // ============================================================
         // TV Remote Navigation (UP/DOWN/LEFT/RIGHT/OK + mouse compat)
@@ -1166,10 +1192,14 @@
                 if (Math.abs(newScrollTop - scrollTop) < 1) return;
 
                 if (isSidebar) {
-                    try {
-                        container.scrollTo({ top: newScrollTop, behavior: 'smooth' });
-                    } catch (e) {
-                        container.scrollTop = newScrollTop;
+                    // Android System WebView can accept element.scrollTo({ behavior: 'smooth' })
+                    // without actually scrolling fixed overflow containers. Use direct scrollTop
+                    // for deterministic TV D-pad navigation.
+                    container.scrollTop = newScrollTop;
+                    if (Math.abs(container.scrollTop - newScrollTop) > 2) {
+                        try {
+                            container.scrollTo(0, newScrollTop);
+                        } catch (e) {}
                     }
                 } else {
                     try {
