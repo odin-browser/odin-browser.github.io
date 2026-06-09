@@ -1522,6 +1522,26 @@
                 return '';
             }
 
+            function debugNav(stage, data) {
+                try {
+                    var payload = JSON.stringify({
+                        stage: stage,
+                        data: data || {},
+                        href: location.href,
+                        focusedZone: currentFocused && currentFocused.getAttribute ? currentFocused.getAttribute('data-zone') : '',
+                        focusedHref: currentFocused && currentFocused.href ? currentFocused.href : '',
+                        timestamp: Date.now()
+                    });
+                    if (window.AndroidJSInterface && typeof window.AndroidJSInterface.postMessage === 'function') {
+                        window.AndroidJSInterface.postMessage('debug_fsw_nav', payload);
+                        return;
+                    }
+                    if (window.androidJSInterface && typeof window.androidJSInterface.postMessage === 'function') {
+                        window.androidJSInterface.postMessage('debug_fsw_nav', payload);
+                    }
+                } catch (e) {}
+            }
+
             function shouldHandleNavKey(e) {
                 return !!keyAction(e);
             }
@@ -1538,23 +1558,31 @@
                     });
                     if (window.AndroidJSInterface && typeof window.AndroidJSInterface.postMessage === 'function') {
                         window.AndroidJSInterface.postMessage('watch_mode_launch_intent', payload);
+                        debugNav('launch_intent_posted', { bridge: 'AndroidJSInterface', href: target.href, host: target.hostname });
                         return true;
                     }
                     if (window.androidJSInterface && typeof window.androidJSInterface.postMessage === 'function') {
                         window.androidJSInterface.postMessage('watch_mode_launch_intent', payload);
+                        debugNav('launch_intent_posted', { bridge: 'androidJSInterface', href: target.href, host: target.hostname });
                         return true;
                     }
-                } catch (e) {}
+                    debugNav('launch_intent_missing_bridge', { href: target.href, host: target.hostname });
+                } catch (e) {
+                    debugNav('launch_intent_exception', { message: e && e.message ? e.message : String(e), href: href });
+                }
                 return false;
             }
 
             function activateSiteLink(link) {
                 if (!link || !link.href) return false;
-                postLaunchIntent(link.href);
+                debugNav('activate_site_link', { href: link.href, text: (link.textContent || '').trim().slice(0, 80) });
+                var posted = postLaunchIntent(link.href);
                 setTimeout(function() {
                     try {
+                        debugNav('location_assign', { href: link.href, launchIntentPosted: posted });
                         window.location.assign(link.href);
                     } catch (e) {
+                        debugNav('location_assign_exception', { message: e && e.message ? e.message : String(e), href: link.href });
                         window.location.href = link.href;
                     }
                 }, 0);
@@ -1634,6 +1662,15 @@
                 var current = getCurrentFocused();
                 var action = keyAction(e);
                 var dir = action === 'OK' ? '' : action;
+                debugNav('keydown', {
+                    key: e.key || '',
+                    code: e.code || '',
+                    keyCode: e.keyCode || e.which || 0,
+                    action: action,
+                    repeat: !!e.repeat,
+                    currentZone: current && current.getAttribute ? current.getAttribute('data-zone') : '',
+                    currentHref: current && current.href ? current.href : ''
+                });
 
                 if (toolbarFocusActive) {
                     return;
