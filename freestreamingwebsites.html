@@ -1030,7 +1030,7 @@
 
                     col.innerHTML = `
                         <div class="site-card">
-                            <a href="${site.url}" target="_blank" rel="noopener noreferrer" tabindex="-1" data-zone="site">
+                            <a href="${site.url}" rel="noopener noreferrer" tabindex="-1" data-zone="site">
                                 <div class="icon">
                                     <img src="${faviconUrl}" alt="" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\\'fas fa-link\\'></i>'">
                                 </div>
@@ -1589,7 +1589,7 @@
 
                 if (e.key === 'Enter' || e.key === ' ') {
                     if (current.getAttribute('data-zone') === 'site') {
-                        window.open(current.href, '_blank', 'noopener');
+                        window.location.href = current.href;
                     } else {
                         current.click();
                     }
