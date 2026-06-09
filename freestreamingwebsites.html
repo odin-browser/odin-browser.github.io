@@ -1122,7 +1122,7 @@
         // Spatial algorithm based on nfx native-dom-focus scoring.
         // ============================================================
         function initTvNavigation() {
-            const NAV_KEYS = new Set(['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Enter', ' ']);
+            const NAV_KEYS = new Set(['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Enter', 'NumpadEnter', 'Select', ' ', 'Spacebar']);
             let tvMode = false;
             let currentFocused = null;
             let lastToolbarHandoff = null;
@@ -1495,6 +1495,72 @@
 
             var DIR_MAP = { ArrowUp: 'UP', ArrowDown: 'DOWN', ArrowLeft: 'LEFT', ArrowRight: 'RIGHT' };
 
+            function keyAction(e) {
+                var key = e.key || '';
+                var code = e.code || '';
+                var keyCode = e.keyCode || e.which || 0;
+                if (DIR_MAP[key]) return DIR_MAP[key];
+                if (keyCode === 37) return 'LEFT';
+                if (keyCode === 38) return 'UP';
+                if (keyCode === 39) return 'RIGHT';
+                if (keyCode === 40) return 'DOWN';
+                if (
+                    key === 'Enter' ||
+                    key === 'NumpadEnter' ||
+                    key === 'Select' ||
+                    code === 'Enter' ||
+                    code === 'NumpadEnter' ||
+                    keyCode === 13 ||
+                    keyCode === 23 ||
+                    keyCode === 66
+                ) {
+                    return 'OK';
+                }
+                if (key === ' ' || key === 'Spacebar' || code === 'Space' || keyCode === 32) {
+                    return 'OK';
+                }
+                return '';
+            }
+
+            function shouldHandleNavKey(e) {
+                return !!keyAction(e);
+            }
+
+            function postLaunchIntent(href) {
+                try {
+                    var target = new URL(href, location.href);
+                    var payload = JSON.stringify({
+                        runtimeId: 'free_streaming_websites',
+                        href: target.href,
+                        sourceHost: target.hostname,
+                        currentHost: location.hostname || 'odin-browser.github.io',
+                        createdAt: Date.now()
+                    });
+                    if (window.AndroidJSInterface && typeof window.AndroidJSInterface.postMessage === 'function') {
+                        window.AndroidJSInterface.postMessage('watch_mode_launch_intent', payload);
+                        return true;
+                    }
+                    if (window.androidJSInterface && typeof window.androidJSInterface.postMessage === 'function') {
+                        window.androidJSInterface.postMessage('watch_mode_launch_intent', payload);
+                        return true;
+                    }
+                } catch (e) {}
+                return false;
+            }
+
+            function activateSiteLink(link) {
+                if (!link || !link.href) return false;
+                postLaunchIntent(link.href);
+                setTimeout(function() {
+                    try {
+                        window.location.assign(link.href);
+                    } catch (e) {
+                        window.location.href = link.href;
+                    }
+                }, 0);
+                return true;
+            }
+
             function navigate(current, dir) {
                 var zone = current.getAttribute('data-zone');
                 var target = null;
@@ -1556,7 +1622,7 @@
             }
 
             document.addEventListener('keydown', function (e) {
-                if (!NAV_KEYS.has(e.key)) return;
+                if (!NAV_KEYS.has(e.key) && !shouldHandleNavKey(e)) return;
                 e.preventDefault();
                 e.stopPropagation();
                 if (typeof e.stopImmediatePropagation === 'function') {
@@ -1566,7 +1632,8 @@
                 setTvNavActive(true);
 
                 var current = getCurrentFocused();
-                var dir = DIR_MAP[e.key];
+                var action = keyAction(e);
+                var dir = action === 'OK' ? '' : action;
 
                 if (toolbarFocusActive) {
                     return;
@@ -1587,9 +1654,9 @@
                     return;
                 }
 
-                if (e.key === 'Enter' || e.key === ' ') {
+                if (action === 'OK') {
                     if (current.getAttribute('data-zone') === 'site') {
-                        window.location.href = current.href;
+                        activateSiteLink(current);
                     } else {
                         current.click();
                     }
