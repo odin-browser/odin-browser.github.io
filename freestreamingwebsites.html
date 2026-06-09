@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="dark">
     <meta name="keywords" content="Free Streaming Websites all around the world">
     <meta name="description" content="Global Free Streaming Websites Catalog">
     <title>Free Streaming Websites Catalog</title>
@@ -15,7 +14,6 @@
 
     <style>
         :root {
-            color-scheme: dark;
             --bg-color: #1a1a1a;
             --card-bg: #2c2e2f;
             --text-color: #e0e0e0;
@@ -31,10 +29,6 @@
 
         html, body {
             overflow-x: hidden; /* 根源修复：禁止横向滚动 */
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            forced-color-adjust: none;
-            -webkit-tap-highlight-color: transparent;
         }
 
         body {
@@ -44,20 +38,6 @@
             margin: 0;
             padding: 0;
             min-height: 100vh;
-        }
-
-        .page-container,
-        .sidebar,
-        .sidebar-header,
-        .sidebar-menu,
-        .sidebar-menu li,
-        .sidebar-menu li a,
-        .main-content,
-        .section-header,
-        .site-card,
-        .site-card a,
-        .footer {
-            forced-color-adjust: none;
         }
 
         .page-container {
@@ -106,8 +86,7 @@
             color: var(--text-color);
             text-decoration: none;
             border-left: 3px solid transparent;
-            transition: background-color 0.08s linear, color 0.08s linear;
-            will-change: background-color, color;
+            transition: all 0.2s ease;
         }
 
         .sidebar-menu li a:hover,
@@ -164,6 +143,7 @@
             border-radius: 8px;
             margin-bottom: 15px;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
+            overflow: hidden;
         }
 
         .site-card:hover {
@@ -178,9 +158,7 @@
             text-decoration: none;
             color: var(--text-color);
             border-left: 3px solid transparent;
-            border-radius: 8px;
-            transition: background-color 0.08s linear, color 0.08s linear;
-            will-change: background-color, color;
+            transition: all 0.2s ease;
         }
 
         .site-card .icon {
@@ -295,63 +273,20 @@
             background: #555;
         }
 
-        /* TV Remote Navigation Focus Styles — lightweight for Android TV WebView */
+        /* TV Remote Navigation Focus Styles */
         .tv-focused {
-            outline: 3px solid #fff !important;
-            outline-offset: -3px;
-            box-shadow: inset 0 0 0 2px #fff;
+            outline: 2px solid var(--accent-color) !important;
+            outline-offset: 2px;
+            box-shadow: 0 0 0 4px rgba(74, 158, 255, 0.25), 0 4px 12px rgba(0, 0, 0, 0.4);
             z-index: 10;
             position: relative;
-            transform: none;
-            transition: none !important;
-            forced-color-adjust: none;
         }
 
         .sidebar-menu li a.tv-focused,
-        .sidebar-menu li a.tv-focused:hover,
-        .sidebar-menu li a.tv-focused:focus,
-        .sidebar-menu li a.tv-focused:active {
+        .site-card a.tv-focused {
             background-color: var(--hover-bg) !important;
-            border-left-color: #fff !important;
-            color: #fff !important;
-            box-shadow: inset 0 0 0 2px #fff;
-        }
-
-        .site-card a.tv-focused,
-        .site-card a.tv-focused:hover,
-        .site-card a.tv-focused:focus,
-        .site-card a.tv-focused:active {
-            background-color: var(--hover-bg) !important;
-            border-left-color: #fff !important;
-            color: #fff !important;
-        }
-
-        .site-card a.tv-focused .desc,
-        .site-card a.tv-focused .title,
-        .sidebar-menu li a.tv-focused i,
-        .sidebar-menu li a.tv-focused span {
-            color: #fff !important;
-        }
-
-        body.tv-nav-active .sidebar-menu li a,
-        body.tv-nav-active .site-card,
-        body.tv-nav-active .site-card a,
-        body.tv-nav-active .tv-focused {
-            transition: none !important;
-            animation: none !important;
-            will-change: auto !important;
-        }
-
-        body.tv-nav-active .site-card,
-        body.tv-nav-active .site-card:hover,
-        body.tv-nav-active .site-card:focus-within {
-            transform: none !important;
-            box-shadow: none !important;
-        }
-
-        body.tv-nav-active .site-card a:not(.tv-focused),
-        body.tv-nav-active .sidebar-menu li a:not(.tv-focused) {
-            box-shadow: none !important;
+            border-left-color: var(--accent-color);
+            color: var(--accent-color) !important;
         }
 
         /* Hide focus outline for mouse users */
@@ -993,7 +928,7 @@
                 const a = document.createElement('a');
                 a.href = `#section-${index}`;
                 a.className = 'smooth';
-                a.setAttribute('tabindex', '-1');
+                a.setAttribute('tabindex', '0');
                 a.setAttribute('data-zone', 'category');
                 a.setAttribute('data-category', category);
                 a.innerHTML = `<i class="${categoryIcons[category] || categoryIcons.default}"></i><span>${category}</span>`;
@@ -1030,7 +965,7 @@
 
                     col.innerHTML = `
                         <div class="site-card">
-                            <a href="${site.url}" rel="noopener noreferrer" tabindex="-1" data-zone="site">
+                            <a href="${site.url}" target="_blank" rel="noopener noreferrer" tabindex="0" data-zone="site">
                                 <div class="icon">
                                     <img src="${faviconUrl}" alt="" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\\'fas fa-link\\'></i>'">
                                 </div>
@@ -1054,33 +989,19 @@
             document.getElementById('sidebar').classList.toggle('active');
         }
 
-        // Smooth scroll — also clears dual-focus states to prevent two highlights at once
+        // Smooth scroll
         document.addEventListener('click', function(e) {
-            var link = e.target.closest('a.smooth');
-            if (!link) return;
-            e.preventDefault();
-
-            // Mouse clicks should leave native hover/click styling; remote-triggered clicks keep TV focus.
-            if (e.detail !== 0) {
-                var tvFocused = document.querySelector('.tv-focused');
-                if (tvFocused) tvFocused.classList.remove('tv-focused');
-            }
-
-            // Clear stale .active classes from all sidebar items, then set on clicked one
-            document.querySelectorAll('#sidebar-menu a').forEach(function(a) {
-                a.classList.remove('active');
-            });
-            link.classList.add('active');
-
-            var targetId = link.getAttribute('href');
-            var targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-
-            // Close sidebar on mobile after click
-            if (window.innerWidth <= 768) {
-                document.getElementById('sidebar').classList.remove('active');
+            if (e.target.closest('a.smooth')) {
+                e.preventDefault();
+                const targetId = e.target.closest('a.smooth').getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // Close sidebar on mobile after click
+                    if (window.innerWidth <= 768) {
+                        document.getElementById('sidebar').classList.remove('active');
+                    }
+                }
             }
         });
 
@@ -1088,74 +1009,27 @@
         document.addEventListener('DOMContentLoaded', function() {
             generateSidebar();
             generateContent();
-            requestNativePageNavigationMode();
             initTvNavigation();
         });
-
-        function requestNativePageNavigationMode() {
-            var payload = JSON.stringify({
-                runtimeId: 'free_streaming_websites',
-                state: 'mounted',
-                host: location.hostname || 'odin-browser.github.io',
-                createdAt: Date.now(),
-                reason: 'static_catalog_ready'
-            });
-            var requestMode = function() {
-                try {
-                    if (window.NaviSwitch && typeof window.NaviSwitch.setPageNavMode === 'function') {
-                        window.NaviSwitch.setPageNavMode();
-                    }
-                } catch (e) {}
-                try {
-                    if (window.AndroidJSInterface && typeof window.AndroidJSInterface.postMessage === 'function') {
-                        window.AndroidJSInterface.postMessage('watch_mode_state', payload);
-                    }
-                } catch (e) {}
-            };
-            requestMode();
-            setTimeout(requestMode, 150);
-            setTimeout(requestMode, 600);
-        }
 
         // ============================================================
         // TV Remote Navigation (UP/DOWN/LEFT/RIGHT/OK + mouse compat)
         // Spatial algorithm based on nfx native-dom-focus scoring.
         // ============================================================
         function initTvNavigation() {
-            const NAV_KEYS = new Set(['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Enter', 'NumpadEnter', 'Select', ' ', 'Spacebar']);
+            const NAV_KEYS = new Set(['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Enter', ' ']);
             let tvMode = false;
-            let currentFocused = null;
-            let lastToolbarHandoff = null;
-            let lastToolbarHandoffAt = 0;
-            let toolbarFocusActive = false;
-            let activeSidebarLink = null;
-            let pendingNavDir = null;
-            let pendingNavFrame = 0;
-            let sidebarRestoreFrame = 0;
-            let sidebarRestoreTimer = 0;
-            const itemCache = {
-                all: null,
-                category: null,
-                site: null
-            };
 
             // --- Element collection ---
 
             function getItems(zone) {
-                var key = zone || 'all';
-                if (itemCache[key]) return itemCache[key];
-                var sel = zone ? 'a[data-zone="' + zone + '"]' : 'a[data-zone]';
-                itemCache[key] = Array.from(document.querySelectorAll(sel)).filter(function (el) {
+                var sel = zone
+                    ? 'a[data-zone="' + zone + '"]'
+                    : 'a[data-zone]';
+                return Array.from(document.querySelectorAll(sel)).filter(function (el) {
                     var r = getRect(el);
                     return r && r.width > 0 && r.height > 0;
                 });
-                return itemCache[key];
-            }
-
-            function invalidateItemCache() {
-                itemCache.all = null;
-                itemCache.category = null;
-                itemCache.site = null;
             }
 
             // --- Geometry helpers ---
@@ -1178,251 +1052,20 @@
             // --- Focus management ---
 
             function clearFocus() {
-                var el = currentFocused || document.querySelector('.tv-focused');
-                if (el) {
-                    el.classList.remove('tv-focused');
-                }
-                currentFocused = null;
-            }
-
-            function setTvNavActive(active) {
-                if (!document.body) return;
-                document.body.classList.toggle('tv-nav-active', !!active);
-            }
-
-            function suspendPageFocusForToolbar() {
-                var el = currentFocused || document.querySelector('.tv-focused');
-                if (el) {
-                    el.classList.remove('tv-focused');
-                }
-                toolbarFocusActive = true;
+                var el = document.querySelector('.tv-focused');
+                if (el) el.classList.remove('tv-focused');
             }
 
             function setFocus(el) {
                 if (!el) return;
-                toolbarFocusActive = false;
-                if (currentFocused === el) {
-                    if (!el.classList.contains('tv-focused')) {
-                        el.classList.add('tv-focused');
-                    }
-                    scrollIntoViewCustom(el);
-                    return;
-                }
-                var staleFocused = currentFocused || document.querySelector('.tv-focused');
-                if (staleFocused && staleFocused !== el) {
-                    staleFocused.classList.remove('tv-focused');
-                }
-                currentFocused = el;
-                if (!el.classList.contains('tv-focused')) {
-                    el.classList.add('tv-focused');
-                }
-
-                // Clear stale .active from sidebar items (prevents .active + .tv-focused dual-highlight)
-                if (el.closest('.sidebar')) {
-                    if (!activeSidebarLink || !document.documentElement.contains(activeSidebarLink)) {
-                        activeSidebarLink = document.querySelector('#sidebar-menu a.active');
-                    }
-                    if (activeSidebarLink && activeSidebarLink !== el) {
-                        activeSidebarLink.classList.remove('active');
-                    }
-                    activeSidebarLink = el.classList.contains('active') ? el : null;
-                }
-
-                scrollIntoViewCustom(el);
-            }
-
-            // Custom scroll: keep focused element in the "sweet zone" of the viewport.
-            // - Navigating down: start scrolling when element passes 60% viewport height.
-            // - Navigating up: start scrolling when element goes above 25% viewport height.
-            // - Handles sidebar (own scroll container) vs main content (window scroll).
-            function scrollIntoViewCustom(el) {
-                var DOWN_RATIO = 0.60;
-                var UP_RATIO = 0.25;
-                var PADDING = 10; // px buffer to avoid edge-hugging
-
-                // Determine scroll container
-                var scrollParent = el.closest('.sidebar');
-                var isSidebar = !!scrollParent;
-                var container = isSidebar ? scrollParent : null; // null = window
-
-                var elRect = el.getBoundingClientRect();
-                var containerHeight, containerTop, scrollTop, scrollHeight;
-
-                if (isSidebar) {
-                    var cRect = container.getBoundingClientRect();
-                    containerHeight = cRect.height;
-                    containerTop = cRect.top;
-                    scrollTop = container.scrollTop;
-                    scrollHeight = container.scrollHeight;
-                } else {
-                    containerHeight = window.innerHeight;
-                    containerTop = 0;
-                    scrollTop = window.scrollY || document.documentElement.scrollTop;
-                    scrollHeight = document.documentElement.scrollHeight;
-                }
-
-                // Element position relative to the scrollable container's content
-                var elTopInContent = elRect.top - containerTop + scrollTop;
-                var elBottomInContent = elTopInContent + elRect.height;
-
-                // Visible zone boundaries in content coordinates
-                var viewBottom = scrollTop + containerHeight;
-                var viewTop = scrollTop;
-
-                // Sweet zone thresholds (in content coordinates)
-                var sweetBottom = scrollTop + containerHeight * DOWN_RATIO;
-                var sweetTop = scrollTop + containerHeight * UP_RATIO;
-
-                var newScrollTop = scrollTop;
-
-                // Element extends below the sweet zone bottom → scroll down
-                if (elBottomInContent + PADDING > sweetBottom) {
-                    newScrollTop = elBottomInContent + PADDING - containerHeight * DOWN_RATIO;
-                }
-                // Element extends above the sweet zone top → scroll up
-                else if (elTopInContent - PADDING < sweetTop) {
-                    newScrollTop = elTopInContent - PADDING - containerHeight * UP_RATIO;
-                }
-
-                // Clamp
-                var maxScroll = Math.max(0, scrollHeight - containerHeight);
-                newScrollTop = Math.max(0, Math.min(newScrollTop, maxScroll));
-
-                // Only scroll if actually changed
-                if (Math.abs(newScrollTop - scrollTop) < 1) return;
-
-                if (isSidebar) {
-                    // Android System WebView can accept element.scrollTo({ behavior: 'smooth' })
-                    // without actually scrolling fixed overflow containers. Use direct scrollTop
-                    // for deterministic TV D-pad navigation.
-                    applySidebarScroll(container, newScrollTop);
-                } else {
-                    window.scrollTo(0, newScrollTop);
-                }
-            }
-
-            function applySidebarScroll(container, scrollTop) {
-                container.scrollTop = scrollTop;
-                if (Math.abs(container.scrollTop - scrollTop) > 2) {
-                    try {
-                        container.scrollTo(0, scrollTop);
-                    } catch (e) {}
-                }
-                if (sidebarRestoreFrame) {
-                    cancelAnimationFrame(sidebarRestoreFrame);
-                    sidebarRestoreFrame = 0;
-                }
-                if (sidebarRestoreTimer) {
-                    clearTimeout(sidebarRestoreTimer);
-                    sidebarRestoreTimer = 0;
-                }
-                var restore = function() {
-                    if (Math.abs(container.scrollTop - scrollTop) > 2) {
-                        container.scrollTop = scrollTop;
-                    }
-                };
-                try {
-                    sidebarRestoreFrame = requestAnimationFrame(function() {
-                        sidebarRestoreFrame = 0;
-                        restore();
-                    });
-                    sidebarRestoreTimer = setTimeout(function() {
-                        sidebarRestoreTimer = 0;
-                        restore();
-                    }, 80);
-                } catch (e) {
-                    sidebarRestoreTimer = setTimeout(function() {
-                        sidebarRestoreTimer = 0;
-                        restore();
-                    }, 80);
-                }
+                clearFocus();
+                el.classList.add('tv-focused');
+                try { el.focus({ preventScroll: true }); } catch (e) {}
+                try { el.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); } catch (e) {}
             }
 
             function getCurrentFocused() {
-                if (currentFocused && document.documentElement.contains(currentFocused)) {
-                    return currentFocused;
-                }
-                currentFocused = document.querySelector('.tv-focused');
-                return currentFocused;
-            }
-
-            function routeKey() {
-                return (location.pathname || '/freestreamingwebsites.html') +
-                    (location.search || '') +
-                    (location.hash || '');
-            }
-
-            function requestToolbarHandoff(el, reason) {
-                if (!window.NaviSwitch || typeof window.NaviSwitch.requestNavBarFocus !== 'function') {
-                    return false;
-                }
-                var now = Date.now();
-                if (now - lastToolbarHandoffAt < 500) {
-                    return true;
-                }
-                lastToolbarHandoffAt = now;
-                var rect = getRect(el) || { left: window.innerWidth / 2, width: 0 };
-                var centerX = rect.left + rect.width / 2;
-                var handoffToken = 'fsw-' + Date.now().toString(36) + '-' +
-                    Math.random().toString(36).slice(2, 8);
-                var payload = {
-                    site: 'free_streaming_websites',
-                    handoffToken: handoffToken,
-                    routeKey: routeKey(),
-                    xRatio: Math.max(0, Math.min(1, centerX / Math.max(1, window.innerWidth))),
-                    zone: reason || 'catalog-top',
-                    timestamp: Date.now()
-                };
-                lastToolbarHandoff = payload;
-                try {
-                    window.NaviSwitch.requestNavBarFocus(JSON.stringify(payload));
-                    return true;
-                } catch (e) {
-                    return false;
-                }
-            }
-
-            function installPageNavigationBridge() {
-                window.__TV_PAGE_NAV_BRIDGE__ = {
-                    confirmToolbarHandoff: function(handoffToken, route) {
-                        if (lastToolbarHandoff && lastToolbarHandoff.handoffToken !== handoffToken) {
-                            return false;
-                        }
-                        lastToolbarHandoff = {
-                            handoffToken: handoffToken,
-                            routeKey: route || routeKey(),
-                            timestamp: Date.now()
-                        };
-                        suspendPageFocusForToolbar();
-                        return true;
-                    },
-                    restoreFromToolbar: function(handoffToken) {
-                        if (lastToolbarHandoff && lastToolbarHandoff.handoffToken !== handoffToken) {
-                            return false;
-                        }
-                        var target = getCurrentFocused() || getItems('category')[0] || getItems()[0];
-                        if (!target) return false;
-                        setFocus(target);
-                        lastToolbarHandoff = null;
-                        toolbarFocusActive = false;
-                        return true;
-                    },
-                    clearSession: function() {
-                        lastToolbarHandoff = null;
-                        toolbarFocusActive = false;
-                        return true;
-                    }
-                };
-            }
-
-            function isAtTopBoundary(current, dir, target) {
-                if (dir !== 'UP' || target) return false;
-                var zone = current.getAttribute('data-zone');
-                if (zone === 'category') {
-                    var sidebar = current.closest('.sidebar');
-                    return !sidebar || sidebar.scrollTop <= 1;
-                }
-                return (window.scrollY || document.documentElement.scrollTop || 0) <= 1;
+                return document.querySelector('.tv-focused');
             }
 
             // --- Spatial scoring (from nfx scoreDirectionalCandidate) ---
@@ -1468,98 +1111,22 @@
                 var curRect = getRect(current);
                 if (!curRect) return null;
 
-                var best = null;
-                var bestScore = Infinity;
+                var scored = [];
                 for (var i = 0; i < candidates.length; i++) {
                     var c = candidates[i];
                     if (c === current) continue;
                     var cRect = getRect(c);
                     if (!cRect) continue;
                     var s = scoreCandidate(curCenter, curRect, getCenter(c), cRect, dir);
-                    if (s < bestScore) {
-                        best = c;
-                        bestScore = s;
-                    }
+                    if (s < Infinity) scored.push({ el: c, score: s });
                 }
-                return best;
-            }
-
-            function findByIndex(candidates, current, delta) {
-                var index = candidates.indexOf(current);
-                if (index < 0) return null;
-                var next = index + delta;
-                return next >= 0 && next < candidates.length ? candidates[next] : null;
+                scored.sort(function (a, b) { return a.score - b.score; });
+                return scored.length > 0 ? scored[0].el : null;
             }
 
             // --- Directional navigation ---
 
             var DIR_MAP = { ArrowUp: 'UP', ArrowDown: 'DOWN', ArrowLeft: 'LEFT', ArrowRight: 'RIGHT' };
-
-            function keyAction(e) {
-                var key = e.key || '';
-                var code = e.code || '';
-                var keyCode = e.keyCode || e.which || 0;
-                if (DIR_MAP[key]) return DIR_MAP[key];
-                if (keyCode === 37) return 'LEFT';
-                if (keyCode === 38) return 'UP';
-                if (keyCode === 39) return 'RIGHT';
-                if (keyCode === 40) return 'DOWN';
-                if (
-                    key === 'Enter' ||
-                    key === 'NumpadEnter' ||
-                    key === 'Select' ||
-                    code === 'Enter' ||
-                    code === 'NumpadEnter' ||
-                    keyCode === 13 ||
-                    keyCode === 23 ||
-                    keyCode === 66
-                ) {
-                    return 'OK';
-                }
-                if (key === ' ' || key === 'Spacebar' || code === 'Space' || keyCode === 32) {
-                    return 'OK';
-                }
-                return '';
-            }
-
-            function shouldHandleNavKey(e) {
-                return !!keyAction(e);
-            }
-
-            function postLaunchIntent(href) {
-                try {
-                    var target = new URL(href, location.href);
-                    var payload = JSON.stringify({
-                        runtimeId: 'free_streaming_websites',
-                        href: target.href,
-                        sourceHost: target.hostname,
-                        currentHost: location.hostname || 'odin-browser.github.io',
-                        createdAt: Date.now()
-                    });
-                    if (window.AndroidJSInterface && typeof window.AndroidJSInterface.postMessage === 'function') {
-                        window.AndroidJSInterface.postMessage('watch_mode_launch_intent', payload);
-                        return true;
-                    }
-                    if (window.androidJSInterface && typeof window.androidJSInterface.postMessage === 'function') {
-                        window.androidJSInterface.postMessage('watch_mode_launch_intent', payload);
-                        return true;
-                    }
-                } catch (e) {}
-                return false;
-            }
-
-            function activateSiteLink(link) {
-                if (!link || !link.href) return false;
-                postLaunchIntent(link.href);
-                setTimeout(function() {
-                    try {
-                        window.location.assign(link.href);
-                    } catch (e) {
-                        window.location.href = link.href;
-                    }
-                }, 0);
-                return true;
-            }
 
             function navigate(current, dir) {
                 var zone = current.getAttribute('data-zone');
@@ -1571,8 +1138,8 @@
                         // Cross-zone: sidebar → grid
                         target = findTarget(getItems('site'), current, 'RIGHT');
                     } else {
-                        // UP/DOWN: fixed sidebar order is cheaper and more stable than geometry scoring.
-                        target = findByIndex(getItems('category'), current, dir === 'DOWN' ? 1 : -1);
+                        // UP/DOWN: within sidebar
+                        target = findTarget(getItems('category'), current, dir);
                     }
                 } else if (zone === 'site') {
                     if (dir === 'LEFT') {
@@ -1588,78 +1155,38 @@
                     }
                 }
 
-                if (target) {
-                    setFocus(target);
-                } else if (isAtTopBoundary(current, dir, target)) {
-                    requestToolbarHandoff(current, 'catalog-top');
-                }
+                if (target) setFocus(target);
                 return true;
             }
 
             // --- Global keydown handler ---
 
-            function runDirectionalNavigation(dir) {
+            document.addEventListener('keydown', function (e) {
+                if (!NAV_KEYS.has(e.key)) return;
+                tvMode = true;
+
                 var current = getCurrentFocused();
+                var dir = DIR_MAP[e.key];
+
                 if (!current) {
                     var items = getItems('category');
                     if (items.length > 0) setFocus(items[0]);
-                    return;
-                }
-                navigate(current, dir);
-            }
-
-            function scheduleDirectionalNavigation(dir) {
-                pendingNavDir = dir;
-                if (pendingNavFrame) return;
-                pendingNavFrame = requestAnimationFrame(function() {
-                    var nextDir = pendingNavDir;
-                    pendingNavFrame = 0;
-                    pendingNavDir = null;
-                    if (nextDir) {
-                        runDirectionalNavigation(nextDir);
-                    }
-                });
-            }
-
-            document.addEventListener('keydown', function (e) {
-                if (!NAV_KEYS.has(e.key) && !shouldHandleNavKey(e)) return;
-                e.preventDefault();
-                e.stopPropagation();
-                if (typeof e.stopImmediatePropagation === 'function') {
-                    e.stopImmediatePropagation();
-                }
-                tvMode = true;
-                setTvNavActive(true);
-
-                var current = getCurrentFocused();
-                var action = keyAction(e);
-                var dir = action === 'OK' ? '' : action;
-
-                if (toolbarFocusActive) {
+                    e.preventDefault();
                     return;
                 }
 
                 if (dir) {
-                    if (e.repeat) {
-                        scheduleDirectionalNavigation(dir);
-                    } else {
-                        runDirectionalNavigation(dir);
-                    }
-                    return;
-                }
-
-                if (!current) {
-                    var items = getItems('category');
-                    if (items.length > 0) setFocus(items[0]);
-                    return;
-                }
-
-                if (action === 'OK') {
+                    navigate(current, dir);
+                    e.preventDefault();
+                    e.stopPropagation();
+                } else if (e.key === 'Enter' || e.key === ' ') {
                     if (current.getAttribute('data-zone') === 'site') {
-                        activateSiteLink(current);
+                        window.open(current.href, '_blank', 'noopener');
                     } else {
                         current.click();
                     }
+                    e.preventDefault();
+                    e.stopPropagation();
                 }
             }, true);
 
@@ -1667,12 +1194,9 @@
             document.addEventListener('mousedown', function () {
                 if (tvMode) {
                     tvMode = false;
-                    setTvNavActive(false);
                     clearFocus();
                 }
             });
-            window.addEventListener('resize', invalidateItemCache);
-            installPageNavigationBridge();
         }
     </script>
 </body>
