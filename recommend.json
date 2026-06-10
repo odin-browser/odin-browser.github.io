@@ -1,5 +1,5 @@
 {
-  "version": 1781119304,
+  "version": 1781125043,
   "global": [
     { "id": "freestreamwebsite", "title": "Free streaming", "url": "https://browserhome.github.io/nex-browser.github.io/freestreamingwebsites.html", "icon": "img_free_streaming_default_1", "icon-bg-color": "#171717", "badge": "", "launch-mode": "" },
     { "id": "google", "title": "Google", "url": "https://www.google.com", "icon": "favicon_google", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
@@ -47,8 +47,8 @@
     { "id": "ok", "title": "Odnoklassniki", "url": "https://ok.ru", "icon": "img_odnoklassniki", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
     { "id": "yandex", "title": "Yandex", "url": "https://yandex.ru", "icon": "img_yandex", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
     { "id": "youtube", "title": "Youtube TV", "url": "https://www.youtube.com/tv", "icon": "favicon_youtube", "icon-bg-color": "#212121", "badge": "", "launch-mode": "WEB_APP" },
-    { "id": "vk", "title": "VK", "url": "https://vk.com", "icon": "img_vk", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
     { "id": "mailru", "title": "Mail.ru", "url": "https://mail.ru", "icon": "img_rumail", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
+    { "id": "vk", "title": "VK", "url": "https://vk.com", "icon": "img_vk", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
     { "id": "ozon", "title": "Ozon", "url": "https://www.ozon.ru", "icon": "img_ozon", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" }
   ],
   "PH": [
