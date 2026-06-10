@@ -1,5 +1,5 @@
 {
-  "version": 1781027931,
+  "version": 1781119304,
   "global": [
     { "id": "freestreamwebsite", "title": "Free streaming", "url": "https://browserhome.github.io/nex-browser.github.io/freestreamingwebsites.html", "icon": "img_free_streaming_default_1", "icon-bg-color": "#171717", "badge": "", "launch-mode": "" },
     { "id": "google", "title": "Google", "url": "https://www.google.com", "icon": "favicon_google", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
