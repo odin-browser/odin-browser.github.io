@@ -2,12 +2,12 @@
   "version": 1781027931,
   "global": [
     { "id": "freestreamwebsite", "title": "Free streaming", "url": "https://browserhome.github.io/nex-browser.github.io/freestreamingwebsites.html", "icon": "img_free_streaming_default_1", "icon-bg-color": "#171717", "badge": "", "launch-mode": "" },
+    { "id": "google", "title": "Google", "url": "https://www.google.com", "icon": "favicon_google", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
     { "id": "netflix", "title": "Netflix", "url": "https://www.netflix.com", "icon": "img_netflix", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
     { "id": "youtube", "title": "Youtube TV", "url": "https://www.youtube.com/tv", "icon": "favicon_youtube", "icon-bg-color": "#212121", "badge": "", "launch-mode": "WEB_APP" },
     { "id": "tiktok", "title": "TikTok", "url": "https://www.tiktok.com", "icon": "favicon_tiktok", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
     { "id": "facebook", "title": "Facebook", "url": "https://www.facebook.com", "icon": "favicon_facebook", "icon-bg-color": "#039BE5", "badge": "", "launch-mode": "" },
     { "id": "instagram", "title": "Instagram", "url": "https://www.instagram.com", "icon": "favicon_instagram", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "google", "title": "Google", "url": "https://www.google.com", "icon": "favicon_google", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
     { "id": "x", "title": "X", "url": "https://x.com", "icon": "img_x", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" }
   ],
   "IN": [
