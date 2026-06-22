@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "configVersion": 1,
+  "updatedAt": "2026-06-22T00:00:00Z",
+  "cache": {
+    "ttlSeconds": 86400,
+    "minTtlSeconds": 43200,
+    "maxTtlSeconds": 604800
+  },
+  "remoteJsEnabled": false,
+  "sites": [
+    {
+      "id": "sportslive",
+      "enabled": true,
+      "runtimeId": "sportslive",
+      "description": "Sports live Watch Mode host list. JS runtime is bundled in the APK; this config only controls host matching.",
+      "matchMode": "exact_host_or_subdomain",
+      "hosts": [
+        "rojadirectagol.com",
+        "rojadirectaenvivohd.com",
+        "rojadirectatv.net",
+        "futbol-libre.su",
+        "futbol-libres.su",
+        "futbollibre-tv.com",
+        "tv-libre.net",
+        "tvlibr3.com",
+        "pelotalibrevivo.net",
+        "pelotalibretv2.pl",
+        "pelota-libretv.com"
+      ],
+      "hostSuffixes": [],
+      "theme": "auto"
+    }
+  ]
+}
