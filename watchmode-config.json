@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "configVersion": 1,
-  "updatedAt": "2026-06-22T00:00:00Z",
+  "configVersion": 2,
+  "updatedAt": "2026-06-23T00:00:00Z",
   "cache": {
     "ttlSeconds": 86400,
     "minTtlSeconds": 43200,
@@ -26,7 +26,13 @@
         "tvlibr3.com",
         "pelotalibrevivo.net",
         "pelotalibretv2.pl",
-        "pelota-libretv.com"
+        "pelota-libretv.com",
+        "pelotalibrehdtvs.com",
+        "pirlotvs.org",
+        "futbol-libretv.com",
+        "pirlotvs.cc",
+        "futbollibretvs.org",
+        "tarjetarojatvs.org"
       ],
       "hostSuffixes": [],
       "theme": "auto"
