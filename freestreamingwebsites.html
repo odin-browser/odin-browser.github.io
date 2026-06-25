@@ -28,7 +28,11 @@
         }
 
         html, body {
-            overflow-x: hidden; /* 根源修复：禁止横向滚动 */
+            height: 100%;
+            overflow: hidden;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
@@ -42,10 +46,12 @@
 
         .page-container {
             display: flex;
+            height: 100vh;
             min-height: 100vh;
             /* 确保 flex 容器本身不会撑出视口 */
             width: 100%;
             max-width: 100vw;
+            overflow: hidden;
         }
 
         /* Sidebar Styles */
@@ -112,9 +118,11 @@
             width: calc(100% - 260px);
             max-width: calc(100vw - 260px);
             padding: 20px 30px;
+            height: 100vh;
             min-height: 100vh;
-            /* 防止内部绝对/固定元素撑出容器 */
+            /* 容器内滚动：scrollIntoViewCustom 用 closest('.main-content') 找滚动容器 */
             overflow-x: hidden;
+            overflow-y: auto;
         }
 
         /* Section Header */
@@ -143,7 +151,6 @@
             border-radius: 8px;
             margin-bottom: 15px;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
-            overflow: hidden;
         }
 
         .site-card:hover {
@@ -273,20 +280,63 @@
             background: #555;
         }
 
-        /* TV Remote Navigation Focus Styles */
+        /* TV Remote Navigation Focus Styles — inset to survive parent overflow:hidden */
         .tv-focused {
-            outline: 2px solid var(--accent-color) !important;
-            outline-offset: 2px;
-            box-shadow: 0 0 0 4px rgba(74, 158, 255, 0.25), 0 4px 12px rgba(0, 0, 0, 0.4);
+            outline: 3px solid #fff !important;
+            outline-offset: -3px;
+            box-shadow: inset 0 0 0 2px #fff;
             z-index: 10;
             position: relative;
+            transform: none;
+            transition: none !important;
         }
 
         .sidebar-menu li a.tv-focused,
-        .site-card a.tv-focused {
+        .sidebar-menu li a.tv-focused:hover,
+        .sidebar-menu li a.tv-focused:focus,
+        .sidebar-menu li a.tv-focused:active {
             background-color: var(--hover-bg) !important;
-            border-left-color: var(--accent-color);
-            color: var(--accent-color) !important;
+            border-left-color: #fff !important;
+            color: #fff !important;
+            box-shadow: inset 0 0 0 2px #fff;
+        }
+
+        .site-card a.tv-focused,
+        .site-card a.tv-focused:hover,
+        .site-card a.tv-focused:focus,
+        .site-card a.tv-focused:active {
+            background-color: var(--hover-bg) !important;
+            border-left-color: #fff !important;
+            color: #fff !important;
+        }
+
+        .site-card a.tv-focused .desc,
+        .site-card a.tv-focused .title,
+        .sidebar-menu li a.tv-focused i,
+        .sidebar-menu li a.tv-focused span {
+            color: #fff !important;
+        }
+
+        /* TV nav 激活后抑制过渡 / hover transform，避免长按方向键时多帧补间叠加 */
+        body.tv-nav-active .sidebar-menu li a,
+        body.tv-nav-active .site-card,
+        body.tv-nav-active .site-card a,
+        body.tv-nav-active .tv-focused {
+            transition: none !important;
+            animation: none !important;
+            will-change: auto !important;
+        }
+
+        body.tv-nav-active .site-card,
+        body.tv-nav-active .site-card:hover,
+        body.tv-nav-active .site-card:focus-within {
+            transform: none !important;
+            box-shadow: none !important;
+        }
+
+        body.tv-nav-active .site-card a:not(.tv-focused),
+        body.tv-nav-active .sidebar-menu li a:not(.tv-focused) {
+            box-shadow: none !important;
         }
 
         /* Hide focus outline for mouse users */
@@ -1082,9 +1132,33 @@
             const NAV_KEYS = new Set(['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Enter', ' ']);
             let tvMode = false;
 
+            // Aware-mode extra state (only meaningful when __pageNavAware === true).
+            // currentFocused: explicit tracking avoids re-querying the DOM every keydown
+            //   and survives BFCache restoration (the variable persists; the DOM tree
+            //   is rehydrated by the browser).
+            // lastFocusedKey: remembers the site link the user activated, so pageshow
+            //   restoration after a sub-site BACK lands the user back on the same card.
+            // itemCache: collecting all <a data-zone> nodes is the hottest operation on
+            //   long-press; cache invalidated only on resize.
+            let currentFocused = null;
+            let lastFocusedKey = null;
+            let pendingNavDir = null;
+            let pendingNavFrame = 0;
+            const itemCache = { all: null, category: null, site: null };
+
             // --- Element collection ---
 
             function getItems(zone) {
+                if (__pageNavAware) {
+                    var key = zone || 'all';
+                    if (itemCache[key]) return itemCache[key];
+                    var sel1 = zone ? 'a[data-zone="' + zone + '"]' : 'a[data-zone]';
+                    itemCache[key] = Array.from(document.querySelectorAll(sel1)).filter(function (el) {
+                        var r = getRect(el);
+                        return r && r.width > 0 && r.height > 0;
+                    });
+                    return itemCache[key];
+                }
                 var sel = zone
                     ? 'a[data-zone="' + zone + '"]'
                     : 'a[data-zone]';
@@ -1092,6 +1166,12 @@
                     var r = getRect(el);
                     return r && r.width > 0 && r.height > 0;
                 });
+            }
+
+            function invalidateItemCache() {
+                itemCache.all = null;
+                itemCache.category = null;
+                itemCache.site = null;
             }
 
             // --- Geometry helpers ---
@@ -1113,13 +1193,32 @@
 
             // --- Focus management ---
 
+            function setTvNavActive(active) {
+                if (!document.body) return;
+                document.body.classList.toggle('tv-nav-active', !!active);
+            }
+
             function clearFocus() {
-                var el = document.querySelector('.tv-focused');
+                var el = currentFocused || document.querySelector('.tv-focused');
                 if (el) el.classList.remove('tv-focused');
+                currentFocused = null;
             }
 
             function setFocus(el) {
                 if (!el) return;
+                if (__pageNavAware) {
+                    if (currentFocused === el) {
+                        if (!el.classList.contains('tv-focused')) el.classList.add('tv-focused');
+                        scrollIntoViewCustom(el);
+                        return;
+                    }
+                    var stale = currentFocused || document.querySelector('.tv-focused');
+                    if (stale && stale !== el) stale.classList.remove('tv-focused');
+                    currentFocused = el;
+                    if (!el.classList.contains('tv-focused')) el.classList.add('tv-focused');
+                    scrollIntoViewCustom(el);
+                    return;
+                }
                 clearFocus();
                 el.classList.add('tv-focused');
                 try { el.focus({ preventScroll: true }); } catch (e) {}
@@ -1127,7 +1226,101 @@
             }
 
             function getCurrentFocused() {
+                if (__pageNavAware) {
+                    if (currentFocused && document.documentElement.contains(currentFocused)) {
+                        return currentFocused;
+                    }
+                    currentFocused = document.querySelector('.tv-focused');
+                    return currentFocused;
+                }
                 return document.querySelector('.tv-focused');
+            }
+
+            // Keep focused items inside a stable viewport "sweet zone" rather than
+            // scrolling them flush to the edge. Direct scrollTop (no smooth behavior)
+            // is decisive enough that long-press D-pad doesn't desync focus and scroll.
+            function scrollIntoViewCustom(el) {
+                if (!__pageNavAware) {
+                    try { el.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); } catch (e) {}
+                    return;
+                }
+                var DOWN_RATIO = 0.60;
+                var UP_RATIO = 0.25;
+                var PADDING = 10;
+                var scrollParent = el.closest('.sidebar') || el.closest('.main-content');
+                var isManagedContainer = !!scrollParent;
+                var container = isManagedContainer ? scrollParent : null;
+                var elRect = el.getBoundingClientRect();
+                var containerHeight, containerTop, scrollTop, scrollHeight;
+                if (isManagedContainer) {
+                    var cRect = container.getBoundingClientRect();
+                    containerHeight = cRect.height;
+                    containerTop = cRect.top;
+                    scrollTop = container.scrollTop;
+                    scrollHeight = container.scrollHeight;
+                } else {
+                    containerHeight = window.innerHeight;
+                    containerTop = 0;
+                    scrollTop = window.scrollY || document.documentElement.scrollTop;
+                    scrollHeight = document.documentElement.scrollHeight;
+                }
+                var elTopInContent = elRect.top - containerTop + scrollTop;
+                var elBottomInContent = elTopInContent + elRect.height;
+                var sweetBottom = scrollTop + containerHeight * DOWN_RATIO;
+                var sweetTop = scrollTop + containerHeight * UP_RATIO;
+                var newScrollTop = scrollTop;
+                if (elBottomInContent + PADDING > sweetBottom) {
+                    newScrollTop = elBottomInContent + PADDING - containerHeight * DOWN_RATIO;
+                } else if (elTopInContent - PADDING < sweetTop) {
+                    newScrollTop = elTopInContent - PADDING - containerHeight * UP_RATIO;
+                }
+                var maxScroll = Math.max(0, scrollHeight - containerHeight);
+                newScrollTop = Math.max(0, Math.min(newScrollTop, maxScroll));
+                if (Math.abs(newScrollTop - scrollTop) < 1) return;
+                if (isManagedContainer) {
+                    container.scrollTop = newScrollTop;
+                } else {
+                    window.scrollTo(0, newScrollTop);
+                }
+            }
+
+            function focusInitialCategory() {
+                if (getCurrentFocused()) return;
+                var target = getItems('category')[0] || getItems()[0];
+                if (!target) return;
+                tvMode = true;
+                setTvNavActive(true);
+                setFocus(target);
+            }
+
+            // BFCache-friendly: pageshow fires both on first load and on back-restore.
+            // rAF gives layout one frame to settle; the 120 ms timeout is a safety net
+            // for slow Android TV WebViews where rAF can land before paint.
+            function scheduleInitialFocus() {
+                try {
+                    requestAnimationFrame(focusInitialCategory);
+                } catch (e) {
+                    setTimeout(focusInitialCategory, 0);
+                }
+                setTimeout(focusInitialCategory, 120);
+            }
+
+            // Prefer restoring the exact card the user activated; fall back to the
+            // first category if the URL list changed between sessions.
+            function restoreLastFocusOrFirst() {
+                if (getCurrentFocused()) return;
+                var target = null;
+                if (lastFocusedKey) {
+                    var sites = getItems('site');
+                    for (var i = 0; i < sites.length; i++) {
+                        if (sites[i].href === lastFocusedKey) { target = sites[i]; break; }
+                    }
+                }
+                if (!target) target = getItems('category')[0] || getItems()[0];
+                if (!target) return;
+                tvMode = true;
+                setTvNavActive(true);
+                setFocus(target);
             }
 
             // --- Spatial scoring (from nfx scoreDirectionalCandidate) ---
@@ -1272,12 +1465,77 @@
                 };
             }
 
+            // --- Directional navigation entry (aware-mode rAF-throttled, legacy direct) ---
+
+            function runDirectionalNavigation(dir) {
+                var current = getCurrentFocused();
+                if (!current) {
+                    var items = getItems('category');
+                    if (items.length > 0) setFocus(items[0]);
+                    return;
+                }
+                navigate(current, dir);
+            }
+
+            // Coalesce repeat-fired keydowns (long-press D-pad) into one move per frame.
+            // Without this, Android TV remotes fire ~60 keydowns/s and each one triggers a
+            // setFocus + scroll, which is what produces the visible "drift".
+            function scheduleDirectionalNavigation(dir) {
+                pendingNavDir = dir;
+                if (pendingNavFrame) return;
+                pendingNavFrame = requestAnimationFrame(function() {
+                    var nextDir = pendingNavDir;
+                    pendingNavFrame = 0;
+                    pendingNavDir = null;
+                    if (nextDir) runDirectionalNavigation(nextDir);
+                });
+            }
+
+            function activateSiteLink(link) {
+                if (!link || !link.href) return;
+                // Remember target so pageshow restoration can land on the same card.
+                lastFocusedKey = link.href;
+                try { window.location.assign(link.href); }
+                catch (e) { window.location.href = link.href; }
+            }
+
             // --- Global keydown handler ---
 
             document.addEventListener('keydown', function (e) {
                 if (!NAV_KEYS.has(e.key)) return;
-                tvMode = true;
 
+                if (__pageNavAware) {
+                    // Aware mode: claim the event hard so neither Bootstrap nor anchors compete.
+                    e.preventDefault();
+                    e.stopPropagation();
+                    if (typeof e.stopImmediatePropagation === 'function') e.stopImmediatePropagation();
+                    tvMode = true;
+                    setTvNavActive(true);
+
+                    var dirA = DIR_MAP[e.key];
+                    if (dirA) {
+                        if (e.repeat) scheduleDirectionalNavigation(dirA);
+                        else runDirectionalNavigation(dirA);
+                        return;
+                    }
+                    var currentA = getCurrentFocused();
+                    if (!currentA) {
+                        var itemsA = getItems('category');
+                        if (itemsA.length > 0) setFocus(itemsA[0]);
+                        return;
+                    }
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        if (currentA.getAttribute('data-zone') === 'site') {
+                            activateSiteLink(currentA);
+                        } else {
+                            currentA.click();
+                        }
+                    }
+                    return;
+                }
+
+                // Legacy mode (old App, no NaviSwitch.getCapabilities): keep prior behavior.
+                tvMode = true;
                 var current = getCurrentFocused();
                 var dir = DIR_MAP[e.key];
 
@@ -1294,13 +1552,7 @@
                     e.stopPropagation();
                 } else if (e.key === 'Enter' || e.key === ' ') {
                     if (current.getAttribute('data-zone') === 'site') {
-                        if (__pageNavAware) {
-                            // Same-tab navigation: BACK returns to the catalog cleanly on TV.
-                            try { window.location.assign(current.href); }
-                            catch (err) { window.location.href = current.href; }
-                        } else {
-                            window.open(current.href, '_blank', 'noopener');
-                        }
+                        window.open(current.href, '_blank', 'noopener');
                     } else {
                         current.click();
                     }
@@ -1313,9 +1565,27 @@
             document.addEventListener('mousedown', function () {
                 if (tvMode) {
                     tvMode = false;
+                    if (__pageNavAware) setTvNavActive(false);
                     clearFocus();
                 }
             });
+
+            if (__pageNavAware) {
+                window.addEventListener('resize', invalidateItemCache);
+
+                // pageshow fires on first load AND on BFCache restoration (when the user
+                // navigates back from a sub-site). On restore:
+                //   1) the App has already revert'd PAGE_NAV_MODE → re-request it
+                //   2) currentFocused is still set in module scope, but the DOM was rehydrated
+                //      → call restoreLastFocusOrFirst to land on the last-activated card
+                window.addEventListener('pageshow', function() {
+                    requestNativePageNavigationMode();
+                    invalidateItemCache();
+                    restoreLastFocusOrFirst();
+                });
+
+                scheduleInitialFocus();
+            }
         }
     </script>
 </body>
