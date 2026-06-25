@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="dark">
     <meta name="keywords" content="Free Streaming Websites all around the world">
     <meta name="description" content="Global Free Streaming Websites Catalog">
     <title>Free Streaming Websites Catalog</title>
@@ -14,6 +15,7 @@
 
     <style>
         :root {
+            color-scheme: dark;
             --bg-color: #1a1a1a;
             --card-bg: #2c2e2f;
             --text-color: #e0e0e0;
@@ -28,11 +30,33 @@
         }
 
         html, body {
-            height: 100%;
-            overflow: hidden;
+            /* Keep body as the document-level scroller so that the legacy App's
+             * virtual cursor — which dispatches wheel events to window/body — can
+             * still scroll the right pane. The sidebar (position:fixed; overflow-y:auto)
+             * remains an independent scroll container, so virtual-cursor wheel-over-sidebar
+             * keeps working as before. Aware-mode (new App) TV focus uses
+             * scrollIntoViewCustom which has a window-scroll branch for this layout. */
+            overflow-x: hidden;
             background-color: var(--bg-color);
             color: var(--text-color);
+            forced-color-adjust: none;
             -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Pin colors in the structural shell so Android TV WebView color-management
+         * doesn't shift our pure-white outline (cvte parity). */
+        .page-container,
+        .sidebar,
+        .sidebar-header,
+        .sidebar-menu,
+        .sidebar-menu li,
+        .sidebar-menu li a,
+        .main-content,
+        .section-header,
+        .site-card,
+        .site-card a,
+        .footer {
+            forced-color-adjust: none;
         }
 
         body {
@@ -46,12 +70,10 @@
 
         .page-container {
             display: flex;
-            height: 100vh;
             min-height: 100vh;
             /* 确保 flex 容器本身不会撑出视口 */
             width: 100%;
             max-width: 100vw;
-            overflow: hidden;
         }
 
         /* Sidebar Styles */
@@ -118,11 +140,11 @@
             width: calc(100% - 260px);
             max-width: calc(100vw - 260px);
             padding: 20px 30px;
-            height: 100vh;
             min-height: 100vh;
-            /* 容器内滚动：scrollIntoViewCustom 用 closest('.main-content') 找滚动容器 */
+            /* 不再设 overflow-y:auto —— main-content 跟随 body 自然滚动，
+             * legacy App 的虚拟光标 wheel→body 才能驱动右侧内容。
+             * aware 模式下 scrollIntoViewCustom 自动走 window 滚动分支。 */
             overflow-x: hidden;
-            overflow-y: auto;
         }
 
         /* Section Header */
@@ -289,6 +311,7 @@
             position: relative;
             transform: none;
             transition: none !important;
+            forced-color-adjust: none;
         }
 
         .sidebar-menu li a.tv-focused,
@@ -1247,9 +1270,19 @@
                 var DOWN_RATIO = 0.60;
                 var UP_RATIO = 0.25;
                 var PADDING = 10;
-                var scrollParent = el.closest('.sidebar') || el.closest('.main-content');
-                var isManagedContainer = !!scrollParent;
-                var container = isManagedContainer ? scrollParent : null;
+                // Only treat a parent as a managed scroller if it actually overflows.
+                // In legacy-cursor-compat layout (.main-content lacks overflow-y:auto)
+                // the closest match exists in DOM but is NOT a real scroll container,
+                // so we fall back to window scrolling for the right pane.
+                var sidebarParent = el.closest('.sidebar');
+                var mainParent = el.closest('.main-content');
+                var container = null;
+                if (sidebarParent && sidebarParent.scrollHeight > sidebarParent.clientHeight + 1) {
+                    container = sidebarParent;
+                } else if (mainParent && mainParent.scrollHeight > mainParent.clientHeight + 1) {
+                    container = mainParent;
+                }
+                var isManagedContainer = !!container;
                 var elRect = el.getBoundingClientRect();
                 var containerHeight, containerTop, scrollTop, scrollHeight;
                 if (isManagedContainer) {
