@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "configVersion": 2,
-  "updatedAt": "2026-06-23T00:00:00Z",
+  "configVersion": 4,
+  "updatedAt": "2026-06-25T09:56:26Z",
   "cache": {
     "ttlSeconds": 86400,
     "minTtlSeconds": 43200,
@@ -37,6 +37,59 @@
       ],
       "hostSuffixes": [],
       "theme": "auto"
+    },
+    {
+      "id": "general-lite-movierulz",
+      "enabled": true,
+      "runtimeId": "general_lite_movierulz",
+      "description": "MovieRulz general-lite reflow host list. JS runtime is bundled in the APK; this config supplements profile.hosts via window.AndroidJSInterface.getWatchModeHostsJson.",
+      "matchMode": "exact_host_or_subdomain",
+      "hosts": [
+        "5movierulz.house",
+        "5movierulz.school",
+        "5movierulz.legal"
+      ],
+      "hostSuffixes": []
+    },
+    {
+      "id": "general-lite-123movies",
+      "enabled": true,
+      "runtimeId": "general_lite_123movies",
+      "description": "123movies general-lite reflow host list.",
+      "matchMode": "exact_host_or_subdomain",
+      "hosts": [
+        "123moviesfree.net"
+      ],
+      "hostSuffixes": []
+    },
+    {
+      "id": "general-lite-lk21",
+      "enabled": true,
+      "runtimeId": "general_lite_lk21",
+      "description": "LK21 general-lite reflow host list.",
+      "matchMode": "exact_host_or_subdomain",
+      "hosts": [
+        "lk21official.dev",
+        "lk21official.cc",
+        "lk21official.love",
+        "lk21.party",
+        "lk21.de",
+        "nontondrama.my"
+      ],
+      "hostSuffixes": []
+    },
+    {
+      "id": "general-lite-rezka",
+      "enabled": true,
+      "runtimeId": "general_lite_rezka",
+      "description": "Rezka general-lite reflow host list.",
+      "matchMode": "exact_host_or_subdomain",
+      "hosts": [
+        "rezka.ag",
+        "rezka.ga",
+        "hdrezka.me"
+      ],
+      "hostSuffixes": []
     }
   ]
 }
