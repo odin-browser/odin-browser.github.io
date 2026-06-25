@@ -325,6 +325,29 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
+        // ============================================================
+        // Feature detection: does this Android App build advertise the
+        // 'freestreaming_pagenav_v1' capability via NaviSwitch.getCapabilities()?
+        //
+        // Only the updated App build exposes this method. Older App builds
+        // return undefined here, so __pageNavAware stays false and every
+        // new behavior in this script falls back to the pre-existing
+        // mouse/virtual-cursor experience — guaranteeing zero regression
+        // for users who have not (or cannot) update the App.
+        //
+        // Token list is intentionally substring-matched so future builds can
+        // advertise multiple capabilities (e.g. "freestreaming_pagenav_v1,toolbar_handoff_v2").
+        // ============================================================
+        var __pageNavAware = false;
+        function isAppPageNavAware() {
+            try {
+                var ns = window.NaviSwitch;
+                if (!ns || typeof ns.getCapabilities !== 'function') return false;
+                var caps = String(ns.getCapabilities() || '');
+                return caps.indexOf('freestreaming_pagenav_v1') >= 0;
+            } catch (e) { return false; }
+        }
+
         // Site data extracted from original file
         const siteData = {
             "Football": [
@@ -926,7 +949,8 @@
                 const a = document.createElement('a');
                 a.href = `#section-${index}`;
                 a.className = 'smooth';
-                a.setAttribute('tabindex', '0');
+                // tabindex=-1 in aware builds keeps native focus from competing with .tv-focused.
+                a.setAttribute('tabindex', __pageNavAware ? '-1' : '0');
                 a.setAttribute('data-zone', 'category');
                 a.setAttribute('data-category', category);
                 a.innerHTML = `<i class="${categoryIcons[category] || categoryIcons.default}"></i><span>${category}</span>`;
@@ -955,6 +979,12 @@
                 const row = document.createElement('div');
                 row.className = 'row g-3 overflow-hidden';
 
+                // In aware builds, same-tab navigation is the desired TV UX: BACK returns
+                // to the catalog cleanly. Legacy builds keep target=_blank so existing
+                // virtual-cursor users still get the original new-tab behavior.
+                const linkTarget = __pageNavAware ? '' : 'target="_blank"';
+                const linkTabindex = __pageNavAware ? '-1' : '0';
+
                 siteData[category].forEach(site => {
                     const col = document.createElement('div');
                     col.className = 'col-sm-6 col-md-4 col-lg-3';
@@ -963,7 +993,7 @@
 
                     col.innerHTML = `
                         <div class="site-card">
-                            <a href="${site.url}" target="_blank" rel="noopener noreferrer" tabindex="0" data-zone="site">
+                            <a href="${site.url}" ${linkTarget} rel="noopener noreferrer" tabindex="${linkTabindex}" data-zone="site">
                                 <div class="icon">
                                     <img src="${faviconUrl}" alt="" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\\'fas fa-link\\'></i>'">
                                 </div>
@@ -1005,10 +1035,44 @@
 
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
+            // Detect once, before any DOM is rendered, so that generateSidebar/generateContent
+            // can pick the correct tabindex / target attributes for the host App.
+            __pageNavAware = isAppPageNavAware();
             generateSidebar();
             generateContent();
+            if (__pageNavAware) {
+                requestNativePageNavigationMode();
+            }
             initTvNavigation();
         });
+
+        // Tell the App to suspend its virtual cursor and route D-pad keys directly to this
+        // page's DOM. Retried at 0/150/600 ms because injection timing can race with our DOM
+        // readiness on older WebView builds. No-op in pre-update App builds (gated upstream
+        // by __pageNavAware).
+        function requestNativePageNavigationMode() {
+            var payload = JSON.stringify({
+                runtimeId: 'free_streaming_websites',
+                state: 'mounted',
+                host: location.hostname || 'odin-browser.github.io',
+                createdAt: Date.now()
+            });
+            var requestMode = function() {
+                try {
+                    if (window.NaviSwitch && typeof window.NaviSwitch.setPageNavMode === 'function') {
+                        window.NaviSwitch.setPageNavMode();
+                    }
+                } catch (e) {}
+                try {
+                    if (window.AndroidJSInterface && typeof window.AndroidJSInterface.postMessage === 'function') {
+                        window.AndroidJSInterface.postMessage('watch_mode_state', payload);
+                    }
+                } catch (e) {}
+            };
+            requestMode();
+            setTimeout(requestMode, 150);
+            setTimeout(requestMode, 600);
+        }
 
         // ============================================================
         // TV Remote Navigation (UP/DOWN/LEFT/RIGHT/OK + mouse compat)
@@ -1153,8 +1217,59 @@
                     }
                 }
 
-                if (target) setFocus(target);
+                if (target) {
+                    setFocus(target);
+                } else if (__pageNavAware && dir === 'UP') {
+                    // No UP candidate found → we're at the top edge. Ask the App's toolbar
+                    // to take focus (PAGE_NAV_EDGE handoff). App calls back via
+                    // window.__TV_PAGE_NAV_BRIDGE__.restoreFromToolbar(token, route) when
+                    // the user returns from the toolbar.
+                    requestToolbarHandoff(current);
+                }
                 return true;
+            }
+
+            // --- Toolbar handoff (aware-only) ---
+            var lastToolbarHandoffAt = 0;
+            function requestToolbarHandoff(currentEl) {
+                if (!__pageNavAware) return;
+                if (!window.NaviSwitch || typeof window.NaviSwitch.requestNavBarFocus !== 'function') return;
+                // Debounce: TV remotes often double-fire UP at edges.
+                var now = Date.now();
+                if (now - lastToolbarHandoffAt < 500) return;
+                lastToolbarHandoffAt = now;
+                var rect = getRect(currentEl) || { left: window.innerWidth / 2, width: 0 };
+                var centerX = rect.left + rect.width / 2;
+                var payload = {
+                    site: 'free_streaming_websites',
+                    handoffToken: 'fsw-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 8),
+                    routeKey: (location.pathname || '') + (location.search || '') + (location.hash || ''),
+                    xRatio: Math.max(0, Math.min(1, centerX / Math.max(1, window.innerWidth))),
+                    zone: 'catalog-top',
+                    timestamp: now
+                };
+                try { window.NaviSwitch.requestNavBarFocus(JSON.stringify(payload)); } catch (e) {}
+            }
+
+            // Bridge object the App invokes after toolbar BACK / browser-chrome dismissal
+            // to restore page focus. Only exposed in aware builds so legacy App users see
+            // no behavioral change.
+            if (__pageNavAware) {
+                window.__TV_PAGE_NAV_BRIDGE__ = {
+                    restoreFromToolbar: function(handoffToken, routeKey) {
+                        var target = getCurrentFocused() || getItems('category')[0] || getItems()[0];
+                        if (!target) return false;
+                        setFocus(target);
+                        return true;
+                    },
+                    restoreAfterBrowserChrome: function(reason) {
+                        var target = getCurrentFocused() || getItems('category')[0] || getItems()[0];
+                        if (!target) return false;
+                        setFocus(target);
+                        return true;
+                    },
+                    clearSession: function() { return true; }
+                };
             }
 
             // --- Global keydown handler ---
@@ -1179,7 +1294,13 @@
                     e.stopPropagation();
                 } else if (e.key === 'Enter' || e.key === ' ') {
                     if (current.getAttribute('data-zone') === 'site') {
-                        window.open(current.href, '_blank', 'noopener');
+                        if (__pageNavAware) {
+                            // Same-tab navigation: BACK returns to the catalog cleanly on TV.
+                            try { window.location.assign(current.href); }
+                            catch (err) { window.location.href = current.href; }
+                        } else {
+                            window.open(current.href, '_blank', 'noopener');
+                        }
                     } else {
                         current.click();
                     }
