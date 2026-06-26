@@ -30,17 +30,34 @@
         }
 
         html, body {
-            /* Keep body as the document-level scroller so that the legacy App's
-             * virtual cursor — which dispatches wheel events to window/body — can
-             * still scroll the right pane. The sidebar (position:fixed; overflow-y:auto)
-             * remains an independent scroll container, so virtual-cursor wheel-over-sidebar
-             * keeps working as before. Aware-mode (new App) TV focus uses
-             * scrollIntoViewCustom which has a window-scroll branch for this layout. */
+            /* Default (legacy App): body is the document-level scroller so that
+             * the virtual cursor — which dispatches wheel events to window/body —
+             * can scroll the right pane. The sidebar (position:fixed; overflow-y:auto)
+             * remains an independent scroll container so wheel-over-sidebar works. */
             overflow-x: hidden;
             background-color: var(--bg-color);
             color: var(--text-color);
             forced-color-adjust: none;
             -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Aware mode (new App, added by JS once NaviSwitch.getCapabilities advertises
+         * freestreaming_pagenav_v1): collapse body into a fixed viewport and let
+         * .main-content scroll independently. Container scrollTop avoids the whole-page
+         * layout cost that window scroll incurs on Android TV WebView, which is what
+         * produced the visible drag on fast D-pad presses. cvte uses the same model. */
+        html.tv-pagenav,
+        html.tv-pagenav body {
+            height: 100%;
+            overflow: hidden;
+        }
+        html.tv-pagenav .page-container {
+            height: 100vh;
+            overflow: hidden;
+        }
+        html.tv-pagenav .main-content {
+            height: 100vh;
+            overflow-y: auto;
         }
 
         /* Pin colors in the structural shell so Android TV WebView color-management
@@ -114,7 +131,11 @@
             color: var(--text-color);
             text-decoration: none;
             border-left: 3px solid transparent;
-            transition: all 0.2s ease;
+            /* Narrow transition: avoid Android TV WebView staging 5+ property
+             * tweens (outline/border/box-shadow/background/color) on every
+             * focus change — which produced the visible drag-on-fast-press. */
+            transition: background-color 0.08s linear, color 0.08s linear;
+            will-change: background-color, color;
         }
 
         .sidebar-menu li a:hover,
@@ -187,7 +208,9 @@
             text-decoration: none;
             color: var(--text-color);
             border-left: 3px solid transparent;
-            transition: all 0.2s ease;
+            border-radius: 8px;
+            transition: background-color 0.08s linear, color 0.08s linear;
+            will-change: background-color, color;
         }
 
         .site-card .icon {
@@ -424,9 +447,9 @@
         // Site data extracted from original file
         const siteData = {
             "Football": [
+                { name: `Fútbol Libres`, url: `https://futbol-libres.su/`, desc: `` },
+                { name: `Libre Pelota`, url: `https://librepelota.su/`, desc: `` },
                 { name: `808fubo`, url: `https://www.808fubo.lc/`, desc: `` },
-                { name: `Pelota Libre TV`, url: `https://pelota-libretv.com/`, desc: `` },
-                { name: `Libre Fútbol / Fútbol Libre`, url: `https://futbollibre-tv.com/`, desc: `` },
                 { name: `Libre Fútbol / Fútbol Libre`, url: `http://librefutboltv.su`, desc: `` },
                 { name: `Libre Fútbol / Fútbol Libre`, url: `https://futbol-libre.su/`, desc: `` },
                 { name: `Roja Directa (Clone)`, url: `https://rojadirectagol.com/`, desc: `` },
@@ -447,7 +470,6 @@
                 { name: `LiveTV`, url: `https://watch.freelivesports.tv/`, desc: `` },
                 { name: `Sportlemon`, url: `https://sportlemons.com/`, desc: `` },
                 { name: `Total Sportek`, url: `https://totalsportekz.com/date/today/`, desc: `` },
-                { name: `Watch Football Highlights`, url: `https://watchfootballhighlights.com/`, desc: `` },
                 { name: `Wheresthematch`, url: `https://wheresthematch.com/`, desc: `` },
                 { name: `US Sport`, url: `https://us-sport.eu/#football`, desc: `` },
                 { name: `SofaScore`, url: `https://www.sofascore.com/`, desc: `` },
@@ -455,7 +477,9 @@
                 { name: `Camel1.tv`, url: `https://camel1.tv/`, desc: `` },
                 { name: `FCTv33`, url: `https://www.fctv33.com/`, desc: `` },
                 { name: `Championat.asia`, url: `https://championat.asia/content/video`, desc: `` },
-                { name: `Stadion.uz`, url: `https://stadion.uz/#`, desc: `` }
+                { name: `Stadion.uz`, url: `https://stadion.uz/#`, desc: `` },
+                { name: `Libre Fútbol / Fútbol Libre`, url: `https://futbollibre-tv.com/`, desc: `` },
+                { name: `Pelota Libre TV`, url: `https://pelota-libretv.com/`, desc: `` }
             ],
             "Global": [
                 { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
@@ -464,10 +488,8 @@
                 { name: `Hulu | Stream TV and Movies Live and Online`, url: `https://www.hulu.com`, desc: `` },
                 { name: `Disney+`, url: `https://www.disneyplus.com`, desc: `` },
                 { name: `Tubi TV`, url: `https://tubitv.com/`, desc: `Tubi: Watch Free Movies and TV Shows Online` },
-                { name: `myflixerz.to`, url: `https://myflixerz.to/`, desc: `` },
-                { name: `sflix.to`, url: `https://sflix.to`, desc: `` },
                 { name: `123moviesfree.net`, url: `https://ww1.123moviesfree.net`, desc: `` },
-                { name: `9animetv.to`, url: `https://9animetv.to`, desc: `` },
+                { name: `9anime.me.uk`, url: `https://9anime.me.uk`, desc: `` },
                 { name: `gomovies.sx`, url: `https://gomovies.sx/movie`, desc: `` },
                 { name: `moviesjoy.to`, url: `https://moviesjoy.to`, desc: `` },
                 { name: `goojara2ch.city`, url: `https://goojara2ch.city/`, desc: `goojara2ch.city` },
@@ -477,7 +499,6 @@
                 { name: `Watch movies & Series online free in HD`, url: `https://en.primewire-official.live/home`, desc: `` },
                 { name: `NetMirror – Watch Movies and Series`, url: `https://netfree2.cc/home`, desc: `` },
                 { name: `OnHockey.TV | Live hockey streams (NHL, KHL, Liiga, SHL, DEL, Extraliga, World Championship, Olympic Games)`, url: `https://onhockey.tv/`, desc: `` },
-                { name: `HiAnime.to Anime Website`, url: `https://hianimez.to/`, desc: `` },
                 { name: `AndyDay | Free Movies & TV Series Online`, url: `https://andyday.tube/home`, desc: `` },
                 { name: `WatchSeries.pe`, url: `https://watchseries.pe/home`, desc: `` },
                 { name: `HiMovies.to | Watch Movies Online, Stream Tv Shows online Free`, url: `https://himovies.sx/home`, desc: `Watch Series Online and Stream movies online for free, update daily, HD quality` },
@@ -504,12 +525,10 @@
                 { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
                 { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
                 { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` },
-                { name: `myflixerz.to`, url: `https://myflixerz.to/`, desc: `` },
                 { name: `goojara2ch.city`, url: `https://goojara2ch.city/`, desc: `goojara2ch.city` },
                 { name: `NetMirror – Watch Movies and Series`, url: `https://netfree2.cc/home`, desc: `` },
                 { name: `OnHockey.TV | Live hockey streams (NHL, KHL, Liiga, SHL, DEL, Extraliga, World Championship, Olympic Games)`, url: `https://onhockey.tv/`, desc: `` },
                 { name: `Look Movie`, url: `https://www.lookmovie2.to/`, desc: `` },
-                { name: `HiAnime.to Anime Website`, url: `https://hianimez.to/`, desc: `` },
                 { name: `AndyDay | Free Movies & TV Series Online`, url: `https://andyday.tube/home`, desc: `` },
                 { name: `WatchSeries.pe`, url: `https://watchseries.pe/home`, desc: `` },
                 { name: `HiMovies.to | Watch Movies Online, Stream Tv Shows online Free`, url: `https://himovies.sx/home`, desc: `Watch Series Online and Stream movies online for free, update daily, HD quality` },
@@ -556,13 +575,12 @@
                 { name: `iBOMMA – Pure Entertainment Delight!`, url: `https://www.ibomma.net/`, desc: `` },
                 { name: `movies-watch.com`, url: `https://www.movies-watch.com.pk/`, desc: `` },
                 { name: `Hotstar`, url: `https://www.hotstar.com`, desc: `Say hello to The Disney Bundle, the new home of Hotstar favorites!` },
-                { name: `9anime.to`, url: `https://9animetv.to/`, desc: `9anime.to - Just a better place to watch anime online for free!` },
+                { name: `9anime.me.uk`, url: `https://9anime.me.uk/`, desc: `9anime - Just a better place to watch anime online for free!` },
                 { name: `Epicsports.me`, url: `https://www.epicsports.me/`, desc: `` },
                 { name: `SportsTrack`, url: `https://www.sportstrack.in/`, desc: `` },
                 { name: `yupptvfast`, url: `https://www.yupptv.com/fast-tv?genreCode=all`, desc: `` },
                 { name: `NetMirror – Watch Movies and Series`, url: `https://netfree2.cc/home`, desc: `` },
                 { name: `Tooniboy – Tooniboy is Heven for the Anime & Toons in Hindi Dub`, url: `https://tooniboy.co/`, desc: `https://tooniboy.co/` },
-                { name: `HiAnime.to Anime Website`, url: `https://hianimez.to/`, desc: `` },
                 { name: `Movierulz`, url: `https://www.5movierulz.bid/`, desc: `` },
                 { name: `TamilGun`, url: `https://tamilgun.group/home/`, desc: `` }
             ],
@@ -1111,6 +1129,12 @@
             // Detect once, before any DOM is rendered, so that generateSidebar/generateContent
             // can pick the correct tabindex / target attributes for the host App.
             __pageNavAware = isAppPageNavAware();
+            if (__pageNavAware) {
+                // Switch to container-scroll layout (gates the html.tv-pagenav CSS block).
+                // Must happen before generateContent so initial scroll position is in the
+                // managed container, not on window.
+                document.documentElement.classList.add('tv-pagenav');
+            }
             generateSidebar();
             generateContent();
             if (__pageNavAware) {
