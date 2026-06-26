@@ -1,13 +1,21 @@
 {
   "schemaVersion": 1,
-  "configVersion": 4,
-  "updatedAt": "2026-06-25T09:56:26Z",
+  "configVersion": 5,
+  "updatedAt": "2026-06-26T00:00:00Z",
   "cache": {
     "ttlSeconds": 86400,
     "minTtlSeconds": 43200,
     "maxTtlSeconds": 604800
   },
   "remoteJsEnabled": false,
+  "restrictedCountries": [
+    "US", "CA",
+    "AT", "BE", "BG", "HR", "CY", "CZ", "DK", "EE", "FI", "FR",
+    "DE", "GR", "HU", "IE", "IT", "LV", "LT", "LU", "MT", "NL",
+    "PL", "PT", "RO", "SK", "SI", "ES", "SE",
+    "IS", "LI", "NO", "CH",
+    "GB", "VA", "AD", "MC", "SM"
+  ],
   "sites": [
     {
       "id": "sportslive",
