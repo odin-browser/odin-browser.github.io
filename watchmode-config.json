@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "configVersion": 5,
+  "configVersion": 6,
   "updatedAt": "2026-06-26T00:00:00Z",
   "cache": {
     "ttlSeconds": 86400,
@@ -18,30 +18,55 @@
   ],
   "sites": [
     {
-      "id": "sportslive",
+      "id": "sportslive-rojadirecta",
       "enabled": true,
       "runtimeId": "sportslive",
-      "description": "Sports live Watch Mode host list. JS runtime is bundled in the APK; this config only controls host matching.",
+      "family": "rojadirecta",
+      "description": "Sports live Watch Mode (rojadirecta family). Family is consumed by sportslive.inject.js via window.AndroidJSInterface.getWatchModeRuntimeProfileJson.",
       "matchMode": "exact_host_or_subdomain",
       "hosts": [
         "rojadirectagol.com",
         "rojadirectaenvivohd.com",
         "rojadirectatv.net",
+        "pirlotvs.org",
+        "pirlotvs.cc",
+        "tarjetarojatvs.org"
+      ],
+      "hostSuffixes": [],
+      "theme": "auto"
+    },
+    {
+      "id": "sportslive-futbol_libre",
+      "enabled": true,
+      "runtimeId": "sportslive",
+      "family": "futbol_libre",
+      "description": "Sports live Watch Mode (futbol_libre family).",
+      "matchMode": "exact_host_or_subdomain",
+      "hosts": [
         "futbol-libre.su",
         "futbol-libres.su",
-        "librepelota.su",
         "futbollibre-tv.com",
+        "futbol-libretv.com",
+        "futbollibretvs.org",
         "tv-libre.net",
-        "tvlibr3.com",
+        "tvlibr3.com"
+      ],
+      "hostSuffixes": [],
+      "theme": "auto"
+    },
+    {
+      "id": "sportslive-pelota_libre",
+      "enabled": true,
+      "runtimeId": "sportslive",
+      "family": "pelota_libre",
+      "description": "Sports live Watch Mode (pelota_libre family).",
+      "matchMode": "exact_host_or_subdomain",
+      "hosts": [
         "pelotalibrevivo.net",
         "pelotalibretv2.pl",
         "pelota-libretv.com",
         "pelotalibrehdtvs.com",
-        "pirlotvs.org",
-        "futbol-libretv.com",
-        "pirlotvs.cc",
-        "futbollibretvs.org",
-        "tarjetarojatvs.org"
+        "librepelota.su"
       ],
       "hostSuffixes": [],
       "theme": "auto"
