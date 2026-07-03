@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "configVersion": 6,
-  "updatedAt": "2026-06-26T00:00:00Z",
+  "configVersion": 7,
+  "updatedAt": "2026-07-03T00:00:00Z",
   "cache": {
     "ttlSeconds": 86400,
     "minTtlSeconds": 43200,
