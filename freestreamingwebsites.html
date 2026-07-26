@@ -1002,6 +1002,63 @@
             "default": "fas fa-link"
         };
 
+        // URL deep-link slugs: freestreamingwebsites.html?zh lands on "Chinese-中文",
+        // same position as clicking the sidebar entry. ISO 639-1 / country codes.
+        const categorySlugs = {
+            "sport": "Sport",
+            "global": "Global",
+            "guide": "Streaming Site Guide",
+            "en": "English",
+            "tr": "Turkish-Türkçe",
+            "ru": "Russian-Русский",
+            "in": "India",
+            "ua": "Ukraine-Україна",
+            "pt": "Portuguese-Português",
+            "pt-sport": "Portuguese Sport-Português esporte",
+            "es": "Spanish-Español",
+            "ph": "Philippines",
+            "vi": "Vietnamese-Tiếng Việt",
+            "fr": "French-Français",
+            "th": "Thailand-ภาษาไทย",
+            "pl": "Polish-Polski",
+            "ar": "Arabic-اَلْعَرَبِيَّةُ",
+            "id": "Bahasa Indonesia",
+            "pk": "Pakistan",
+            "de": "German-Deutsch",
+            "zh": "Chinese-中文",
+            "it": "Italian-Italiano",
+            "bg": "Bulgarian-български",
+            "ro": "Romanian - Română",
+            "hr": "Croatian - Hrvatski",
+            "nl": "Dutch - Nederlands",
+            "ms": "Malay - Melayu",
+            "sv": "Swedish-Svenska",
+            "si": "Sinhala-සිංහල",
+            "ta": "Tamil - தமிழ்",
+            "ja": "Japanese-日本語",
+            "hu": "Hungarian-magyar",
+            "sk": "Slovak-slovenský",
+            "af": "Afrikaans-Afrikaans",
+            "da": "Danish - dansk",
+            "uz": "Uzbek-o'zbek",
+            "fa": "Persian-فارسی",
+            "gl": "Galician-galego",
+            "he": "Hebrew-עִברִית",
+            "cs": "Czech-Čeština",
+            "el": "Greek-ελληνικά",
+            "no": "Norwegian-norsk",
+            "ca": "Catalan-català",
+            "km": "Khmer-ខ្មែរ",
+            "sq": "Albanian-shqiptar",
+            "ps": "Pashto-پښتو",
+            "hy": "Armenian-հայկ",
+            "az": "Azerbaijani-Azərbaycan",
+            "ko": "Korean-한국어",
+            "fi": "Finnish-suomi",
+            "hi": "Hindī - हिन्दी",
+            "bn": "Bengali-বাংলা"
+        };
+
         // Generate sidebar menu
         function generateSidebar() {
             const menu = document.getElementById('sidebar-menu');
@@ -1095,6 +1152,24 @@
             }
         });
 
+        // Deep-link: ?zh lands on the same position as clicking "Chinese-中文".
+        // Instant (no smooth animation) since it runs at page load; unknown params
+        // are ignored and the page stays at the top.
+        function scrollToSectionFromUrl() {
+            const params = new URLSearchParams(location.search);
+            for (const key of params.keys()) {
+                const category = categorySlugs[key.toLowerCase()];
+                if (!category) continue;
+                const index = Object.keys(siteData).indexOf(category);
+                if (index === -1) continue;
+                const target = document.getElementById('section-' + index);
+                if (target) {
+                    target.scrollIntoView({ block: 'start' });
+                    return;
+                }
+            }
+        }
+
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
             // Detect once, before any DOM is rendered, so that generateSidebar/generateContent
@@ -1108,6 +1183,7 @@
             }
             generateSidebar();
             generateContent();
+            scrollToSectionFromUrl();
             if (__pageNavAware) {
                 requestNativePageNavigationMode();
             }
