@@ -1,126 +1,1562 @@
 {
-  "version": 1784902521,
+  "version": 1785246930,
   "global": [
-    { "id": "freestreamwebsite", "title": "Free streaming", "url": "https://odin-browser.github.io/freestreamingwebsites.html", "icon": "img_free_streaming_default_1", "icon-bg-color": "#171717", "badge": "", "launch-mode": "" },
-    { "id": "google", "title": "Google", "url": "https://www.google.com", "icon": "favicon_google", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "netflix", "title": "Netflix", "url": "https://www.netflix.com/browse", "icon": "img_netflix", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "youtube", "title": "Youtube TV", "url": "https://www.youtube.com/tv", "icon": "favicon_youtube", "icon-bg-color": "#212121", "badge": "", "launch-mode": "WEB_APP" },
-    { "id": "tiktok", "title": "TikTok", "url": "https://www.tiktok.com", "icon": "favicon_tiktok", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "facebook", "title": "Facebook", "url": "https://www.facebook.com", "icon": "favicon_facebook", "icon-bg-color": "#039BE5", "badge": "", "launch-mode": "" },
-    { "id": "instagram", "title": "Instagram", "url": "https://www.instagram.com", "icon": "favicon_instagram", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "x", "title": "X", "url": "https://x.com", "icon": "img_x", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" }
+    {
+      "id": "freestreamwebsite",
+      "title": "Free streaming",
+      "url": "https://odin-browser.github.io/freestreamingwebsites.html",
+      "icon": "img_free_streaming_default_1",
+      "icon-bg-color": "#171717",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "google",
+      "title": "Google",
+      "url": "https://www.google.com",
+      "icon": "favicon_google",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "netflix",
+      "title": "Netflix",
+      "url": "https://www.netflix.com/browse",
+      "icon": "img_netflix",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "youtube",
+      "title": "Youtube TV",
+      "url": "https://www.youtube.com/tv",
+      "icon": "favicon_youtube",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": "WEB_APP"
+    },
+    {
+      "id": "tiktok",
+      "title": "TikTok",
+      "url": "https://www.tiktok.com",
+      "icon": "favicon_tiktok",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "facebook",
+      "title": "Facebook",
+      "url": "https://www.facebook.com",
+      "icon": "favicon_facebook",
+      "icon-bg-color": "#039BE5",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "instagram",
+      "title": "Instagram",
+      "url": "https://www.instagram.com",
+      "icon": "favicon_instagram",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "x",
+      "title": "X",
+      "url": "https://x.com",
+      "icon": "img_x",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    }
+  ],
+  "US": [
+    {
+      "id": "freestreamwebsite",
+      "title": "freestreaming",
+      "url": "https://odin-browser.github.io/freestreamingwebsites.html?us",
+      "icon": "img_free_streaming_default_1",
+      "icon-bg-color": "#171717",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "youtube",
+      "title": "YouTube",
+      "url": "https://www.youtube.com",
+      "icon": "favicon_youtube",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "google",
+      "title": "Google",
+      "url": "https://www.google.com",
+      "icon": "favicon_google",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "tiktok",
+      "title": "TikTok",
+      "url": "https://www.tiktok.com",
+      "icon": "favicon_tiktok",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "duckduckgo",
+      "title": "DuckDuckGo",
+      "url": "https://duckduckgo.com",
+      "icon": "img_duckduckgo",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "facebook",
+      "title": "Facebook",
+      "url": "https://www.facebook.com",
+      "icon": "favicon_facebook",
+      "icon-bg-color": "#039BE5",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "fast",
+      "title": "fast测速",
+      "url": "https://fast.com/",
+      "icon": "img_fast",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "tubi",
+      "title": "Tubi",
+      "url": "https://tubi.tv",
+      "icon": "img_tubi",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "plutotv",
+      "title": "Pluto TV",
+      "url": "https://pluto.tv",
+      "icon": "img_plutotv",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "plex",
+      "title": "Plex",
+      "url": "https://plex.tv",
+      "icon": "img_plex",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    }
+  ],
+  "MX": [
+    {
+      "id": "freestreamwebsite",
+      "title": "Freestreaming",
+      "url": "https://odin-browser.github.io/freestreamingwebsites.html?mx",
+      "icon": "img_free_streaming_default_1",
+      "icon-bg-color": "#171717",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "google",
+      "title": "Google",
+      "url": "https://www.google.com",
+      "icon": "favicon_google",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "youtube",
+      "title": "YouTube",
+      "url": "https://www.youtube.com",
+      "icon": "favicon_youtube",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "tiktok",
+      "title": "TikTok",
+      "url": "https://www.tiktok.com",
+      "icon": "favicon_tiktok",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "aztecatv",
+      "title": "Azteca TV",
+      "url": "https://www.tvazteca.com",
+      "icon": "img_aztecatv",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "facebook",
+      "title": "Facebook",
+      "url": "https://www.facebook.com",
+      "icon": "favicon_facebook",
+      "icon-bg-color": "#039BE5",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "instagram",
+      "title": "Instagram",
+      "url": "https://www.instagram.com",
+      "icon": "favicon_instagram",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "plutotv",
+      "title": "Pluto TV Latino",
+      "url": "https://pluto.tv/es",
+      "icon": "img_plutotv",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "espn",
+      "title": "ESPN Deportes",
+      "url": "https://www.espn.com.mx",
+      "icon": "img_espn",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    }
   ],
   "IN": [
-    { "id": "freestreamwebsite", "title": "Free streaming", "url": "https://odin-browser.github.io/freestreamingwebsites.html?in", "icon": "img_free_streaming_default_1", "icon-bg-color": "#171717", "badge": "", "launch-mode": "" },
-    { "id": "google", "title": "Google", "url": "https://www.google.com", "icon": "favicon_google", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "netflix", "title": "Netflix", "url": "https://www.netflix.com/browse", "icon": "img_netflix", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "youtube", "title": "Youtube TV", "url": "https://www.youtube.com/tv", "icon": "favicon_youtube", "icon-bg-color": "#212121", "badge": "", "launch-mode": "WEB_APP" },
-    { "id": "instagram", "title": "Instagram", "url": "https://www.instagram.com", "icon": "favicon_instagram", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "facebook", "title": "Facebook", "url": "https://www.facebook.com", "icon": "favicon_facebook", "icon-bg-color": "#039BE5", "badge": "", "launch-mode": "" },
-    { "id": "whatsapp", "title": "WhatsApp", "url": "https://www.whatsapp.com", "icon": "favicon_whatsapp", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "hotstar", "title": "Hotstar", "url": "https://www.hotstar.com", "icon": "img_hotstar", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" }
+    {
+      "id": "freestreamwebsite",
+      "title": "Freestreaming",
+      "url": "https://odin-browser.github.io/freestreamingwebsites.html?in",
+      "icon": "img_free_streaming_default_1",
+      "icon-bg-color": "#171717",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "google",
+      "title": "Google",
+      "url": "https://www.google.com",
+      "icon": "favicon_google",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "youtube",
+      "title": "YouTube",
+      "url": "https://www.youtube.com",
+      "icon": "favicon_youtube",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "instagram",
+      "title": "Instagram",
+      "url": "https://www.instagram.com",
+      "icon": "favicon_instagram",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "facebook",
+      "title": "Facebook",
+      "url": "https://www.facebook.com",
+      "icon": "favicon_facebook",
+      "icon-bg-color": "#039BE5",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "hotstar",
+      "title": "Hotstar",
+      "url": "https://www.hotstar.com",
+      "icon": "img_hotstar",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "sonyliv",
+      "title": "SonyLIV",
+      "url": "https://www.sonyliv.com",
+      "icon": "img_sonyliv",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "zee5",
+      "title": "ZEE5",
+      "url": "https://www.zee5.com",
+      "icon": "img_zee5",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "mxplayer",
+      "title": "MX Player",
+      "url": "https://www.mxplayer.in",
+      "icon": "img_mxplayer",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "airtelxstream",
+      "title": "Airtel Xstream",
+      "url": "https://www.airtelxstream.in",
+      "icon": "img_airtelxstream",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    }
   ],
-  "BD": [
-    { "id": "freestreamwebsite", "title": "Free streaming", "url": "https://odin-browser.github.io/freestreamingwebsites.html?bd", "icon": "img_free_streaming_default_1", "icon-bg-color": "#171717", "badge": "", "launch-mode": "" },
-    { "id": "google", "title": "Google", "url": "https://www.google.com", "icon": "favicon_google", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "netflix", "title": "Netflix", "url": "https://www.netflix.com/browse", "icon": "img_netflix", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "youtube", "title": "Youtube TV", "url": "https://www.youtube.com/tv", "icon": "favicon_youtube", "icon-bg-color": "#212121", "badge": "", "launch-mode": "WEB_APP" },
-    { "id": "facebook", "title": "Facebook", "url": "https://www.facebook.com", "icon": "favicon_facebook", "icon-bg-color": "#039BE5", "badge": "", "launch-mode": "" },
-    { "id": "whatsapp", "title": "WhatsApp", "url": "https://www.whatsapp.com", "icon": "favicon_whatsapp", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "instagram", "title": "Instagram", "url": "https://www.instagram.com", "icon": "favicon_instagram", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "x", "title": "X", "url": "https://x.com", "icon": "img_x", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" }
+  "CA": [
+    {
+      "id": "freestreamwebsite",
+      "title": "Freestreaming",
+      "url": "https://odin-browser.github.io/freestreamingwebsites.html?ca",
+      "icon": "img_free_streaming_default_1",
+      "icon-bg-color": "#171717",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "google",
+      "title": "Google",
+      "url": "https://www.google.com",
+      "icon": "favicon_google",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "youtube",
+      "title": "YouTube",
+      "url": "https://www.youtube.com",
+      "icon": "favicon_youtube",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "tiktok",
+      "title": "TikTok",
+      "url": "https://www.tiktok.com",
+      "icon": "favicon_tiktok",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "facebook",
+      "title": "Facebook",
+      "url": "https://www.facebook.com",
+      "icon": "favicon_facebook",
+      "icon-bg-color": "#039BE5",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "fast",
+      "title": "fast测速",
+      "url": "https://fast.com/",
+      "icon": "img_fast",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "tsn",
+      "title": "TSN",
+      "url": "https://www.tsn.ca",
+      "icon": "img_tsn",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "cbcgem",
+      "title": "CBC Gem",
+      "url": "https://gem.cbc.ca",
+      "icon": "img_cbcgem",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "crave",
+      "title": "Crave",
+      "url": "https://www.crave.ca",
+      "icon": "img_crave",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "ctv",
+      "title": "CTV",
+      "url": "https://www.ctv.ca",
+      "icon": "img_ctv",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    }
   ],
-  "TR": [
-    { "id": "freestreamwebsite", "title": "Free streaming", "url": "https://odin-browser.github.io/freestreamingwebsites.html?tr", "icon": "img_free_streaming_default_1", "icon-bg-color": "#171717", "badge": "", "launch-mode": "" },
-    { "id": "google", "title": "Google", "url": "https://www.google.com", "icon": "favicon_google", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "netflix", "title": "Netflix", "url": "https://www.netflix.com/browse", "icon": "img_netflix", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "youtube", "title": "Youtube TV", "url": "https://www.youtube.com/tv", "icon": "favicon_youtube", "icon-bg-color": "#212121", "badge": "", "launch-mode": "WEB_APP" },
-    { "id": "instagram", "title": "Instagram", "url": "https://www.instagram.com", "icon": "favicon_instagram", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "x", "title": "X", "url": "https://x.com", "icon": "img_x", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "facebook", "title": "Facebook", "url": "https://www.facebook.com", "icon": "favicon_facebook", "icon-bg-color": "#039BE5", "badge": "", "launch-mode": "" },
-    { "id": "yandex", "title": "Yandex", "url": "https://yandex.com", "icon": "img_yandex", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" }
+  "AR": [
+    {
+      "id": "freestreamwebsite",
+      "title": "Freestreaming",
+      "url": "https://odin-browser.github.io/freestreamingwebsites.html?ar",
+      "icon": "img_free_streaming_default_1",
+      "icon-bg-color": "#171717",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "google",
+      "title": "Google",
+      "url": "https://www.google.com",
+      "icon": "favicon_google",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "youtube",
+      "title": "YouTube",
+      "url": "https://www.youtube.com",
+      "icon": "favicon_youtube",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "tiktok",
+      "title": "TikTok",
+      "url": "https://www.tiktok.com",
+      "icon": "favicon_tiktok",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "mitelefe",
+      "title": "Mi Telefe",
+      "url": "https://www.mitelefe.com",
+      "icon": "img_mitelefe",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "tvpública",
+      "title": "TV Pública",
+      "url": "https://www.tvpublica.com.ar",
+      "icon": "img_tvpblica",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "tycsports",
+      "title": "TyC Sports",
+      "url": "https://www.tycsports.com",
+      "icon": "img_tycsports",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "facebook",
+      "title": "Facebook",
+      "url": "https://www.facebook.com",
+      "icon": "favicon_facebook",
+      "icon-bg-color": "#039BE5",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "instagram",
+      "title": "Instagram",
+      "url": "https://www.instagram.com",
+      "icon": "favicon_instagram",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    }
   ],
-  "RU": [
-    { "id": "freestreamwebsite", "title": "Free streaming", "url": "https://odin-browser.github.io/freestreamingwebsites.html?ru", "icon": "img_free_streaming_default_1", "icon-bg-color": "#171717", "badge": "", "launch-mode": "" },
-    { "id": "google", "title": "Google", "url": "https://www.google.com", "icon": "favicon_google", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "netflix", "title": "Netflix", "url": "https://www.netflix.com/browse", "icon": "img_netflix", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "ok", "title": "Odnoklassniki", "url": "https://ok.ru", "icon": "img_odnoklassniki", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "yandex", "title": "Yandex", "url": "https://yandex.ru", "icon": "img_yandex", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "youtube", "title": "Youtube TV", "url": "https://www.youtube.com/tv", "icon": "favicon_youtube", "icon-bg-color": "#212121", "badge": "", "launch-mode": "WEB_APP" },
-    { "id": "vk", "title": "VK", "url": "https://vk.com", "icon": "img_vk", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "mailru", "title": "Mail.ru", "url": "https://mail.ru", "icon": "img_rumail", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "ozon", "title": "Ozon", "url": "https://www.ozon.ru", "icon": "img_ozon", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" }
+  "ID": [
+    {
+      "id": "freestreamwebsite",
+      "title": "Freestreaming",
+      "url": "https://odin-browser.github.io/freestreamingwebsites.html?id",
+      "icon": "img_free_streaming_default_1",
+      "icon-bg-color": "#171717",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "google",
+      "title": "Google",
+      "url": "https://www.google.com",
+      "icon": "favicon_google",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "youtube",
+      "title": "YouTube",
+      "url": "https://www.youtube.com",
+      "icon": "favicon_youtube",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "tiktok",
+      "title": "TikTok",
+      "url": "https://www.tiktok.com",
+      "icon": "favicon_tiktok",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "vidio",
+      "title": "Vidio",
+      "url": "https://www.vidio.com",
+      "icon": "img_vidio",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "rcti",
+      "title": "RCTI+",
+      "url": "https://www.rctiplus.com",
+      "icon": "img_rcti",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "wetv",
+      "title": "WeTV",
+      "url": "https://www.wetv.vip",
+      "icon": "img_wetv",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "viu",
+      "title": "Viu",
+      "url": "https://www.viu.com",
+      "icon": "img_viu",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "iflix",
+      "title": "iFlix",
+      "url": "https://www.iflix.com",
+      "icon": "img_iflix",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    }
   ],
-  "PH": [
-    { "id": "freestreamwebsite", "title": "Free streaming", "url": "https://odin-browser.github.io/freestreamingwebsites.html?ph", "icon": "img_free_streaming_default_1", "icon-bg-color": "#171717", "badge": "", "launch-mode": "" },
-    { "id": "google", "title": "Google", "url": "https://www.google.com", "icon": "favicon_google", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "netflix", "title": "Netflix", "url": "https://www.netflix.com/browse", "icon": "img_netflix", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "youtube", "title": "Youtube TV", "url": "https://www.youtube.com/tv", "icon": "favicon_youtube", "icon-bg-color": "#212121", "badge": "", "launch-mode": "WEB_APP" },
-    { "id": "facebook", "title": "Facebook", "url": "https://www.facebook.com", "icon": "favicon_facebook", "icon-bg-color": "#039BE5", "badge": "", "launch-mode": "" },
-    { "id": "reddit", "title": "Reddit", "url": "https://www.reddit.com", "icon": "img_reddit", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "instagram", "title": "Instagram", "url": "https://www.instagram.com", "icon": "favicon_instagram", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "tiktok", "title": "TikTok", "url": "https://www.tiktok.com", "icon": "favicon_tiktok", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" }
+  "PE": [
+    {
+      "id": "freestreamwebsite",
+      "title": "Freestreaming",
+      "url": "https://odin-browser.github.io/freestreamingwebsites.html?pe",
+      "icon": "img_free_streaming_default_1",
+      "icon-bg-color": "#171717",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "google",
+      "title": "Google",
+      "url": "https://www.google.com",
+      "icon": "favicon_google",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "youtube",
+      "title": "YouTube",
+      "url": "https://www.youtube.com",
+      "icon": "favicon_youtube",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "tiktok",
+      "title": "TikTok",
+      "url": "https://www.tiktok.com",
+      "icon": "favicon_tiktok",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "américatvgo",
+      "title": "América TV GO",
+      "url": "https://tvgo.americatv.com.pe",
+      "icon": "img_amricatvgo",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "facebook",
+      "title": "Facebook",
+      "url": "https://www.facebook.com",
+      "icon": "favicon_facebook",
+      "icon-bg-color": "#039BE5",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "instagram",
+      "title": "Instagram",
+      "url": "https://www.instagram.com",
+      "icon": "favicon_instagram",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "plutotv",
+      "title": "Pluto TV Latino",
+      "url": "https://pluto.tv/es",
+      "icon": "img_plutotv",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "espn",
+      "title": "ESPN Deportes",
+      "url": "https://www.espn.com",
+      "icon": "img_espn",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "vix",
+      "title": "Vix",
+      "url": "https://vix.com",
+      "icon": "img_vix",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    }
   ],
-  "IQ": [
-    { "id": "freestreamwebsite", "title": "Free streaming", "url": "https://odin-browser.github.io/freestreamingwebsites.html?iq", "icon": "img_free_streaming_default_1", "icon-bg-color": "#171717", "badge": "", "launch-mode": "" },
-    { "id": "google", "title": "Google", "url": "https://www.google.com", "icon": "favicon_google", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "netflix", "title": "Netflix", "url": "https://www.netflix.com/browse", "icon": "img_netflix", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "youtube", "title": "Youtube TV", "url": "https://www.youtube.com/tv", "icon": "favicon_youtube", "icon-bg-color": "#212121", "badge": "", "launch-mode": "WEB_APP" },
-    { "id": "facebook", "title": "Facebook", "url": "https://www.facebook.com", "icon": "favicon_facebook", "icon-bg-color": "#039BE5", "badge": "", "launch-mode": "" },
-    { "id": "reddit", "title": "Reddit", "url": "https://www.reddit.com", "icon": "img_reddit", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "instagram", "title": "Instagram", "url": "https://www.instagram.com", "icon": "favicon_instagram", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "tiktok", "title": "TikTok", "url": "https://www.tiktok.com", "icon": "favicon_tiktok", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" }
-  ],
-  "UZ": [
-    { "id": "freestreamwebsite", "title": "Free streaming", "url": "https://odin-browser.github.io/freestreamingwebsites.html?uz", "icon": "img_free_streaming_default_1", "icon-bg-color": "#171717", "badge": "", "launch-mode": "" },
-    { "id": "google", "title": "Google", "url": "https://www.google.com", "icon": "favicon_google", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "netflix", "title": "Netflix", "url": "https://www.netflix.com/browse", "icon": "img_netflix", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "youtube", "title": "Youtube TV", "url": "https://www.youtube.com/tv", "icon": "favicon_youtube", "icon-bg-color": "#212121", "badge": "", "launch-mode": "WEB_APP" },
-    { "id": "instagram", "title": "Instagram", "url": "https://www.instagram.com", "icon": "favicon_instagram", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "yandexuz", "title": "Yandex", "url": "https://yandex.uz", "icon": "img_yandex", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "msn", "title": "MSN", "url": "https://www.msn.com", "icon": "img_msn", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "telegram", "title": "Telegram", "url": "https://web.telegram.org", "icon": "favicon_telegram", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" }
-  ],
-  "PK": [
-    { "id": "freestreamwebsite", "title": "Free streaming", "url": "https://odin-browser.github.io/freestreamingwebsites.html?pk", "icon": "img_free_streaming_default_1", "icon-bg-color": "#171717", "badge": "", "launch-mode": "" },
-    { "id": "google", "title": "Google", "url": "https://www.google.com", "icon": "favicon_google", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "netflix", "title": "Netflix", "url": "https://www.netflix.com/browse", "icon": "img_netflix", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "facebook", "title": "Facebook", "url": "https://www.facebook.com", "icon": "favicon_facebook", "icon-bg-color": "#039BE5", "badge": "", "launch-mode": "" },
-    { "id": "whatsapp", "title": "WhatsApp", "url": "https://www.whatsapp.com", "icon": "favicon_whatsapp", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "instagram", "title": "Instagram", "url": "https://www.instagram.com", "icon": "favicon_instagram", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "tiktok", "title": "TikTok", "url": "https://www.tiktok.com", "icon": "favicon_tiktok", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "linkedin", "title": "LinkedIn", "url": "https://www.linkedin.com", "icon": "img_linkedin", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" }
-  ],
-  "SA": [
-    { "id": "freestreamwebsite", "title": "Free streaming", "url": "https://odin-browser.github.io/freestreamingwebsites.html?sa", "icon": "img_free_streaming_default_1", "icon-bg-color": "#171717", "badge": "", "launch-mode": "" },
-    { "id": "google", "title": "Google", "url": "https://www.google.com", "icon": "favicon_google", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "netflix", "title": "Netflix", "url": "https://www.netflix.com/browse", "icon": "img_netflix", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "youtube", "title": "Youtube TV", "url": "https://www.youtube.com/tv", "icon": "favicon_youtube", "icon-bg-color": "#212121", "badge": "", "launch-mode": "WEB_APP" },
-    { "id": "x", "title": "X", "url": "https://x.com", "icon": "img_x", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "facebook", "title": "Facebook", "url": "https://www.facebook.com", "icon": "favicon_facebook", "icon-bg-color": "#039BE5", "badge": "", "launch-mode": "" },
-    { "id": "whatsapp", "title": "WhatsApp", "url": "https://www.whatsapp.com", "icon": "favicon_whatsapp", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "instagram", "title": "Instagram", "url": "https://www.instagram.com", "icon": "favicon_instagram", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" }
-  ],
-  "KE": [
-    { "id": "freestreamwebsite", "title": "Free streaming", "url": "https://odin-browser.github.io/freestreamingwebsites.html?ke", "icon": "img_free_streaming_default_1", "icon-bg-color": "#171717", "badge": "", "launch-mode": "" },
-    { "id": "google", "title": "Google", "url": "https://www.google.com", "icon": "favicon_google", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "netflix", "title": "Netflix", "url": "https://www.netflix.com/browse", "icon": "img_netflix", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "youtube", "title": "Youtube TV", "url": "https://www.youtube.com/tv", "icon": "favicon_youtube", "icon-bg-color": "#212121", "badge": "", "launch-mode": "WEB_APP" },
-    { "id": "whatsapp", "title": "WhatsApp", "url": "https://www.whatsapp.com", "icon": "favicon_whatsapp", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "facebook", "title": "Facebook", "url": "https://www.facebook.com", "icon": "favicon_facebook", "icon-bg-color": "#039BE5", "badge": "", "launch-mode": "" },
-    { "id": "instagram", "title": "Instagram", "url": "https://www.instagram.com", "icon": "favicon_instagram", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "x", "title": "X", "url": "https://x.com", "icon": "img_x", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" }
+  "DZ": [
+    {
+      "id": "freestreamwebsite",
+      "title": "Freestreaming",
+      "url": "https://odin-browser.github.io/freestreamingwebsites.html?dz",
+      "icon": "img_free_streaming_default_1",
+      "icon-bg-color": "#171717",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "google",
+      "title": "Google",
+      "url": "https://www.google.com",
+      "icon": "favicon_google",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "youtube",
+      "title": "YouTube",
+      "url": "https://www.youtube.com",
+      "icon": "favicon_youtube",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "tiktok",
+      "title": "TikTok",
+      "url": "https://www.tiktok.com",
+      "icon": "favicon_tiktok",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "facebook",
+      "title": "Facebook",
+      "url": "https://www.facebook.com",
+      "icon": "favicon_facebook",
+      "icon-bg-color": "#039BE5",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "instagram",
+      "title": "Instagram",
+      "url": "https://www.instagram.com",
+      "icon": "favicon_instagram",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "shahid",
+      "title": "Shahid",
+      "url": "https://shahid.mbc.net",
+      "icon": "img_shahid",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "osn",
+      "title": "OSN+",
+      "url": "https://www.osn.com",
+      "icon": "img_osn",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "netflix",
+      "title": "Netflix",
+      "url": "https://www.netflix.com",
+      "icon": "img_netflix",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    }
   ],
   "BR": [
-    { "id": "freestreamwebsite", "title": "Free streaming", "url": "https://odin-browser.github.io/freestreamingwebsites.html?br", "icon": "img_free_streaming_default_1", "icon-bg-color": "#171717", "badge": "", "launch-mode": "" },
-    { "id": "google", "title": "Google", "url": "https://www.google.com", "icon": "favicon_google", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "netflix", "title": "Netflix", "url": "https://www.netflix.com/browse", "icon": "img_netflix", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "youtube", "title": "Youtube TV", "url": "https://www.youtube.com/tv", "icon": "favicon_youtube", "icon-bg-color": "#212121", "badge": "", "launch-mode": "WEB_APP" },
-    { "id": "instagram", "title": "Instagram", "url": "https://www.instagram.com", "icon": "favicon_instagram", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "whatsapp", "title": "WhatsApp", "url": "https://www.whatsapp.com", "icon": "favicon_whatsapp", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
-    { "id": "facebook", "title": "Facebook", "url": "https://www.facebook.com", "icon": "favicon_facebook", "icon-bg-color": "#039BE5", "badge": "", "launch-mode": "" },
-    { "id": "uol", "title": "UOL", "url": "https://www.uol.com.br", "icon": "img_uol", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" }
+    {
+      "id": "freestreamwebsite",
+      "title": "Freestreaming",
+      "url": "https://odin-browser.github.io/freestreamingwebsites.html?br",
+      "icon": "img_free_streaming_default_1",
+      "icon-bg-color": "#171717",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "google",
+      "title": "Google",
+      "url": "https://www.google.com",
+      "icon": "favicon_google",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "youtube",
+      "title": "YouTube",
+      "url": "https://www.youtube.com",
+      "icon": "favicon_youtube",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "tiktok",
+      "title": "TikTok",
+      "url": "https://www.tiktok.com",
+      "icon": "favicon_tiktok",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "instagram",
+      "title": "Instagram",
+      "url": "https://www.instagram.com",
+      "icon": "favicon_instagram",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "facebook",
+      "title": "Facebook",
+      "url": "https://www.facebook.com",
+      "icon": "favicon_facebook",
+      "icon-bg-color": "#039BE5",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "globoplay",
+      "title": "Globoplay",
+      "url": "https://globoplay.globo.com",
+      "icon": "img_globoplay",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "netflix",
+      "title": "Netflix",
+      "url": "https://www.netflix.com",
+      "icon": "img_netflix",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "amazonprimevideo",
+      "title": "Amazon Prime Video",
+      "url": "https://www.primevideo.com",
+      "icon": "img_amazonprimevideo",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "disney",
+      "title": "Disney+",
+      "url": "https://www.disneyplus.com",
+      "icon": "img_disney",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    }
+  ],
+  "BD": [
+    {
+      "id": "freestreamwebsite",
+      "title": "Freestreaming",
+      "url": "https://odin-browser.github.io/freestreamingwebsites.html?bd",
+      "icon": "img_free_streaming_default_1",
+      "icon-bg-color": "#171717",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "google",
+      "title": "Google",
+      "url": "https://www.google.com",
+      "icon": "favicon_google",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "youtube",
+      "title": "YouTube",
+      "url": "https://www.youtube.com",
+      "icon": "favicon_youtube",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "tiktok",
+      "title": "TikTok",
+      "url": "https://www.tiktok.com",
+      "icon": "favicon_tiktok",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "facebook",
+      "title": "Facebook",
+      "url": "https://www.facebook.com",
+      "icon": "favicon_facebook",
+      "icon-bg-color": "#039BE5",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "toffeelive",
+      "title": "Toffee Live",
+      "url": "https://toffeelive.com",
+      "icon": "img_toffeelive",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "instagram",
+      "title": "Instagram",
+      "url": "https://www.instagram.com",
+      "icon": "favicon_instagram",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "hoichoi",
+      "title": "Hoichoi",
+      "url": "https://www.hoichoi.tv",
+      "icon": "img_hoichoi",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "bongobd",
+      "title": "Bongo BD",
+      "url": "https://bongo.live",
+      "icon": "img_bongobd",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "cricbuzz",
+      "title": "Cricbuzz",
+      "url": "https://www.cricbuzz.com",
+      "icon": "img_cricbuzz",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    }
+  ],
+  "TR": [
+    {
+      "id": "freestreamwebsite",
+      "title": "Free streaming",
+      "url": "https://odin-browser.github.io/freestreamingwebsites.html?tr",
+      "icon": "img_free_streaming_default_1",
+      "icon-bg-color": "#171717",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "google",
+      "title": "Google",
+      "url": "https://www.google.com",
+      "icon": "favicon_google",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "netflix",
+      "title": "Netflix",
+      "url": "https://www.netflix.com/browse",
+      "icon": "img_netflix",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "youtube",
+      "title": "Youtube TV",
+      "url": "https://www.youtube.com/tv",
+      "icon": "favicon_youtube",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": "WEB_APP"
+    },
+    {
+      "id": "instagram",
+      "title": "Instagram",
+      "url": "https://www.instagram.com",
+      "icon": "favicon_instagram",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "x",
+      "title": "X",
+      "url": "https://x.com",
+      "icon": "img_x",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "facebook",
+      "title": "Facebook",
+      "url": "https://www.facebook.com",
+      "icon": "favicon_facebook",
+      "icon-bg-color": "#039BE5",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "yandex",
+      "title": "Yandex",
+      "url": "https://yandex.com",
+      "icon": "img_yandex",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    }
+  ],
+  "RU": [
+    {
+      "id": "freestreamwebsite",
+      "title": "Free streaming",
+      "url": "https://odin-browser.github.io/freestreamingwebsites.html?ru",
+      "icon": "img_free_streaming_default_1",
+      "icon-bg-color": "#171717",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "google",
+      "title": "Google",
+      "url": "https://www.google.com",
+      "icon": "favicon_google",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "netflix",
+      "title": "Netflix",
+      "url": "https://www.netflix.com/browse",
+      "icon": "img_netflix",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "ok",
+      "title": "Odnoklassniki",
+      "url": "https://ok.ru",
+      "icon": "img_odnoklassniki",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "yandex",
+      "title": "Yandex",
+      "url": "https://yandex.ru",
+      "icon": "img_yandex",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "youtube",
+      "title": "Youtube TV",
+      "url": "https://www.youtube.com/tv",
+      "icon": "favicon_youtube",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": "WEB_APP"
+    },
+    {
+      "id": "vk",
+      "title": "VK",
+      "url": "https://vk.com",
+      "icon": "img_vk",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "mailru",
+      "title": "Mail.ru",
+      "url": "https://mail.ru",
+      "icon": "img_rumail",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "ozon",
+      "title": "Ozon",
+      "url": "https://www.ozon.ru",
+      "icon": "img_ozon",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    }
+  ],
+  "PH": [
+    {
+      "id": "freestreamwebsite",
+      "title": "Free streaming",
+      "url": "https://odin-browser.github.io/freestreamingwebsites.html?ph",
+      "icon": "img_free_streaming_default_1",
+      "icon-bg-color": "#171717",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "google",
+      "title": "Google",
+      "url": "https://www.google.com",
+      "icon": "favicon_google",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "netflix",
+      "title": "Netflix",
+      "url": "https://www.netflix.com/browse",
+      "icon": "img_netflix",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "youtube",
+      "title": "Youtube TV",
+      "url": "https://www.youtube.com/tv",
+      "icon": "favicon_youtube",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": "WEB_APP"
+    },
+    {
+      "id": "facebook",
+      "title": "Facebook",
+      "url": "https://www.facebook.com",
+      "icon": "favicon_facebook",
+      "icon-bg-color": "#039BE5",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "reddit",
+      "title": "Reddit",
+      "url": "https://www.reddit.com",
+      "icon": "img_reddit",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "instagram",
+      "title": "Instagram",
+      "url": "https://www.instagram.com",
+      "icon": "favicon_instagram",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "tiktok",
+      "title": "TikTok",
+      "url": "https://www.tiktok.com",
+      "icon": "favicon_tiktok",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    }
+  ],
+  "IQ": [
+    {
+      "id": "freestreamwebsite",
+      "title": "Free streaming",
+      "url": "https://odin-browser.github.io/freestreamingwebsites.html?iq",
+      "icon": "img_free_streaming_default_1",
+      "icon-bg-color": "#171717",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "google",
+      "title": "Google",
+      "url": "https://www.google.com",
+      "icon": "favicon_google",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "netflix",
+      "title": "Netflix",
+      "url": "https://www.netflix.com/browse",
+      "icon": "img_netflix",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "youtube",
+      "title": "Youtube TV",
+      "url": "https://www.youtube.com/tv",
+      "icon": "favicon_youtube",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": "WEB_APP"
+    },
+    {
+      "id": "facebook",
+      "title": "Facebook",
+      "url": "https://www.facebook.com",
+      "icon": "favicon_facebook",
+      "icon-bg-color": "#039BE5",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "reddit",
+      "title": "Reddit",
+      "url": "https://www.reddit.com",
+      "icon": "img_reddit",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "instagram",
+      "title": "Instagram",
+      "url": "https://www.instagram.com",
+      "icon": "favicon_instagram",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "tiktok",
+      "title": "TikTok",
+      "url": "https://www.tiktok.com",
+      "icon": "favicon_tiktok",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    }
+  ],
+  "UZ": [
+    {
+      "id": "freestreamwebsite",
+      "title": "Free streaming",
+      "url": "https://odin-browser.github.io/freestreamingwebsites.html?uz",
+      "icon": "img_free_streaming_default_1",
+      "icon-bg-color": "#171717",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "google",
+      "title": "Google",
+      "url": "https://www.google.com",
+      "icon": "favicon_google",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "netflix",
+      "title": "Netflix",
+      "url": "https://www.netflix.com/browse",
+      "icon": "img_netflix",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "youtube",
+      "title": "Youtube TV",
+      "url": "https://www.youtube.com/tv",
+      "icon": "favicon_youtube",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": "WEB_APP"
+    },
+    {
+      "id": "instagram",
+      "title": "Instagram",
+      "url": "https://www.instagram.com",
+      "icon": "favicon_instagram",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "yandexuz",
+      "title": "Yandex",
+      "url": "https://yandex.uz",
+      "icon": "img_yandex",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "msn",
+      "title": "MSN",
+      "url": "https://www.msn.com",
+      "icon": "img_msn",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "telegram",
+      "title": "Telegram",
+      "url": "https://web.telegram.org",
+      "icon": "favicon_telegram",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    }
+  ],
+  "PK": [
+    {
+      "id": "freestreamwebsite",
+      "title": "Free streaming",
+      "url": "https://odin-browser.github.io/freestreamingwebsites.html?pk",
+      "icon": "img_free_streaming_default_1",
+      "icon-bg-color": "#171717",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "google",
+      "title": "Google",
+      "url": "https://www.google.com",
+      "icon": "favicon_google",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "netflix",
+      "title": "Netflix",
+      "url": "https://www.netflix.com/browse",
+      "icon": "img_netflix",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "facebook",
+      "title": "Facebook",
+      "url": "https://www.facebook.com",
+      "icon": "favicon_facebook",
+      "icon-bg-color": "#039BE5",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "whatsapp",
+      "title": "WhatsApp",
+      "url": "https://www.whatsapp.com",
+      "icon": "favicon_whatsapp",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "instagram",
+      "title": "Instagram",
+      "url": "https://www.instagram.com",
+      "icon": "favicon_instagram",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "tiktok",
+      "title": "TikTok",
+      "url": "https://www.tiktok.com",
+      "icon": "favicon_tiktok",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "linkedin",
+      "title": "LinkedIn",
+      "url": "https://www.linkedin.com",
+      "icon": "img_linkedin",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    }
+  ],
+  "SA": [
+    {
+      "id": "freestreamwebsite",
+      "title": "Free streaming",
+      "url": "https://odin-browser.github.io/freestreamingwebsites.html?sa",
+      "icon": "img_free_streaming_default_1",
+      "icon-bg-color": "#171717",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "google",
+      "title": "Google",
+      "url": "https://www.google.com",
+      "icon": "favicon_google",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "netflix",
+      "title": "Netflix",
+      "url": "https://www.netflix.com/browse",
+      "icon": "img_netflix",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "youtube",
+      "title": "Youtube TV",
+      "url": "https://www.youtube.com/tv",
+      "icon": "favicon_youtube",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": "WEB_APP"
+    },
+    {
+      "id": "x",
+      "title": "X",
+      "url": "https://x.com",
+      "icon": "img_x",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "facebook",
+      "title": "Facebook",
+      "url": "https://www.facebook.com",
+      "icon": "favicon_facebook",
+      "icon-bg-color": "#039BE5",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "whatsapp",
+      "title": "WhatsApp",
+      "url": "https://www.whatsapp.com",
+      "icon": "favicon_whatsapp",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "instagram",
+      "title": "Instagram",
+      "url": "https://www.instagram.com",
+      "icon": "favicon_instagram",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    }
+  ],
+  "KE": [
+    {
+      "id": "freestreamwebsite",
+      "title": "Free streaming",
+      "url": "https://odin-browser.github.io/freestreamingwebsites.html?ke",
+      "icon": "img_free_streaming_default_1",
+      "icon-bg-color": "#171717",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "google",
+      "title": "Google",
+      "url": "https://www.google.com",
+      "icon": "favicon_google",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "netflix",
+      "title": "Netflix",
+      "url": "https://www.netflix.com/browse",
+      "icon": "img_netflix",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "youtube",
+      "title": "Youtube TV",
+      "url": "https://www.youtube.com/tv",
+      "icon": "favicon_youtube",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": "WEB_APP"
+    },
+    {
+      "id": "whatsapp",
+      "title": "WhatsApp",
+      "url": "https://www.whatsapp.com",
+      "icon": "favicon_whatsapp",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "facebook",
+      "title": "Facebook",
+      "url": "https://www.facebook.com",
+      "icon": "favicon_facebook",
+      "icon-bg-color": "#039BE5",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "instagram",
+      "title": "Instagram",
+      "url": "https://www.instagram.com",
+      "icon": "favicon_instagram",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    },
+    {
+      "id": "x",
+      "title": "X",
+      "url": "https://x.com",
+      "icon": "img_x",
+      "icon-bg-color": "#212121",
+      "badge": "",
+      "launch-mode": ""
+    }
   ]
 }
-
-
