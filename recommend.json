@@ -1,6 +1,7 @@
 {
-  "version": 1784902521,
+  "version": 1785745800,
   "global": [
+    { "id": "freestreamwebsite", "title": "Free streaming", "url": "https://browserhome.github.io/nex-browser.github.io/freestreamingwebsites.html", "icon": "img_free_streaming_default_1", "icon-bg-color": "#171717", "badge": "", "launch-mode": "" },
     { "id": "google", "title": "Google", "url": "https://www.google.com", "icon": "favicon_google", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
     { "id": "netflix", "title": "Netflix", "url": "https://www.netflix.com/browse", "icon": "img_netflix", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
     { "id": "youtube", "title": "Youtube TV", "url": "https://www.youtube.com/tv", "icon": "favicon_youtube", "icon-bg-color": "#212121", "badge": "", "launch-mode": "WEB_APP" },
@@ -10,6 +11,7 @@
     { "id": "x", "title": "X", "url": "https://x.com", "icon": "img_x", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" }
   ],
   "IN": [
+    { "id": "freestreamwebsite", "title": "Free streaming", "url": "https://browserhome.github.io/nex-browser.github.io/freestreamingwebsites.html", "icon": "img_free_streaming_default_1", "icon-bg-color": "#171717", "badge": "", "launch-mode": "" },
     { "id": "google", "title": "Google", "url": "https://www.google.com", "icon": "favicon_google", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
     { "id": "netflix", "title": "Netflix", "url": "https://www.netflix.com/browse", "icon": "img_netflix", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
     { "id": "youtube", "title": "Youtube TV", "url": "https://www.youtube.com/tv", "icon": "favicon_youtube", "icon-bg-color": "#212121", "badge": "", "launch-mode": "WEB_APP" },
@@ -19,6 +21,7 @@
     { "id": "hotstar", "title": "Hotstar", "url": "https://www.hotstar.com", "icon": "img_hotstar", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" }
   ],
   "BD": [
+    { "id": "freestreamwebsite", "title": "Free streaming", "url": "https://browserhome.github.io/nex-browser.github.io/freestreamingwebsites.html", "icon": "img_free_streaming_default_1", "icon-bg-color": "#171717", "badge": "", "launch-mode": "" },
     { "id": "google", "title": "Google", "url": "https://www.google.com", "icon": "favicon_google", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
     { "id": "netflix", "title": "Netflix", "url": "https://www.netflix.com/browse", "icon": "img_netflix", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
     { "id": "youtube", "title": "Youtube TV", "url": "https://www.youtube.com/tv", "icon": "favicon_youtube", "icon-bg-color": "#212121", "badge": "", "launch-mode": "WEB_APP" },
@@ -28,6 +31,7 @@
     { "id": "x", "title": "X", "url": "https://x.com", "icon": "img_x", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" }
   ],
   "TR": [
+    { "id": "freestreamwebsite", "title": "Free streaming", "url": "https://browserhome.github.io/nex-browser.github.io/freestreamingwebsites.html", "icon": "img_free_streaming_default_1", "icon-bg-color": "#171717", "badge": "", "launch-mode": "" },
     { "id": "google", "title": "Google", "url": "https://www.google.com", "icon": "favicon_google", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
     { "id": "netflix", "title": "Netflix", "url": "https://www.netflix.com/browse", "icon": "img_netflix", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
     { "id": "youtube", "title": "Youtube TV", "url": "https://www.youtube.com/tv", "icon": "favicon_youtube", "icon-bg-color": "#212121", "badge": "", "launch-mode": "WEB_APP" },
@@ -37,6 +41,7 @@
     { "id": "yandex", "title": "Yandex", "url": "https://yandex.com", "icon": "img_yandex", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" }
   ],
   "RU": [
+    { "id": "freestreamwebsite", "title": "Free streaming", "url": "https://browserhome.github.io/nex-browser.github.io/freestreamingwebsites.html", "icon": "img_free_streaming_default_1", "icon-bg-color": "#171717", "badge": "", "launch-mode": "" },
     { "id": "google", "title": "Google", "url": "https://www.google.com", "icon": "favicon_google", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
     { "id": "netflix", "title": "Netflix", "url": "https://www.netflix.com/browse", "icon": "img_netflix", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
     { "id": "ok", "title": "Odnoklassniki", "url": "https://ok.ru", "icon": "img_odnoklassniki", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
@@ -47,6 +52,7 @@
     { "id": "ozon", "title": "Ozon", "url": "https://www.ozon.ru", "icon": "img_ozon", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" }
   ],
   "PH": [
+    { "id": "freestreamwebsite", "title": "Free streaming", "url": "https://browserhome.github.io/nex-browser.github.io/freestreamingwebsites.html", "icon": "img_free_streaming_default_1", "icon-bg-color": "#171717", "badge": "", "launch-mode": "" },
     { "id": "google", "title": "Google", "url": "https://www.google.com", "icon": "favicon_google", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
     { "id": "netflix", "title": "Netflix", "url": "https://www.netflix.com/browse", "icon": "img_netflix", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
     { "id": "youtube", "title": "Youtube TV", "url": "https://www.youtube.com/tv", "icon": "favicon_youtube", "icon-bg-color": "#212121", "badge": "", "launch-mode": "WEB_APP" },
@@ -56,6 +62,7 @@
     { "id": "tiktok", "title": "TikTok", "url": "https://www.tiktok.com", "icon": "favicon_tiktok", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" }
   ],
   "IQ": [
+    { "id": "freestreamwebsite", "title": "Free streaming", "url": "https://browserhome.github.io/nex-browser.github.io/freestreamingwebsites.html", "icon": "img_free_streaming_default_1", "icon-bg-color": "#171717", "badge": "", "launch-mode": "" },
     { "id": "google", "title": "Google", "url": "https://www.google.com", "icon": "favicon_google", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
     { "id": "netflix", "title": "Netflix", "url": "https://www.netflix.com/browse", "icon": "img_netflix", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
     { "id": "youtube", "title": "Youtube TV", "url": "https://www.youtube.com/tv", "icon": "favicon_youtube", "icon-bg-color": "#212121", "badge": "", "launch-mode": "WEB_APP" },
@@ -65,6 +72,7 @@
     { "id": "tiktok", "title": "TikTok", "url": "https://www.tiktok.com", "icon": "favicon_tiktok", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" }
   ],
   "UZ": [
+    { "id": "freestreamwebsite", "title": "Free streaming", "url": "https://browserhome.github.io/nex-browser.github.io/freestreamingwebsites.html", "icon": "img_free_streaming_default_1", "icon-bg-color": "#171717", "badge": "", "launch-mode": "" },
     { "id": "google", "title": "Google", "url": "https://www.google.com", "icon": "favicon_google", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
     { "id": "netflix", "title": "Netflix", "url": "https://www.netflix.com/browse", "icon": "img_netflix", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
     { "id": "youtube", "title": "Youtube TV", "url": "https://www.youtube.com/tv", "icon": "favicon_youtube", "icon-bg-color": "#212121", "badge": "", "launch-mode": "WEB_APP" },
@@ -74,6 +82,7 @@
     { "id": "telegram", "title": "Telegram", "url": "https://web.telegram.org", "icon": "favicon_telegram", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" }
   ],
   "PK": [
+    { "id": "freestreamwebsite", "title": "Free streaming", "url": "https://browserhome.github.io/nex-browser.github.io/freestreamingwebsites.html", "icon": "img_free_streaming_default_1", "icon-bg-color": "#171717", "badge": "", "launch-mode": "" },
     { "id": "google", "title": "Google", "url": "https://www.google.com", "icon": "favicon_google", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
     { "id": "netflix", "title": "Netflix", "url": "https://www.netflix.com/browse", "icon": "img_netflix", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
     { "id": "facebook", "title": "Facebook", "url": "https://www.facebook.com", "icon": "favicon_facebook", "icon-bg-color": "#039BE5", "badge": "", "launch-mode": "" },
@@ -83,6 +92,7 @@
     { "id": "linkedin", "title": "LinkedIn", "url": "https://www.linkedin.com", "icon": "img_linkedin", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" }
   ],
   "SA": [
+    { "id": "freestreamwebsite", "title": "Free streaming", "url": "https://browserhome.github.io/nex-browser.github.io/freestreamingwebsites.html", "icon": "img_free_streaming_default_1", "icon-bg-color": "#171717", "badge": "", "launch-mode": "" },
     { "id": "google", "title": "Google", "url": "https://www.google.com", "icon": "favicon_google", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
     { "id": "netflix", "title": "Netflix", "url": "https://www.netflix.com/browse", "icon": "img_netflix", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
     { "id": "youtube", "title": "Youtube TV", "url": "https://www.youtube.com/tv", "icon": "favicon_youtube", "icon-bg-color": "#212121", "badge": "", "launch-mode": "WEB_APP" },
@@ -92,6 +102,7 @@
     { "id": "instagram", "title": "Instagram", "url": "https://www.instagram.com", "icon": "favicon_instagram", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" }
   ],
   "KE": [
+    { "id": "freestreamwebsite", "title": "Free streaming", "url": "https://browserhome.github.io/nex-browser.github.io/freestreamingwebsites.html", "icon": "img_free_streaming_default_1", "icon-bg-color": "#171717", "badge": "", "launch-mode": "" },
     { "id": "google", "title": "Google", "url": "https://www.google.com", "icon": "favicon_google", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
     { "id": "netflix", "title": "Netflix", "url": "https://www.netflix.com/browse", "icon": "img_netflix", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
     { "id": "youtube", "title": "Youtube TV", "url": "https://www.youtube.com/tv", "icon": "favicon_youtube", "icon-bg-color": "#212121", "badge": "", "launch-mode": "WEB_APP" },
@@ -101,6 +112,7 @@
     { "id": "x", "title": "X", "url": "https://x.com", "icon": "img_x", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" }
   ],
   "BR": [
+    { "id": "freestreamwebsite", "title": "Free streaming", "url": "https://browserhome.github.io/nex-browser.github.io/freestreamingwebsites.html", "icon": "img_free_streaming_default_1", "icon-bg-color": "#171717", "badge": "", "launch-mode": "" },
     { "id": "google", "title": "Google", "url": "https://www.google.com", "icon": "favicon_google", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
     { "id": "netflix", "title": "Netflix", "url": "https://www.netflix.com/browse", "icon": "img_netflix", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" },
     { "id": "youtube", "title": "Youtube TV", "url": "https://www.youtube.com/tv", "icon": "favicon_youtube", "icon-bg-color": "#212121", "badge": "", "launch-mode": "WEB_APP" },
@@ -110,4 +122,3 @@
     { "id": "uol", "title": "UOL", "url": "https://www.uol.com.br", "icon": "img_uol", "icon-bg-color": "#212121", "badge": "", "launch-mode": "" }
   ]
 }
-
