@@ -7,12 +7,8 @@
     <meta name="keywords" content="Free Streaming Websites all around the world">
     <meta name="description" content="Global Free Streaming Websites Catalog">
     <title>Free Streaming Websites Catalog</title>
-
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
     <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css" rel="stylesheet">
-
     <style>
         :root {
             color-scheme: dark;
@@ -24,416 +20,114 @@
             --sidebar-bg: #242526;
             --hover-bg: #3a3c3d;
         }
-
-        * {
-            box-sizing: border-box;
-        }
-
+        * { box-sizing: border-box; }
         html, body {
-            /* Default (legacy App): body is the document-level scroller so that
-             * the virtual cursor — which dispatches wheel events to window/body —
-             * can scroll the right pane. The sidebar (position:fixed; overflow-y:auto)
-             * remains an independent scroll container so wheel-over-sidebar works. */
             overflow-x: hidden;
             background-color: var(--bg-color);
             color: var(--text-color);
             forced-color-adjust: none;
             -webkit-tap-highlight-color: transparent;
         }
-
-        /* Aware mode (new App, added by JS once NaviSwitch.getCapabilities advertises
-         * freestreaming_pagenav_v1): collapse body into a fixed viewport and let
-         * .main-content scroll independently. Container scrollTop avoids the whole-page
-         * layout cost that window scroll incurs on Android TV WebView, which is what
-         * produced the visible drag on fast D-pad presses. cvte uses the same model. */
-        html.tv-pagenav,
-        html.tv-pagenav body {
-            height: 100%;
-            overflow: hidden;
-        }
-        html.tv-pagenav .page-container {
-            height: 100vh;
-            overflow: hidden;
-        }
-        html.tv-pagenav .main-content {
-            height: 100vh;
-            overflow-y: auto;
-        }
-
-        /* Pin colors in the structural shell so Android TV WebView color-management
-         * doesn't shift our pure-white outline (cvte parity). */
-        .page-container,
-        .sidebar,
-        .sidebar-header,
-        .sidebar-menu,
-        .sidebar-menu li,
-        .sidebar-menu li a,
-        .main-content,
-        .section-header,
-        .site-card,
-        .site-card a,
-        .footer {
+        html.tv-pagenav, html.tv-pagenav body { height: 100%; overflow: hidden; }
+        html.tv-pagenav .page-container { height: 100vh; overflow: hidden; }
+        html.tv-pagenav .main-content { height: 100vh; overflow-y: auto; }
+        .page-container, .sidebar, .sidebar-header, .sidebar-menu, .sidebar-menu li,
+        .sidebar-menu li a, .main-content, .section-header, .site-card, .site-card a, .footer {
             forced-color-adjust: none;
         }
-
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            background-color: var(--bg-color); color: var(--text-color);
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
+            margin: 0; padding: 0; min-height: 100vh;
         }
-
-        .page-container {
-            display: flex;
-            min-height: 100vh;
-            /* 确保 flex 容器本身不会撑出视口 */
-            width: 100%;
-            max-width: 100vw;
-        }
-
-        /* Sidebar Styles */
+        .page-container { display: flex; min-height: 100vh; width: 100%; max-width: 100vw; }
         .sidebar {
-            width: 260px;
-            background-color: var(--sidebar-bg);
-            position: fixed;
-            left: 0;
-            top: 0;
-            height: 100vh;
-            overflow-y: auto;
-            border-right: 1px solid #333;
-            z-index: 1000;
-            transition: transform 0.3s ease;
+            width: 260px; background-color: var(--sidebar-bg); position: fixed;
+            left: 0; top: 0; height: 100vh; overflow-y: auto;
+            border-right: 1px solid #333; z-index: 1000; transition: transform 0.3s ease;
         }
-
-        .sidebar-header {
-            padding: 20px;
-            border-bottom: 1px solid #333;
-            text-align: center;
-        }
-
-        .sidebar-header h2 {
-            margin: 0;
-            font-size: 1.2rem;
-            color: var(--accent-color);
-        }
-
-        .sidebar-menu {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
+        .sidebar-header { padding: 20px; border-bottom: 1px solid #333; text-align: center; }
+        .sidebar-header h2 { margin: 0; font-size: 1.2rem; color: var(--accent-color); }
+        .sidebar-menu { list-style: none; padding: 0; margin: 0; }
         .sidebar-menu li a {
-            display: block;
-            padding: 12px 20px;
-            color: var(--text-color);
-            text-decoration: none;
+            display: block; padding: 12px 20px; color: var(--text-color); text-decoration: none;
             border-left: 3px solid transparent;
-            /* Narrow transition: avoid Android TV WebView staging 5+ property
-             * tweens (outline/border/box-shadow/background/color) on every
-             * focus change — which produced the visible drag-on-fast-press. */
             transition: background-color 0.08s linear, color 0.08s linear;
             will-change: background-color, color;
         }
-
-        .sidebar-menu li a:hover,
-        .sidebar-menu li a.active {
-            background-color: var(--hover-bg);
-            border-left-color: var(--accent-color);
-            color: var(--accent-color);
+        .sidebar-menu li a:hover, .sidebar-menu li a.active {
+            background-color: var(--hover-bg); border-left-color: var(--accent-color); color: var(--accent-color);
         }
-
-        .sidebar-menu li a i {
-            margin-right: 10px;
-            width: 20px;
-            text-align: center;
-        }
-
-        /* Main Content */
+        .sidebar-menu li a i { margin-right: 10px; width: 20px; text-align: center; }
         .main-content {
-            margin-left: 260px;
-            /* 关键：flex:1 + min-width:0 防止内容撑破容器 */
-            flex: 1 1 0;
-            min-width: 0;
-            /* 用 calc 明确宽度，不超出视口剩余区域 */
-            width: calc(100% - 260px);
-            max-width: calc(100vw - 260px);
-            padding: 20px 30px;
-            min-height: 100vh;
-            /* 不再设 overflow-y:auto —— main-content 跟随 body 自然滚动，
-             * legacy App 的虚拟光标 wheel→body 才能驱动右侧内容。
-             * aware 模式下 scrollIntoViewCustom 自动走 window 滚动分支。 */
-            overflow-x: hidden;
+            margin-left: 260px; flex: 1 1 0; min-width: 0;
+            width: calc(100% - 260px); max-width: calc(100vw - 260px);
+            padding: 20px 30px; min-height: 100vh; overflow-x: hidden;
         }
-
-        /* Section Header */
         .section-header {
-            display: flex;
-            align-items: center;
-            margin: 30px 0 15px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #444;
+            display: flex; align-items: center; margin: 30px 0 15px;
+            padding-bottom: 10px; border-bottom: 1px solid #444;
         }
-
-        .section-header i {
-            margin-right: 10px;
-            color: var(--accent-color);
-        }
-
-        .section-header h4 {
-            margin: 0;
-            font-size: 1.1rem;
-            color: var(--text-muted);
-        }
-
-        /* Card Styles */
+        .section-header i { margin-right: 10px; color: var(--accent-color); }
+        .section-header h4 { margin: 0; font-size: 1.1rem; color: var(--text-muted); }
         .site-card {
-            background-color: var(--card-bg);
-            border-radius: 8px;
-            margin-bottom: 15px;
+            background-color: var(--card-bg); border-radius: 8px; margin-bottom: 15px;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
-
-        .site-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-        }
-
+        .site-card:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); }
         .site-card a {
-            display: flex;
-            align-items: center;
-            padding: 15px;
-            text-decoration: none;
-            color: var(--text-color);
-            border-left: 3px solid transparent;
-            border-radius: 8px;
-            transition: background-color 0.08s linear, color 0.08s linear;
-            will-change: background-color, color;
+            display: flex; align-items: center; padding: 15px; text-decoration: none;
+            color: var(--text-color); border-left: 3px solid transparent; border-radius: 8px;
+            transition: background-color 0.08s linear, color 0.08s linear; will-change: background-color, color;
         }
-
         .site-card .icon {
-            width: 40px;
-            height: 40px;
-            margin-right: 15px;
-            border-radius: 50%;
-            background-color: #333;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            flex-shrink: 0;
+            width: 40px; height: 40px; margin-right: 15px; border-radius: 50%;
+            background-color: #333; display: flex; align-items: center; justify-content: center;
+            overflow: hidden; flex-shrink: 0;
         }
-
-        .site-card .icon img {
-            width: 24px;
-            height: 24px;
-            object-fit: contain;
+        .site-card .icon img { width: 24px; height: 24px; object-fit: contain; }
+        .site-card .icon .letter-avatar {
+            width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;
+            font-weight: 700; font-size: 1.1rem; color: #fff; border-radius: 50%;
         }
-
-        .site-card .info {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .site-card .title {
-            font-weight: 600;
-            font-size: 0.95rem;
-            margin-bottom: 3px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        .site-card .desc {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        /* Footer */
-        .footer {
-            margin-top: 50px;
-            padding: 20px;
-            text-align: center;
-            border-top: 1px solid #333;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-        }
-
-        /* Mobile Responsive */
+        .site-card .info { flex: 1; min-width: 0; }
+        .site-card .title { font-weight: 600; font-size: 0.95rem; margin-bottom: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .site-card .desc { font-size: 0.8rem; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .footer { margin-top: 50px; padding: 20px; text-align: center; border-top: 1px solid #333; color: var(--text-muted); font-size: 0.85rem; }
         @media (max-width: 768px) {
-            .sidebar {
-                transform: translateX(-100%);
-            }
-
-            .sidebar.active {
-                transform: translateX(0);
-            }
-
-            .main-content {
-                margin-left: 0;
-                width: 100%;
-                max-width: 100vw;
-                /* 为顶部固定按钮留出空间，防止内容被遮挡 */
-                padding: 60px 15px 15px;
-            }
-
-            .mobile-toggle {
-                display: block;
-            }
+            .sidebar { transform: translateX(-100%); }
+            .sidebar.active { transform: translateX(0); }
+            .main-content { margin-left: 0; width: 100%; max-width: 100vw; padding: 60px 15px 15px; }
+            .mobile-toggle { display: block; }
         }
-
-        .mobile-toggle {
-            display: none;
-            position: fixed;
-            top: 10px;
-            left: 10px;
-            z-index: 1001;
-            background: var(--card-bg);
-            border: none;
-            color: var(--text-color);
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        @media (max-width: 768px) {
-            .mobile-toggle {
-                display: block;
-            }
-        }
-
-        /* Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--bg-color);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #444;
-            border-radius: 4px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #555;
-        }
-
-        /* TV Remote Navigation Focus Styles — inset to survive parent overflow:hidden */
-        .tv-focused {
-            outline: 3px solid #fff !important;
-            outline-offset: -3px;
-            box-shadow: inset 0 0 0 2px #fff;
-            z-index: 10;
-            position: relative;
-            transform: none;
-            transition: none !important;
-            forced-color-adjust: none;
-        }
-
-        .sidebar-menu li a.tv-focused,
-        .sidebar-menu li a.tv-focused:hover,
-        .sidebar-menu li a.tv-focused:focus,
-        .sidebar-menu li a.tv-focused:active {
-            background-color: var(--hover-bg) !important;
-            border-left-color: #fff !important;
-            color: #fff !important;
-            box-shadow: inset 0 0 0 2px #fff;
-        }
-
-        .site-card a.tv-focused,
-        .site-card a.tv-focused:hover,
-        .site-card a.tv-focused:focus,
-        .site-card a.tv-focused:active {
-            background-color: var(--hover-bg) !important;
-            border-left-color: #fff !important;
-            color: #fff !important;
-        }
-
-        .site-card a.tv-focused .desc,
-        .site-card a.tv-focused .title,
-        .sidebar-menu li a.tv-focused i,
-        .sidebar-menu li a.tv-focused span {
-            color: #fff !important;
-        }
-
-        /* TV nav 激活后抑制过渡 / hover transform，避免长按方向键时多帧补间叠加 */
-        body.tv-nav-active .sidebar-menu li a,
-        body.tv-nav-active .site-card,
-        body.tv-nav-active .site-card a,
-        body.tv-nav-active .tv-focused {
-            transition: none !important;
-            animation: none !important;
-            will-change: auto !important;
-        }
-
-        body.tv-nav-active .site-card,
-        body.tv-nav-active .site-card:hover,
-        body.tv-nav-active .site-card:focus-within {
-            transform: none !important;
-            box-shadow: none !important;
-        }
-
-        body.tv-nav-active .site-card a:not(.tv-focused),
-        body.tv-nav-active .sidebar-menu li a:not(.tv-focused) {
-            box-shadow: none !important;
-        }
-
-        /* Hide focus outline for mouse users */
-        :focus:not(.tv-focused) {
-            outline: none;
-        }
+        .mobile-toggle { display: none; position: fixed; top: 10px; left: 10px; z-index: 1001; background: var(--card-bg); border: none; color: var(--text-color); padding: 10px 15px; border-radius: 5px; cursor: pointer; }
+        @media (max-width: 768px) { .mobile-toggle { display: block; } }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-color); }
+        ::-webkit-scrollbar-thumb { background: #444; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #555; }
+        .tv-focused { outline: 3px solid #fff !important; outline-offset: -3px; box-shadow: inset 0 0 0 2px #fff; z-index: 10; position: relative; transform: none; transition: none !important; forced-color-adjust: none; }
+        .sidebar-menu li a.tv-focused, .sidebar-menu li a.tv-focused:hover, .sidebar-menu li a.tv-focused:focus, .sidebar-menu li a.tv-focused:active { background-color: var(--hover-bg) !important; border-left-color: #fff !important; color: #fff !important; box-shadow: inset 0 0 0 2px #fff; }
+        .site-card a.tv-focused, .site-card a.tv-focused:hover, .site-card a.tv-focused:focus, .site-card a.tv-focused:active { background-color: var(--hover-bg) !important; border-left-color: #fff !important; color: #fff !important; }
+        .site-card a.tv-focused .desc, .site-card a.tv-focused .title, .sidebar-menu li a.tv-focused i, .sidebar-menu li a.tv-focused span { color: #fff !important; }
+        body.tv-nav-active .sidebar-menu li a, body.tv-nav-active .site-card, body.tv-nav-active .site-card a, body.tv-nav-active .tv-focused { transition: none !important; animation: none !important; will-change: auto !important; }
+        body.tv-nav-active .site-card, body.tv-nav-active .site-card:hover, body.tv-nav-active .site-card:focus-within { transform: none !important; box-shadow: none !important; }
+        body.tv-nav-active .site-card a:not(.tv-focused), body.tv-nav-active .sidebar-menu li a:not(.tv-focused) { box-shadow: none !important; }
+        :focus:not(.tv-focused) { outline: none; }
     </style>
 </head>
 <body>
-    <button class="mobile-toggle" onclick="toggleSidebar()">
-        <i class="fas fa-bars"></i>
-    </button>
-
+    <button class="mobile-toggle" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
     <div class="page-container">
-        <!-- Sidebar -->
         <nav class="sidebar" id="sidebar">
-            <div class="sidebar-header">
-                <h2><i class="fas fa-film"></i> Streaming Sites</h2>
-            </div>
-            <ul class="sidebar-menu" id="sidebar-menu">
-                <!-- Menu items will be generated dynamically -->
-            </ul>
+            <div class="sidebar-header"><h2><i class="fas fa-film"></i> Streaming Sites</h2></div>
+            <ul class="sidebar-menu" id="sidebar-menu"></ul>
         </nav>
-
-        <!-- Main Content -->
-        <main class="main-content" id="main-content">
-            <!-- Content sections will be generated dynamically -->
-        </main>
+        <main class="main-content" id="main-content"></main>
     </div>
-
-    <footer class="footer">
-        <p>Free Streaming Websites Catalog</p>
-    </footer>
-
-    <!-- Bootstrap JS -->
+    <footer class="footer"><p>Free Streaming Websites Catalog</p></footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
     <script>
-        // ============================================================
-        // Feature detection: does this Android App build advertise the
-        // 'freestreaming_pagenav_v1' capability via NaviSwitch.getCapabilities()?
-        //
-        // Only the updated App build exposes this method. Older App builds
-        // return undefined here, so __pageNavAware stays false and every
-        // new behavior in this script falls back to the pre-existing
-        // mouse/virtual-cursor experience — guaranteeing zero regression
-        // for users who have not (or cannot) update the App.
-        //
-        // Token list is intentionally substring-matched so future builds can
-        // advertise multiple capabilities (e.g. "freestreaming_pagenav_v1,toolbar_handoff_v2").
-        // ============================================================
         var __pageNavAware = false;
         function isAppPageNavAware() {
             try {
@@ -444,639 +138,609 @@
             } catch (e) { return false; }
         }
 
-        // Site data extracted from original file
-                const siteData = {
+        // ============================================================
+        // siteData — reordered by user device distribution per country
+        // + missing high-traffic links added (cuevana3i.bid, cinemana, etc.)
+        // ============================================================
+        const siteData = {
             "Sport": [
                 { name: `Fútbol Libre TV PE`, url: `https://futbollibretv.net.pe/`, desc: `` },
-                { name: `808fubo28`, url: `https://808fubo28.com/`, desc: `` },
                 { name: `Fútbol Libre TV SE`, url: `https://futbollibretv.se/`, desc: `` },
+                { name: `808fubo28`, url: `https://808fubo28.com/`, desc: `` },
+                { name: `Fútbol Libre MX`, url: `https://futbol-libres.mx/`, desc: `` },
+                { name: `Pelota Libre TV`, url: `https://pelotaalibre.st/inicio.php`, desc: `` },
+                { name: `Pirlo TV`, url: `https://pirlotv.la/`, desc: `` },
+                { name: `Camel Live – Free Football Live Streaming`, url: `https://www.camel1.tv/`, desc: `` },
+                { name: `StreamsEast MX`, url: `https://streamseast.mx/`, desc: `` },
+                { name: `Sporticos`, url: `https://sporticos.com/es/futbol-libre-tv`, desc: `` },
                 { name: `ESPN`, url: `https://www.espn.com/`, desc: `` },
-                { name: `Camel Live – Free Football Live Streaming, Score & Fixtures`, url: `https://www.camel1.tv/`, desc: `` },
                 { name: `FOX Sports – Watch FS1 Live`, url: `https://www.foxsports.com/live/fs1`, desc: `` }
             ],
             "Global": [
                 { name: `5movierulz`, url: `https://5movierulz.vote/`, desc: `` },
-                { name: `123Movies Free`, url: `https://ww8.123moviesfree.net/`, desc: `` },
-                { name: `Flixtor`, url: `https://flixtor.to/`, desc: `` },
                 { name: `LookMovie2`, url: `https://lookmovie2.to/`, desc: `` },
-                { name: `TamilDhool`, url: `https://tamildhool.tech/`, desc: `` },
-                { name: `Cinemana`, url: `https://cinemana.shabakaty.com/`, desc: `` },
+                { name: `Flixtor`, url: `https://flixtor.to/`, desc: `` },
+                { name: `123Movies Free`, url: `https://ww8.123moviesfree.net/`, desc: `` },
+                { name: `Cuevana 3i`, url: `https://cuevana3i.you/`, desc: `` },
+                { name: `123 HDX`, url: `https://123-hdx.com/`, desc: `` },
                 { name: `TamilGun`, url: `https://tamilgun.now/`, desc: `` },
                 { name: `MovieBox`, url: `https://moviebox.ph/`, desc: `` },
-                { name: `123 HDX`, url: `https://123-hdx.com/`, desc: `` },
+                { name: `Flixtor VIP`, url: `https://flixtor.vip/home`, desc: `` },
+                { name: `KissKH`, url: `https://kisskh.do/`, desc: `` },
+                { name: `TamilDhool`, url: `https://tamildhool.tech/`, desc: `` },
                 { name: `Rezka`, url: `https://rezka.ag/`, desc: `` },
+                { name: `Cinemana`, url: `https://cinemana.shabakaty.com/`, desc: `` },
+                { name: `TheMovieBox`, url: `https://themoviebox.xyz/`, desc: `` },
+                { name: `FMovies`, url: `https://fmoviess.org/`, desc: `` },
+                { name: `FMHY Movies / TV / Anime`, url: `https://fmhy.net/videopiracyguide`, desc: `` },
+                { name: `Wow4U`, url: `https://wow4u.pw/`, desc: `` },
+                { name: `FFMovies`, url: `https://ffmovies.tv/`, desc: `` },
                 { name: `9anime.me.uk`, url: `https://9anime.me.uk`, desc: `` },
-                { name: `Watch movies & Series online free in HD`, url: `https://en.primewire-official.live/home`, desc: `` },
-                { name: `Tubi TV`, url: `https://tubitv.com/`, desc: `Tubi: Watch Free Movies and TV Shows Online` },
-                { name: `LK21 Official`, url: `https://tv.lk21official.dev/`, desc: `` },
-                { name: `RTMKlik`, url: `https://rtmklik.rtm.gov.my/`, desc: `` },
+                { name: `Primewire`, url: `https://en.primewire-official.live/home`, desc: `` },
+                { name: `StreamEX`, url: `https://streamex.sh/`, desc: `` },
                 { name: `gomovies.sx`, url: `https://gomovies.sx/movie`, desc: `` },
-                { name: `moviesjoy.to`, url: `https://moviesjoy.to`, desc: `` },
-                { name: `goojara2ch.city`, url: `https://goojara2ch.city/`, desc: `goojara2ch.city` },
-                { name: `FMovies | Watch Movies Online Free on FMovies.to`, url: `https://fmoviesz.to/home`, desc: `Fmovies.to - The best place to watch movies online for free with HD quality. No ADS! No registration required!` },
-                { name: `Free Live Sports`, url: `https://watch.freelivesports.tv/pages/discover/`, desc: `` },
-                { name: `Global Live HD TV`, url: `https://www.livehdtv.com/`, desc: `` },
-                { name: `NetMirror – Watch Movies and Series`, url: `https://netfree2.cc/home`, desc: `` },
-                { name: `OnHockey.TV | Live hockey streams (NHL, KHL, Liiga, SHL, DEL, Extraliga, World Championship, Olympic Games)`, url: `https://onhockey.tv/`, desc: `` },
-                { name: `AndyDay | Free Movies & TV Series Online`, url: `https://andyday.tube/home`, desc: `` },
-                { name: `WatchSeries.pe`, url: `https://watchseries.pe/home`, desc: `` },
-                { name: `HiMovies.to | Watch Movies Online, Stream Tv Shows online Free`, url: `https://himovies.sx/home`, desc: `Watch Series Online and Stream movies online for free, update daily, HD quality` },
-                { name: `Reddit Soccer Streams, Watch Football Games Live for Free`, url: `https://reddit.sportsbuff.stream/`, desc: `` },
+                { name: `123MoviesSite`, url: `https://123moviessite.online/`, desc: `` },
                 { name: `movies7`, url: `https://movies7.fun/`, desc: `` },
-                { name: `hdtoday.tv`, url: `https://hdtoday.tv/home`, desc: `Watch Free Movies and Series online - Very fast streaming - No Registration Required - Click NOW` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
+                { name: `HiMovies.to`, url: `https://himovies.sx/home`, desc: `` },
+                { name: `OnHockey.TV`, url: `https://onhockey.tv/`, desc: `` },
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
                 { name: `Disney+`, url: `https://www.disneyplus.com`, desc: `` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` },
-                { name: `Hulu | Stream TV and Movies Live and Online`, url: `https://www.hulu.com`, desc: `` }
+                { name: `Tubi TV`, url: `https://tubitv.com/`, desc: `Tubi: Watch Free Movies and TV Shows Online` },
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` },
+                { name: `Hulu`, url: `https://www.hulu.com`, desc: `` }
             ],
             "Streaming Site Guide": [
+                { name: `Flixtor`, url: `https://flixtor.li/home`, desc: `` },
                 { name: `FMHY Movies / TV / Anime`, url: `https://fmhy.net/videopiracyguide`, desc: `Stream Videos, Download Videos, Torrent Videos` },
-                { name: `Streaming Sites – Best Free TV & Movie Streaming Sites List`, url: `https://streamingsites.com/`, desc: `` },
-                { name: `Links For Free`, url: `https://linksforfree.com/`, desc: `LinksForFree` }
+                { name: `Links For Free`, url: `https://linksforfree.com/`, desc: `` }
             ],
             "English": [
-                { name: `123Movies Free`, url: `https://ww8.123moviesfree.net/`, desc: `` },
-                { name: `Flixtor`, url: `https://flixtor.to/`, desc: `` },
                 { name: `Look Movie`, url: `https://www.lookmovie2.to/`, desc: `` },
-                { name: `Flixtor.li`, url: `https://flixtor.li/`, desc: `` },
+                { name: `Flixtor`, url: `https://flixtor.to/`, desc: `` },
+                { name: `123Movies Free`, url: `https://ww8.123moviesfree.net/`, desc: `` },
                 { name: `MovieBox`, url: `https://moviebox.ph/`, desc: `` },
-                { name: `Flixtor.vip`, url: `https://flixtor.vip/`, desc: `` },
                 { name: `FMovies`, url: `https://fmoviess.org/`, desc: `` },
                 { name: `FMHY`, url: `https://fmhy.net/`, desc: `` },
-                { name: `goojara2ch.city`, url: `https://goojara2ch.city/`, desc: `goojara2ch.city` },
-                { name: `NetMirror – Watch Movies and Series`, url: `https://netfree2.cc/home`, desc: `` },
-                { name: `OnHockey.TV | Live hockey streams (NHL, KHL, Liiga, SHL, DEL, Extraliga, World Championship, Olympic Games)`, url: `https://onhockey.tv/`, desc: `` },
-                { name: `AndyDay | Free Movies & TV Series Online`, url: `https://andyday.tube/home`, desc: `` },
-                { name: `WatchSeries.pe`, url: `https://watchseries.pe/home`, desc: `` },
-                { name: `HiMovies.to | Watch Movies Online, Stream Tv Shows online Free`, url: `https://himovies.sx/home`, desc: `Watch Series Online and Stream movies online for free, update daily, HD quality` },
-                { name: `1Stream – Watch MMA, NBA, NFL HD Streams Online For Free`, url: `https://1stream.vip/`, desc: `` },
-                { name: `NBA Streams | Reddit NBA Streams | NBABITE`, url: `https://official.nbabite.com/home2`, desc: `` },
+                { name: `SerieDays`, url: `https://www.seriedays.com/`, desc: `` },
+                { name: `MagSTV`, url: `https://magstvhd.com/`, desc: `` },
+                { name: `LaMovie`, url: `https://lamovie.org/`, desc: `` },
+                { name: `OnHockey.TV`, url: `https://onhockey.tv/`, desc: `` },
+                { name: `HiMovies.to`, url: `https://himovies.sx/home`, desc: `` },
+                { name: `1Stream`, url: `https://1stream.vip/`, desc: `` },
                 { name: `movies7`, url: `https://movies7.fun/`, desc: `` },
-                { name: `Plex – Watch Free Online`, url: `https://watch.plex.tv/movies-and-shows/list/trending`, desc: `` },
-                { name: `Angel Studios`, url: `https://www.angel.com/watch`, desc: `` },
-                { name: `Crackle`, url: `https://www.crackle.com/`, desc: `` },
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
+                { name: `Plex`, url: `https://watch.plex.tv/movies-and-shows/list/trending`, desc: `` },
                 { name: `Pluto TV`, url: `https://pluto.tv/`, desc: `` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` }
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` }
             ],
             "Spanish-Español": [
-                { name: `Fútbol Libre MX`, url: `https://futbollibre.mx/`, desc: `` },
+                { name: `Cuevana 3i`, url: `https://cuevana3i.you/`, desc: `` },
+                { name: `Cineby`, url: `https://www.cineby.at/`, desc: `` },
                 { name: `Fútbol Libre TV SE`, url: `https://futbollibretv.se/`, desc: `` },
-                { name: `Maxcine® – Ver películas Online en casa`, url: `https://www1.maxcine.net/`, desc: `` },
-                { name: `nada.zdsports.us`, url: `https://nada.zdsports.us/`, desc: `` },
-                { name: `TyC Sports Play – Todo los deportes en Vivo.`, url: `https://play.tycsports.com/`, desc: `` },
-                { name: `PELOTA LIBRE TV | Futbol En Vivo – Canales Deportivos`, url: `https://www.pelotalibretv.me/`, desc: `` },
-                { name: `REPELISPLUS – Películas y Series Online en Repelis`, url: `https://repelisplus.lat/`, desc: `` },
-                { name: `favicon PELISFLIX HD 【❤️】 – Ver Películas y Series Online ✔️`, url: `https://pelisflix1.uno/`, desc: `` },
-                { name: `Ver Películas Online Gratis Completas en Español y Latino HD`, url: `https://verpeliculasultra.com/`, desc: `` },
-                { name: `VER PELICULAS GRATIS ONLINE | ESTRENOS 2014-2025 | PEELINK`, url: `https://www.peelink2.com/`, desc: `` },
-                { name: `Cuevana 3`, url: `https://cuevana.biz/inicio`, desc: `` },
-                { name: `Pelota Libre TV – Fútbol en Vivo Gratis | Canales en HD`, url: `https://pelotalibretv.com/`, desc: `` },
-                { name: `Fútbol Libre – Ver Partidos de Fútbol y Canales de Futbol en Vivo Gratis`, url: `https://librefutbol.su/`, desc: `` },
-                { name: `Pelota Libre`, url: `https://pelota-libre.org/`, desc: `` },
-                { name: `Pelota Libre`, url: `https://pelotaalibre.st/`, desc: `` },
-                { name: `Roja Directa`, url: `https://rojadirectaa.net/`, desc: `` },
-                { name: `Fútbol Para Todos`, url: `https://futbolparatodos.st/`, desc: `` },
-                { name: `Fútbol Libre PE`, url: `https://futbollibres.org.pe/`, desc: `` },
-                { name: `Roja Directa En Vivo`, url: `https://rojadirectaenvivo.co/`, desc: `` },
-                { name: `Roja Directa ST`, url: `https://rojadirecta.st/`, desc: `` },
-                { name: `Roja Directa Cloud`, url: `https://rojadirecta.cloud/`, desc: `` },
+                { name: `Cuevana 3`, url: `https://cuevana3.sc/`, desc: `` },
+                { name: `Fútbol Libre`, url: `https://futbol-libres.mx/`, desc: `` },
+                { name: `Sporticos`, url: `https://sporticos.com/es/futbol-libre-tv`, desc: `` },
+                { name: `Pelota Libre TV`, url: `https://pelotaalibre.st/`, desc: `` },
+                { name: `Ver Películas Ultra`, url: `https://verpeliculasultra.com/`, desc: `` },
+                { name: `Peelink2`, url: `https://www.peelink2.com/`, desc: `` },
+                { name: `Maxcine`, url: `https://www1.maxcine.net/`, desc: `` },
+                { name: `REPELISPLUS`, url: `https://repelisplus.lat/`, desc: `` },
                 { name: `StreamsEast MX`, url: `https://streamseast.mx/`, desc: `` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` },
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` },
                 { name: `Max.com`, url: `https://www.max.com/ar/es`, desc: `` }
             ],
             "India": [
                 { name: `5movierulz`, url: `https://5movierulz.vote/`, desc: `` },
-                { name: `TamilDhool`, url: `https://tamildhool.tech/`, desc: `` },
                 { name: `TamilGun`, url: `https://tamilgun.now/`, desc: `` },
+                { name: `Flixtor VIP`, url: `https://flixtor.vip/home`, desc: `` },
+                { name: `TamilDhool`, url: `https://tamildhool.tech/`, desc: `` },
                 { name: `MoviesDa`, url: `https://moviesda34.com/`, desc: `` },
-                { name: `9anime.me.uk`, url: `https://9anime.me.uk/`, desc: `9anime - Just a better place to watch anime online for free!` },
-                { name: `iBOMMA – Pure Entertainment Delight!`, url: `https://www.ibomma.net/`, desc: `` },
-                { name: `movies-watch.com`, url: `https://www.movies-watch.com.pk/`, desc: `` },
-                { name: `Hotstar`, url: `https://www.hotstar.com`, desc: `Say hello to The Disney Bundle, the new home of Hotstar favorites!` },
-                { name: `Epicsports.me`, url: `https://www.epicsports.me/`, desc: `` },
-                { name: `SportsTrack`, url: `https://www.sportstrack.in/`, desc: `` },
-                { name: `yupptvfast`, url: `https://www.yupptv.com/fast-tv?genreCode=all`, desc: `` },
-                { name: `NetMirror – Watch Movies and Series`, url: `https://netfree2.cc/home`, desc: `` },
-                { name: `Tooniboy – Tooniboy is Heven for the Anime & Toons in Hindi Dub`, url: `https://tooniboy.co/`, desc: `https://tooniboy.co/` },
+                { name: `9anime.me.uk`, url: `https://9anime.me.uk/`, desc: `` },
                 { name: `Movierulz`, url: `https://www.5movierulz.bid/`, desc: `` },
-                { name: `TamilGun`, url: `https://tamilgun.group/home/`, desc: `` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` }
+                { name: `TamilGun (group)`, url: `https://tamilgun.group/home/`, desc: `` },
+                { name: `iBOMMA`, url: `https://www.ibomma.net/`, desc: `` },
+                { name: `Tooniboy`, url: `https://tooniboy.co/`, desc: `` },
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
+                { name: `Hotstar`, url: `https://www.hotstar.com`, desc: `` },
+                { name: `YuppTV`, url: `https://www.yupptv.com/fast-tv?genreCode=all`, desc: `` },
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` }
             ],
             "Arabic-اَلْعَرَبِيَّةُ": [
+                { name: `3iskk`, url: `https://3iskk.xyz/`, desc: `` },
+                { name: `Cinemana`, url: `https://cinemana.shabakaty.com/`, desc: `` },
+                { name: `KurdCinema`, url: `https://kurdcinama.com/`, desc: `` },
                 { name: `قصة عشق`, url: `https://eshaeq.com/`, desc: `` },
-                { name: `كورة ستار – kora star اهم مباريات اليوم بث مباشر جوال`, url: `https://www.korastar.io/home1-new-56681/`, desc: `` },
-                { name: `الاسطورة لبث المباريات livehd7`, url: `https://www.hd7.live/`, desc: `` },
-                { name: `مشاهدة ماى سيما MYCIMA وى سيما WECIMA افلام و مسلسلات اون لاين`, url: `https://wecima.video/`, desc: `` },
-                { name: `Asia Tv Drama | اسيا تى فى دراما`, url: `https://asiatv.one/`, desc: `` },
+                { name: `الاسطورة`, url: `https://www.hd7.live/`, desc: `` },
+                { name: `MYCIMA`, url: `https://wecima.video/`, desc: `` },
+                { name: `Asia Tv Drama`, url: `https://asiatv.one/`, desc: `` },
                 { name: `ايجي ديد`, url: `https://egydead.fyi/`, desc: `` },
-                { name: `السينما للجميع لمشاهدة الافلام و المسلسلات | Cima4u`, url: `https://cima4u.info/`, desc: `` },
+                { name: `Cima4u`, url: `https://cima4u.info/`, desc: `` },
                 { name: `موقع برستيج`, url: `https://bos.brstej.com/index27`, desc: `` },
-                { name: `شاهد فور يو – Shahid4u`, url: `https://sheid4u.net/`, desc: `` },
-                { name: `شاهد فور يو – شاهد فور يو`, url: `https://shahid4u.asia/`, desc: `شاهدفوريو` },
-                { name: `افلام | عرب سيد الموقع الأول لمشاهدة الافلام والمسلسلات Arabseed`, url: `https://m.asd.quest/main/`, desc: `` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` }
+                { name: `Shahid4u`, url: `https://shahid4u.asia/`, desc: `` },
+                { name: `Arabseed`, url: `https://m.asd.quest/main/`, desc: `` },
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` }
             ],
             "Bahasa Indonesia": [
-                { name: `LK21 Official`, url: `https://tv12.lk21official.cc/`, desc: `` },
-                { name: `Nonton Drama`, url: `https://tv6.nontondrama.my/`, desc: `` },
-                { name: `LK21 Official (dev)`, url: `https://tv1.lk21official.dev/`, desc: `` },
-                { name: `Live Streaming Bola, Basket & Badminton | Siaran Langsung`, url: `https://stream2watch.pk/814-`, desc: `` },
-                { name: `RCTI+ – Superapp`, url: `https://www.rctiplus.com/`, desc: `` },
-                { name: `Lk21 Layarkaca21 Nonton Film dan Series Streaming Download Dunia21`, url: `https://lk21.film/`, desc: `` },
+                { name: `LK21 Official`, url: `https://lk21official.shop/`, desc: `` },
+                { name: `LK21 TV`, url: `https://tv.lk21official.asia/`, desc: `` },
+                { name: `Dutamovie21`, url: `https://comelook.org/`, desc: `` },
                 { name: `IDLIX`, url: `https://z2.idlixku.com/`, desc: `` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` }
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
+                { name: `RCTI+`, url: `https://www.rctiplus.com/`, desc: `` },
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` }
+            ],
+            "Thailand-ภาษาไทย": [
+                { name: `123 HDX`, url: `https://www.123-hdx.com/`, desc: `` },
+                { name: `24 HDX`, url: `https://www.24-hdx.com/`, desc: `` },
+                { name: `LoloKino`, url: `https://lolokino.buzz/`, desc: `` },
+                { name: `9Nung`, url: `https://9.9nung.com/`, desc: `` },
+                { name: `037hdmovie`, url: `https://037hdmovie.com`, desc: `` },
+                { name: `movie2ufree`, url: `https://movie2ufree.com/`, desc: `` },
+                { name: `123HD`, url: `https://www.123-hdd.com/`, desc: `` },
+                { name: `movie2fin`, url: `https://www.movie2fin.com/`, desc: `` },
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` }
             ],
             "Russian-Русский": [
                 { name: `Rezka`, url: `https://rezka.ag/`, desc: `` },
-                { name: `yandex.ru`, url: `https://yandex.ru/`, desc: `` },
-                { name: `Сериалы онлайн, смотреть в хорошем HD качестве бесплатно`, url: `https://lordserials.fan/`, desc: `` },
-                { name: `kinopoisk`, url: `https://kinopoisk.ru/`, desc: `` },
-                { name: `rutube`, url: `https://rutube.ru/`, desc: `` },
-                { name: `Anime Go`, url: `https://animego.org/`, desc: `` },
-                { name: `lordserial`, url: `https://lordserial.la/`, desc: `Сериалы онлайн, смотреть в хорошем HD качестве бесплатно` },
-                { name: `Watch Eurosport Live TV from Russian federation – Online TV channel`, url: `http://www.freeintertv.com/view/id-205/United_Kingdom-1-2-1?chname=Eurosport&amp;findch=1`, desc: `` },
-                { name: `Смотреть спортивные трансляции онлайн бесплатно`, url: `https://sportcast.online/`, desc: `` },
-                { name: `Трансляции матчей НБА сезона-2024/25 – aanba.ru`, url: `https://aanba.ru/`, desc: `` },
-                { name: `UAKino – дивитися фільми та серіали онлайн в HD якості`, url: `https://uakino.me/`, desc: `` },
-                { name: `SeasonVar — Сериалы ТУТ!`, url: `http://seasonvar.ru/`, desc: `Представляем специальную версию seasonvar.ru для пользователей мобильных утройств. Мобильня версия доступна для зарегистрированных премиум пользователей.` },
-                { name: `okko.tv`, url: `https://okko.tv/`, desc: `Фильмы из кинотеатра легально, напрямую от голливудских студий. Смотрите новинки и лучшие сериалы, кино, мультфильмы в хорошем качестве, с хорошим звуком и без рекламы. Просмотр на сайте в формате Full HD 720 и 1080 на телевизоре SmartTV в Ultra HD 4K. Можно скачать фильм на мобильное устройство и взять с собой.` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` }
+                { name: `WowKino`, url: `https://wowkino.baby/`, desc: `` },
+                { name: `LordSerials`, url: `https://lordserials.fan/`, desc: `` },
+                { name: `LordSerial`, url: `https://lordserial.la/`, desc: `` },
+                { name: `UAKino`, url: `https://uakino.me/`, desc: `` },
+                { name: `SeasonVar`, url: `http://seasonvar.ru/`, desc: `` },
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
+                { name: `Kinopoisk`, url: `https://kinopoisk.ru/`, desc: `` },
+                { name: `Rutube`, url: `https://rutube.ru/`, desc: `` },
+                { name: `OKKO TV`, url: `https://okko.tv/`, desc: `` },
+                { name: `Yandex`, url: `https://yandex.ru/`, desc: `` },
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` }
             ],
             "Portuguese-Português": [
-                { name: `animesdigital.org`, url: `https://animesdigital.org/`, desc: `` },
-                { name: `multicanais`, url: `https://multicanaishd.best/`, desc: `` },
-                { name: `TopFlix – Assistir Filmes e Séries Online Grátis`, url: `https://topflix.watch/`, desc: `` },
                 { name: `pobreflix`, url: `https://pobreflix.life/`, desc: `` },
+                { name: `RedeCanais`, url: `https://redecanais.fm/`, desc: `` },
+                { name: `Superflix`, url: `https://superflixapi.cv/inicio`, desc: `` },
+                { name: `animesdigital`, url: `https://animesdigital.org/`, desc: `` },
                 { name: `boraflix`, url: `https://www.boraflix.com/`, desc: `` },
-                { name: `RedeCanais: Animes, Séries, Novelas, Filmes`, url: `https://redecanais.fm/`, desc: `` },
-                { name: `Superflix – Assistir Filmes e Séries Online HD – Oficial`, url: `https://superflixapi.cv/inicio`, desc: `` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` },
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` },
                 { name: `Max`, url: `https://www.max.com/`, desc: `` }
             ],
+            "Portuguese Sport-Português esporte": [
+                { name: `Fútbol Libre MX`, url: `https://futbollibre.mx/`, desc: `` },
+                { name: `YSFP TV`, url: `https://m.yfsp.tv/`, desc: `` },
+                { name: `SUPER TV AO VIVO`, url: `https://supertvaovivo.fans/esportes/`, desc: `` },
+                { name: `FuteMAX Beer`, url: `https://futemax.beer/`, desc: `` },
+                { name: `FuteMAX No ADS`, url: `https://futemax.eco/`, desc: `` },
+                { name: `JustWatch Sports`, url: `https://www.justwatch.com/br/esporte`, desc: `` },
+                { name: `Prime Video Sports`, url: `https://www.primevideo.com/sports/ref=atv_nb_lcl_pt_BR`, desc: `` }
+            ],
+            "Malay - Melayu": [
+                { name: `hdmovie2`, url: `https://hdmovie2.mobi/`, desc: `` },
+                { name: `Melayu Boleh`, url: `https://melayuboleh.com/`, desc: `` },
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
+                { name: `Viu`, url: `https://www.viu.com/ott/my`, desc: `` },
+                { name: `meWATCH`, url: `https://www.mewatch.sg/languages/malay`, desc: `` },
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` },
+                { name: `RTMKlik`, url: `https://rtmklik.rtm.gov.my/live/sukanrtm`, desc: `` },
+                { name: `sooka`, url: `https://sooka.my/`, desc: `` }
+            ],
             "Bengali-বাংলা": [
-                { name: `Watcho Exclusive Web Series & Shows Online`, url: `https://www.watcho.com/partner/watcho`, desc: `` },
-                { name: `BanglaFlix – Watch Bangla Natok, Music videos, songs & movies`, url: `https://banglaflix.com.bd/`, desc: `` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` }
+                { name: `TheMovieBox`, url: `https://themoviebox.xyz/`, desc: `` },
+                { name: `BanglaFlix`, url: `https://banglaflix.com.bd/`, desc: `` },
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
+                { name: `Watcho`, url: `https://www.watcho.com/partner/watcho`, desc: `` },
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` }
             ],
             "Tamil - தமிழ்": [
                 { name: `5movierulz`, url: `https://5movierulz.vote/`, desc: `` },
-                { name: `TamilDhool`, url: `https://tamildhool.tech/`, desc: `` },
                 { name: `TamilGun`, url: `https://tamilgun.now/`, desc: `` },
+                { name: `TamilDhool`, url: `https://tamildhool.tech/`, desc: `` },
                 { name: `MoviesDa`, url: `https://moviesda34.com/`, desc: `` },
-                { name: `TamilDhool • Cool Collection of Tamil Serials & Shows`, url: `https://www.tamildhool.net/`, desc: `` },
-                { name: `TamilGun`, url: `https://tamilgun.group/home/`, desc: `` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` }
+                { name: `TamilGun (group)`, url: `https://tamilgun.group/home/`, desc: `` },
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` }
             ],
-            "Malay - Melayu": [
-                { name: `RTMKlik sukanrtm`, url: `https://rtmklik.rtm.gov.my/live/sukanrtm`, desc: `` },
-                { name: `Viu`, url: `https://www.viu.com/ott/my`, desc: `` },
-                { name: `sooka – Watch TV shows or Sports you like & more online for FREE!`, url: `https://sooka.my/`, desc: `` },
-                { name: `meWATCH`, url: `https://www.mewatch.sg/languages/malay`, desc: `` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` }
-            ],
-            "Thailand-ภาษาไทย": [
-                { name: `24 HDX`, url: `https://www.24-hdx.com/`, desc: `` },
-                { name: `037hdmovie`, url: `https://037hdmovie.com`, desc: `` },
-                { name: `movie2uhd.com`, url: `https://movie2uhd.com`, desc: `` },
-                { name: `movie44`, url: `https://movie44.com`, desc: `` },
-                { name: `movie2fin`, url: `https://www.movie2fin.com/`, desc: `` },
-                { name: `movie2ufree`, url: `https://movie2ufree.com/`, desc: `` },
-                { name: `movie678`, url: `https://www.678movie-hd.com/`, desc: `` },
-                { name: `Watch Siam Sports Live TV from Asia – Online TV channel`, url: `http://www.freeintertv.com/view/id-2277/United_Kingdom-1-2-1`, desc: `` },
-                { name: `ดูหนังฟรี หนังใหม่ 2025 ดูหนังออนไลน์ 123HD ดูซีรี่ส์ Netflix`, url: `https://www.123-hdd.com/`, desc: `` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` }
-            ],
-            "Ukraine-Україна": [
-                { name: `sport: watch online | Kyivstar TV`, url: `https://tv.kyivstar.ua/en/sport`, desc: `` },
-                { name: `Прямая трансляция спортивных игр сегодня – Смотреть прямую трансляцию баскетбольных, футбольных, хоккейных игр онлайн | Go3`, url: `https://go3.tv/ru/sports`, desc: `` },
-                { name: `UAFLIX`, url: `https://uafix.net/`, desc: `` },
-                { name: `Дивитися фільми онлайн українською мовою в HD якості`, url: `https://uakino.club/`, desc: `` },
-                { name: `baskino.film`, url: `https://baskino.film/`, desc: `` },
-                { name: `BASKINO  Смотреть фильмы на BasKino онлайн, Кино в хорошем качестве бесплатно`, url: `https://baskino.se/`, desc: `` },
-                { name: `Filmix. Все сериалы и фильмы`, url: `https://filmix.ac/`, desc: `` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` }
-            ],
-            "Philippines": [
-                { name: `Cineby`, url: `https://www.cineby.at/`, desc: `` },
-                { name: `KissKH`, url: `https://kisskh.do/`, desc: `` },
-                { name: `Watch Live! | PBA – The Official Website`, url: `https://www.pba.ph/live`, desc: `` },
-                { name: `Watch Live Sports Online in Philippines | beIN SPORTS CONNECT`, url: `https://connect-ph.beinsports.com/en`, desc: `` },
-                { name: `Pilipinas Live Sport`, url: `https://pilipinaslive.com/`, desc: `` },
-                { name: `kisskh | Asian Dramas & Movies`, url: `https://kisskh.co/`, desc: `` },
-                { name: `Cineb.net – Watch Full HD Movies Online and Stream Free Movies Online Now`, url: `https://cineb.rs/`, desc: `` },
-                { name: `MovieBox, Watch Movies Online, Watch TV Shows Online- Moviebox`, url: `https://moviebox.ng/fil`, desc: `` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` }
-            ],
-            "Turkish-Türkçe": [
-                { name: `hdfilmcehennemi`, url: `https://www.hdfilmcehennemi.nl/`, desc: `` },
-                { name: `4kfilmizlesene`, url: `https://www.4kfilmizlesene.org/`, desc: `` },
-                { name: `FullHD filmizlesene`, url: `https://www.fullhdfilmizlesene.pw/`, desc: `` },
-                { name: `startv.com`, url: `https://www.startv.com.tr/`, desc: `` },
-                { name: `Dizipal | yabancı dizi izle, film izle`, url: `https://dizipal1048.com/`, desc: `` },
-                { name: `S Sport  | Türkiye’nin Premier Spor Kanalı`, url: `https://ssport.tv/`, desc: `` },
-                { name: `FullHD filmizlesene`, url: `https://www.fullhdfilmizlesene.mx/`, desc: `` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` }
-            ],
-            "German-Deutsch": [
-                { name: `OnHockey.TV | Live hockey streams (NHL, KHL, Liiga, SHL, DEL, Extraliga, World Championship, Olympic Games)`, url: `https://onhockey.tv/`, desc: `` },
-                { name: `https://s.to/`, url: `https://s.to/`, desc: `` },
-                { name: `ZDF`, url: `https://www.zdf.de/`, desc: `` },
-                { name: `MEGAKino.Co – Filme und Serien Kostenlos in HD online anschauen auf Deutsch`, url: `https://megakino.men/`, desc: `` },
-                { name: `StreamKiste.tv » Watch HD Movies Streams – Kinofilme online anschauen`, url: `https://www.streamkiste.al/`, desc: `` },
-                { name: `Filmpalast.to –`, url: `https://filmpalast.to/`, desc: `` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` }
+            "Sinhala-සිංහල": [
+                { name: `DubHubLK`, url: `https://dubhublk.net/`, desc: `` },
+                { name: `CeyFLiX`, url: `https://ceyflix.com/`, desc: `` },
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` }
             ],
             "Pakistan": [
-                { name: `Watch Live Cricket Streaming, Live Scores, Highlights & Videos, Stats, News & Tips | FanCode`, url: `https://www.fancode.com/`, desc: `` },
-                { name: `Qayadat Play | Watch Kurulus Osman With Urdu Subtitles & English Subtitles`, url: `https://play.qayadat.org/`, desc: `` },
-                { name: `Watch Movies Online, Watch TV Shows Online, Free movie- Moviebox`, url: `https://moviebox.ng/ur?utm_source=`, desc: `` },
+                { name: `5movierulz`, url: `https://5movierulz.vote/`, desc: `` },
+                { name: `FilmyFly`, url: `https://www.filmyfly.com/`, desc: `` },
+                { name: `Qayadat Play`, url: `https://play.qayadat.org/`, desc: `` },
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
+                { name: `FanCode`, url: `https://www.fancode.com/`, desc: `` },
                 { name: `Tapmad`, url: `https://www.tapmad.com/`, desc: `` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` }
-            ],
-            "Korean-한국어": [
-                { name: `코리아맥스TV`, url: `https://krmaxtv106.com/`, desc: `` },
-                { name: `주소월드 – 2025년 최신 링크모음, 주소모음 사이트`, url: `https://wdwd9.com/`, desc: `` },
-                { name: `스포츠중계 스포착 – 무료 스포츠중계, 해외 축구 중계, 실시간 해외 스포츠 중계 사이트`, url: `https://www.spochak.com/`, desc: `` },
-                { name: `스포츠중계 365티비 – 무료 축구중계, 실시간티비 ,고화질 스포츠중계, 해외 스포츠중계, 무료스포츠 중계`, url: `https://365tvda.com/ `, desc: `` },
-                { name: `Wavve(웨이브)`, url: `https://www.wavve.com`, desc: `` },
-                { name: `티비몬 | 최신영화 다시보기 · 드라마 다시보기 · 예능 다시보기 · 미드 다시보기 · 애니 다시보기`, url: `https://tvmon16.org/`, desc: `` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` }
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` }
             ],
             "Chinese-中文": [
                 { name: `GimyTV 劇迷`, url: `https://gimytv.biz/`, desc: `` },
-                { name: `低端影视 – 超清在线视频站`, url: `https://ddys.pro/`, desc: `超清在线视频` },
+                { name: `gimytw`, url: `https://gimytw.cc/`, desc: `` },
+                { name: `viu.tv`, url: `https://viu.tv/`, desc: `` },
                 { name: `movieffm`, url: `https://movieffm.net`, desc: `` },
-                { name: `99i影城`, url: `https://99itv.net/`, desc: `` },
-                { name: `pttplay.cc`, url: `https://pttplay.cc/`, desc: `` },
-                { name: `lovetv.show`, url: `https://lovetv.show/`, desc: `` },
-                { name: `独播库`, url: `https://www.duboku.tv/`, desc: `` },
                 { name: `JRKAN直播`, url: `https://www.jrs21.com/`, desc: `` },
-                { name: `雨燕直播-专业体育赛事直播平台`, url: `https://zb.yuyantv.cn/`, desc: `` },
-                { name: `NBA直播_综合体育视频网站_高清CBA/台球直播在线观看-企鹅直播`, url: `https://live.qq.com/`, desc: `` },
                 { name: `LIBVIO`, url: `https://www.libvio.fun/`, desc: `` },
-                { name: `努努影院-在线电影`, url: `https://nnyy.in/`, desc: `努努影院   天搜集互联网最新电影和电视剧，为广大用户免费提供无广告在线观看电影和电视剧服务，及时收录最新、最热、最全的电影大片,高清正版免费看。` },
-                { name: `555电影网`, url: `https://www.555zxdy.com/`, desc: `为您提供更新电影、好看的电影排行榜，免费在线观看伦理电影、动作片、喜剧片、爱情片、搞笑片等全新电影。` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` }
+                { name: `努努影院`, url: `https://nnyy.in/`, desc: `` },
+                { name: `anime1`, url: `https://anime1.me/`, desc: `` },
+                { name: `99i影城`, url: `https://99itv.net/`, desc: `` },
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
+                { name: `bilibili`, url: `https://www.bilibili.com/`, desc: `` },
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` }
+            ],
+            "Ukraine-Україна": [
+                { name: `VIKS TV`, url: `https://live.viks.tv/`, desc: `` },
+                { name: `Televizo Live`, url: `https://televizo.live/`, desc: `` },
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` }
+            ],
+            "Philippines": [
+                { name: `123Movies Free`, url: `https://ww8.123moviesfree.net/`, desc: `` },
+                { name: `MovieBox PH`, url: `https://moviebox.ph/`, desc: `` },
+                { name: `KissKH`, url: `https://kisskh.do/`, desc: `` },
+                { name: `Cineby`, url: `https://www.cineby.at/`, desc: `` },
+                { name: `TheMovieBox`, url: `https://themoviebox.xyz/`, desc: `` },
+                { name: `Movie-Box`, url: `https://movie-box.co/`, desc: `` },
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` }
+            ],
+            "Turkish-Türkçe": [
+                { name: `Flixtor VIP`, url: `https://flixtor.vip/home`, desc: `` },
+                { name: `hdfilmcehennemi`, url: `https://www.hdfilmcehennemi.nl/`, desc: `` },
+                { name: `Dizibox`, url: `https://www.dizibox.com/`, desc: `` },
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` }
             ],
             "Vietnamese-Tiếng Việt": [
-                { name: `Tik Tok`, url: `https://tiktok.com/`, desc: `` },
-                { name: `motchill.tv`, url: `https://motchill.tv/`, desc: `` },
-                { name: `bilibili`, url: `https://www.bilibili.com/`, desc: `` },
-                { name: `PhimMoi | Phim Mới | Xem Phim Hay HD Vietsub, Thuyết Minh Online Miễn Phí`, url: `https://phimmoic.fm/`, desc: `` },
-                { name: `Motchill`, url: `https://www.isat.ie/`, desc: `` },
-                { name: `Motchill | Phim Mới | Phim HD Vietsub | Phim Thuyết Minh Online Miễn Phí`, url: `https://motchillbr.io/`, desc: `` },
-                { name: `PhimMoi.Net -> FimMoi.Net Trang chủ chính thức khi miền bị chặn`, url: `https://fimmoi.net/`, desc: `` },
-                { name: `RoPhim – Phim hay cả rổ – Xem Phim Mới HD Online Vietsub`, url: `https://www.rophim.me/phimhay`, desc: `` },
-                { name: `Xem truyền hình trực tuyến, TV Online VTV1, video trên VTV1 đã phát sóng | VTV.vn`, url: `https://vtv.vn/truyen-hinh-truc-tuyen/vtv1.htm`, desc: `` },
-                { name: `DAZN | Home`, url: `https://www.dazn.com/en-VN/home`, desc: `` },
-                { name: `Xoilac TV Trực Tiếp Bóng Đá – Link xem Trực Tuyến full HD`, url: `https://xoilacvva.cc/`, desc: `` },
-                { name: `FPT Play – TV Online`, url: `https://fptplay.vn/`, desc: `` },
-                { name: `Boctem`, url: `https://boctem.com/`, desc: `` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` }
+                { name: `PhimHD`, url: `https://phimhdcss.com/`, desc: `` },
+                { name: `MotChillZ`, url: `https://motchillz.tv/`, desc: `` },
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` }
             ],
-            "Polish-Polski": [
-                { name: `Watch Eurosport Live TV from Poland – Online TV channel`, url: `http://www.freeintertv.com/view/id-3238/United_Kingdom-1-2-1?chname=Eurosport&amp;findch=1`, desc: `` },
-                { name: `Przegląd Sportowy Onet – wiadomości sportowe, wyniki live, relacje na żywo – PrzegladSportowy.Onet.pl`, url: `https://przegladsportowy.onet.pl/`, desc: `` },
-                { name: `KinoGo.biz смотреть фильмы онлайн бесплатно в хорошем качестве`, url: `https://kinogo.biz/`, desc: `` },
-                { name: `ShareVideo – Darmowy hosting plików video`, url: `https://sharevideo.pl/`, desc: `` },
-                { name: `Kinogoo.FM: фильмы смотреть онлайн бесплатно в хорошем качестве HD 720, 1080p`, url: `https://kinogoo.fm/`, desc: `` },
-                { name: `KinoGo – фильмы и сериалы онлайн HD`, url: `https://kinogo.media/`, desc: `` },
-                { name: `Filmweb – filmy takie jak Ty!`, url: `https://www.filmweb.pl/`, desc: `` },
-                { name: `Filmy Online – Najlepsze Filmy Bez Limitów – ekino-tv.pl`, url: `https://ekino-tv.pl/`, desc: `` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` }
-            ],
-            "French-Français": [
-                { name: `Actualités en continu et info en direct et replay – BFMTV`, url: `https://www.bfmtv.com/`, desc: `` },
-                { name: `French Anime – Animes VF et VOSTFR en Streaming Gratuit`, url: `https://french-anime.com/`, desc: `` },
-                { name: `XalaFlix – Le (super) site de streaming`, url: `https://xalaflix.io/`, desc: `` },
-                { name: `Anime-Sama – Streaming et catalogage d’animes et scans.`, url: `https://anime-sama.fr/`, desc: `` },
-                { name: `Movbor`, url: `https://movbor.com/`, desc: `Movbor` },
-                { name: `Watch Eurosport Audio Live TV from France – Online TV channel`, url: `http://www.freeintertv.com/view/id-373/United_Kingdom-1-2-1?chname=Eurosport&amp;findch=1`, desc: `` },
-                { name: `La chaîne L’Équipe en direct – Live TV`, url: `https://www.lequipe.fr/tv/`, desc: `` },
-                { name: `SPORT EN FRANCE – La TV du sport | Direct Live Streaming Replay`, url: `https://sportenfrance.com/`, desc: `` },
-                { name: `French stream – Des Films et Séries en Streaming gratuit`, url: `https://french-stream.bio/`, desc: `` },
-                { name: `OnHockey.TV | Live hockey streams (NHL, KHL, Liiga, SHL, DEL, Extraliga, World Championship, Olympic Games)`, url: `https://onhockey.tv/`, desc: `` },
-                { name: `Coflix ▷ Films Et Séries Streaming Complet`, url: `https://coflix.mov/`, desc: `` },
-                { name: `XalaFlix – Le (super) site de streaming`, url: `https://xalaflix.io/`, desc: `` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` }
-            ],
-            "Hindī - हिन्दी": [
-                { name: `Watcho Exclusive Web Series & Shows Online`, url: `https://www.watcho.com/partner/watcho`, desc: `` },
-                { name: `Tooniboy – Tooniboy is Heven for the Anime & Toons in Hindi Dub`, url: `https://tooniboy.co/`, desc: `https://tooniboy.co/` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` }
+            "Korean-한국어": [
+                { name: `KissKH`, url: `https://kisskh.org/`, desc: `` },
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` }
             ],
             "Japanese-日本語": [
-                { name: `スポーツナビ`, url: `https://sports.yahoo.co.jp/`, desc: `` },
-                { name: `フジテレビの動画配信サービスFOD｜ドラマ アニメ TV番組が見放題`, url: `https://fod.fujitv.co.jp/`, desc: `` },
-                { name: `TVer – 無料で動画見放題`, url: `https://tver.jp/`, desc: `` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` }
+                { name: `animepahe`, url: `https://animepahe.ru/`, desc: `` },
+                { name: `9anime`, url: `https://9anime.to/`, desc: `` },
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` }
             ],
-            "Hungarian-magyar": [
-                { name: `M4 Sport`, url: `https://m4sport.hu/`, desc: `` },
-                { name: `Videó feltöltés – Videa`, url: `https://videa.hu/`, desc: `` },
-                { name: `JobbMintATv.pro | Ingyen Online Nézhető Sorozatok minden mennyiségben`, url: `https://jobbmintatv.pro/`, desc: `` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` }
+            "French-Français": [
+                { name: `XalaFlix`, url: `https://xalaflix.io/`, desc: `` },
+                { name: `Coflix`, url: `https://coflix.mov/`, desc: `` },
+                { name: `French stream`, url: `https://french-stream.bio/`, desc: `` },
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` }
+            ],
+            "German-Deutsch": [
+                { name: `FilmPalast`, url: `https://filmpalast.to/`, desc: `` },
+                { name: `Kinokiste`, url: `https://kinokiste.com/`, desc: `` },
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` }
             ],
             "Italian-Italiano": [
-                { name: `Guarda Calcio in Streaming Gratis e Tutto lo Sport`, url: `https://guardacalcio.life/partite-streaming.html`, desc: `` },
-                { name: `CB01: Vedi GRATIS +30.000 Film e Serie-TV in Streaming HD in Italiano`, url: `https://www.cb01.so/`, desc: `` },
-                { name: `CineBlog01 – Cb01 Community`, url: `https://cineblog01.rest/`, desc: `` },
-                { name: `CB01 – Film e Serie TV su Cineblog01 – CB01 ex Cineblog01`, url: `https://ww1.cb01.in/`, desc: `` },
-                { name: `Film streaming ITA Senza Limiti Gratis in Alta Definizione 2024`, url: `https://filmstreaming.page/`, desc: `https://filmstreaming.page/alta-definizione-4k/` },
-                { name: `Filmamo – Motore di ricerca streaming per film e serie TV`, url: `https://www.filmamo.it/`, desc: `` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` }
+                { name: `123 HDX`, url: `https://123-hdx.com/`, desc: `` },
+                { name: `Flixtor VIP`, url: `https://flixtor.vip/home`, desc: `` },
+                { name: `CineBlog01`, url: `https://cineblog01.rest/`, desc: `` },
+                { name: `Filmamo`, url: `https://www.filmamo.it/`, desc: `` },
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` }
+            ],
+            "Polish-Polski": [
+                { name: `ekino-tv`, url: `https://ekino-tv.pl/`, desc: `` },
+                { name: `KinoGo`, url: `https://kinogo.media/`, desc: `` },
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
+                { name: `Filmweb`, url: `https://www.filmweb.pl/`, desc: `` },
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` }
+            ],
+            "Hindī - हिन्दी": [
+                { name: `FilmyFly`, url: `https://www.filmyfly.com/`, desc: `` },
+                { name: `1filmywap`, url: `https://1filmywap.com/`, desc: `` },
+                { name: `Tooniboy`, url: `https://tooniboy.co/`, desc: `` },
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
+                { name: `Watcho`, url: `https://www.watcho.com/partner/watcho`, desc: `` },
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` }
+            ],
+            "Hungarian-magyar": [
+                { name: `JobbMintATv`, url: `https://jobbmintatv.pro/`, desc: `` },
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
+                { name: `M4 Sport`, url: `https://m4sport.hu/`, desc: `` },
+                { name: `Videa`, url: `https://videa.hu/`, desc: `` },
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` }
             ],
             "Bulgarian-български": [
-                { name: `Diema Sport Online / Diema Sport BG Tv channel watch free online`, url: `https://www.gledaitv.live/watch-tv/13/diema-sport-online`, desc: `` },
                 { name: `Playtube`, url: `https://playtube.tv/`, desc: `` },
-                { name: `VsichkiFilmi`, url: `https://vsichkifilmi.net/`, desc: `Гледайфилмионлайн` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` }
+                { name: `VsichkiFilmi`, url: `https://vsichkifilmi.net/`, desc: `` },
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` }
             ],
             "Dutch - Nederlands": [
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
                 { name: `Videoland`, url: `https://www.videoland.com/nl/`, desc: `` },
-                { name: `VTM GO – Kijk alles van VTM gratis online`, url: `https://www.vtmgo.be/vtmgo`, desc: `` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` }
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` }
             ],
             "Romanian - Română": [
-                { name: `Watch Eurosport Live Live TV from Romania – Online TV channel`, url: `http://www.freeintertv.com/view/id-2514/United_Kingdom-1-2-1?chname=Eurosport&amp;findch=1`, desc: `` },
-                { name: `Rezultate live la Digi Sport 1 – meciuri live: fotbal, tenis, in direct – Digi Sport`, url: `https://www.digisport.ro/live/digisport-1`, desc: `` },
-                { name: `Top Filme și Seriale Online Subtitrate în Română 2025`, url: `https://topfilmeonline.ro/`, desc: `` },
-                { name: `ilme Online 2025 Subtitrate în Română | Gratis și HD!`, url: `https://voxfilmeonline.biz/`, desc: `` },
-                { name: `Cool TV Online * Vezi Canale TV Romanesti * TV Live gratis pe Internet – Free Tv Online RO ! Entertainment Cool eTv`, url: `https://www.cool-etv.net/`, desc: `` },
+                { name: `TopFilmeOnline`, url: `https://topfilmeonline.ro/`, desc: `` },
                 { name: `FilmeHD`, url: `https://filmehd.to/`, desc: `` },
-                { name: `meoo.ro – Vizionează filme și seriale online, gratuit și fără întreruperi. Cele mai noi titluri, subtitrări și calitate HD pe meoo.ro.`, url: `https://meoo.ro/`, desc: `` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` }
+                { name: `meoo.ro`, url: `https://meoo.ro/`, desc: `` },
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` }
             ],
             "Croatian - Hrvatski": [
-                { name: `Ligue 1 Francuska – Utakmice Uživo Prijenos Live Stream Besplatno`, url: `https://utakmice.stream/nogomet/ligue-1-francuska/`, desc: `` },
-                { name: `Filmoviplex: Najbolji filmovi i serije online sa prevodom`, url: `https://www.filmoviplex.com/`, desc: `` },
-                { name: `Filmovizija – Online filmovi sa prevodom`, url: `https://www.filmovi.me/`, desc: `` },
-                { name: `Filmovi online sa prevodom – Filmotip`, url: `https://filmotip.com/`, desc: `` },
-                { name: `Online Sa Prevodom: Filmovi i Serije online sa prevodom`, url: `https://onlinesaprevodom.net/`, desc: `` },
-                { name: `Filmovitex – Online filmovi i serije sa prevodom`, url: `https://filmovitex.net/`, desc: `Najboljiizborfilmovaiserijanajednommestu!` },
-                { name: `Filmovi sa Prevodom Online – Filmativa`, url: `https://filmativa.club/`, desc: `` },
-                { name: `BALKANTEKA: Domace serije – Turske serije – Španske serije`, url: `https://balkanteka.net/`, desc: `` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` }
+                { name: `Filmovizija`, url: `https://www.filmovi.me/`, desc: `` },
+                { name: `Filmoviplex`, url: `https://www.filmoviplex.com/`, desc: `` },
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` }
             ],
             "Swedish-Svenska": [
-                { name: `https://gratisfilmer.cc/`, url: `https://gratisfilmer.cc/`, desc: `` },
-                { name: `OnHockey.TV | Live hockey streams (NHL, KHL, Liiga, SHL, DEL, Extraliga, World Championship, Olympic Games)`, url: `https://onhockey.tv/`, desc: `` },
-                { name: `En streamingtjänst – obegränsad underhållning | Viaplay`, url: `https://viaplay.se/se-sv/`, desc: `` },
-                { name: `DreamFilm – Filmer och serier online gratis i hög kvalitet`, url: `https://dreamfilm.org/`, desc: `` },
-                { name: `Swefilmer HD – Titta på Swesub Filmer online gratis | Dreamfilm – Filmer på svenska online`, url: `https://swefilmer-se.li/`, desc: `` },
-                { name: `Home page – Nyafilmer`, url: `https://nyafilm14.com/home/`, desc: `` },
-                { name: `Titta på filmer titta på serier på nätet med svenska undertexter swesub HD-kvalitet. Watch movies and series on nyafilmer`, url: `https://nyafilmer.gg/home`, desc: `` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` }
+                { name: `DreamFilm`, url: `https://dreamfilm.org/`, desc: `` },
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
+                { name: `Viaplay`, url: `https://viaplay.se/se-sv/`, desc: `` },
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` }
             ],
             "Slovak-slovenský": [
-                { name: `:ŠPORT live – sledujte hokej, futbal či lyžovanie s STVR`, url: `https://www.stvr.sk/televizia/sport`, desc: `` },
-                { name: `Kukaj.to – Raj online filmov a seriálov`, url: `https://vvv.kukaj.fi/`, desc: `` },
-                { name: `TV Markíza`, url: `https://www.markiza.sk/`, desc: `` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` }
-            ],
-            "Sinhala-සිංහල": [
-                { name: `DubHubLK – Download Official Sinhala Dubbed Movies & Sinhala Movies`, url: `https://dubhublk.net/`, desc: `` },
-                { name: `CeyFLiX`, url: `https://ceyflix.com/`, desc: `` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` }
+                { name: `Anikoto`, url: `https://anikoto.cz/home`, desc: `` },
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` },
+                { name: `TV Markíza`, url: `https://www.markiza.sk/`, desc: `` }
             ],
             "Danish - dansk": [
-                { name: `https://gratisfilmer.cc/`, url: `https://gratisfilmer.cc/`, desc: `` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` }
+                { name: `DreamFilm`, url: `https://dreamfilm.org/`, desc: `` },
+                { name: `Filmcentralen`, url: `https://filmcentralen.dk/`, desc: `` },
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` }
             ],
             "Afrikaans-Afrikaans": [
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
                 { name: `AfriForumTV`, url: `https://afriforumtv.co.za/`, desc: `` },
-                { name: `Showmax | Streaming Movies, Series & Premier League for Kenya`, url: `https://www.showmax.com/ke`, desc: `` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` }
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` }
             ],
             "Uzbek-o'zbek": [
-                { name: `Yangi Tarjima Kinolar 2025 – Freekino.net`, url: `https://freekino.net/uz`, desc: `` },
+                { name: `Freekino`, url: `https://freekino.net/uz`, desc: `` },
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
                 { name: `Mover.uz`, url: `https://tv.mover.uz/#/`, desc: `` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` }
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` }
             ],
             "Persian-فارسی": [
-                { name: `آپارات اسپرت – سرویس پخش مسابقات ورزشی`, url: `https://www.aparatsport.ir/`, desc: `` },
-                { name: `نماوا: تماشای آنلاین فیلم و سریال`, url: `https://tv.namava.ir/`, desc: `` },
-                { name: `Watch Iranian Series and Movies – PersianMovieBox`, url: `https://iranmoviesbox.com/`, desc: `` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` }
+                { name: `PersianMovieBox`, url: `https://iranmoviesbox.com/`, desc: `` },
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
+                { name: `نماوا`, url: `https://tv.namava.ir/`, desc: `` },
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` }
             ],
             "Galician-galego": [
-                { name: `Fútbol Libre TV | Deportes en vivo y canales deportivos por internet`, url: `https://futbollibrestv.pe/`, desc: `` },
-                { name: `AGalega`, url: `https://www.agalega.gal/`, desc: `` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` }
+                { name: `Cinemania`, url: `https://cinemania.cc/`, desc: `` },
+                { name: `Gnula`, url: `https://gnula.se/`, desc: `` },
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` },
+                { name: `AGalega`, url: `https://www.agalega.gal/`, desc: `` }
             ],
             "Hebrew-עִברִית": [
-                { name: `כאן 11: חדשות, רדיו, טלוויזיה, שידור חי – תאגיד השידור הישראלי`, url: `https://www.kan.org.il/`, desc: `` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` }
+                { name: `israelTV`, url: `https://israelitv.com/`, desc: `` },
+                { name: `Screen iL`, url: `https://screenil.com/`, desc: `` },
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` },
+                { name: `כאן 11`, url: `https://www.kan.org.il/`, desc: `` }
             ],
             "Czech-Čeština": [
-                { name: `ČT sport – Česká televize`, url: `https://sport.ceskatelevize.cz/#live`, desc: `` },
-                { name: `Serialy.sx: Všetky seriály online na jednom webe zadarmo`, url: `https://serialy.sx/`, desc: `` },
-                { name: `SledujFilmy.io: Všetky filmy online zadarmo`, url: `https://ww.sledujfilmy.io/`, desc: `` },
-                { name: `Internetová televize, filmy, seriály a videa online zdarma | Stream`, url: `https://www.stream.cz/`, desc: `` },
-                { name: `iVysílání – televize, pořady a videa online | Česká televize`, url: `https://www.ceskatelevize.cz/ivysilani/`, desc: `` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` }
+                { name: `Serialy.sx`, url: `https://serialy.sx/`, desc: `` },
+                { name: `SledujFilmy`, url: `https://ww.sledujfilmy.io/`, desc: `` },
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
+                { name: `Stream.cz`, url: `https://www.stream.cz/`, desc: `` },
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` }
             ],
             "Greek-ελληνικά": [
-                { name: `Ταινίες online με ελληνικους υποτιτλους δωρεάν 1`, url: `https://tenies-online.best/`, desc: `` },
-                { name: `Greek-Movies – Ελληνικές ταινίες, τηλεοπτικές σειρές, εκπομπές, αθλητικά, μουσική`, url: `https://greek-movies.com/`, desc: `` },
-                { name: `Ταινίες online σειρες με ελληνικους υποτιτλους δωρεάν Ταινιομανια Ucoz`, url: `https://tainio-mania.online/`, desc: `` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` }
+                { name: `tainio-mania`, url: `https://tainio-mania.online/`, desc: `` },
+                { name: `greek-movies`, url: `https://greek-movies.com/`, desc: `` },
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` }
             ],
             "Norwegian-norsk": [
-                { name: `TV 2 Sport 1 | TV 2 Play`, url: `https://play.tv2.no/direkte-tv/tv-2-sportskanalen/tv-2-sport-1-733180.html`, desc: `` },
-                { name: `Forsiden | Direktesport`, url: `https://www.direktesport.no/`, desc: `` },
-                { name: `Filmoteket`, url: `https://filmoteket.no/`, desc: `` },
-                { name: `Forsiden – NRK TV`, url: `https://tv.nrk.no/`, desc: `` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` }
+                { name: `DreamFilm`, url: `https://dreamfilm.org/`, desc: `` },
+                { name: `Film21`, url: `https://film21.org/`, desc: `` },
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
+                { name: `NRK TV`, url: `https://tv.nrk.no/`, desc: `` },
+                { name: `TV 2 Play`, url: `https://play.tv2.no/direkte-tv/tv-2-sportskanalen/tv-2-sport-1-733180.html`, desc: `` },
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` }
             ],
             "Catalan-català": [
-                { name: `IB3 a la carta | Portada`, url: `https://ib3alacarta.com/`, desc: `` },
-                { name: `3Cat, la plataforma digital de continguts en català i de qualitat`, url: `https://www.3cat.cat/3cat/`, desc: `` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` }
+                { name: `Gnula`, url: `https://gnula.se/`, desc: `` },
+                { name: `Cinemania`, url: `https://cinemania.cc/`, desc: `` },
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
+                { name: `3Cat`, url: `https://www.3cat.cat/3cat/`, desc: `` },
+                { name: `IB3`, url: `https://ib3alacarta.com/`, desc: `` },
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` }
             ],
             "Khmer-ខ្មែរ": [
-                { name: `Kisskh | Asian Dramas & Movies`, url: `https://kisskh.org/`, desc: `` },
-                { name: `អ្នកនាំរឿង – KhFullHD`, url: `https://khfullhd.co/`, desc: `` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` }
+                { name: `KissKH`, url: `https://kisskh.org/`, desc: `` },
+                { name: `KhFullHD`, url: `https://khfullhd.co/`, desc: `` },
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` }
             ],
             "Albanian-shqiptar": [
-                { name: `Filmaon.info | Filma me titra shqip HD`, url: `https://www.filmaon.info/`, desc: `` },
-                { name: `GjirafaVideo`, url: `https://video.gjirafa.com/`, desc: `` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` }
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` }
             ],
             "Pashto-پښتو": [
-                { name: `DARYA | The Best TV Series & Movies for Afghans`, url: `https://www.darya.net/#!/`, desc: `` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` }
+                { name: `PakStream`, url: `https://pakstream.com/`, desc: `` },
+                { name: `ARY Digital`, url: `https://www.arydigital.tv/`, desc: `` },
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
+                { name: `DARYA`, url: `https://www.darya.net/#!/`, desc: `` },
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` }
             ],
             "Armenian-հայկ": [
-                { name: `MEROJAX – Armenian Internet Portal Merojax TV`, url: `https://merojax.net/`, desc: `` },
-                { name: `Armflix | Largest Armenian Movies Streaming Portal`, url: `https://www.armflix.com/browse`, desc: `` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` }
+                { name: `MEROJAX`, url: `https://merojax.net/`, desc: `` },
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
+                { name: `Armflix`, url: `https://www.armflix.com/browse`, desc: `` },
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` }
             ],
             "Azerbaijani-Azərbaycan": [
-                { name: `Metaflix – Azərbaycan Filmləri və Seriyaları Onlayn Kəşf Edin`, url: `https://metaflix.az/`, desc: `` },
-                { name: `HD Filmlər, Tv seriallar, Azərbaycanca dublyaj film izlə`, url: `https://tvseans.az/az`, desc: `` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` }
+                { name: `Filmizle`, url: `https://filmizle.az/`, desc: `` },
+                { name: `Kinozal`, url: `https://kinozal.az/`, desc: `` },
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
+                { name: `Metaflix`, url: `https://metaflix.az/`, desc: `` },
+                { name: `TVSeans`, url: `https://tvseans.az/az`, desc: `` },
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` }
             ],
             "Finnish-suomi": [
-                { name: `Ruutu | katso Vain elämää, tv-sarjat, elokuvat ja urheilua netissä | Ruutu`, url: `https://www.ruutu.fi/`, desc: `` },
-                { name: `Yle Areena | Sarjat. Podcastit. Suorat.`, url: `https://areena.yle.fi/tv`, desc: `` },
-                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `Enjoy the videos and music you love, upload original content, and share it all with friends, family, and the world on YouTube.` },
-                { name: `Netflix – Watch TV Shows Online, Watch Movies Online`, url: `https://www.netflix.com/`, desc: `` },
-                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `Enjoy exclusive Amazon Originals as well as popular movies and TV shows. Watch anytime, anywhere. Start your free trial.` }
-            ],
-            "Portuguese Sport-Português esporte": [
-                { name: `SUPER TV AO VIVO`, url: `https://supertvaovivo.fans/esportes/`, desc: `` },
-                { name: `JustWatch Sports`, url: `https://www.justwatch.com/br/esporte`, desc: `Incluindo transmissões ao vivo de jogos de futebol, tênis, basquete, Formula 1 e outros.` },
-                { name: `FuteMAX Oficial ⚽ – Futebol – UFC – Esportes e muito mais.`, url: `https://futemax.moi/`, desc: `` },
-                { name: `FuteMAX APP Oficial – Futebol – UFC – Esportes – NBA`, url: `https://futemax.wtf/`, desc: `` },
-                { name: `FuteMAX Oficial – Futebol Ao Vivo – UFC – Esportes`, url: `https://futemax.beer/`, desc: `` },
-                { name: `FuteMAX Oficial – Futebol – UFC – Esportes SEM ANÚNCIOS`, url: `https://futemax.eco/`, desc: `` },
-                { name: `Prime Video: assista a esportes por streaming ao vivo agora mesmo`, url: `https://www.primevideo.com/sports/ref=atv_nb_lcl_pt_BR`, desc: `` }
+                { name: `Filmgoer`, url: `https://filmgoer.fi/`, desc: `` },
+                { name: `DreamFilm`, url: `https://dreamfilm.org/`, desc: `` },
+                { name: `YouTube`, url: `https://www.youtube.com/`, desc: `` },
+                { name: `Ruutu`, url: `https://www.ruutu.fi/`, desc: `` },
+                { name: `Yle Areena`, url: `https://areena.yle.fi/tv`, desc: `` },
+                { name: `Netflix`, url: `https://www.netflix.com/`, desc: `` },
+                { name: `Amazon Prime Video`, url: `https://www.primevideo.com/`, desc: `` }
             ]
         };
 
-        // Icons mapping
         const categoryIcons = {
-            "Global": "fas fa-globe",
-            "Streaming Site Guide": "fas fa-external-link-alt",
             "Sport": "fas fa-futbol",
-            "default": "fas fa-link"
+            "Global": "fas fa-globe",
+            "Streaming Site Guide": "fas fa-list",
+            "English": "fas fa-language",
+            "Spanish-Español": "fas fa-language",
+            "India": "fas fa-language",
+            "Arabic-اَلْعَرَبِيَّةُ": "fas fa-language",
+            "Bahasa Indonesia": "fas fa-language",
+            "Thailand-ภาษาไทย": "fas fa-language",
+            "Russian-Русский": "fas fa-language",
+            "Portuguese-Português": "fas fa-language",
+            "Portuguese Sport-Português esporte": "fas fa-futbol",
+            "Malay - Melayu": "fas fa-language",
+            "Bengali-বাংলা": "fas fa-language",
+            "Tamil - தமிழ்": "fas fa-language",
+            "Sinhala-සිංහල": "fas fa-language",
+            "Pakistan": "fas fa-language",
+            "Chinese-中文": "fas fa-language",
+            "Ukraine-Україна": "fas fa-language",
+            "Philippines": "fas fa-language",
+            "Turkish-Türkçe": "fas fa-language",
+            "Vietnamese-Tiếng Việt": "fas fa-language",
+            "Korean-한국어": "fas fa-language",
+            "Japanese-日本語": "fas fa-language",
+            "French-Français": "fas fa-language",
+            "German-Deutsch": "fas fa-language",
+            "Italian-Italiano": "fas fa-language",
+            "Polish-Polski": "fas fa-language",
+            "Hindī - हिन्दी": "fas fa-language",
+            "Hungarian-magyar": "fas fa-language",
+            "Bulgarian-български": "fas fa-language",
+            "Dutch - Nederlands": "fas fa-language",
+            "Romanian - Română": "fas fa-language",
+            "Croatian - Hrvatski": "fas fa-language",
+            "Swedish-Svenska": "fas fa-language",
+            "Slovak-slovenský": "fas fa-language",
+            "Danish - dansk": "fas fa-language",
+            "Afrikaans-Afrikaans": "fas fa-language",
+            "Uzbek-o'zbek": "fas fa-language",
+            "Persian-فارسی": "fas fa-language",
+            "Galician-galego": "fas fa-language",
+            "Hebrew-עִברִית": "fas fa-language",
+            "Czech-Čeština": "fas fa-language",
+            "Greek-ελληνικά": "fas fa-language",
+            "Norwegian-norsk": "fas fa-language",
+            "Catalan-català": "fas fa-language",
+            "Khmer-ខ្មែរ": "fas fa-language",
+            "Albanian-shqiptar": "fas fa-language",
+            "Pashto-پښتو": "fas fa-language",
+            "Armenian-հայկ": "fas fa-language",
+            "Azerbaijani-Azərbaycan": "fas fa-language",
+            "Finnish-suomi": "fas fa-language",
+            "default": "fas fa-folder"
         };
 
-        // URL deep-link slugs: freestreamingwebsites.html?zh lands on "Chinese-中文",
-        // same position as clicking the sidebar entry. ISO 639-1 / country codes.
         const categorySlugs = {
             "sport": "Sport",
             "global": "Global",
             "guide": "Streaming Site Guide",
             "en": "English",
-            "tr": "Turkish-Türkçe",
-            "ru": "Russian-Русский",
-            "in": "India",
-            "ua": "Ukraine-Україна",
-            "pt": "Portuguese-Português",
-            "pt-sport": "Portuguese Sport-Português esporte",
             "es": "Spanish-Español",
-            "ph": "Philippines",
-            "vi": "Vietnamese-Tiếng Việt",
-            "fr": "French-Français",
-            "th": "Thailand-ภาษาไทย",
-            "pl": "Polish-Polski",
+            "in": "India",
             "ar": "Arabic-اَلْعَرَبِيَّةُ",
             "id": "Bahasa Indonesia",
+            "th": "Thailand-ภาษาไทย",
+            "ru": "Russian-Русский",
+            "pt": "Portuguese-Português",
+            "pt-sport": "Portuguese Sport-Português esporte",
+            "ms": "Malay - Melayu",
+            "bn": "Bengali-বাংলা",
+            "ta": "Tamil - தமிழ்",
+            "si": "Sinhala-සිංහල",
             "pk": "Pakistan",
-            "de": "German-Deutsch",
             "zh": "Chinese-中文",
+            "ua": "Ukraine-Україна",
+            "ph": "Philippines",
+            "tr": "Turkish-Türkçe",
+            "vi": "Vietnamese-Tiếng Việt",
+            "ko": "Korean-한국어",
+            "ja": "Japanese-日本語",
+            "fr": "French-Français",
+            "de": "German-Deutsch",
             "it": "Italian-Italiano",
+            "pl": "Polish-Polski",
+            "hi": "Hindī - हिन्दी",
+            "hu": "Hungarian-magyar",
             "bg": "Bulgarian-български",
+            "nl": "Dutch - Nederlands",
             "ro": "Romanian - Română",
             "hr": "Croatian - Hrvatski",
-            "nl": "Dutch - Nederlands",
-            "ms": "Malay - Melayu",
             "sv": "Swedish-Svenska",
-            "si": "Sinhala-සිංහල",
-            "ta": "Tamil - தமிழ்",
-            "ja": "Japanese-日本語",
-            "hu": "Hungarian-magyar",
             "sk": "Slovak-slovenský",
-            "af": "Afrikaans-Afrikaans",
             "da": "Danish - dansk",
+            "af": "Afrikaans-Afrikaans",
             "uz": "Uzbek-o'zbek",
             "fa": "Persian-فارسی",
             "gl": "Galician-galego",
@@ -1090,10 +754,7 @@
             "ps": "Pashto-پښتو",
             "hy": "Armenian-հայկ",
             "az": "Azerbaijani-Azərbaycan",
-            "ko": "Korean-한국어",
-            "fi": "Finnish-suomi",
-            "hi": "Hindī - हिन्दी",
-            "bn": "Bengali-বাংলা"
+            "fi": "Finnish-suomi"
         };
 
         // Generate sidebar menu
@@ -1105,7 +766,6 @@
                 const a = document.createElement('a');
                 a.href = `#section-${index}`;
                 a.className = 'smooth';
-                // tabindex=-1 in aware builds keeps native focus from competing with .tv-focused.
                 a.setAttribute('tabindex', __pageNavAware ? '-1' : '0');
                 a.setAttribute('data-zone', 'category');
                 a.setAttribute('data-category', category);
@@ -1121,7 +781,6 @@
             const content = document.getElementById('main-content');
             let index = 0;
             for (const category in siteData) {
-                // Create section header
                 const header = document.createElement('div');
                 header.className = 'section-header';
                 header.id = `section-${index}`;
@@ -1131,13 +790,9 @@
                 `;
                 content.appendChild(header);
 
-                // Create row for cards — 用 g-3 设置 gutter，同时用 overflow-hidden 防止负边距溢出
                 const row = document.createElement('div');
                 row.className = 'row g-3 overflow-hidden';
 
-                // In aware builds, same-tab navigation is the desired TV UX: BACK returns
-                // to the catalog cleanly. Legacy builds keep target=_blank so existing
-                // virtual-cursor users still get the original new-tab behavior.
                 const linkTarget = __pageNavAware ? '' : 'target="_blank"';
                 const linkTabindex = __pageNavAware ? '-1' : '0';
 
@@ -1146,12 +801,20 @@
                     col.className = 'col-sm-6 col-md-4 col-lg-3';
 
                     const faviconUrl = `https://www.google.com/s2/favicons?domain=${encodeURIComponent(site.url)}&sz=64`;
-
+                    const faviconUrl2 = `https://icons.duckduckgo.com/ip3/${new URL(site.url).hostname}.ico`;
+                    
+                    // Generate a deterministic color from site name
+                    const colors = ['#e53935','#d81b60','#8e24aa','#5e35b1','#3949ab','#1e88e5','#039be5','#00acc1','#00897b','#43a047','#7cb342','#c0ca33','#fdd835','#ffb300','#fb8c00','#f4511e'];
+                    let hash = 0;
+                    for (let c = 0; c < site.name.length; c++) hash = ((hash << 5) - hash + site.name.charCodeAt(c)) | 0;
+                    const avatarColor = colors[Math.abs(hash) % colors.length];
+                    const firstChar = site.name.replace(/^[^a-zA-Z\u4e00-\u9fff\u0600-\u06ff\u0900-\u097f\u0a80-\u0aff\u0b80-\u0bff\u0d80-\u0dff\u1780-\u17ff\u0530-\u058f]/, '').charAt(0) || site.name.charAt(0);
+                    
                     col.innerHTML = `
                         <div class="site-card">
                             <a href="${site.url}" ${linkTarget} rel="noopener noreferrer" tabindex="${linkTabindex}" data-zone="site">
                                 <div class="icon">
-                                    <img src="${faviconUrl}" alt="" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\\'fas fa-link\\'></i>'">
+                                    <img src="${faviconUrl}" alt="" onerror="this.src='${faviconUrl2}'; this.onerror=function(){this.style.display='none';this.parentElement.innerHTML='<div class=\\'letter-avatar\\' style=\\'background:${avatarColor}\\'>${firstChar}</div>'}">
                                 </div>
                                 <div class="info">
                                     <div class="title">${site.name}</div>
@@ -1181,7 +844,6 @@
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    // Close sidebar on mobile after click
                     if (window.innerWidth <= 768) {
                         document.getElementById('sidebar').classList.remove('active');
                     }
@@ -1189,9 +851,7 @@
             }
         });
 
-        // Deep-link: ?zh lands on the same position as clicking "Chinese-中文".
-        // Instant (no smooth animation) since it runs at page load; unknown params
-        // are ignored and the page stays at the top.
+        // Deep-link
         function scrollToSectionFromUrl() {
             const params = new URLSearchParams(location.search);
             for (const key of params.keys()) {
@@ -1209,13 +869,8 @@
 
         // Initialize
         document.addEventListener('DOMContentLoaded', function() {
-            // Detect once, before any DOM is rendered, so that generateSidebar/generateContent
-            // can pick the correct tabindex / target attributes for the host App.
             __pageNavAware = isAppPageNavAware();
             if (__pageNavAware) {
-                // Switch to container-scroll layout (gates the html.tv-pagenav CSS block).
-                // Must happen before generateContent so initial scroll position is in the
-                // managed container, not on window.
                 document.documentElement.classList.add('tv-pagenav');
             }
             generateSidebar();
@@ -1227,10 +882,6 @@
             initTvNavigation();
         });
 
-        // Tell the App to suspend its virtual cursor and route D-pad keys directly to this
-        // page's DOM. Retried at 0/150/600 ms because injection timing can race with our DOM
-        // readiness on older WebView builds. No-op in pre-update App builds (gated upstream
-        // by __pageNavAware).
         function requestNativePageNavigationMode() {
             var payload = JSON.stringify({
                 runtimeId: 'free_streaming_websites',
@@ -1257,27 +908,15 @@
 
         // ============================================================
         // TV Remote Navigation (UP/DOWN/LEFT/RIGHT/OK + mouse compat)
-        // Spatial algorithm based on nfx native-dom-focus scoring.
         // ============================================================
         function initTvNavigation() {
             const NAV_KEYS = new Set(['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Enter', ' ']);
             let tvMode = false;
-
-            // Aware-mode extra state (only meaningful when __pageNavAware === true).
-            // currentFocused: explicit tracking avoids re-querying the DOM every keydown
-            //   and survives BFCache restoration (the variable persists; the DOM tree
-            //   is rehydrated by the browser).
-            // lastFocusedKey: remembers the site link the user activated, so pageshow
-            //   restoration after a sub-site BACK lands the user back on the same card.
-            // itemCache: collecting all <a data-zone> nodes is the hottest operation on
-            //   long-press; cache invalidated only on resize.
             let currentFocused = null;
             let lastFocusedKey = null;
             let pendingNavDir = null;
             let pendingNavFrame = 0;
             const itemCache = { all: null, category: null, site: null };
-
-            // --- Element collection ---
 
             function getItems(zone) {
                 if (__pageNavAware) {
@@ -1290,9 +929,7 @@
                     });
                     return itemCache[key];
                 }
-                var sel = zone
-                    ? 'a[data-zone="' + zone + '"]'
-                    : 'a[data-zone]';
+                var sel = zone ? 'a[data-zone="' + zone + '"]' : 'a[data-zone]';
                 return Array.from(document.querySelectorAll(sel)).filter(function (el) {
                     var r = getRect(el);
                     return r && r.width > 0 && r.height > 0;
@@ -1304,8 +941,6 @@
                 itemCache.category = null;
                 itemCache.site = null;
             }
-
-            // --- Geometry helpers ---
 
             function getRect(el) {
                 if (!el) return null;
@@ -1321,8 +956,6 @@
                 if (!r) return { x: 0, y: 0 };
                 return { x: r.left + r.width / 2, y: r.top + r.height / 2 };
             }
-
-            // --- Focus management ---
 
             function setTvNavActive(active) {
                 if (!document.body) return;
@@ -1367,9 +1000,6 @@
                 return document.querySelector('.tv-focused');
             }
 
-            // Keep focused items inside a stable viewport "sweet zone" rather than
-            // scrolling them flush to the edge. Direct scrollTop (no smooth behavior)
-            // is decisive enough that long-press D-pad doesn't desync focus and scroll.
             function scrollIntoViewCustom(el) {
                 if (!__pageNavAware) {
                     try { el.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); } catch (e) {}
@@ -1378,10 +1008,6 @@
                 var DOWN_RATIO = 0.60;
                 var UP_RATIO = 0.25;
                 var PADDING = 10;
-                // Only treat a parent as a managed scroller if it actually overflows.
-                // In legacy-cursor-compat layout (.main-content lacks overflow-y:auto)
-                // the closest match exists in DOM but is NOT a real scroll container,
-                // so we fall back to window scrolling for the right pane.
                 var sidebarParent = el.closest('.sidebar');
                 var mainParent = el.closest('.main-content');
                 var container = null;
@@ -1434,9 +1060,6 @@
                 setFocus(target);
             }
 
-            // BFCache-friendly: pageshow fires both on first load and on back-restore.
-            // rAF gives layout one frame to settle; the 120 ms timeout is a safety net
-            // for slow Android TV WebViews where rAF can land before paint.
             function scheduleInitialFocus() {
                 try {
                     requestAnimationFrame(focusInitialCategory);
@@ -1446,8 +1069,6 @@
                 setTimeout(focusInitialCategory, 120);
             }
 
-            // Prefer restoring the exact card the user activated; fall back to the
-            // first category if the URL list changed between sessions.
             function restoreLastFocusOrFirst() {
                 if (getCurrentFocused()) return;
                 var target = null;
@@ -1464,14 +1085,6 @@
                 setFocus(target);
             }
 
-            // --- Spatial scoring (from nfx scoreDirectionalCandidate) ---
-            //
-            // For UP/DOWN: primary axis is dy (weighted 8x), cross axis is dx.
-            //   Bonus 0 when horizontal overlap > 0, penalty 2x when no overlap.
-            // For LEFT/RIGHT: primary axis is dx (weighted 8x), cross axis is dy.
-            //   Bonus 0 when vertical overlap > 0, penalty 2x when no overlap.
-            // Candidates in the wrong direction get Infinity (filtered out).
-
             function overlap(aStart, aEnd, bStart, bEnd) {
                 return Math.max(0, Math.min(aEnd, bEnd) - Math.max(aStart, bStart));
             }
@@ -1482,7 +1095,6 @@
                 var hOverlap = overlap(curRect.left, curRect.right, cRect.left, cRect.right);
                 var vOverlap = overlap(curRect.top, curRect.bottom, cRect.top, cRect.bottom);
                 var minAxis = 8;
-
                 if (dir === 'UP') {
                     if (dy >= -minAxis) return Infinity;
                     return Math.abs(dy) * 8 + Math.abs(dx) + (hOverlap > 0 ? 0 : Math.abs(dx) * 2);
@@ -1506,7 +1118,6 @@
                 var curCenter = getCenter(current);
                 var curRect = getRect(current);
                 if (!curRect) return null;
-
                 var scored = [];
                 for (var i = 0; i < candidates.length; i++) {
                     var c = candidates[i];
@@ -1520,55 +1131,40 @@
                 return scored.length > 0 ? scored[0].el : null;
             }
 
-            // --- Directional navigation ---
-
             var DIR_MAP = { ArrowUp: 'UP', ArrowDown: 'DOWN', ArrowLeft: 'LEFT', ArrowRight: 'RIGHT' };
 
             function navigate(current, dir) {
                 var zone = current.getAttribute('data-zone');
                 var target = null;
-
                 if (zone === 'category') {
-                    if (dir === 'LEFT') return true; // Edge
+                    if (dir === 'LEFT') return true;
                     if (dir === 'RIGHT') {
-                        // Cross-zone: sidebar → grid
                         target = findTarget(getItems('site'), current, 'RIGHT');
                     } else {
-                        // UP/DOWN: within sidebar
                         target = findTarget(getItems('category'), current, dir);
                     }
                 } else if (zone === 'site') {
                     if (dir === 'LEFT') {
-                        // Try within grid first; if at left edge, cross-zone to sidebar
                         target = findTarget(getItems('site'), current, 'LEFT')
                               || findTarget(getItems('category'), current, 'LEFT');
                     } else if (dir === 'RIGHT') {
-                        // Within grid only
                         target = findTarget(getItems('site'), current, 'RIGHT');
                     } else {
-                        // UP/DOWN: within grid
                         target = findTarget(getItems('site'), current, dir);
                     }
                 }
-
                 if (target) {
                     setFocus(target);
                 } else if (__pageNavAware && dir === 'UP') {
-                    // No UP candidate found → we're at the top edge. Ask the App's toolbar
-                    // to take focus (PAGE_NAV_EDGE handoff). App calls back via
-                    // window.__TV_PAGE_NAV_BRIDGE__.restoreFromToolbar(token, route) when
-                    // the user returns from the toolbar.
                     requestToolbarHandoff(current);
                 }
                 return true;
             }
 
-            // --- Toolbar handoff (aware-only) ---
             var lastToolbarHandoffAt = 0;
             function requestToolbarHandoff(currentEl) {
                 if (!__pageNavAware) return;
                 if (!window.NaviSwitch || typeof window.NaviSwitch.requestNavBarFocus !== 'function') return;
-                // Debounce: TV remotes often double-fire UP at edges.
                 var now = Date.now();
                 if (now - lastToolbarHandoffAt < 500) return;
                 lastToolbarHandoffAt = now;
@@ -1585,9 +1181,6 @@
                 try { window.NaviSwitch.requestNavBarFocus(JSON.stringify(payload)); } catch (e) {}
             }
 
-            // Bridge object the App invokes after toolbar BACK / browser-chrome dismissal
-            // to restore page focus. Only exposed in aware builds so legacy App users see
-            // no behavioral change.
             if (__pageNavAware) {
                 window.__TV_PAGE_NAV_BRIDGE__ = {
                     restoreFromToolbar: function(handoffToken, routeKey) {
@@ -1606,8 +1199,6 @@
                 };
             }
 
-            // --- Directional navigation entry (aware-mode rAF-throttled, legacy direct) ---
-
             function runDirectionalNavigation(dir) {
                 var current = getCurrentFocused();
                 if (!current) {
@@ -1618,9 +1209,6 @@
                 navigate(current, dir);
             }
 
-            // Coalesce repeat-fired keydowns (long-press D-pad) into one move per frame.
-            // Without this, Android TV remotes fire ~60 keydowns/s and each one triggers a
-            // setFocus + scroll, which is what produces the visible "drift".
             function scheduleDirectionalNavigation(dir) {
                 pendingNavDir = dir;
                 if (pendingNavFrame) return;
@@ -1634,25 +1222,19 @@
 
             function activateSiteLink(link) {
                 if (!link || !link.href) return;
-                // Remember target so pageshow restoration can land on the same card.
                 lastFocusedKey = link.href;
                 try { window.location.assign(link.href); }
                 catch (e) { window.location.href = link.href; }
             }
 
-            // --- Global keydown handler ---
-
             document.addEventListener('keydown', function (e) {
                 if (!NAV_KEYS.has(e.key)) return;
-
                 if (__pageNavAware) {
-                    // Aware mode: claim the event hard so neither Bootstrap nor anchors compete.
                     e.preventDefault();
                     e.stopPropagation();
                     if (typeof e.stopImmediatePropagation === 'function') e.stopImmediatePropagation();
                     tvMode = true;
                     setTvNavActive(true);
-
                     var dirA = DIR_MAP[e.key];
                     if (dirA) {
                         if (e.repeat) scheduleDirectionalNavigation(dirA);
@@ -1674,19 +1256,15 @@
                     }
                     return;
                 }
-
-                // Legacy mode (old App, no NaviSwitch.getCapabilities): keep prior behavior.
                 tvMode = true;
                 var current = getCurrentFocused();
                 var dir = DIR_MAP[e.key];
-
                 if (!current) {
                     var items = getItems('category');
                     if (items.length > 0) setFocus(items[0]);
                     e.preventDefault();
                     return;
                 }
-
                 if (dir) {
                     navigate(current, dir);
                     e.preventDefault();
@@ -1702,7 +1280,6 @@
                 }
             }, true);
 
-            // Clear TV focus state on mouse interaction
             document.addEventListener('mousedown', function () {
                 if (tvMode) {
                     tvMode = false;
@@ -1713,18 +1290,11 @@
 
             if (__pageNavAware) {
                 window.addEventListener('resize', invalidateItemCache);
-
-                // pageshow fires on first load AND on BFCache restoration (when the user
-                // navigates back from a sub-site). On restore:
-                //   1) the App has already revert'd PAGE_NAV_MODE → re-request it
-                //   2) currentFocused is still set in module scope, but the DOM was rehydrated
-                //      → call restoreLastFocusOrFirst to land on the last-activated card
                 window.addEventListener('pageshow', function() {
                     requestNativePageNavigationMode();
                     invalidateItemCache();
                     restoreLastFocusOrFirst();
                 });
-
                 scheduleInitialFocus();
             }
         }
