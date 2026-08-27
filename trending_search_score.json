@@ -4,7 +4,6 @@
     "GLOBAL": {
       "hotTerms": [
         "123moviesfree",
-        "tarjetarojatvs",
         "futbol libre",
         "librepelota",
         "live soccer",
@@ -13,13 +12,14 @@
         "rezka",
         "tamilgun",
         "cinemana shabakaty",
-        "rtmklik",
         "flixtor",
         "rojadirectastream",
         "tamildhool",
         "123-hds",
         "lookmovie2",
-        "moviebox"
+        "fmovies",
+        "soap2day",
+        "primewire"
       ],
       "websites": [
         {
@@ -35,32 +35,8 @@
           "score": 0.4407
         },
         {
-          "domain": "eventcinemas.com.au",
-          "score": 0.4298
-        },
-        {
-          "domain": "cinecolombia.com",
-          "score": 0.4262
-        },
-        {
-          "domain": "imax.com",
-          "score": 0.4111
-        },
-        {
-          "domain": "marcustheatres.com",
-          "score": 0.4067
-        },
-        {
-          "domain": "hoyts.com.au",
-          "score": 0.3932
-        },
-        {
           "domain": "a24films.com",
           "score": 0.3667
-        },
-        {
-          "domain": "cinemaxx.de",
-          "score": 0.3575
         },
         {
           "domain": "dailymotion.com",
@@ -71,24 +47,8 @@
           "score": 0.3407
         },
         {
-          "domain": "stubhub.com",
-          "score": 0.3282
-        },
-        {
           "domain": "webnovel.com",
           "score": 0.327
-        },
-        {
-          "domain": "myvue.com",
-          "score": 0.326
-        },
-        {
-          "domain": "cinepolis.com",
-          "score": 0.3209
-        },
-        {
-          "domain": "regmovies.com",
-          "score": 0.3207
         },
         {
           "domain": "sport24.gr",
@@ -133,10 +93,6 @@
         {
           "domain": "mundodeportivo.com",
           "score": 0.2865
-        },
-        {
-          "domain": "amctheatres.com",
-          "score": 0.2862
         },
         {
           "domain": "dazn.com",
@@ -199,10 +155,6 @@
           "score": 0.2607
         },
         {
-          "domain": "cinemark.com",
-          "score": 0.2605
-        },
-        {
           "domain": "tubitv.com",
           "score": 0.2577
         },
@@ -226,9 +178,19 @@
     },
     "US": {
       "hotTerms": [
-        "flixtor",
         "123moviesfree",
-        "lookmovie2"
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "9anime",
+        "kisskh",
+        "hurawatch",
+        "sflix",
+        "nfl stream",
+        "nba stream",
+        "primewire",
+        "solarmovie"
       ],
       "websites": [
         {
@@ -276,16 +238,8 @@
           "score": 0.3796
         },
         {
-          "domain": "amctheatres.com",
-          "score": 0.3793
-        },
-        {
           "domain": "sports-reference.com",
           "score": 0.3764
-        },
-        {
-          "domain": "seatgeek.com",
-          "score": 0.3762
         },
         {
           "domain": "draftkings.com",
@@ -296,16 +250,8 @@
           "score": 0.3646
         },
         {
-          "domain": "cinemark.com",
-          "score": 0.3583
-        },
-        {
           "domain": "a24films.com",
           "score": 0.3571
-        },
-        {
-          "domain": "showcasecinemas.com",
-          "score": 0.3535
         },
         {
           "domain": "cbssports.com",
@@ -314,18 +260,6 @@
         {
           "domain": "wco.tv",
           "score": 0.3477
-        },
-        {
-          "domain": "cinepolisusa.com",
-          "score": 0.3411
-        },
-        {
-          "domain": "regmovies.com",
-          "score": 0.3395
-        },
-        {
-          "domain": "stubhub.com",
-          "score": 0.3384
         },
         {
           "domain": "celebrationcinema.com",
@@ -400,10 +334,6 @@
           "score": 0.3016
         },
         {
-          "domain": "atomtickets.com",
-          "score": 0.2934
-        },
-        {
           "domain": "galaxytheatres.com",
           "score": 0.2933
         },
@@ -414,6 +344,19 @@
       ]
     },
     "GB": {
+      "hotTerms": [
+        "solarmovie",
+        "project-free-tv",
+        "couchtuner",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "hurawatch",
+        "sflix",
+        "primewire"
+      ],
       "websites": [
         {
           "domain": "letsdothis.com",
@@ -432,10 +375,6 @@
           "score": 0.4359
         },
         {
-          "domain": "imax.com",
-          "score": 0.4042
-        },
-        {
           "domain": "letterboxd.com",
           "score": 0.3785
         },
@@ -448,20 +387,12 @@
           "score": 0.3775
         },
         {
-          "domain": "viagogo.co.uk",
-          "score": 0.3724
-        },
-        {
           "domain": "plex.tv",
           "score": 0.3718
         },
         {
           "domain": "lta.org.uk",
           "score": 0.371
-        },
-        {
-          "domain": "seetickets.com",
-          "score": 0.3542
         },
         {
           "domain": "rottentomatoes.com",
@@ -488,10 +419,6 @@
           "score": 0.3335
         },
         {
-          "domain": "atgtickets.com",
-          "score": 0.3322
-        },
-        {
           "domain": "goojara.to",
           "score": 0.331
         },
@@ -502,10 +429,6 @@
         {
           "domain": "primevideo.com",
           "score": 0.3269
-        },
-        {
-          "domain": "myvue.com",
-          "score": 0.3224
         },
         {
           "domain": "spotify.com",
@@ -538,18 +461,6 @@
         {
           "domain": "picturehouses.com",
           "score": 0.3039
-        },
-        {
-          "domain": "axs.com",
-          "score": 0.3034
-        },
-        {
-          "domain": "ticketmaster.co.uk",
-          "score": 0.3032
-        },
-        {
-          "domain": "ticketmaster.com",
-          "score": 0.3032
         },
         {
           "domain": "arsenal.com",
@@ -588,10 +499,6 @@
           "score": 0.2881
         },
         {
-          "domain": "showcasecinemas.co.uk",
-          "score": 0.2871
-        },
-        {
           "domain": "dazn.com",
           "score": 0.2864
         },
@@ -610,6 +517,16 @@
       ]
     },
     "AU": {
+      "hotTerms": [
+        "soap2day",
+        "hurawatch",
+        "sflix",
+        "123moviesgo",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies"
+      ],
       "websites": [
         {
           "domain": "pricecharting.com",
@@ -680,20 +597,12 @@
           "score": 0.3727
         },
         {
-          "domain": "eventcinemas.com.au",
-          "score": 0.3684
-        },
-        {
           "domain": "netflix.com",
           "score": 0.3638
         },
         {
           "domain": "plex.tv",
           "score": 0.3581
-        },
-        {
-          "domain": "hoyts.com.au",
-          "score": 0.3567
         },
         {
           "domain": "villagecinemas.com.au",
@@ -784,10 +693,6 @@
           "score": 0.3124
         },
         {
-          "domain": "myvue.com",
-          "score": 0.3123
-        },
-        {
           "domain": "supercoach.com.au",
           "score": 0.3114
         },
@@ -806,6 +711,15 @@
       ]
     },
     "FR": {
+      "hotTerms": [
+        "french-stream",
+        "zone-telechargement",
+        "wiflix",
+        "cpasbien",
+        "stream-complet",
+        "voirseries",
+        "123moviesfree"
+      ],
       "websites": [
         {
           "domain": "notrecinema.com",
@@ -826,10 +740,6 @@
         {
           "domain": "parisladefense-arena.com",
           "score": 0.4563
-        },
-        {
-          "domain": "ticketmaster.fr",
-          "score": 0.4249
         },
         {
           "domain": "cinema-confluences.com",
@@ -1001,14 +911,14 @@
       "hotTerms": [
         "flixtor",
         "futbol-libres",
-        "tsn",
         "lookmovie2",
-        "koratair",
         "rezka",
-        "crackstreams",
         "123moviesfree",
         "streamseast",
-        "fmhy"
+        "fmovies",
+        "soap2day",
+        "primewire",
+        "9anime"
       ],
       "websites": [
         {
@@ -1030,10 +940,6 @@
         {
           "domain": "hotdocs.ca",
           "score": 0.4468
-        },
-        {
-          "domain": "stubhub.ca",
-          "score": 0.4375
         },
         {
           "domain": "iplt20.com",
@@ -1164,10 +1070,6 @@
           "score": 0.3156
         },
         {
-          "domain": "imax.com",
-          "score": 0.313
-        },
-        {
           "domain": "gagaoolala.com",
           "score": 0.3113
         },
@@ -1210,6 +1112,15 @@
       ]
     },
     "ES": {
+      "hotTerms": [
+        "seriesyonkis",
+        "peliculasaudiolatino",
+        "cuevana3i",
+        "cinecalidad",
+        "pelisplus",
+        "peliculasflv",
+        "compartirflix"
+      ],
       "websites": [
         {
           "domain": "ocinecopo.es",
@@ -1332,10 +1243,6 @@
           "score": 0.3161
         },
         {
-          "domain": "cinepolis.com",
-          "score": 0.3112
-        },
-        {
           "domain": "tioanime.com",
           "score": 0.3075
         },
@@ -1380,10 +1287,6 @@
           "score": 0.2847
         },
         {
-          "domain": "ticketmaster.es",
-          "score": 0.2818
-        },
-        {
           "domain": "plex.tv",
           "score": 0.2815
         },
@@ -1416,14 +1319,19 @@
     "IN": {
       "hotTerms": [
         "5movierulz",
-        "epicsports",
-        "goatsports",
-        "pw",
-        "blogspot",
-        "moviesda33",
+        "movierulz",
+        "tamilgun",
+        "tamildhool",
+        "moviesda",
         "prmovies",
-        "codedew",
-        "chatgpt"
+        "vegamovies",
+        "filmyzilla",
+        "bolly4u",
+        "skymovieshd",
+        "khatrimaza",
+        "9xmovies",
+        "jalshamoviez",
+        "filmywap"
       ],
       "websites": [
         {
@@ -1503,10 +1411,6 @@
           "score": 0.3685
         },
         {
-          "domain": "cinemark.com",
-          "score": 0.3661
-        },
-        {
           "domain": "filmfreeway.com",
           "score": 0.3655
         },
@@ -1517,10 +1421,6 @@
         {
           "domain": "newsshooter.com",
           "score": 0.3625
-        },
-        {
-          "domain": "hoyts.com.au",
-          "score": 0.3623
         },
         {
           "domain": "mxplayer.in",
@@ -1629,11 +1529,17 @@
       ]
     },
     "DE": {
+      "hotTerms": [
+        "kinox",
+        "movie4k",
+        "serienstream",
+        "netzkino",
+        "bs.to",
+        "serienjunkies",
+        "123moviesfree",
+        "flixtor"
+      ],
       "websites": [
-        {
-          "domain": "viagogo.de",
-          "score": 0.6028
-        },
         {
           "domain": "change.org",
           "score": 0.5495
@@ -1803,10 +1709,6 @@
           "score": 0.3212
         },
         {
-          "domain": "cinemaxx.de",
-          "score": 0.3186
-        },
-        {
           "domain": "fussball.de",
           "score": 0.3149
         },
@@ -1829,6 +1731,14 @@
       ]
     },
     "IT": {
+      "hotTerms": [
+        "altadefinizione",
+        "casacinema",
+        "streamingita",
+        "guardaserie",
+        "cb01",
+        "ilcorsaronero"
+      ],
       "websites": [
         {
           "domain": "loonex.eu",
@@ -2030,7 +1940,20 @@
     },
     "BR": {
       "hotTerms": [
-        "globo"
+        "megafilmes",
+        "topflix",
+        "filmeflix",
+        "vizer",
+        "pobreflix",
+        "redecanais",
+        "comandofilmes",
+        "seriesflix",
+        "filmeshd",
+        "cinefilmes",
+        "sharefilmes",
+        "assistirfilmes",
+        "filmestorrent",
+        "cinemainterativo"
       ],
       "websites": [
         {
@@ -2058,10 +1981,6 @@
           "score": 0.4108
         },
         {
-          "domain": "cinemark.com",
-          "score": 0.4003
-        },
-        {
           "domain": "mostra.org",
           "score": 0.3939
         },
@@ -2076,10 +1995,6 @@
         {
           "domain": "gagaoolala.com",
           "score": 0.3773
-        },
-        {
-          "domain": "cinemark.com.br",
-          "score": 0.3726
         },
         {
           "domain": "ge.globo",
@@ -2152,10 +2067,6 @@
         {
           "domain": "filmin.es",
           "score": 0.3103
-        },
-        {
-          "domain": "veloxtickets.com",
-          "score": 0.309
         },
         {
           "domain": "portacurtas.org.br",
@@ -2236,6 +2147,18 @@
       ]
     },
     "BT": {
+      "hotTerms": [
+        "bhutanfootball",
+        "effedupmovies",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "primewire",
+        "9anime",
+        "hurawatch"
+      ],
       "websites": [
         {
           "domain": "fifa.com",
@@ -2436,6 +2359,17 @@
       ]
     },
     "TL": {
+      "hotTerms": [
+        "mydramalist",
+        "lk21official",
+        "indoxxi",
+        "idlix",
+        "samehadaku",
+        "idlixku",
+        "dramacool",
+        "kissasian",
+        "rebahin"
+      ],
       "websites": [
         {
           "domain": "mydramalist.com",
@@ -2640,6 +2574,18 @@
       ]
     },
     "CN": {
+      "hotTerms": [
+        "nivod",
+        "ddys",
+        "duboku",
+        "123moviesfree",
+        "flixtor",
+        "filmin",
+        "gimytv",
+        "lolokino",
+        "nivod2",
+        "ddrk"
+      ],
       "websites": [
         {
           "domain": "yupptv.com",
@@ -2664,14 +2610,6 @@
         {
           "domain": "cineb.net",
           "score": 0.6078
-        },
-        {
-          "domain": "bookmyshow.com",
-          "score": 0.5937
-        },
-        {
-          "domain": "viagogo.com",
-          "score": 0.5534
         },
         {
           "domain": "animate-onlineshop.jp",
@@ -2844,6 +2782,18 @@
       ]
     },
     "TW": {
+      "hotTerms": [
+        "drama-q",
+        "line tv",
+        "friDay",
+        "nivod",
+        "ddys",
+        "duboku",
+        "gimytv",
+        "lolokino",
+        "nivod2",
+        "ddrk"
+      ],
       "websites": [
         {
           "domain": "lottonavi.com",
@@ -2866,16 +2816,8 @@
           "score": 0.5113
         },
         {
-          "domain": "imax.com",
-          "score": 0.5084
-        },
-        {
           "domain": "moviemovie.com.hk",
           "score": 0.4975
-        },
-        {
-          "domain": "eventcinemas.com.au",
-          "score": 0.4916
         },
         {
           "domain": "dailymotion.com",
@@ -3044,6 +2986,16 @@
       ]
     },
     "MO": {
+      "hotTerms": [
+        "drama-q",
+        "nivod",
+        "ddys",
+        "duboku",
+        "gimytv",
+        "lolokino",
+        "nivod2",
+        "ddrk"
+      ],
       "websites": [
         {
           "domain": "gt-world-challenge-europe.com",
@@ -3244,6 +3196,19 @@
       ]
     },
     "HK": {
+      "hotTerms": [
+        "123moviesfree",
+        "5movierulz",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "nivod",
+        "ddys",
+        "duboku",
+        "gimytv",
+        "lolokino"
+      ],
       "websites": [
         {
           "domain": "miraheze.org",
@@ -3370,10 +3335,6 @@
           "score": 0.3691
         },
         {
-          "domain": "hoyts.com.au",
-          "score": 0.369
-        },
-        {
           "domain": "bfi.org.uk",
           "score": 0.3667
         },
@@ -3438,16 +3399,23 @@
           "score": 0.3295
         },
         {
-          "domain": "odeon.co.uk",
-          "score": 0.3261
-        },
-        {
           "domain": "msn.com",
           "score": 0.3248
         }
       ]
     },
     "CF": {
+      "hotTerms": [
+        "besoccer",
+        "elcinema",
+        "animenewsnetwork",
+        "french-stream",
+        "wiflix",
+        "zone-telechargement",
+        "cpasbien",
+        "123moviesfree",
+        "flixtor"
+      ],
       "websites": [
         {
           "domain": "ayther.fr",
@@ -3636,6 +3604,15 @@
       ]
     },
     "DK": {
+      "hotTerms": [
+        "dreamfilm",
+        "pirate bay",
+        "piratebay",
+        "123moviesfree",
+        "flixtor",
+        "soap2day",
+        "lookmovie2"
+      ],
       "websites": [
         {
           "domain": "bowlnfun.dk",
@@ -3790,16 +3767,8 @@
           "score": 0.3456
         },
         {
-          "domain": "ticketmaster.com",
-          "score": 0.3455
-        },
-        {
           "domain": "procyclingstats.com",
           "score": 0.3439
-        },
-        {
-          "domain": "eventcinemas.co.nz",
-          "score": 0.3433
         },
         {
           "domain": "loebeshop.dk",
@@ -3822,10 +3791,6 @@
           "score": 0.3303
         },
         {
-          "domain": "cineworld.co.uk",
-          "score": 0.3289
-        },
-        {
           "domain": "nordiskfilm.com",
           "score": 0.3283
         },
@@ -3840,6 +3805,18 @@
       ]
     },
     "UA": {
+      "hotTerms": [
+        "ex-fs",
+        "kino-broadcast",
+        "kinogo",
+        "bigcinema",
+        "lostfilm-ua",
+        "torrent-ua",
+        "rezka",
+        "kinozal",
+        "filmix",
+        "baskino"
+      ],
       "websites": [
         {
           "domain": "onefootball.com",
@@ -3852,10 +3829,6 @@
         {
           "domain": "allbasketball.org",
           "score": 0.5006
-        },
-        {
-          "domain": "odeon.co.uk",
-          "score": 0.4791
         },
         {
           "domain": "rybka.in.ua",
@@ -3880,10 +3853,6 @@
         {
           "domain": "a24films.com",
           "score": 0.4248
-        },
-        {
-          "domain": "ticketsbox.com",
-          "score": 0.4209
         },
         {
           "domain": "netzkino.de",
@@ -4044,18 +4013,18 @@
       ]
     },
     "UZ": {
+      "hotTerms": [
+        "rezka",
+        "kinozal",
+        "filmix",
+        "baskino",
+        "lordfilm",
+        "kinogo"
+      ],
       "websites": [
-        {
-          "domain": "imax.com",
-          "score": 0.651
-        },
         {
           "domain": "retrogames.cz",
           "score": 0.648
-        },
-        {
-          "domain": "viagogo.com",
-          "score": 0.6172
         },
         {
           "domain": "fide.com",
@@ -4068,10 +4037,6 @@
         {
           "domain": "bobsoccer.ru",
           "score": 0.5689
-        },
-        {
-          "domain": "firstshowing.net",
-          "score": 0.5562
         },
         {
           "domain": "allstar.gg",
@@ -4104,10 +4069,6 @@
         {
           "domain": "basketball-video.com",
           "score": 0.5039
-        },
-        {
-          "domain": "odeon.co.uk",
-          "score": 0.5033
         },
         {
           "domain": "productioncrate.com",
@@ -4240,14 +4201,21 @@
         {
           "domain": "nofilmschool.com",
           "score": 0.3972
-        },
-        {
-          "domain": "hoyts.com.au",
-          "score": 0.3963
         }
       ]
     },
     "UG": {
+      "hotTerms": [
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "9anime",
+        "kisskh",
+        "movies2watch",
+        "effedupmovies"
+      ],
       "websites": [
         {
           "domain": "yallakora.com",
@@ -4382,10 +4350,6 @@
           "score": 0.4184
         },
         {
-          "domain": "amctheatres.com",
-          "score": 0.4141
-        },
-        {
           "domain": "themoviedb.org",
           "score": 0.4139
         },
@@ -4418,10 +4382,6 @@
           "score": 0.3955
         },
         {
-          "domain": "regmovies.com",
-          "score": 0.3936
-        },
-        {
           "domain": "slashfilm.com",
           "score": 0.3922
         },
@@ -4452,6 +4412,18 @@
       ]
     },
     "UY": {
+      "hotTerms": [
+        "cuevana3i",
+        "cinecalidad",
+        "pelisplushd",
+        "peliculasflv",
+        "futbol-libres",
+        "pelotaalibre",
+        "rojadirecta",
+        "gatonplay",
+        "compartirflix",
+        "pelisplus"
+      ],
       "websites": [
         {
           "domain": "allaccess.com.ar",
@@ -4558,10 +4530,6 @@
           "score": 0.3978
         },
         {
-          "domain": "cinepolis.com",
-          "score": 0.3889
-        },
-        {
           "domain": "sport890.com.uy",
           "score": 0.383
         },
@@ -4656,6 +4624,16 @@
       ]
     },
     "TD": {
+      "hotTerms": [
+        "besoccer",
+        "football365",
+        "french-stream",
+        "wiflix",
+        "zone-telechargement",
+        "cpasbien",
+        "123moviesfree",
+        "flixtor"
+      ],
       "websites": [
         {
           "domain": "football.fr",
@@ -4860,6 +4838,19 @@
       ]
     },
     "GE": {
+      "hotTerms": [
+        "rezka",
+        "kinozal",
+        "filmix",
+        "baskino",
+        "lordfilm",
+        "nnm-club",
+        "rutor",
+        "rutracker",
+        "kinogo",
+        "allmovie",
+        "awardsradar"
+      ],
       "websites": [
         {
           "domain": "etix.com",
@@ -4936,10 +4927,6 @@
         {
           "domain": "a24films.com",
           "score": 0.433
-        },
-        {
-          "domain": "ticketmaster.com",
-          "score": 0.4251
         },
         {
           "domain": "ovationtix.com",
@@ -5064,6 +5051,18 @@
       ]
     },
     "YE": {
+      "hotTerms": [
+        "egybest",
+        "akwam",
+        "wecima",
+        "yassflix",
+        "3iskk",
+        "cima4u",
+        "shahid",
+        "yalla-shoot",
+        "kooorapro",
+        "cimaclub"
+      ],
       "websites": [
         {
           "domain": "motorsport.com",
@@ -5268,6 +5267,21 @@
       ]
     },
     "AM": {
+      "hotTerms": [
+        "rezka",
+        "kinozal",
+        "filmix",
+        "baskino",
+        "lordfilm",
+        "nnm-club",
+        "rutor",
+        "rutracker",
+        "kinogo",
+        "futbol24",
+        "a24films",
+        "resultados-futbol",
+        "kinocheck"
+      ],
       "websites": [
         {
           "domain": "kinogo.bz",
@@ -5276,10 +5290,6 @@
         {
           "domain": "eventival.com",
           "score": 0.7382
-        },
-        {
-          "domain": "imax.com",
-          "score": 0.6405
         },
         {
           "domain": "mlb.com",
@@ -5454,10 +5464,6 @@
           "score": 0.381
         },
         {
-          "domain": "axs.com",
-          "score": 0.3808
-        },
-        {
           "domain": "performgroup.com",
           "score": 0.3798
         },
@@ -5468,6 +5474,21 @@
       ]
     },
     "IL": {
+      "hotTerms": [
+        "filmchief",
+        "go2films",
+        "livesoccertv",
+        "filmfreeway",
+        "moviesunlimited",
+        "kinocheck",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "sdarot",
+        "sdarot-tv",
+        "seret-club"
+      ],
       "websites": [
         {
           "domain": "basketball-video.com",
@@ -5520,10 +5541,6 @@
         {
           "domain": "moviesunlimited.com",
           "score": 0.456
-        },
-        {
-          "domain": "amctheatres.com",
-          "score": 0.431
         },
         {
           "domain": "kinocheck.com",
@@ -5660,14 +5677,24 @@
         {
           "domain": "dailymotion.com",
           "score": 0.3233
-        },
-        {
-          "domain": "ticketmaster.com",
-          "score": 0.3172
         }
       ]
     },
     "IQ": {
+      "hotTerms": [
+        "kurd cinema",
+        "akwam",
+        "egybest",
+        "yalla-shoot",
+        "shahid",
+        "wecima",
+        "yassflix",
+        "3iskk",
+        "cima4u",
+        "cimaclub",
+        "kooorapro",
+        "dardarkom"
+      ],
       "websites": [
         {
           "domain": "fifa.com",
@@ -5770,10 +5797,6 @@
           "score": 0.4932
         },
         {
-          "domain": "cinemaxx.de",
-          "score": 0.4885
-        },
-        {
           "domain": "film-grab.com",
           "score": 0.4787
         },
@@ -5872,22 +5895,20 @@
       ]
     },
     "BZ": {
+      "hotTerms": [
+        "themoviedb",
+        "cuevana3i",
+        "cinecalidad",
+        "pelisplus",
+        "peliculasflv",
+        "pelisplushd",
+        "gatonplay",
+        "compartirflix"
+      ],
       "websites": [
         {
           "domain": "iplt20.com",
           "score": 0.6733
-        },
-        {
-          "domain": "cinemark.com.bo",
-          "score": 0.5916
-        },
-        {
-          "domain": "amctheatres.com",
-          "score": 0.5648
-        },
-        {
-          "domain": "seatgeek.com",
-          "score": 0.5495
         },
         {
           "domain": "anilist.co",
@@ -5914,24 +5935,12 @@
           "score": 0.4847
         },
         {
-          "domain": "ticketmaster.com",
-          "score": 0.4805
-        },
-        {
-          "domain": "cinemark.com",
-          "score": 0.4771
-        },
-        {
           "domain": "dazn.com",
           "score": 0.4753
         },
         {
           "domain": "riotgames.com",
           "score": 0.4714
-        },
-        {
-          "domain": "ticketmaster.com.mx",
-          "score": 0.4598
         },
         {
           "domain": "dailymotion.com",
@@ -5974,20 +5983,12 @@
           "score": 0.4286
         },
         {
-          "domain": "imax.com",
-          "score": 0.4276
-        },
-        {
           "domain": "shazam.com",
           "score": 0.4274
         },
         {
           "domain": "agileticketing.net",
           "score": 0.424
-        },
-        {
-          "domain": "cinepolis.com",
-          "score": 0.421
         },
         {
           "domain": "viu.com",
@@ -6072,6 +6073,19 @@
       ]
     },
     "CV": {
+      "hotTerms": [
+        "movies2watch",
+        "filmow",
+        "themoviedb",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "primewire",
+        "9anime",
+        "hurawatch"
+      ],
       "websites": [
         {
           "domain": "90min.com",
@@ -6276,6 +6290,18 @@
       ]
     },
     "RU": {
+      "hotTerms": [
+        "rezka",
+        "kinozal",
+        "nnm-club",
+        "rutor",
+        "rutracker",
+        "baskino",
+        "filmix",
+        "newfilmes",
+        "lordfilm",
+        "kinogo"
+      ],
       "websites": [
         {
           "domain": "moscowfilmfestival.ru",
@@ -6476,6 +6502,19 @@
       ]
     },
     "BG": {
+      "hotTerms": [
+        "filmi24",
+        "filmibg",
+        "filmi online",
+        "bgseriali",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "filmi-online",
+        "zamunda",
+        "arenabg"
+      ],
       "websites": [
         {
           "domain": "soccerway.com",
@@ -6680,6 +6719,18 @@
       ]
     },
     "HR": {
+      "hotTerms": [
+        "bombuj",
+        "gledajsaprevodom",
+        "filmehd",
+        "filmeonline",
+        "123moviesfree",
+        "kinox",
+        "rezka",
+        "serienstream",
+        "hrti",
+        "nova tv"
+      ],
       "websites": [
         {
           "domain": "kinopavasaris.lt",
@@ -6880,14 +6931,21 @@
       ]
     },
     "GU": {
+      "hotTerms": [
+        "peacocktv",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "primewire",
+        "9anime",
+        "hurawatch"
+      ],
       "websites": [
         {
           "domain": "guambowlingcongress.com",
           "score": 0.5774
-        },
-        {
-          "domain": "regmovies.com",
-          "score": 0.5563
         },
         {
           "domain": "peacocktv.com",
@@ -7058,10 +7116,6 @@
           "score": 0.3354
         },
         {
-          "domain": "showboxmovies.net",
-          "score": 0.3347
-        },
-        {
           "domain": "hbomax.com",
           "score": 0.3346
         },
@@ -7080,6 +7134,17 @@
       ]
     },
     "GM": {
+      "hotTerms": [
+        "besoccer",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "primewire",
+        "9anime",
+        "hurawatch"
+      ],
       "websites": [
         {
           "domain": "fandango.com",
@@ -7280,6 +7345,22 @@
       ]
     },
     "IS": {
+      "hotTerms": [
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "9anime",
+        "kisskh",
+        "filmhub",
+        "filmaffinity",
+        "soccer365",
+        "livetv",
+        "dreamfilm",
+        "swefilmer",
+        "pirate bay"
+      ],
       "websites": [
         {
           "domain": "tilta.com",
@@ -7484,6 +7565,18 @@
       ]
     },
     "GN": {
+      "hotTerms": [
+        "fmovies",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "soap2day",
+        "primewire",
+        "french-stream",
+        "wiflix",
+        "zone-telechargement",
+        "cpasbien"
+      ],
       "websites": [
         {
           "domain": "matchendirect.fr",
@@ -7688,6 +7781,15 @@
       ]
     },
     "GW": {
+      "hotTerms": [
+        "filmaffinity",
+        "ingresso",
+        "fmovies",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "soap2day"
+      ],
       "websites": [
         {
           "domain": "flashscore.com",
@@ -7884,6 +7986,18 @@
       ]
     },
     "LI": {
+      "hotTerms": [
+        "filmweb",
+        "studiocanal",
+        "cineman",
+        "kinox",
+        "serienstream",
+        "movie4k",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies"
+      ],
       "websites": [
         {
           "domain": "al-la.ch",
@@ -7906,10 +8020,6 @@
           "score": 0.5959
         },
         {
-          "domain": "ticketmaster.com",
-          "score": 0.5837
-        },
-        {
           "domain": "dailymotion.com",
           "score": 0.5699
         },
@@ -7924,10 +8034,6 @@
         {
           "domain": "studiocanal.fr",
           "score": 0.5525
-        },
-        {
-          "domain": "viagogo.de",
-          "score": 0.5365
         },
         {
           "domain": "cineman.ch",
@@ -8088,6 +8194,16 @@
       ]
     },
     "CG": {
+      "hotTerms": [
+        "livetv",
+        "notrecinema",
+        "french-stream",
+        "wiflix",
+        "zone-telechargement",
+        "cpasbien",
+        "123moviesfree",
+        "flixtor"
+      ],
       "websites": [
         {
           "domain": "oddspedia.com",
@@ -8176,10 +8292,6 @@
         {
           "domain": "mubi.com",
           "score": 0.4383
-        },
-        {
-          "domain": "odeon.co.uk",
-          "score": 0.4375
         },
         {
           "domain": "actionvfx.com",
@@ -8288,6 +8400,18 @@
       ]
     },
     "CD": {
+      "hotTerms": [
+        "french-stream",
+        "wiflix",
+        "stream-complet",
+        "zone-telechargement",
+        "cpasbien",
+        "123moviesfree",
+        "flixtor",
+        "soccervista",
+        "dramalive",
+        "filmstouspublics"
+      ],
       "websites": [
         {
           "domain": "riotgames.com",
@@ -8316,10 +8440,6 @@
         {
           "domain": "africine.org",
           "score": 0.4718
-        },
-        {
-          "domain": "ticketmaster.fr",
-          "score": 0.4706
         },
         {
           "domain": "chess.com",
@@ -8466,10 +8586,6 @@
           "score": 0.3385
         },
         {
-          "domain": "firstshowing.net",
-          "score": 0.3376
-        },
-        {
           "domain": "uefa.com",
           "score": 0.3374
         },
@@ -8484,6 +8600,15 @@
       ]
     },
     "LR": {
+      "hotTerms": [
+        "soccervista",
+        "livesoccertv",
+        "fulltimefilmmaker",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies"
+      ],
       "websites": [
         {
           "domain": "fifamobileguide.com",
@@ -8684,6 +8809,17 @@
       ]
     },
     "GH": {
+      "hotTerms": [
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "9anime",
+        "kisskh",
+        "moviexclusive",
+        "effedupmovies"
+      ],
       "websites": [
         {
           "domain": "nofilmschool.com",
@@ -8780,10 +8916,6 @@
         {
           "domain": "red.com",
           "score": 0.3985
-        },
-        {
-          "domain": "firstshowing.net",
-          "score": 0.3907
         },
         {
           "domain": "themoviedb.org",
@@ -8884,6 +9016,13 @@
       ]
     },
     "GA": {
+      "hotTerms": [
+        "filgoal",
+        "notrecinema",
+        "french-stream",
+        "wiflix",
+        "zone-telechargement"
+      ],
       "websites": [
         {
           "domain": "riotgames.com",
@@ -9088,6 +9227,14 @@
       ]
     },
     "HU": {
+      "hotTerms": [
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "sorozatbarat",
+        "soap2day"
+      ],
       "websites": [
         {
           "domain": "goojara.to",
@@ -9284,14 +9431,18 @@
         {
           "domain": "demonslayer-anime.com",
           "score": 0.2808
-        },
-        {
-          "domain": "odeon.co.uk",
-          "score": 0.2787
         }
       ]
     },
     "MP": {
+      "hotTerms": [
+        "mydramalist",
+        "billboard",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies"
+      ],
       "websites": [
         {
           "domain": "iq.com",
@@ -9484,6 +9635,16 @@
       ]
     },
     "SS": {
+      "hotTerms": [
+        "kinocheck",
+        "peacocktv",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "hurawatch"
+      ],
       "websites": [
         {
           "domain": "kinocheck.com",
@@ -9684,6 +9845,17 @@
       ]
     },
     "ZA": {
+      "hotTerms": [
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "kissanime",
+        "etv",
+        "sabc",
+        "hurawatch"
+      ],
       "websites": [
         {
           "domain": "soccer24.com",
@@ -9838,10 +10010,6 @@
           "score": 0.3131
         },
         {
-          "domain": "hoyts.com.au",
-          "score": 0.3112
-        },
-        {
           "domain": "tab.co.za",
           "score": 0.311
         },
@@ -9884,6 +10052,17 @@
       ]
     },
     "BQ": {
+      "hotTerms": [
+        "livetv",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "primewire",
+        "9anime",
+        "hurawatch"
+      ],
       "websites": [
         {
           "domain": "iheart.com",
@@ -9918,10 +10097,6 @@
           "score": 0.4627
         },
         {
-          "domain": "imax.com",
-          "score": 0.4495
-        },
-        {
           "domain": "theworldcupguide.com",
           "score": 0.4467
         },
@@ -9934,20 +10109,12 @@
           "score": 0.4421
         },
         {
-          "domain": "ticketmaster.nl",
-          "score": 0.4342
-        },
-        {
           "domain": "bandsintown.com",
           "score": 0.4317
         },
         {
           "domain": "dan.org",
           "score": 0.4316
-        },
-        {
-          "domain": "ticketmaster.com",
-          "score": 0.4218
         },
         {
           "domain": "famousbirthdays.com",
@@ -10076,6 +10243,17 @@
       ]
     },
     "BW": {
+      "hotTerms": [
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "9anime",
+        "kisskh",
+        "soccerway",
+        "hurawatch"
+      ],
       "websites": [
         {
           "domain": "sterkinekor.com",
@@ -10280,6 +10458,17 @@
       ]
     },
     "QA": {
+      "hotTerms": [
+        "3iskk",
+        "egybest",
+        "akwam",
+        "wecima",
+        "yassflix",
+        "yalla-shoot",
+        "kooorapro",
+        "cimaclub",
+        "cima4u"
+      ],
       "websites": [
         {
           "domain": "miraheze.org",
@@ -10288,10 +10477,6 @@
         {
           "domain": "watchdocumentaries.com",
           "score": 0.6491
-        },
-        {
-          "domain": "hoyts.com.au",
-          "score": 0.5314
         },
         {
           "domain": "asianmoviepulse.com",
@@ -10342,10 +10527,6 @@
           "score": 0.4461
         },
         {
-          "domain": "cineworld.co.uk",
-          "score": 0.4442
-        },
-        {
           "domain": "hotstar.com",
           "score": 0.4422
         },
@@ -10380,10 +10561,6 @@
         {
           "domain": "lequipe.fr",
           "score": 0.4256
-        },
-        {
-          "domain": "cinemark.com",
-          "score": 0.4241
         },
         {
           "domain": "qfa.qa",
@@ -10484,6 +10661,20 @@
       ]
     },
     "RW": {
+      "hotTerms": [
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "9anime",
+        "kisskh",
+        "anime-planet",
+        "french-stream",
+        "wiflix",
+        "zone-telechargement",
+        "cpasbien"
+      ],
       "websites": [
         {
           "domain": "footagecrate.com",
@@ -10540,10 +10731,6 @@
         {
           "domain": "readberserk.com",
           "score": 0.4852
-        },
-        {
-          "domain": "showboxmovies.net",
-          "score": 0.482
         },
         {
           "domain": "my-subs.co",
@@ -10622,10 +10809,6 @@
           "score": 0.4245
         },
         {
-          "domain": "regmovies.com",
-          "score": 0.4241
-        },
-        {
           "domain": "wlext.is",
           "score": 0.4236
         },
@@ -10688,6 +10871,16 @@
       ]
     },
     "LU": {
+      "hotTerms": [
+        "french-stream",
+        "wiflix",
+        "stream-complet",
+        "zone-telechargement",
+        "cpasbien",
+        "123moviesfree",
+        "flixtor",
+        "voirseries"
+      ],
       "websites": [
         {
           "domain": "powerpyx.com",
@@ -10698,20 +10891,12 @@
           "score": 0.7351
         },
         {
-          "domain": "odeon.co.uk",
-          "score": 0.6858
-        },
-        {
           "domain": "fotmob.com",
           "score": 0.6506
         },
         {
           "domain": "livesoccertv.com",
           "score": 0.6259
-        },
-        {
-          "domain": "ticketmaster.fr",
-          "score": 0.5925
         },
         {
           "domain": "fussballtransfers.com",
@@ -10894,9 +11079,15 @@
     "ID": {
       "hotTerms": [
         "lk21official",
-        "folaplay",
-        "d21",
-        "idlixku"
+        "idlixku",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "samehadaku",
+        "dramacool",
+        "kissasian"
       ],
       "websites": [
         {
@@ -11024,10 +11215,6 @@
           "score": 0.3304
         },
         {
-          "domain": "amctheatres.com",
-          "score": 0.3298
-        },
-        {
           "domain": "football-italia.net",
           "score": 0.3207
         },
@@ -11098,6 +11285,16 @@
       ]
     },
     "GT": {
+      "hotTerms": [
+        "futbol-libres",
+        "pelotaalibre",
+        "cuevana3i",
+        "cinecalidad",
+        "pelisplushd",
+        "gatonplay",
+        "peliculasflv",
+        "prensa libre"
+      ],
       "websites": [
         {
           "domain": "vivenu.com",
@@ -11118,10 +11315,6 @@
         {
           "domain": "sitgesfilmfestival.com",
           "score": 0.5236
-        },
-        {
-          "domain": "cinemark-peru.com",
-          "score": 0.5187
         },
         {
           "domain": "letterboxd.com",
@@ -11154,10 +11347,6 @@
         {
           "domain": "yelmocines.es",
           "score": 0.4486
-        },
-        {
-          "domain": "cinemarkca.com",
-          "score": 0.4446
         },
         {
           "domain": "fotmob.com",
@@ -11272,10 +11461,6 @@
           "score": 0.3731
         },
         {
-          "domain": "cinepolis.com",
-          "score": 0.369
-        },
-        {
           "domain": "netflix.com",
           "score": 0.3678
         },
@@ -11294,6 +11479,16 @@
       ]
     },
     "EC": {
+      "hotTerms": [
+        "librepelota",
+        "pelotaalibre",
+        "cuevana3i",
+        "futbol-libres",
+        "futbolparatodos",
+        "futbollibretv",
+        "ecuafutbol",
+        "peliculasflv"
+      ],
       "websites": [
         {
           "domain": "espn.com.co",
@@ -11338,10 +11533,6 @@
         {
           "domain": "promiedos.com.ar",
           "score": 0.4181
-        },
-        {
-          "domain": "cinemark-peru.com",
-          "score": 0.4173
         },
         {
           "domain": "anime-planet.com",
@@ -11444,10 +11635,6 @@
           "score": 0.3145
         },
         {
-          "domain": "ticketshow.com.ec",
-          "score": 0.3144
-        },
-        {
           "domain": "plex.tv",
           "score": 0.3142
         },
@@ -11498,6 +11685,17 @@
       ]
     },
     "ER": {
+      "hotTerms": [
+        "filmaffinity",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "french-stream",
+        "wiflix",
+        "zone-telechargement",
+        "cpasbien"
+      ],
       "websites": [
         {
           "domain": "tottenhamhotspur.com",
@@ -11674,6 +11872,19 @@
       ]
     },
     "KG": {
+      "hotTerms": [
+        "rezka",
+        "kinozal",
+        "filmix",
+        "baskino",
+        "lordfilm",
+        "nnm-club",
+        "rutor",
+        "rutracker",
+        "kinogo",
+        "futbol24",
+        "filmcrux"
+      ],
       "websites": [
         {
           "domain": "futbol24.com",
@@ -11690,10 +11901,6 @@
         {
           "domain": "filmcrux.com",
           "score": 0.6265
-        },
-        {
-          "domain": "axs.com",
-          "score": 0.5803
         },
         {
           "domain": "broadwaydirect.com",
@@ -11722,10 +11929,6 @@
         {
           "domain": "ovationtix.com",
           "score": 0.4834
-        },
-        {
-          "domain": "tixr.com",
-          "score": 0.4817
         },
         {
           "domain": "slashfilm.com",
@@ -11874,6 +12077,15 @@
       ]
     },
     "DJ": {
+      "hotTerms": [
+        "cricketwireless",
+        "french-stream",
+        "wiflix",
+        "zone-telechargement",
+        "cpasbien",
+        "123moviesfree",
+        "flixtor"
+      ],
       "websites": [
         {
           "domain": "hbo.com",
@@ -12074,6 +12286,18 @@
       ]
     },
     "KZ": {
+      "hotTerms": [
+        "rezka",
+        "kinozal",
+        "filmix",
+        "baskino",
+        "lordfilm",
+        "nnm-club",
+        "rutor",
+        "rutracker",
+        "kinogo",
+        "filmsite"
+      ],
       "websites": [
         {
           "domain": "animation-festivals.com",
@@ -12274,6 +12498,18 @@
       ]
     },
     "CO": {
+      "hotTerms": [
+        "rojadirecta",
+        "futbol-libres-co",
+        "futeboltv",
+        "cinecalidad",
+        "compartirflix",
+        "cine24h",
+        "peliculasflv",
+        "cuevana3i",
+        "pelisplushd",
+        "gatonplay"
+      ],
       "websites": [
         {
           "domain": "livesoccertv.com",
@@ -12286,10 +12522,6 @@
         {
           "domain": "fifa.com",
           "score": 0.4958
-        },
-        {
-          "domain": "cinemark-peru.com",
-          "score": 0.4791
         },
         {
           "domain": "smartfilms.com.co",
@@ -12360,10 +12592,6 @@
           "score": 0.3774
         },
         {
-          "domain": "cinecolombia.com",
-          "score": 0.3766
-        },
-        {
           "domain": "procinal.com.co",
           "score": 0.3757
         },
@@ -12382,10 +12610,6 @@
         {
           "domain": "aullidos.com",
           "score": 0.3622
-        },
-        {
-          "domain": "cinepolis.com.co",
-          "score": 0.3574
         },
         {
           "domain": "cortosdemetraje.com",
@@ -12422,10 +12646,6 @@
         {
           "domain": "webnovel.com",
           "score": 0.3466
-        },
-        {
-          "domain": "cinepolis.com",
-          "score": 0.3452
         },
         {
           "domain": "dimayor.com.co",
@@ -12470,6 +12690,19 @@
       ]
     },
     "CR": {
+      "hotTerms": [
+        "cuevana3i",
+        "cinecalidad",
+        "pelisplushd",
+        "peliculasflv",
+        "futbol-libres",
+        "pelotaalibre",
+        "rojadirecta",
+        "gatonplay",
+        "compartirflix",
+        "fsharetv",
+        "pelisplus"
+      ],
       "websites": [
         {
           "domain": "equibase.com",
@@ -12510,14 +12743,6 @@
         {
           "domain": "retinalatina.org",
           "score": 0.5066
-        },
-        {
-          "domain": "cinemark-peru.com",
-          "score": 0.4882
-        },
-        {
-          "domain": "ticketmaster.com",
-          "score": 0.481
         },
         {
           "domain": "ecartelera.com",
@@ -12570,10 +12795,6 @@
         {
           "domain": "cuevana3.io",
           "score": 0.4134
-        },
-        {
-          "domain": "cinemarkca.com",
-          "score": 0.4102
         },
         {
           "domain": "hbomax.com",
@@ -12670,6 +12891,15 @@
       ]
     },
     "CM": {
+      "hotTerms": [
+        "french-stream",
+        "wiflix",
+        "stream-complet",
+        "zone-telechargement",
+        "cpasbien",
+        "123moviesfree",
+        "flixtor"
+      ],
       "websites": [
         {
           "domain": "newreleasetoday.com",
@@ -12874,6 +13104,14 @@
       ]
     },
     "TV": {
+      "hotTerms": [
+        "kinocheck",
+        "kayoanime",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies"
+      ],
       "websites": [
         {
           "domain": "gamespot.com",
@@ -12966,6 +13204,17 @@
       ]
     },
     "TM": {
+      "hotTerms": [
+        "notrecinema",
+        "filmaffinity",
+        "onlinevkino",
+        "rezka",
+        "kinozal",
+        "filmix",
+        "baskino",
+        "lordfilm",
+        "kinogo"
+      ],
       "websites": [
         {
           "domain": "newsnow.co.uk",
@@ -13068,10 +13317,6 @@
           "score": 0.4049
         },
         {
-          "domain": "bookmyshow.com",
-          "score": 0.4044
-        },
-        {
           "domain": "soccer.ru",
           "score": 0.4033
         },
@@ -13162,6 +13407,15 @@
       ]
     },
     "TR": {
+      "hotTerms": [
+        "jetfilmizle",
+        "hdfilmcehennemi",
+        "dizipal",
+        "dizi",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2"
+      ],
       "websites": [
         {
           "domain": "tappytoon.com",
@@ -13366,6 +13620,21 @@
       ]
     },
     "LC": {
+      "hotTerms": [
+        "effedupmovies",
+        "movies2watch",
+        "themoviedb",
+        "footballorgin",
+        "filmaffinity",
+        "demonslayer-anime",
+        "caribbeancinemas",
+        "tubitv",
+        "fmovies",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "soap2day"
+      ],
       "websites": [
         {
           "domain": "effedupmovies.com",
@@ -13476,10 +13745,6 @@
           "score": 0.3614
         },
         {
-          "domain": "imax.com",
-          "score": 0.3609
-        },
-        {
           "domain": "cbr.com",
           "score": 0.3597
         },
@@ -13570,6 +13835,16 @@
       ]
     },
     "KN": {
+      "hotTerms": [
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "primewire",
+        "9anime",
+        "hurawatch"
+      ],
       "websites": [
         {
           "domain": "justwatch.com",
@@ -13766,14 +14041,18 @@
         {
           "domain": "cplt20.com",
           "score": 0.3281
-        },
-        {
-          "domain": "cinemark-peru.com",
-          "score": 0.3226
         }
       ]
     },
     "ST": {
+      "hotTerms": [
+        "cinemaemcena",
+        "filmin",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies"
+      ],
       "websites": [
         {
           "domain": "justwatch.com",
@@ -13970,6 +14249,17 @@
       ]
     },
     "BL": {
+      "hotTerms": [
+        "filmaffinity",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "primewire",
+        "9anime",
+        "hurawatch"
+      ],
       "websites": [
         {
           "domain": "primevideo.com",
@@ -14050,6 +14340,19 @@
       ]
     },
     "VC": {
+      "hotTerms": [
+        "filmibeat",
+        "cisurfboards",
+        "mydramalist",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "primewire",
+        "9anime",
+        "hurawatch"
+      ],
       "websites": [
         {
           "domain": "pgatour.com",
@@ -14064,16 +14367,8 @@
           "score": 0.5412
         },
         {
-          "domain": "ticketmaster.com",
-          "score": 0.511
-        },
-        {
           "domain": "wco.tv",
           "score": 0.5032
-        },
-        {
-          "domain": "showboxmovies.net",
-          "score": 0.4947
         },
         {
           "domain": "fanduel.com",
@@ -14254,6 +14549,16 @@
       ]
     },
     "PM": {
+      "hotTerms": [
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "primewire",
+        "9anime",
+        "hurawatch"
+      ],
       "websites": [
         {
           "domain": "spotify.com",
@@ -14374,6 +14679,12 @@
       ]
     },
     "CX": {
+      "hotTerms": [
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies"
+      ],
       "websites": [
         {
           "domain": "tvnz.co.nz",
@@ -14386,14 +14697,20 @@
       ]
     },
     "SX": {
+      "hotTerms": [
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "primewire",
+        "9anime",
+        "hurawatch"
+      ],
       "websites": [
         {
           "domain": "disneyplus.com",
           "score": 0.6018
-        },
-        {
-          "domain": "regmovies.com",
-          "score": 0.5756
         },
         {
           "domain": "chess.com",
@@ -14486,10 +14803,6 @@
         {
           "domain": "wheresthematch.com",
           "score": 0.3526
-        },
-        {
-          "domain": "ticketmaster.com",
-          "score": 0.3501
         },
         {
           "domain": "netflix.com",
@@ -14586,6 +14899,16 @@
       ]
     },
     "SM": {
+      "hotTerms": [
+        "sanmarinocinema",
+        "cardtrader",
+        "ucicinemas",
+        "animenewsnetwork",
+        "altadefinizione",
+        "cb01",
+        "casacinema",
+        "guardaserie"
+      ],
       "websites": [
         {
           "domain": "primevideo.com",
@@ -14626,10 +14949,6 @@
         {
           "domain": "ucicinemas.it",
           "score": 0.4895
-        },
-        {
-          "domain": "viagogo.com",
-          "score": 0.4819
         },
         {
           "domain": "playbasket.it",
@@ -14786,6 +15105,17 @@
       ]
     },
     "GY": {
+      "hotTerms": [
+        "footballkitarchive",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "primewire",
+        "9anime",
+        "hurawatch"
+      ],
       "websites": [
         {
           "domain": "forgecdn.net",
@@ -14986,6 +15316,19 @@
       ]
     },
     "TZ": {
+      "hotTerms": [
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "9anime",
+        "kisskh",
+        "allmovie",
+        "primewire",
+        "hurawatch",
+        "sflix"
+      ],
       "websites": [
         {
           "domain": "smallrig.com",
@@ -15186,6 +15529,17 @@
       ]
     },
     "EG": {
+      "hotTerms": [
+        "3iskk",
+        "egybest",
+        "akwam",
+        "wecima",
+        "yassflix",
+        "yalla-shoot",
+        "kooorapro",
+        "cimaclub",
+        "cima4u"
+      ],
       "websites": [
         {
           "domain": "footystats.org",
@@ -15386,6 +15740,16 @@
       ]
     },
     "ET": {
+      "hotTerms": [
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "9anime",
+        "kisskh",
+        "football-data"
+      ],
       "websites": [
         {
           "domain": "airdates.tv",
@@ -15590,6 +15954,16 @@
       ]
     },
     "KI": {
+      "hotTerms": [
+        "tubitv",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "primewire",
+        "9anime"
+      ],
       "websites": [
         {
           "domain": "bandsintown.com",
@@ -15790,6 +16164,14 @@
       ]
     },
     "TJ": {
+      "hotTerms": [
+        "rezka",
+        "kinozal",
+        "filmix",
+        "baskino",
+        "lordfilm",
+        "kinogo"
+      ],
       "websites": [
         {
           "domain": "itftennis.com",
@@ -15994,6 +16376,17 @@
       ]
     },
     "SN": {
+      "hotTerms": [
+        "french-stream",
+        "wiflix",
+        "stream-complet",
+        "zone-telechargement",
+        "cpasbien",
+        "123moviesfree",
+        "flixtor",
+        "movies2watch",
+        "film-documentaire"
+      ],
       "websites": [
         {
           "domain": "red.com",
@@ -16194,6 +16587,22 @@
       ]
     },
     "RS": {
+      "hotTerms": [
+        "bombuj",
+        "gledajsaprevodom",
+        "filmehd",
+        "filmeonline",
+        "123moviesfree",
+        "kinox",
+        "rezka",
+        "0123movie",
+        "dmovies",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "serijeonline",
+        "balkanmedia"
+      ],
       "websites": [
         {
           "domain": "gledajsaprevodom.online",
@@ -16394,6 +16803,15 @@
       ]
     },
     "SL": {
+      "hotTerms": [
+        "filmin",
+        "livescores",
+        "filmaffinity",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies"
+      ],
       "websites": [
         {
           "domain": "thechosen.tv",
@@ -16598,6 +17016,17 @@
       ]
     },
     "CY": {
+      "hotTerms": [
+        "filmfreeway",
+        "a24films",
+        "allmovie",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "gamatotv",
+        "greek-movies"
+      ],
       "websites": [
         {
           "domain": "awn.com",
@@ -16644,16 +17073,8 @@
           "score": 0.4766
         },
         {
-          "domain": "tixr.com",
-          "score": 0.4765
-        },
-        {
           "domain": "goojara.to",
           "score": 0.4621
-        },
-        {
-          "domain": "ticketmaster.gr",
-          "score": 0.4523
         },
         {
           "domain": "farsiland.com",
@@ -16744,16 +17165,8 @@
           "score": 0.3845
         },
         {
-          "domain": "cineworld.co.uk",
-          "score": 0.3836
-        },
-        {
           "domain": "liverpool.com",
           "score": 0.382
-        },
-        {
-          "domain": "amctheatres.com",
-          "score": 0.3818
         },
         {
           "domain": "kanopy.com",
@@ -16780,28 +17193,26 @@
           "score": 0.3659
         },
         {
-          "domain": "axs.com",
-          "score": 0.3607
-        },
-        {
           "domain": "livetv.sx",
           "score": 0.3595
         },
         {
           "domain": "gazzetta.gr",
           "score": 0.3578
-        },
-        {
-          "domain": "imax.com",
-          "score": 0.3514
-        },
-        {
-          "domain": "viagogo.com",
-          "score": 0.3499
         }
       ]
     },
     "SC": {
+      "hotTerms": [
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "primewire",
+        "9anime",
+        "hurawatch"
+      ],
       "websites": [
         {
           "domain": "roku.com",
@@ -16968,10 +17379,6 @@
           "score": 0.3959
         },
         {
-          "domain": "imax.com",
-          "score": 0.3939
-        },
-        {
           "domain": "sundance.org",
           "score": 0.3915
         },
@@ -17007,13 +17414,17 @@
     },
     "MX": {
       "hotTerms": [
+        "cinecalidad",
+        "pelisplushd",
+        "peliculasflv",
         "futbol-libres",
-        "tvazteca",
         "futbollibre",
         "cuevana3i",
         "pelotaalibre",
         "futbollibretv",
-        "rojadirectaenvivo"
+        "rojadirectaenvivo",
+        "gatonplay",
+        "compartirflix"
       ],
       "websites": [
         {
@@ -17075,10 +17486,6 @@
         {
           "domain": "dcine.org",
           "score": 0.4412
-        },
-        {
-          "domain": "stubhub.mx",
-          "score": 0.4243
         },
         {
           "domain": "nba.com",
@@ -17165,14 +17572,6 @@
           "score": 0.3409
         },
         {
-          "domain": "cinepolis.com",
-          "score": 0.3386
-        },
-        {
-          "domain": "ticketmaster.com",
-          "score": 0.3371
-        },
-        {
           "domain": "filmin.es",
           "score": 0.3365
         },
@@ -17215,6 +17614,13 @@
       ]
     },
     "TG": {
+      "hotTerms": [
+        "themoviedb",
+        "fmovies",
+        "french-stream",
+        "wiflix",
+        "zone-telechargement"
+      ],
       "websites": [
         {
           "domain": "chess-results.com",
@@ -17411,6 +17817,16 @@
       ]
     },
     "DM": {
+      "hotTerms": [
+        "windiescricket",
+        "movies2watch",
+        "livesoccertv",
+        "streamingmoviesright",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies"
+      ],
       "websites": [
         {
           "domain": "windiescricket.com",
@@ -17491,10 +17907,6 @@
         {
           "domain": "wcoanimedub.tv",
           "score": 0.4008
-        },
-        {
-          "domain": "showboxmovies.net",
-          "score": 0.3989
         },
         {
           "domain": "livescore.com",
@@ -17615,6 +18027,18 @@
       ]
     },
     "DO": {
+      "hotTerms": [
+        "pelotaalibre",
+        "futbol-libres",
+        "futbolparatodos",
+        "futbollibretv",
+        "cinecalidad",
+        "pelisplushd",
+        "gatonplay",
+        "cuevana3i",
+        "peliculasflv",
+        "compartirflix"
+      ],
       "websites": [
         {
           "domain": "cortosdemetraje.com",
@@ -17651,10 +18075,6 @@
         {
           "domain": "lolesports.com",
           "score": 0.497
-        },
-        {
-          "domain": "amctheatres.com",
-          "score": 0.4962
         },
         {
           "domain": "scoresandodds.com",
@@ -17703,10 +18123,6 @@
         {
           "domain": "a24films.com",
           "score": 0.4173
-        },
-        {
-          "domain": "cinepolis.com",
-          "score": 0.4147
         },
         {
           "domain": "inmanga.com",
@@ -17769,10 +18185,6 @@
           "score": 0.371
         },
         {
-          "domain": "cinemark.com",
-          "score": 0.3672
-        },
-        {
           "domain": "tioanime.com",
           "score": 0.3667
         },
@@ -17815,6 +18227,13 @@
       ]
     },
     "AX": {
+      "hotTerms": [
+        "moviezine",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies"
+      ],
       "websites": [
         {
           "domain": "podtail.se",
@@ -18019,6 +18438,22 @@
       ]
     },
     "AT": {
+      "hotTerms": [
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "9anime",
+        "kisskh",
+        "polyfilm",
+        "a24films",
+        "kinoger",
+        "moviemento",
+        "kinox",
+        "serienstream",
+        "movie4k"
+      ],
       "websites": [
         {
           "domain": "productioncrate.com",
@@ -18031,10 +18466,6 @@
         {
           "domain": "labiennale.org",
           "score": 0.5298
-        },
-        {
-          "domain": "cinemaxx.de",
-          "score": 0.4965
         },
         {
           "domain": "gamerant.com",
@@ -18209,10 +18640,6 @@
           "score": 0.3025
         },
         {
-          "domain": "ticketmaster.at",
-          "score": 0.3014
-        },
-        {
           "domain": "mathaeser.de",
           "score": 0.299
         },
@@ -18223,6 +18650,19 @@
       ]
     },
     "VE": {
+      "hotTerms": [
+        "librepelota",
+        "pelotaalibre",
+        "cuevana3i",
+        "futbol-libres",
+        "futbolparatodos",
+        "futbollibretv",
+        "peliculasflv",
+        "cinecalidad",
+        "pelisplushd",
+        "gatonplay",
+        "compartirflix"
+      ],
       "websites": [
         {
           "domain": "tideoptics.com",
@@ -18235,10 +18675,6 @@
         {
           "domain": "cinex.com.ve",
           "score": 0.545
-        },
-        {
-          "domain": "cinemark.com",
-          "score": 0.5287
         },
         {
           "domain": "conmebol.com",
@@ -18428,19 +18864,17 @@
     },
     "BD": {
       "hotTerms": [
+        "mlwbd",
         "themoviebox",
-        "toffeelive",
-        "1xbet-bangladesh",
-        "futbol-libres",
-        "sportzfys",
+        "5movierulz",
+        "movierulz",
+        "tamilgun",
+        "tamildhool",
+        "prmovies",
+        "vegamovies",
+        "filmyzilla",
         "kisskh",
-        "t.me",
-        "sportzfyapk",
-        "bdiptv",
-        "moviebox",
-        "iptvidn",
-        "thesportzfyapps",
-        "circleftp"
+        "bolly4u"
       ],
       "websites": [
         {
@@ -18646,6 +19080,24 @@
       ]
     },
     "AO": {
+      "hotTerms": [
+        "megafilmes",
+        "topflix",
+        "filmeflix",
+        "vizer",
+        "pobreflix",
+        "redecanais",
+        "123moviesfree",
+        "medeiafilmes",
+        "fmovies",
+        "demonslayer-anime",
+        "tioanime",
+        "livetv",
+        "flixtor",
+        "lookmovie2",
+        "soap2day",
+        "primewire"
+      ],
       "websites": [
         {
           "domain": "medeiafilmes.com",
@@ -18662,10 +19114,6 @@
         {
           "domain": "worldchess.com",
           "score": 0.5861
-        },
-        {
-          "domain": "imax.com",
-          "score": 0.5764
         },
         {
           "domain": "mubi.com",
@@ -18686,10 +19134,6 @@
         {
           "domain": "disneyplus.com",
           "score": 0.5031
-        },
-        {
-          "domain": "hoyts.com.au",
-          "score": 0.4953
         },
         {
           "domain": "onefootball.com",
@@ -18846,6 +19290,12 @@
       ]
     },
     "AI": {
+      "hotTerms": [
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies"
+      ],
       "websites": [
         {
           "domain": "eneba.com",
@@ -19046,6 +19496,17 @@
       ]
     },
     "AG": {
+      "hotTerms": [
+        "caribbeancinemas",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "primewire",
+        "9anime",
+        "hurawatch"
+      ],
       "websites": [
         {
           "domain": "fancode.com",
@@ -19080,10 +19541,6 @@
           "score": 0.529
         },
         {
-          "domain": "regmovies.com",
-          "score": 0.5182
-        },
-        {
           "domain": "brokensilenze.net",
           "score": 0.5102
         },
@@ -19094,10 +19551,6 @@
         {
           "domain": "betnow.eu",
           "score": 0.4885
-        },
-        {
-          "domain": "amctheatres.com",
-          "score": 0.4648
         },
         {
           "domain": "webnovel.com",
@@ -19142,10 +19595,6 @@
         {
           "domain": "msn.com",
           "score": 0.4073
-        },
-        {
-          "domain": "ticketmaster.com",
-          "score": 0.4044
         },
         {
           "domain": "bing.com",
@@ -19246,6 +19695,17 @@
       ]
     },
     "AD": {
+      "hotTerms": [
+        "abandomoviez",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "seriesyonkis",
+        "peliculasaudiolatino",
+        "cinecalidad",
+        "pelisplus"
+      ],
       "websites": [
         {
           "domain": "isquad.es",
@@ -19294,10 +19754,6 @@
         {
           "domain": "ecranlarge.com",
           "score": 0.4696
-        },
-        {
-          "domain": "cineworld.co.uk",
-          "score": 0.4687
         },
         {
           "domain": "strava.com",
@@ -19384,20 +19840,12 @@
           "score": 0.4178
         },
         {
-          "domain": "cinepolis.com",
-          "score": 0.4173
-        },
-        {
           "domain": "flashscore.es",
           "score": 0.4171
         },
         {
           "domain": "animeonline.ninja",
           "score": 0.4117
-        },
-        {
-          "domain": "odeon.co.uk",
-          "score": 0.4104
         },
         {
           "domain": "cinecanibal.com",
@@ -19446,6 +19894,18 @@
       ]
     },
     "FM": {
+      "hotTerms": [
+        "filmaffinity",
+        "animenana",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "primewire",
+        "9anime",
+        "hurawatch"
+      ],
       "websites": [
         {
           "domain": "pantheon.world",
@@ -19554,6 +20014,18 @@
       ]
     },
     "NI": {
+      "hotTerms": [
+        "cuevana3i",
+        "cinecalidad",
+        "pelisplushd",
+        "peliculasflv",
+        "futbol-libres",
+        "pelotaalibre",
+        "rojadirecta",
+        "gatonplay",
+        "compartirflix",
+        "pelisplus"
+      ],
       "websites": [
         {
           "domain": "goojara.to",
@@ -19668,10 +20140,6 @@
           "score": 0.3997
         },
         {
-          "domain": "cinemarkca.com",
-          "score": 0.396
-        },
-        {
           "domain": "sofascore.com",
           "score": 0.3933
         },
@@ -19728,10 +20196,6 @@
           "score": 0.3677
         },
         {
-          "domain": "imax.com",
-          "score": 0.3658
-        },
-        {
           "domain": "hattrick.org",
           "score": 0.3653
         },
@@ -19754,6 +20218,20 @@
       ]
     },
     "NG": {
+      "hotTerms": [
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "9anime",
+        "kisskh",
+        "gatewayfilmcenter",
+        "kinocheck",
+        "primewire",
+        "hurawatch",
+        "sflix"
+      ],
       "websites": [
         {
           "domain": "boyhoodmovies.org",
@@ -19786,10 +20264,6 @@
         {
           "domain": "toxicwap.com",
           "score": 0.4044
-        },
-        {
-          "domain": "firstshowing.net",
-          "score": 0.3982
         },
         {
           "domain": "fotmob.com",
@@ -19954,6 +20428,17 @@
       ]
     },
     "NE": {
+      "hotTerms": [
+        "animecorner",
+        "notrecinema",
+        "moviekids",
+        "french-stream",
+        "wiflix",
+        "zone-telechargement",
+        "cpasbien",
+        "123moviesfree",
+        "flixtor"
+      ],
       "websites": [
         {
           "domain": "chess.com",
@@ -20154,6 +20639,20 @@
       ]
     },
     "NP": {
+      "hotTerms": [
+        "5movierulz",
+        "movierulz",
+        "tamilgun",
+        "moviesda",
+        "prmovies",
+        "vegamovies",
+        "filmyzilla",
+        "kisskh",
+        "mlssoccer",
+        "kinocheck",
+        "moviesunlimited",
+        "tamildhool"
+      ],
       "websites": [
         {
           "domain": "fifamobileguide.com",
@@ -20170,10 +20669,6 @@
         {
           "domain": "mlssoccer.com",
           "score": 0.5168
-        },
-        {
-          "domain": "hoyts.com.au",
-          "score": 0.51
         },
         {
           "domain": "kinocheck.com",
@@ -20248,10 +20743,6 @@
           "score": 0.4146
         },
         {
-          "domain": "imax.com",
-          "score": 0.4142
-        },
-        {
           "domain": "slashfilm.com",
           "score": 0.4104
         },
@@ -20308,10 +20799,6 @@
           "score": 0.363
         },
         {
-          "domain": "cinemark.com",
-          "score": 0.3625
-        },
-        {
           "domain": "filmpalatset.se",
           "score": 0.3615
         },
@@ -20354,6 +20841,18 @@
       ]
     },
     "PS": {
+      "hotTerms": [
+        "egybest",
+        "akwam",
+        "wecima",
+        "yassflix",
+        "3iskk",
+        "cima4u",
+        "shahid",
+        "yalla-shoot",
+        "kooorapro",
+        "cimaclub"
+      ],
       "websites": [
         {
           "domain": "livefpl.net",
@@ -20500,10 +20999,6 @@
           "score": 0.4135
         },
         {
-          "domain": "hoyts.com.au",
-          "score": 0.4085
-        },
-        {
           "domain": "gog.com",
           "score": 0.4082
         },
@@ -20558,6 +21053,19 @@
       ]
     },
     "BS": {
+      "hotTerms": [
+        "film-grab",
+        "peacocktv",
+        "mydramalist",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "primewire",
+        "9anime",
+        "hurawatch"
+      ],
       "websites": [
         {
           "domain": "film-grab.com",
@@ -20578,10 +21086,6 @@
         {
           "domain": "boxofficemojo.com",
           "score": 0.5161
-        },
-        {
-          "domain": "imax.com",
-          "score": 0.5098
         },
         {
           "domain": "athletic.net",
@@ -20666,10 +21170,6 @@
         {
           "domain": "dvdbeaver.com",
           "score": 0.4263
-        },
-        {
-          "domain": "atomtickets.com",
-          "score": 0.4256
         },
         {
           "domain": "dmtalkies.com",
@@ -20758,11 +21258,17 @@
       ]
     },
     "PK": {
+      "hotTerms": [
+        "5movierulz",
+        "vegamovies",
+        "filmyzilla",
+        "psl live",
+        "cricket live",
+        "movierulz",
+        "tamilgun",
+        "moviesda"
+      ],
       "websites": [
-        {
-          "domain": "ticketmaster.com",
-          "score": 0.7221
-        },
         {
           "domain": "cineb.net",
           "score": 0.5454
@@ -20800,10 +21306,6 @@
           "score": 0.4415
         },
         {
-          "domain": "myvue.com",
-          "score": 0.4404
-        },
-        {
           "domain": "vlr.gg",
           "score": 0.4311
         },
@@ -20812,20 +21314,12 @@
           "score": 0.4221
         },
         {
-          "domain": "regmovies.com",
-          "score": 0.4212
-        },
-        {
           "domain": "wrapbook.com",
           "score": 0.4184
         },
         {
           "domain": "chess.com",
           "score": 0.4177
-        },
-        {
-          "domain": "cinemark.com",
-          "score": 0.4167
         },
         {
           "domain": "goojara.to",
@@ -20962,6 +21456,18 @@
       ]
     },
     "BB": {
+      "hotTerms": [
+        "hardrockstadium",
+        "movies123-online",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "primewire",
+        "9anime",
+        "hurawatch"
+      ],
       "websites": [
         {
           "domain": "fanedit.org",
@@ -21052,10 +21558,6 @@
           "score": 0.4482
         },
         {
-          "domain": "ticketmaster.com",
-          "score": 0.4388
-        },
-        {
           "domain": "gracenote.com",
           "score": 0.4352
         },
@@ -21078,10 +21580,6 @@
         {
           "domain": "shueisha.co.jp",
           "score": 0.4254
-        },
-        {
-          "domain": "cinepolis.com",
-          "score": 0.4246
         },
         {
           "domain": "disneyplus.com",
@@ -21158,6 +21656,18 @@
       ]
     },
     "PG": {
+      "hotTerms": [
+        "kinocheck",
+        "movies2watch",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "primewire",
+        "9anime",
+        "hurawatch"
+      ],
       "websites": [
         {
           "domain": "kinocheck.com",
@@ -21358,6 +21868,20 @@
       ]
     },
     "PY": {
+      "hotTerms": [
+        "cuevana3i",
+        "cinecalidad",
+        "pelisplushd",
+        "peliculasflv",
+        "futbol-libres",
+        "pelotaalibre",
+        "rojadirecta",
+        "gatonplay",
+        "compartirflix",
+        "filmin",
+        "cinemanet",
+        "pelisplus"
+      ],
       "websites": [
         {
           "domain": "allaccess.com.ar",
@@ -21366,10 +21890,6 @@
         {
           "domain": "statsperform.com",
           "score": 0.713
-        },
-        {
-          "domain": "cinemark-peru.com",
-          "score": 0.6336
         },
         {
           "domain": "nofilmschool.com",
@@ -21410,10 +21930,6 @@
         {
           "domain": "forgecdn.net",
           "score": 0.464
-        },
-        {
-          "domain": "veloxtickets.com",
-          "score": 0.4603
         },
         {
           "domain": "sofascore.com",
@@ -21478,10 +21994,6 @@
         {
           "domain": "disneyplus.com",
           "score": 0.4155
-        },
-        {
-          "domain": "cinemark.com.py",
-          "score": 0.4123
         },
         {
           "domain": "gnula.cc",
@@ -21562,11 +22074,16 @@
       ]
     },
     "PA": {
+      "hotTerms": [
+        "futbol-libres",
+        "pelotaalibre",
+        "cuevana3i",
+        "cinecalidad",
+        "pelisplushd",
+        "gatonplay",
+        "mangamx"
+      ],
       "websites": [
-        {
-          "domain": "cinemarkca.com",
-          "score": 0.5904
-        },
         {
           "domain": "tioanime.com",
           "score": 0.582
@@ -21578,10 +22095,6 @@
         {
           "domain": "a24films.com",
           "score": 0.5642
-        },
-        {
-          "domain": "firstshowing.net",
-          "score": 0.5497
         },
         {
           "domain": "novelcool.com",
@@ -21766,6 +22279,18 @@
       ]
     },
     "BH": {
+      "hotTerms": [
+        "egybest",
+        "akwam",
+        "wecima",
+        "yassflix",
+        "3iskk",
+        "cima4u",
+        "shahid",
+        "yalla-shoot",
+        "kooorapro",
+        "cimaclub"
+      ],
       "websites": [
         {
           "domain": "a24films.com",
@@ -21800,16 +22325,8 @@
           "score": 0.478
         },
         {
-          "domain": "amctheatres.com",
-          "score": 0.4758
-        },
-        {
           "domain": "fotmob.com",
           "score": 0.4711
-        },
-        {
-          "domain": "cinemark.com",
-          "score": 0.4696
         },
         {
           "domain": "viu.com",
@@ -21834,10 +22351,6 @@
         {
           "domain": "cinecom.net",
           "score": 0.4481
-        },
-        {
-          "domain": "cinepolisgulf.com",
-          "score": 0.447
         },
         {
           "domain": "bing.com",
@@ -21884,10 +22397,6 @@
           "score": 0.4313
         },
         {
-          "domain": "myvue.com",
-          "score": 0.4304
-        },
-        {
           "domain": "vlr.gg",
           "score": 0.4294
         },
@@ -21904,10 +22413,6 @@
           "score": 0.4233
         },
         {
-          "domain": "regmovies.com",
-          "score": 0.4188
-        },
-        {
           "domain": "amazon.co.uk",
           "score": 0.4175
         },
@@ -21920,20 +22425,12 @@
           "score": 0.4145
         },
         {
-          "domain": "imax.com",
-          "score": 0.4114
-        },
-        {
           "domain": "jdwel.com",
           "score": 0.4108
         },
         {
           "domain": "msn.com",
           "score": 0.4105
-        },
-        {
-          "domain": "odeon.co.uk",
-          "score": 0.4103
         },
         {
           "domain": "filmdoo.com",
@@ -21970,6 +22467,15 @@
       ]
     },
     "BF": {
+      "hotTerms": [
+        "notrecinema",
+        "french-stream",
+        "wiflix",
+        "zone-telechargement",
+        "cpasbien",
+        "123moviesfree",
+        "flixtor"
+      ],
       "websites": [
         {
           "domain": "matchendirect.fr",
@@ -22174,6 +22680,16 @@
       ]
     },
     "BI": {
+      "hotTerms": [
+        "besoccer",
+        "filmaffinity",
+        "french-stream",
+        "wiflix",
+        "zone-telechargement",
+        "cpasbien",
+        "123moviesfree",
+        "flixtor"
+      ],
       "websites": [
         {
           "domain": "90min.com",
@@ -22370,11 +22886,17 @@
       ]
     },
     "GR": {
+      "hotTerms": [
+        "gamatotv",
+        "greek-movies",
+        "tainio-mania",
+        "xrysoi",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies"
+      ],
       "websites": [
-        {
-          "domain": "ticketmaster.com",
-          "score": 0.5813
-        },
         {
           "domain": "slashfilm.com",
           "score": 0.4456
@@ -22398,10 +22920,6 @@
         {
           "domain": "goojara.to",
           "score": 0.417
-        },
-        {
-          "domain": "viagogo.gr",
-          "score": 0.3958
         },
         {
           "domain": "kanopy.com",
@@ -22462,10 +22980,6 @@
         {
           "domain": "slantmagazine.com",
           "score": 0.3232
-        },
-        {
-          "domain": "myvue.com",
-          "score": 0.3225
         },
         {
           "domain": "paok24.com",
@@ -22566,14 +23080,21 @@
         {
           "domain": "msn.com",
           "score": 0.2686
-        },
-        {
-          "domain": "ticketmaster.gr",
-          "score": 0.2639
         }
       ]
     },
     "PW": {
+      "hotTerms": [
+        "animenewsnetwork",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "primewire",
+        "9anime",
+        "hurawatch"
+      ],
       "websites": [
         {
           "domain": "ev01.to",
@@ -22594,10 +23115,6 @@
         {
           "domain": "hulu.com",
           "score": 0.4682
-        },
-        {
-          "domain": "showboxmovies.net",
-          "score": 0.4298
         },
         {
           "domain": "bing.com",
@@ -22654,6 +23171,17 @@
       ]
     },
     "CK": {
+      "hotTerms": [
+        "a24films",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "primewire",
+        "9anime",
+        "hurawatch"
+      ],
       "websites": [
         {
           "domain": "thenetballcoach.com",
@@ -22764,10 +23292,6 @@
           "score": 0.2978
         },
         {
-          "domain": "ticketek.com.au",
-          "score": 0.2961
-        },
-        {
           "domain": "ravennawebtv.it",
           "score": 0.2724
         },
@@ -22790,6 +23314,17 @@
       ]
     },
     "CW": {
+      "hotTerms": [
+        "rooftopcinemaclub",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "primewire",
+        "9anime",
+        "hurawatch"
+      ],
       "websites": [
         {
           "domain": "rollingloud.com",
@@ -22994,6 +23529,14 @@
       ]
     },
     "KY": {
+      "hotTerms": [
+        "kissanime",
+        "fmovies",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "soap2day"
+      ],
       "websites": [
         {
           "domain": "webcric.com",
@@ -23080,10 +23623,6 @@
           "score": 0.422
         },
         {
-          "domain": "amctheatres.com",
-          "score": 0.421
-        },
-        {
           "domain": "fbref.com",
           "score": 0.4203
         },
@@ -23164,10 +23703,6 @@
           "score": 0.3563
         },
         {
-          "domain": "ticketsonsale.com",
-          "score": 0.3544
-        },
-        {
           "domain": "ncsasports.org",
           "score": 0.352
         },
@@ -23184,16 +23719,23 @@
           "score": 0.3398
         },
         {
-          "domain": "ticketmaster.com",
-          "score": 0.33
-        },
-        {
           "domain": "sportico.com",
           "score": 0.3279
         }
       ]
     },
     "SB": {
+      "hotTerms": [
+        "tubitv",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "primewire",
+        "9anime",
+        "hurawatch"
+      ],
       "websites": [
         {
           "domain": "hbomax.com",
@@ -23336,10 +23878,6 @@
           "score": 0.3516
         },
         {
-          "domain": "atomtickets.com",
-          "score": 0.349
-        },
-        {
           "domain": "disneyplus.com",
           "score": 0.3464
         },
@@ -23390,6 +23928,18 @@
       ]
     },
     "TK": {
+      "hotTerms": [
+        "filmaffinity",
+        "moviesanywhere",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "primewire",
+        "9anime",
+        "hurawatch"
+      ],
       "websites": [
         {
           "domain": "dola.com",
@@ -23458,6 +24008,26 @@
       ]
     },
     "LV": {
+      "hotTerms": [
+        "rezka",
+        "kinozal",
+        "filmix",
+        "baskino",
+        "lordfilm",
+        "nnm-club",
+        "rutor",
+        "rutracker",
+        "kinogo",
+        "onlinevkino",
+        "filmaffinity",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "primewire",
+        "9anime"
+      ],
       "websites": [
         {
           "domain": "onlinevkino.com",
@@ -23474,10 +24044,6 @@
         {
           "domain": "europeanfilmawards.eu",
           "score": 0.6185
-        },
-        {
-          "domain": "hoyts.com.au",
-          "score": 0.6052
         },
         {
           "domain": "talkingshorts.com",
@@ -23510,10 +24076,6 @@
         {
           "domain": "riotgames.com",
           "score": 0.4535
-        },
-        {
-          "domain": "odeon.co.uk",
-          "score": 0.4534
         },
         {
           "domain": "chess.com",
@@ -23658,6 +24220,15 @@
       ]
     },
     "NO": {
+      "hotTerms": [
+        "dreamfilm",
+        "pirate bay",
+        "piratebay",
+        "123moviesfree",
+        "flixtor",
+        "soap2day",
+        "lookmovie2"
+      ],
       "websites": [
         {
           "domain": "wedio.com",
@@ -23824,10 +24395,6 @@
           "score": 0.3468
         },
         {
-          "domain": "ticketmaster.com",
-          "score": 0.346
-        },
-        {
           "domain": "filmskolen.no",
           "score": 0.3453
         },
@@ -23862,6 +24429,17 @@
       ]
     },
     "CZ": {
+      "hotTerms": [
+        "bombuj",
+        "serialy",
+        "sledujfilmy",
+        "filmnacestina",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "sosac"
+      ],
       "websites": [
         {
           "domain": "artrubikon.com",
@@ -24066,6 +24644,23 @@
       ]
     },
     "MD": {
+      "hotTerms": [
+        "rezka",
+        "kinozal",
+        "filmix",
+        "baskino",
+        "lordfilm",
+        "nnm-club",
+        "rutor",
+        "rutracker",
+        "kinogo",
+        "kinocheck",
+        "truetvmovies",
+        "filmeonline",
+        "filmehd",
+        "topfilmeonline",
+        "filmeserialeonline"
+      ],
       "websites": [
         {
           "domain": "primevideo.com",
@@ -24074,10 +24669,6 @@
         {
           "domain": "flashscore.ua",
           "score": 0.6058
-        },
-        {
-          "domain": "odeon.co.uk",
-          "score": 0.6023
         },
         {
           "domain": "hbomax.com",
@@ -24130,10 +24721,6 @@
         {
           "domain": "truetvmovies.net",
           "score": 0.4778
-        },
-        {
-          "domain": "myvue.com",
-          "score": 0.4747
         },
         {
           "domain": "sport.ua",
@@ -24224,10 +24811,6 @@
           "score": 0.3956
         },
         {
-          "domain": "cineworld.co.uk",
-          "score": 0.394
-        },
-        {
           "domain": "webnovel.com",
           "score": 0.3937
         },
@@ -24266,6 +24849,17 @@
       ]
     },
     "MA": {
+      "hotTerms": [
+        "3iskk",
+        "egybest",
+        "akwam",
+        "wecima",
+        "yassflix",
+        "yalla-shoot",
+        "kooorapro",
+        "cimaclub",
+        "cima4u"
+      ],
       "websites": [
         {
           "domain": "movies7.to",
@@ -24470,6 +25064,17 @@
       ]
     },
     "MC": {
+      "hotTerms": [
+        "cinemapassion",
+        "livesoccertv",
+        "french-stream",
+        "wiflix",
+        "zone-telechargement",
+        "cpasbien",
+        "stream-complet",
+        "voirseries",
+        "123moviesfree"
+      ],
       "websites": [
         {
           "domain": "tokyvideo.com",
@@ -24544,10 +25149,6 @@
           "score": 0.453
         },
         {
-          "domain": "axs.com",
-          "score": 0.4529
-        },
-        {
           "domain": "amazon.co.uk",
           "score": 0.452
         },
@@ -24592,10 +25193,6 @@
           "score": 0.4271
         },
         {
-          "domain": "ticketmaster.fr",
-          "score": 0.4239
-        },
-        {
           "domain": "digisport.ro",
           "score": 0.4227
         },
@@ -24636,10 +25233,6 @@
           "score": 0.4112
         },
         {
-          "domain": "fnacspectacles.com",
-          "score": 0.4101
-        },
-        {
           "domain": "formula1.com",
           "score": 0.407
         },
@@ -24666,14 +25259,18 @@
       ]
     },
     "BN": {
+      "hotTerms": [
+        "movies2watch",
+        "gscmovies",
+        "lk21official",
+        "indoxxi",
+        "idlix",
+        "samehadaku"
+      ],
       "websites": [
         {
           "domain": "vidio.com",
           "score": 0.6322
-        },
-        {
-          "domain": "hoyts.com.au",
-          "score": 0.6034
         },
         {
           "domain": "hyrox.com",
@@ -24750,10 +25347,6 @@
         {
           "domain": "ma.services",
           "score": 0.4436
-        },
-        {
-          "domain": "imax.com",
-          "score": 0.443
         },
         {
           "domain": "msn.com",
@@ -24866,6 +25459,17 @@
       ]
     },
     "FJ": {
+      "hotTerms": [
+        "cinemagrade",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "primewire",
+        "9anime",
+        "hurawatch"
+      ],
       "websites": [
         {
           "domain": "cinemagrade.com",
@@ -25056,10 +25660,6 @@
           "score": 0.3635
         },
         {
-          "domain": "showboxmovies.net",
-          "score": 0.3605
-        },
-        {
           "domain": "reduser.net",
           "score": 0.3573
         },
@@ -25070,11 +25670,17 @@
       ]
     },
     "SZ": {
+      "hotTerms": [
+        "tubitv",
+        "soccerladuma",
+        "icarusfilms",
+        "fmovies",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "soap2day"
+      ],
       "websites": [
-        {
-          "domain": "webtickets.co.za",
-          "score": 0.6161
-        },
         {
           "domain": "flashscore.co.za",
           "score": 0.6077
@@ -25274,6 +25880,16 @@
       ]
     },
     "SK": {
+      "hotTerms": [
+        "bombuj",
+        "anikoto",
+        "serialy",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "csfd"
+      ],
       "websites": [
         {
           "domain": "filmsite.org",
@@ -25444,10 +26060,6 @@
           "score": 0.328
         },
         {
-          "domain": "myvue.com",
-          "score": 0.3253
-        },
-        {
           "domain": "criterionforum.org",
           "score": 0.3248
         },
@@ -25478,6 +26090,19 @@
       ]
     },
     "SI": {
+      "hotTerms": [
+        "bombuj",
+        "gledajsaprevodom",
+        "filmehd",
+        "filmeonline",
+        "123moviesfree",
+        "kinox",
+        "rezka",
+        "effedupmovies",
+        "flixtor",
+        "lookmovie2",
+        "fmovies"
+      ],
       "websites": [
         {
           "domain": "gagaoolala.com",
@@ -25670,14 +26295,16 @@
         {
           "domain": "cineplexx.si",
           "score": 0.3546
-        },
-        {
-          "domain": "viagogo.com",
-          "score": 0.3515
         }
       ]
     },
     "SJ": {
+      "hotTerms": [
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies"
+      ],
       "websites": [
         {
           "domain": "bing.com",
@@ -25690,6 +26317,14 @@
       ]
     },
     "LK": {
+      "hotTerms": [
+        "5movierulz",
+        "tamilgun",
+        "kisskh",
+        "dramacool",
+        "123moviesfree",
+        "movierulz"
+      ],
       "websites": [
         {
           "domain": "bola.net",
@@ -25756,10 +26391,6 @@
           "score": 0.4284
         },
         {
-          "domain": "cinemark.com",
-          "score": 0.427
-        },
-        {
           "domain": "msn.com",
           "score": 0.4231
         },
@@ -25778,10 +26409,6 @@
         {
           "domain": "filmdoo.com",
           "score": 0.4061
-        },
-        {
-          "domain": "hoyts.com.au",
-          "score": 0.4044
         },
         {
           "domain": "skyracing.com.au",
@@ -25890,6 +26517,24 @@
       ]
     },
     "SG": {
+      "hotTerms": [
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "9anime",
+        "kisskh",
+        "anime-planet",
+        "asianfilmarchive",
+        "asianmoviepulse",
+        "nivod",
+        "ddys",
+        "duboku",
+        "primewire",
+        "dramacool",
+        "kissasian"
+      ],
       "websites": [
         {
           "domain": "iplt20.com",
@@ -25906,10 +26551,6 @@
         {
           "domain": "anime-planet.com",
           "score": 0.4668
-        },
-        {
-          "domain": "showcasecinemas.co.uk",
-          "score": 0.4576
         },
         {
           "domain": "cined.com",
@@ -25964,10 +26605,6 @@
           "score": 0.3847
         },
         {
-          "domain": "eventcinemas.com.au",
-          "score": 0.3768
-        },
-        {
           "domain": "rottentomatoes.com",
           "score": 0.3673
         },
@@ -26004,10 +26641,6 @@
           "score": 0.3438
         },
         {
-          "domain": "firstshowing.net",
-          "score": 0.3348
-        },
-        {
           "domain": "shaw.sg",
           "score": 0.3324
         },
@@ -26030,10 +26663,6 @@
         {
           "domain": "netflix.com",
           "score": 0.3195
-        },
-        {
-          "domain": "ticketmaster.sg",
-          "score": 0.3178
         },
         {
           "domain": "bwfbadminton.com",
@@ -26094,6 +26723,15 @@
       ]
     },
     "NC": {
+      "hotTerms": [
+        "notrecinema",
+        "filmingo",
+        "cinematheque",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies"
+      ],
       "websites": [
         {
           "domain": "letterboxd.com",
@@ -26290,14 +26928,20 @@
       ]
     },
     "NZ": {
+      "hotTerms": [
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "9anime",
+        "kisskh",
+        "kinocheck"
+      ],
       "websites": [
         {
           "domain": "miraheze.org",
           "score": 0.6891
-        },
-        {
-          "domain": "eventcinemas.com.au",
-          "score": 0.632
         },
         {
           "domain": "webnovel.com",
@@ -26384,14 +27028,6 @@
           "score": 0.3746
         },
         {
-          "domain": "hoyts.co.nz",
-          "score": 0.3723
-        },
-        {
-          "domain": "ticketmaster.com",
-          "score": 0.366
-        },
-        {
           "domain": "disneyplus.com",
           "score": 0.3629
         },
@@ -26410,10 +27046,6 @@
         {
           "domain": "rarefilmm.com",
           "score": 0.3554
-        },
-        {
-          "domain": "ticketek.co.nz",
-          "score": 0.3536
         },
         {
           "domain": "threenow.co.nz",
@@ -26480,16 +27112,21 @@
           "score": 0.3182
         },
         {
-          "domain": "eventcinemas.co.nz",
-          "score": 0.313
-        },
-        {
           "domain": "ev01.to",
           "score": 0.3117
         }
       ]
     },
     "JP": {
+      "hotTerms": [
+        "animextremist",
+        "dramacool",
+        "kissasian",
+        "myasiantv",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2"
+      ],
       "websites": [
         {
           "domain": "granup.co.jp",
@@ -26694,14 +27331,23 @@
       ]
     },
     "CL": {
+      "hotTerms": [
+        "rojadirecta",
+        "futbolchile",
+        "futbol-libres-cl",
+        "futeboltv",
+        "cinecalidad",
+        "compartirflix",
+        "cine24h",
+        "peliculasflv",
+        "cuevana3i",
+        "pelisplushd",
+        "gatonplay"
+      ],
       "websites": [
         {
           "domain": "mismarcadores.com",
           "score": 0.713
-        },
-        {
-          "domain": "cinepolis.com",
-          "score": 0.5831
         },
         {
           "domain": "cartoonbrew.com",
@@ -26720,10 +27366,6 @@
           "score": 0.4595
         },
         {
-          "domain": "cinemark-peru.com",
-          "score": 0.4495
-        },
-        {
           "domain": "cortosdemetraje.com",
           "score": 0.4469
         },
@@ -26734,10 +27376,6 @@
         {
           "domain": "arcoiris.tv",
           "score": 0.4286
-        },
-        {
-          "domain": "cinemark.com",
-          "score": 0.4173
         },
         {
           "domain": "conmebol.com",
@@ -26890,6 +27528,18 @@
       ]
     },
     "KH": {
+      "hotTerms": [
+        "khmerdubbed",
+        "khdiamond",
+        "moviekh",
+        "123moviesfree",
+        "flixtor",
+        "kisskh",
+        "24-hdx",
+        "123-hds",
+        "037hdmovie",
+        "movie2free"
+      ],
       "websites": [
         {
           "domain": "sirui.com",
@@ -27090,6 +27740,13 @@
       ]
     },
     "GG": {
+      "hotTerms": [
+        "anime-planet",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies"
+      ],
       "websites": [
         {
           "domain": "liquipedia.net",
@@ -27130,10 +27787,6 @@
         {
           "domain": "anime-planet.com",
           "score": 0.4793
-        },
-        {
-          "domain": "ticketmaster.co.uk",
-          "score": 0.4776
         },
         {
           "domain": "equibase.com",
@@ -27216,10 +27869,6 @@
           "score": 0.3791
         },
         {
-          "domain": "viagogo.com",
-          "score": 0.3722
-        },
-        {
           "domain": "dndbeyond.com",
           "score": 0.3712
         },
@@ -27294,6 +27943,18 @@
       ]
     },
     "GD": {
+      "hotTerms": [
+        "movies2watch",
+        "live-footballontv",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "primewire",
+        "9anime",
+        "hurawatch"
+      ],
       "websites": [
         {
           "domain": "worldathletics.org",
@@ -27416,20 +28077,12 @@
           "score": 0.4144
         },
         {
-          "domain": "ticketmaster.com",
-          "score": 0.4008
-        },
-        {
           "domain": "wsucougars.com",
           "score": 0.3952
         },
         {
           "domain": "goojara.to",
           "score": 0.3946
-        },
-        {
-          "domain": "ticketsonsale.com",
-          "score": 0.385
         },
         {
           "domain": "bing.com",
@@ -27498,6 +28151,12 @@
       ]
     },
     "GL": {
+      "hotTerms": [
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies"
+      ],
       "websites": [
         {
           "domain": "chess.com",
@@ -27702,6 +28361,14 @@
       ]
     },
     "VA": {
+      "hotTerms": [
+        "altadefinizione",
+        "cb01",
+        "casacinema",
+        "guardaserie",
+        "streamingita",
+        "ilcorsaronero"
+      ],
       "websites": [
         {
           "domain": "gamerant.com",
@@ -27866,6 +28533,16 @@
       ]
     },
     "BE": {
+      "hotTerms": [
+        "french-stream",
+        "wiflix",
+        "stream-complet",
+        "zone-telechargement",
+        "cpasbien",
+        "123moviesfree",
+        "flixtor",
+        "soccerway"
+      ],
       "websites": [
         {
           "domain": "musicmeter.nl",
@@ -28036,10 +28713,6 @@
           "score": 0.3231
         },
         {
-          "domain": "myvue.com",
-          "score": 0.3219
-        },
-        {
           "domain": "comicbook.com",
           "score": 0.317
         },
@@ -28066,6 +28739,19 @@
       ]
     },
     "MR": {
+      "hotTerms": [
+        "voxcinemas",
+        "football365",
+        "besoccer",
+        "egybest",
+        "akwam",
+        "wecima",
+        "yassflix",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies"
+      ],
       "websites": [
         {
           "domain": "voxcinemas.com",
@@ -28270,6 +28956,19 @@
       ]
     },
     "MU": {
+      "hotTerms": [
+        "slashfilm",
+        "streamingmoviesright",
+        "kinocheck",
+        "filmfreeway",
+        "cardtrader",
+        "beamafilm",
+        "filmstouspublics",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies"
+      ],
       "websites": [
         {
           "domain": "vlr.gg",
@@ -28338,10 +29037,6 @@
         {
           "domain": "cineplex.com",
           "score": 0.4403
-        },
-        {
-          "domain": "hoyts.com.au",
-          "score": 0.4345
         },
         {
           "domain": "transfermarkt.com",
@@ -28416,10 +29111,6 @@
           "score": 0.3795
         },
         {
-          "domain": "betshoot.com",
-          "score": 0.3779
-        },
-        {
           "domain": "spotify.com",
           "score": 0.3776
         },
@@ -28470,6 +29161,13 @@
       ]
     },
     "TO": {
+      "hotTerms": [
+        "animeschedule",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies"
+      ],
       "websites": [
         {
           "domain": "plex.tv",
@@ -28674,6 +29372,17 @@
       ]
     },
     "SA": {
+      "hotTerms": [
+        "3iskk",
+        "egybest",
+        "akwam",
+        "wecima",
+        "yassflix",
+        "yalla-shoot",
+        "kooorapro",
+        "cimaclub",
+        "cima4u"
+      ],
       "websites": [
         {
           "domain": "muvicinemas.com",
@@ -28820,15 +29529,7 @@
           "score": 0.3471
         },
         {
-          "domain": "imax.com",
-          "score": 0.3451
-        },
-        {
           "domain": "moviemeter.nl",
-          "score": 0.3443
-        },
-        {
-          "domain": "hoyts.com.au",
           "score": 0.3443
         },
         {
@@ -28878,6 +29579,17 @@
       ]
     },
     "MF": {
+      "hotTerms": [
+        "caribbeancinemas",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "primewire",
+        "9anime",
+        "hurawatch"
+      ],
       "websites": [
         {
           "domain": "caribbeancinemas.com",
@@ -29078,6 +29790,14 @@
       ]
     },
     "GF": {
+      "hotTerms": [
+        "french-stream",
+        "wiflix",
+        "zone-telechargement",
+        "cpasbien",
+        "123moviesfree",
+        "flixtor"
+      ],
       "websites": [
         {
           "domain": "ecranlarge.com",
@@ -29278,6 +29998,13 @@
       ]
     },
     "PF": {
+      "hotTerms": [
+        "filmaffinity",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies"
+      ],
       "websites": [
         {
           "domain": "ligue1.com",
@@ -29482,6 +30209,16 @@
       ]
     },
     "FO": {
+      "hotTerms": [
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "primewire",
+        "9anime",
+        "hurawatch"
+      ],
       "websites": [
         {
           "domain": "livescore.com",
@@ -29686,6 +30423,14 @@
       ]
     },
     "PL": {
+      "hotTerms": [
+        "ekino",
+        "cda",
+        "filman",
+        "kinomaniak",
+        "zalukaj",
+        "horrorgo"
+      ],
       "websites": [
         {
           "domain": "wst.tv",
@@ -29886,6 +30631,20 @@
       ]
     },
     "PR": {
+      "hotTerms": [
+        "cuevana3i",
+        "cinecalidad",
+        "pelisplushd",
+        "peliculasflv",
+        "futbol-libres",
+        "pelotaalibre",
+        "rojadirecta",
+        "gatonplay",
+        "compartirflix",
+        "trackscoreboard",
+        "caribbeancinemas",
+        "pelisplus"
+      ],
       "websites": [
         {
           "domain": "filmfreeway.com",
@@ -29980,10 +30739,6 @@
           "score": 0.4357
         },
         {
-          "domain": "regmovies.com",
-          "score": 0.4233
-        },
-        {
           "domain": "letterboxd.com",
           "score": 0.423
         },
@@ -29998,10 +30753,6 @@
         {
           "domain": "steamdb.info",
           "score": 0.4161
-        },
-        {
-          "domain": "amctheatres.com",
-          "score": 0.415
         },
         {
           "domain": "rottentomatoes.com",
@@ -30056,10 +30807,6 @@
           "score": 0.3896
         },
         {
-          "domain": "showboxmovies.net",
-          "score": 0.3893
-        },
-        {
           "domain": "justwatch.com",
           "score": 0.388
         },
@@ -30086,6 +30833,20 @@
       ]
     },
     "BA": {
+      "hotTerms": [
+        "bombuj",
+        "gledajsaprevodom",
+        "filmehd",
+        "filmeonline",
+        "123moviesfree",
+        "kinox",
+        "rezka",
+        "filmakademie",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "serijeonline"
+      ],
       "websites": [
         {
           "domain": "anizm.net",
@@ -30134,10 +30895,6 @@
         {
           "domain": "primevideo.com",
           "score": 0.4433
-        },
-        {
-          "domain": "cinecolombia.com",
-          "score": 0.4384
         },
         {
           "domain": "nofilmschool.com",
@@ -30272,16 +31029,8 @@
           "score": 0.3468
         },
         {
-          "domain": "hoyts.com.au",
-          "score": 0.345
-        },
-        {
           "domain": "sportnet.hr",
           "score": 0.3442
-        },
-        {
-          "domain": "boldtypetickets.com",
-          "score": 0.3438
         },
         {
           "domain": "fkzeljeznicar.ba",
@@ -30290,6 +31039,17 @@
       ]
     },
     "TH": {
+      "hotTerms": [
+        "24-hdx",
+        "123-hds",
+        "fmovies",
+        "123movies",
+        "037hdmovie",
+        "solarmovie",
+        "movie2free",
+        "dramacool",
+        "kissasian"
+      ],
       "websites": [
         {
           "domain": "wst.tv",
@@ -30306,10 +31066,6 @@
         {
           "domain": "snooker.org",
           "score": 0.5181
-        },
-        {
-          "domain": "imax.com",
-          "score": 0.4999
         },
         {
           "domain": "boords.com",
@@ -30494,6 +31250,16 @@
       ]
     },
     "JE": {
+      "hotTerms": [
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "primewire",
+        "9anime",
+        "hurawatch"
+      ],
       "websites": [
         {
           "domain": "tvtime.com",
@@ -30604,10 +31370,6 @@
           "score": 0.3986
         },
         {
-          "domain": "odeon.co.uk",
-          "score": 0.396
-        },
-        {
           "domain": "flashscore.com",
           "score": 0.3922
         },
@@ -30694,6 +31456,17 @@
       ]
     },
     "ZW": {
+      "hotTerms": [
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "9anime",
+        "kisskh",
+        "kinocheck",
+        "hurawatch"
+      ],
       "websites": [
         {
           "domain": "kanopy.com",
@@ -30716,10 +31489,6 @@
           "score": 0.5316
         },
         {
-          "domain": "showboxmovies.net",
-          "score": 0.5189
-        },
-        {
           "domain": "sportradar.com",
           "score": 0.4985
         },
@@ -30738,10 +31507,6 @@
         {
           "domain": "freesupertips.com",
           "score": 0.4701
-        },
-        {
-          "domain": "ticketmaster.co.uk",
-          "score": 0.4699
         },
         {
           "domain": "webtoons.com",
@@ -30894,6 +31659,22 @@
       ]
     },
     "HN": {
+      "hotTerms": [
+        "cuevana3i",
+        "cinecalidad",
+        "pelisplushd",
+        "peliculasflv",
+        "futbol-libres",
+        "pelotaalibre",
+        "rojadirecta",
+        "gatonplay",
+        "compartirflix",
+        "fsharetv",
+        "childrenincinema",
+        "tioanime",
+        "movies2watch",
+        "pelisplus"
+      ],
       "websites": [
         {
           "domain": "inmanga.com",
@@ -30936,10 +31717,6 @@
           "score": 0.4584
         },
         {
-          "domain": "cinepolis.com",
-          "score": 0.4551
-        },
-        {
           "domain": "tioanime.com",
           "score": 0.4546
         },
@@ -30950,10 +31727,6 @@
         {
           "domain": "plex.tv",
           "score": 0.4418
-        },
-        {
-          "domain": "cinemark-peru.com",
-          "score": 0.4415
         },
         {
           "domain": "yelmocines.es",
@@ -31094,6 +31867,18 @@
       ]
     },
     "HT": {
+      "hotTerms": [
+        "anime-planet",
+        "themoviedb",
+        "notrecinema",
+        "ymcinema",
+        "french-stream",
+        "wiflix",
+        "zone-telechargement",
+        "cpasbien",
+        "123moviesfree",
+        "flixtor"
+      ],
       "websites": [
         {
           "domain": "retroachievements.org",
@@ -31294,6 +32079,18 @@
       ]
     },
     "IE": {
+      "hotTerms": [
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "9anime",
+        "kisskh",
+        "centurycinemas",
+        "stellacinemas",
+        "hurawatch"
+      ],
       "websites": [
         {
           "domain": "spacebattles.com",
@@ -31472,10 +32269,6 @@
           "score": 0.3201
         },
         {
-          "domain": "eventbrite.ie",
-          "score": 0.314
-        },
-        {
           "domain": "letterboxd.com",
           "score": 0.3089
         },
@@ -31486,14 +32279,25 @@
         {
           "domain": "arccinema.ie",
           "score": 0.2977
-        },
-        {
-          "domain": "cineworld.co.uk",
-          "score": 0.2973
         }
       ]
     },
     "EE": {
+      "hotTerms": [
+        "rezka",
+        "kinozal",
+        "filmix",
+        "baskino",
+        "lordfilm",
+        "nnm-club",
+        "rutor",
+        "rutracker",
+        "kinogo",
+        "fmovies",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2"
+      ],
       "websites": [
         {
           "domain": "golfbox.dk",
@@ -31698,6 +32502,18 @@
       ]
     },
     "JM": {
+      "hotTerms": [
+        "a24films",
+        "movieorca",
+        "filmfreeway",
+        "demonslayer-anime",
+        "livetv",
+        "effedupmovies",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies"
+      ],
       "websites": [
         {
           "domain": "wwe.com",
@@ -31764,10 +32580,6 @@
           "score": 0.4506
         },
         {
-          "domain": "cinecolombia.com",
-          "score": 0.4483
-        },
-        {
           "domain": "womaninrevolt.com",
           "score": 0.4459
         },
@@ -31782,10 +32594,6 @@
         {
           "domain": "transfermarkt.com",
           "score": 0.4403
-        },
-        {
-          "domain": "odeon.co.uk",
-          "score": 0.4345
         },
         {
           "domain": "kanopy.com",
@@ -31820,10 +32628,6 @@
           "score": 0.4162
         },
         {
-          "domain": "regmovies.com",
-          "score": 0.4149
-        },
-        {
           "domain": "dailymotion.com",
           "score": 0.4128
         },
@@ -31846,10 +32650,6 @@
         {
           "domain": "primevideo.com",
           "score": 0.3944
-        },
-        {
-          "domain": "amctheatres.com",
-          "score": 0.392
         },
         {
           "domain": "espncricinfo.com",
@@ -31884,10 +32684,6 @@
           "score": 0.3757
         },
         {
-          "domain": "imax.com",
-          "score": 0.3739
-        },
-        {
           "domain": "riotgames.com",
           "score": 0.3734
         },
@@ -31902,6 +32698,12 @@
       ]
     },
     "TC": {
+      "hotTerms": [
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies"
+      ],
       "websites": [
         {
           "domain": "kinefinity.com",
@@ -31918,10 +32720,6 @@
         {
           "domain": "destructoid.com",
           "score": 0.5413
-        },
-        {
-          "domain": "seatgeek.com",
-          "score": 0.5175
         },
         {
           "domain": "smallrig.com",
@@ -31994,10 +32792,6 @@
         {
           "domain": "sirui.com",
           "score": 0.4162
-        },
-        {
-          "domain": "ticketmaster.com",
-          "score": 0.4153
         },
         {
           "domain": "livescore.com",
@@ -32098,6 +32892,20 @@
       ]
     },
     "TT": {
+      "hotTerms": [
+        "caribbeancricket",
+        "a24films",
+        "windiescricket",
+        "filmfreeway",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "primewire",
+        "9anime",
+        "hurawatch"
+      ],
       "websites": [
         {
           "domain": "bfi.org.uk",
@@ -32108,16 +32916,8 @@
           "score": 0.6962
         },
         {
-          "domain": "imax.com",
-          "score": 0.6701
-        },
-        {
           "domain": "iplt20.com",
           "score": 0.6526
-        },
-        {
-          "domain": "cinemark.com",
-          "score": 0.621
         },
         {
           "domain": "dazn.com",
@@ -32298,18 +33098,23 @@
       ]
     },
     "BO": {
+      "hotTerms": [
+        "librepelota",
+        "pelotaalibre",
+        "cuevana3i",
+        "futbol-libres",
+        "futbolparatodos",
+        "futbollibretv",
+        "peliculasflv",
+        "cinecalidad",
+        "pelisplushd",
+        "gatonplay",
+        "compartirflix"
+      ],
       "websites": [
         {
           "domain": "allaccess.com.ar",
           "score": 0.7984
-        },
-        {
-          "domain": "stubhub.com",
-          "score": 0.6915
-        },
-        {
-          "domain": "cinemarkca.com",
-          "score": 0.6854
         },
         {
           "domain": "ultracine.com",
@@ -32326,10 +33131,6 @@
         {
           "domain": "3d-hd.club",
           "score": 0.5323
-        },
-        {
-          "domain": "cinemark-peru.com",
-          "score": 0.5228
         },
         {
           "domain": "sofifa.com",
@@ -32420,10 +33221,6 @@
           "score": 0.4058
         },
         {
-          "domain": "cinecolombia.com",
-          "score": 0.4033
-        },
-        {
           "domain": "cortosdemetraje.com",
           "score": 0.4019
         },
@@ -32472,10 +33269,6 @@
           "score": 0.3811
         },
         {
-          "domain": "cinemark.com.bo",
-          "score": 0.3801
-        },
-        {
           "domain": "disneyplus.com",
           "score": 0.3795
         },
@@ -32502,6 +33295,19 @@
       ]
     },
     "NR": {
+      "hotTerms": [
+        "moviesanywhere",
+        "ymcinema",
+        "animenewsnetwork",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "primewire",
+        "9anime",
+        "hurawatch"
+      ],
       "websites": [
         {
           "domain": "dailymotion.com",
@@ -32642,6 +33448,15 @@
       ]
     },
     "SE": {
+      "hotTerms": [
+        "dreamfilm",
+        "swefilmer",
+        "pirate bay",
+        "piratebay",
+        "123moviesfree",
+        "flixtor",
+        "soap2day"
+      ],
       "websites": [
         {
           "domain": "golf.se",
@@ -32842,6 +33657,21 @@
       ]
     },
     "CH": {
+      "hotTerms": [
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "9anime",
+        "kisskh",
+        "futbol24",
+        "kinocheck",
+        "livetv",
+        "kinox",
+        "serienstream",
+        "movie4k"
+      ],
       "websites": [
         {
           "domain": "futbol24.com",
@@ -33046,6 +33876,14 @@
       ]
     },
     "GP": {
+      "hotTerms": [
+        "french-stream",
+        "wiflix",
+        "zone-telechargement",
+        "cpasbien",
+        "123moviesfree",
+        "flixtor"
+      ],
       "websites": [
         {
           "domain": "ffvoile.fr",
@@ -33246,6 +34084,13 @@
       ]
     },
     "WF": {
+      "hotTerms": [
+        "animeforums",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies"
+      ],
       "websites": [
         {
           "domain": "disneyplus.com",
@@ -33302,6 +34147,18 @@
       ]
     },
     "VU": {
+      "hotTerms": [
+        "filmaffinity",
+        "themoviedb",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "primewire",
+        "9anime",
+        "hurawatch"
+      ],
       "websites": [
         {
           "domain": "transfermarkt.com",
@@ -33502,6 +34359,13 @@
       ]
     },
     "RE": {
+      "hotTerms": [
+        "lardesports",
+        "effedupmovies",
+        "french-stream",
+        "wiflix",
+        "zone-telechargement"
+      ],
       "websites": [
         {
           "domain": "miraheze.org",
@@ -33706,6 +34570,19 @@
       ]
     },
     "BY": {
+      "hotTerms": [
+        "rezka",
+        "kinozal",
+        "filmix",
+        "baskino",
+        "lordfilm",
+        "nnm-club",
+        "rutor",
+        "rutracker",
+        "kinogo",
+        "net-film",
+        "moviemaker"
+      ],
       "websites": [
         {
           "domain": "loliland.ru",
@@ -33836,10 +34713,6 @@
           "score": 0.4074
         },
         {
-          "domain": "imax.com",
-          "score": 0.4054
-        },
-        {
           "domain": "kulichki.net",
           "score": 0.4049
         },
@@ -33910,6 +34783,18 @@
       ]
     },
     "BM": {
+      "hotTerms": [
+        "filmrise",
+        "mydramalist",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "primewire",
+        "9anime",
+        "hurawatch"
+      ],
       "websites": [
         {
           "domain": "vividseats.com",
@@ -33960,10 +34845,6 @@
           "score": 0.508
         },
         {
-          "domain": "ticketmaster.com",
-          "score": 0.4944
-        },
-        {
           "domain": "netflix.com",
           "score": 0.4795
         },
@@ -33974,10 +34855,6 @@
         {
           "domain": "mydramalist.com",
           "score": 0.4727
-        },
-        {
-          "domain": "seatgeek.com",
-          "score": 0.4674
         },
         {
           "domain": "isquad.es",
@@ -34110,6 +34987,21 @@
       ]
     },
     "GI": {
+      "hotTerms": [
+        "filmelier",
+        "sensesofcinema",
+        "worldfootball",
+        "beamafilm",
+        "classiccinemaonline",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "primewire",
+        "9anime",
+        "hurawatch"
+      ],
       "websites": [
         {
           "domain": "sport.es",
@@ -34172,10 +35064,6 @@
           "score": 0.4357
         },
         {
-          "domain": "odeon.co.uk",
-          "score": 0.4357
-        },
-        {
           "domain": "paddypower.com",
           "score": 0.4302
         },
@@ -34190,10 +35078,6 @@
         {
           "domain": "teltec.de",
           "score": 0.4224
-        },
-        {
-          "domain": "cinemark.com",
-          "score": 0.4219
         },
         {
           "domain": "flashscore.co.uk",
@@ -34252,10 +35136,6 @@
           "score": 0.4009
         },
         {
-          "domain": "amctheatres.com",
-          "score": 0.4008
-        },
-        {
           "domain": "rarefilmm.com",
           "score": 0.3973
         },
@@ -34310,6 +35190,17 @@
       ]
     },
     "FK": {
+      "hotTerms": [
+        "thebrickyardonline",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "primewire",
+        "9anime",
+        "hurawatch"
+      ],
       "websites": [
         {
           "domain": "gamerant.com",
@@ -34318,10 +35209,6 @@
         {
           "domain": "blabbermouth.net",
           "score": 0.4486
-        },
-        {
-          "domain": "atgtickets.com",
-          "score": 0.4417
         },
         {
           "domain": "msn.com",
@@ -34380,10 +35267,6 @@
           "score": 0.3458
         },
         {
-          "domain": "axs.com",
-          "score": 0.3254
-        },
-        {
           "domain": "webcric.com",
           "score": 0.3137
         },
@@ -34394,10 +35277,6 @@
         {
           "domain": "yorktheatreroyal.co.uk",
           "score": 0.2922
-        },
-        {
-          "domain": "axs.co.uk",
-          "score": 0.2857
         },
         {
           "domain": "amazon.co.uk",
@@ -34422,11 +35301,18 @@
       ]
     },
     "KW": {
+      "hotTerms": [
+        "3iskk",
+        "egybest",
+        "akwam",
+        "wecima",
+        "yassflix",
+        "yalla-shoot",
+        "kooorapro",
+        "cimaclub",
+        "cima4u"
+      ],
       "websites": [
-        {
-          "domain": "hoyts.com.au",
-          "score": 0.623
-        },
         {
           "domain": "bein.com",
           "score": 0.6117
@@ -34434,10 +35320,6 @@
         {
           "domain": "zamalektoday.com",
           "score": 0.6032
-        },
-        {
-          "domain": "cinemark.com",
-          "score": 0.5965
         },
         {
           "domain": "movies2watch.tv",
@@ -34564,10 +35446,6 @@
           "score": 0.4025
         },
         {
-          "domain": "imax.com",
-          "score": 0.4017
-        },
-        {
           "domain": "365scores.com",
           "score": 0.4016
         },
@@ -34622,6 +35500,13 @@
       ]
     },
     "KM": {
+      "hotTerms": [
+        "filmaffinity",
+        "streamdivx",
+        "french-stream",
+        "wiflix",
+        "zone-telechargement"
+      ],
       "websites": [
         {
           "domain": "tokyvideo.com",
@@ -34746,6 +35631,18 @@
       ]
     },
     "CI": {
+      "hotTerms": [
+        "french-stream",
+        "wiflix",
+        "stream-complet",
+        "zone-telechargement",
+        "cpasbien",
+        "123moviesfree",
+        "flixtor",
+        "filmaffinity",
+        "livetv",
+        "solothurnerfilmtage"
+      ],
       "websites": [
         {
           "domain": "filmfreeway.com",
@@ -34872,10 +35769,6 @@
           "score": 0.3988
         },
         {
-          "domain": "amctheatres.com",
-          "score": 0.3968
-        },
-        {
           "domain": "zerply.com",
           "score": 0.3955
         },
@@ -34948,7 +35841,6 @@
     "PE": {
       "hotTerms": [
         "futbol-libres",
-        "americatv",
         "futbollibres",
         "cuevana3i",
         "librepelota",
@@ -34956,11 +35848,13 @@
         "futbollibretv",
         "pelotalibretv",
         "futbollibre",
-        "xuperapk",
         "futbolparatodos",
-        "sporticos",
         "pelotalibres",
-        "tarjetarojatv"
+        "cinecalidad",
+        "pelisplushd",
+        "peliculasflv",
+        "gatonplay",
+        "compartirflix"
       ],
       "websites": [
         {
@@ -35068,10 +35962,6 @@
           "score": 0.367
         },
         {
-          "domain": "cinemark.com",
-          "score": 0.3618
-        },
-        {
           "domain": "depor.com",
           "score": 0.3573
         },
@@ -35086,10 +35976,6 @@
         {
           "domain": "bolavip.com",
           "score": 0.3491
-        },
-        {
-          "domain": "cinemark-peru.com",
-          "score": 0.3435
         },
         {
           "domain": "chess.com",
@@ -35158,6 +36044,18 @@
       ]
     },
     "TN": {
+      "hotTerms": [
+        "egybest",
+        "akwam",
+        "wecima",
+        "yassflix",
+        "3iskk",
+        "cima4u",
+        "shahid",
+        "yalla-shoot",
+        "kooorapro",
+        "cimaclub"
+      ],
       "websites": [
         {
           "domain": "nba.com",
@@ -35358,6 +36256,26 @@
       ]
     },
     "LT": {
+      "hotTerms": [
+        "rezka",
+        "kinozal",
+        "filmix",
+        "baskino",
+        "lordfilm",
+        "nnm-club",
+        "rutor",
+        "rutracker",
+        "kinogo",
+        "anime-planet",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "primewire",
+        "9anime",
+        "hurawatch"
+      ],
       "websites": [
         {
           "domain": "viaplay.se",
@@ -35400,10 +36318,6 @@
           "score": 0.4458
         },
         {
-          "domain": "firstshowing.net",
-          "score": 0.4456
-        },
-        {
           "domain": "boyhoodmovies.org",
           "score": 0.4427
         },
@@ -35441,10 +36355,6 @@
         },
         {
           "domain": "steamdb.info",
-          "score": 0.3986
-        },
-        {
-          "domain": "myvue.com",
           "score": 0.3986
         },
         {
@@ -35558,6 +36468,17 @@
       ]
     },
     "SO": {
+      "hotTerms": [
+        "aradramatv",
+        "themoviedb",
+        "fmovies",
+        "movieorca",
+        "besoccer",
+        "french-stream",
+        "wiflix",
+        "zone-telechargement",
+        "cpasbien"
+      ],
       "websites": [
         {
           "domain": "salarysport.com",
@@ -35578,10 +36499,6 @@
         {
           "domain": "aradramatv.cc",
           "score": 0.5009
-        },
-        {
-          "domain": "hoyts.com.au",
-          "score": 0.4815
         },
         {
           "domain": "actionvfx.com",
@@ -35720,10 +36637,6 @@
           "score": 0.3896
         },
         {
-          "domain": "cinemark.com",
-          "score": 0.3797
-        },
-        {
           "domain": "hoofoot.com",
           "score": 0.3793
         },
@@ -35758,6 +36671,18 @@
       ]
     },
     "JO": {
+      "hotTerms": [
+        "egybest",
+        "akwam",
+        "wecima",
+        "yassflix",
+        "3iskk",
+        "cima4u",
+        "shahid",
+        "yalla-shoot",
+        "kooorapro",
+        "cimaclub"
+      ],
       "websites": [
         {
           "domain": "elo.rip",
@@ -35766,10 +36691,6 @@
         {
           "domain": "challonge.com",
           "score": 0.6609
-        },
-        {
-          "domain": "tixr.com",
-          "score": 0.6153
         },
         {
           "domain": "filmnation.com",
@@ -35962,6 +36883,12 @@
       ]
     },
     "NU": {
+      "hotTerms": [
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies"
+      ],
       "websites": [
         {
           "domain": "webcric.com",
@@ -35998,6 +36925,16 @@
       ]
     },
     "RO": {
+      "hotTerms": [
+        "filmeonline",
+        "filmehd",
+        "topfilmeonline",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "filmeserialeonline"
+      ],
       "websites": [
         {
           "domain": "wst.tv",
@@ -36012,10 +36949,6 @@
           "score": 0.5353
         },
         {
-          "domain": "odeon.co.uk",
-          "score": 0.535
-        },
-        {
           "domain": "labiennale.org",
           "score": 0.5252
         },
@@ -36026,10 +36959,6 @@
         {
           "domain": "fsharetv.co",
           "score": 0.4986
-        },
-        {
-          "domain": "myvue.com",
-          "score": 0.4968
         },
         {
           "domain": "viki.com",
@@ -36202,6 +37131,18 @@
       ]
     },
     "VI": {
+      "hotTerms": [
+        "mydramalist",
+        "livesoccertv",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "primewire",
+        "9anime",
+        "hurawatch"
+      ],
       "websites": [
         {
           "domain": "chess.com",
@@ -36312,10 +37253,6 @@
           "score": 0.3562
         },
         {
-          "domain": "seatgeek.com",
-          "score": 0.3546
-        },
-        {
           "domain": "bing.com",
           "score": 0.3542
         },
@@ -36406,6 +37343,17 @@
       ]
     },
     "AS": {
+      "hotTerms": [
+        "mymovies",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "primewire",
+        "9anime",
+        "hurawatch"
+      ],
       "websites": [
         {
           "domain": "msn.com",
@@ -36470,10 +37418,6 @@
         {
           "domain": "boxofficemojo.com",
           "score": 0.4038
-        },
-        {
-          "domain": "stubhub.com",
-          "score": 0.398
         },
         {
           "domain": "idezia.com",
@@ -36598,6 +37542,19 @@
       ]
     },
     "LA": {
+      "hotTerms": [
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "kisskh",
+        "movie2free",
+        "24-hdx",
+        "123-hds",
+        "037hdmovie",
+        "dramacool",
+        "kissasian"
+      ],
       "websites": [
         {
           "domain": "gagaoolala.com",
@@ -36654,10 +37611,6 @@
         {
           "domain": "sterkinekor.com",
           "score": 0.4472
-        },
-        {
-          "domain": "hoyts.com.au",
-          "score": 0.4446
         },
         {
           "domain": "themoviedb.org",
@@ -36798,6 +37751,16 @@
       ]
     },
     "KE": {
+      "hotTerms": [
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "primewire",
+        "9anime",
+        "hurawatch"
+      ],
       "websites": [
         {
           "domain": "visionsdureel.ch",
@@ -36808,16 +37771,8 @@
           "score": 0.5542
         },
         {
-          "domain": "hoyts.com.au",
-          "score": 0.5399
-        },
-        {
           "domain": "nofilmschool.com",
           "score": 0.4985
-        },
-        {
-          "domain": "cinemark.com",
-          "score": 0.4969
         },
         {
           "domain": "gagaoolala.com",
@@ -36994,6 +37949,15 @@
       ]
     },
     "FI": {
+      "hotTerms": [
+        "dreamfilm",
+        "pirate bay",
+        "piratebay",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies"
+      ],
       "websites": [
         {
           "domain": "hockeygm.fi",
@@ -37198,6 +38162,15 @@
       ]
     },
     "SR": {
+      "hotTerms": [
+        "filmfonds",
+        "fmoviesto",
+        "slashfilm",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies"
+      ],
       "websites": [
         {
           "domain": "wtatennis.com",
@@ -37242,10 +38215,6 @@
         {
           "domain": "disneyplus.com",
           "score": 0.4967
-        },
-        {
-          "domain": "showboxmovies.net",
-          "score": 0.4874
         },
         {
           "domain": "eventive.org",
@@ -37328,10 +38297,6 @@
           "score": 0.4131
         },
         {
-          "domain": "hoyts.com.au",
-          "score": 0.4087
-        },
-        {
           "domain": "rottentomatoes.com",
           "score": 0.4008
         },
@@ -37402,6 +38367,20 @@
       ]
     },
     "IO": {
+      "hotTerms": [
+        "football-italia",
+        "animenewsnetwork",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "primewire",
+        "9anime",
+        "hurawatch",
+        "sflix",
+        "kisskh"
+      ],
       "websites": [
         {
           "domain": "chess.com",
@@ -37462,6 +38441,13 @@
       ]
     },
     "VG": {
+      "hotTerms": [
+        "notrecinema",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies"
+      ],
       "websites": [
         {
           "domain": "nhl.com",
@@ -37666,6 +38652,15 @@
       ]
     },
     "NL": {
+      "hotTerms": [
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "kinox",
+        "serienstream",
+        "soap2day"
+      ],
       "websites": [
         {
           "domain": "nnmarathonrotterdam.nl",
@@ -37860,16 +38855,26 @@
           "score": 0.2758
         },
         {
-          "domain": "myvue.com",
-          "score": 0.2755
-        },
-        {
           "domain": "gp33.nl",
           "score": 0.2718
         }
       ]
     },
     "MZ": {
+      "hotTerms": [
+        "megafilmes",
+        "topflix",
+        "filmeflix",
+        "vizer",
+        "pobreflix",
+        "redecanais",
+        "123moviesfree",
+        "fmovies",
+        "parisfilmes",
+        "filmin",
+        "livetv",
+        "cinemagrade"
+      ],
       "websites": [
         {
           "domain": "skysports.com",
@@ -38070,6 +39075,14 @@
       ]
     },
     "LS": {
+      "hotTerms": [
+        "fmovies",
+        "futbol24",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "soap2day"
+      ],
       "websites": [
         {
           "domain": "flashscore.co.za",
@@ -38274,6 +39287,15 @@
       ]
     },
     "PH": {
+      "hotTerms": [
+        "kisskh",
+        "123moviesfree",
+        "flixtor",
+        "sine",
+        "dramacool",
+        "kissasian",
+        "myasiantv"
+      ],
       "websites": [
         {
           "domain": "allmovie.com",
@@ -38312,10 +39334,6 @@
           "score": 0.4396
         },
         {
-          "domain": "cinemark.com",
-          "score": 0.4375
-        },
-        {
           "domain": "flashscore.com",
           "score": 0.4334
         },
@@ -38340,10 +39358,6 @@
           "score": 0.4191
         },
         {
-          "domain": "stubhub.com",
-          "score": 0.4155
-        },
-        {
           "domain": "hbomax.com",
           "score": 0.4115
         },
@@ -38354,10 +39368,6 @@
         {
           "domain": "betcity.ru",
           "score": 0.3983
-        },
-        {
-          "domain": "imax.com",
-          "score": 0.3933
         },
         {
           "domain": "slashfilm.com",
@@ -38392,10 +39402,6 @@
           "score": 0.3757
         },
         {
-          "domain": "hoyts.com.au",
-          "score": 0.3734
-        },
-        {
           "domain": "flixhouse.com",
           "score": 0.3725
         },
@@ -38406,10 +39412,6 @@
         {
           "domain": "mubi.com",
           "score": 0.3613
-        },
-        {
-          "domain": "seatgeek.com",
-          "score": 0.357
         },
         {
           "domain": "boyhoodmovies.org",
@@ -38478,11 +39480,21 @@
       ]
     },
     "SV": {
+      "hotTerms": [
+        "cuevana3i",
+        "cinecalidad",
+        "pelisplushd",
+        "peliculasflv",
+        "futbol-libres",
+        "pelotaalibre",
+        "rojadirecta",
+        "gatonplay",
+        "compartirflix",
+        "tubitv",
+        "topstreams",
+        "pelisplus"
+      ],
       "websites": [
-        {
-          "domain": "cinemark-peru.com",
-          "score": 0.714
-        },
         {
           "domain": "dola.com",
           "score": 0.6946
@@ -38506,14 +39518,6 @@
         {
           "domain": "fifa.com",
           "score": 0.5543
-        },
-        {
-          "domain": "cinepolis.com.sv",
-          "score": 0.5418
-        },
-        {
-          "domain": "cinemarkca.com",
-          "score": 0.5356
         },
         {
           "domain": "cineol.net",
@@ -38678,6 +39682,14 @@
       ]
     },
     "WS": {
+      "hotTerms": [
+        "moviesanywhere",
+        "animenewsnetwork",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies"
+      ],
       "websites": [
         {
           "domain": "moviesanywhere.com",
@@ -38874,6 +39886,25 @@
       ]
     },
     "PT": {
+      "hotTerms": [
+        "megafilmes",
+        "topflix",
+        "filmeflix",
+        "vizer",
+        "pobreflix",
+        "redecanais",
+        "123moviesfree",
+        "ingresso",
+        "indielisboa",
+        "festadocinemaitaliano",
+        "ovicio",
+        "brujulabike",
+        "mydramalist",
+        "soccerway",
+        "kinocheck",
+        "filmchief",
+        "leopardofilmes"
+      ],
       "websites": [
         {
           "domain": "ingresso.com",
@@ -38882,10 +39913,6 @@
         {
           "domain": "indielisboa.com",
           "score": 0.5888
-        },
-        {
-          "domain": "myvue.com",
-          "score": 0.5646
         },
         {
           "domain": "festadocinemaitaliano.com",
@@ -39070,6 +40097,19 @@
       ]
     },
     "MN": {
+      "hotTerms": [
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "9anime",
+        "kisskh",
+        "animeone",
+        "animelon",
+        "mgl cinema",
+        "ub cinema"
+      ],
       "websites": [
         {
           "domain": "chelseanews.com",
@@ -39188,10 +40228,6 @@
           "score": 0.4419
         },
         {
-          "domain": "ticketmaster.com",
-          "score": 0.4401
-        },
-        {
           "domain": "sundance.org",
           "score": 0.4333
         },
@@ -39274,6 +40310,17 @@
       ]
     },
     "MS": {
+      "hotTerms": [
+        "animenewsnetwork",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "primewire",
+        "9anime",
+        "hurawatch"
+      ],
       "websites": [
         {
           "domain": "gamerant.com",
@@ -39326,6 +40373,12 @@
       ]
     },
     "NF": {
+      "hotTerms": [
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies"
+      ],
       "websites": [
         {
           "domain": "netball.com.au",
@@ -39358,6 +40411,15 @@
       ]
     },
     "BJ": {
+      "hotTerms": [
+        "seatsnet",
+        "french-stream",
+        "wiflix",
+        "zone-telechargement",
+        "cpasbien",
+        "123moviesfree",
+        "flixtor"
+      ],
       "websites": [
         {
           "domain": "maxifoot.fr",
@@ -39562,6 +40624,18 @@
       ]
     },
     "ZM": {
+      "hotTerms": [
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "9anime",
+        "kisskh",
+        "effedupmovies",
+        "filmaffinity",
+        "hurawatch"
+      ],
       "websites": [
         {
           "domain": "filmrise.com",
@@ -39728,10 +40802,6 @@
           "score": 0.3928
         },
         {
-          "domain": "imax.com",
-          "score": 0.3864
-        },
-        {
           "domain": "sterkinekor.com",
           "score": 0.3822
         },
@@ -39762,6 +40832,20 @@
       ]
     },
     "GQ": {
+      "hotTerms": [
+        "filmaffinity",
+        "animeonline",
+        "dramabeans",
+        "tioanime",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "primewire",
+        "9anime",
+        "hurawatch"
+      ],
       "websites": [
         {
           "domain": "webcric.com",
@@ -39962,6 +41046,16 @@
       ]
     },
     "VN": {
+      "hotTerms": [
+        "tvhay",
+        "phimmoi",
+        "bilutv",
+        "phimgii",
+        "motchill",
+        "123moviesfree",
+        "dramacool",
+        "kissasian"
+      ],
       "websites": [
         {
           "domain": "wco.tv",
@@ -40124,10 +41218,6 @@
           "score": 0.3201
         },
         {
-          "domain": "hoyts.com.au",
-          "score": 0.3167
-        },
-        {
           "domain": "clubderegatasrcia.com",
           "score": 0.3131
         },
@@ -40166,6 +41256,13 @@
       ]
     },
     "AZ": {
+      "hotTerms": [
+        "rezka",
+        "kinozal",
+        "filmix",
+        "baskino",
+        "lordfilm"
+      ],
       "websites": [
         {
           "domain": "a24films.com",
@@ -40370,6 +41467,16 @@
       ]
     },
     "AF": {
+      "hotTerms": [
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "9anime",
+        "kisskh",
+        "studiocanal"
+      ],
       "websites": [
         {
           "domain": "iplt20.com",
@@ -40575,28 +41682,17 @@
     },
     "DZ": {
       "hotTerms": [
+        "egybest",
+        "akwam",
+        "wecima",
+        "yassflix",
         "kooorapro",
-        "siir-tv",
         "kora-sia",
-        "livesoccers",
-        "strm01",
         "3iskk",
-        "yallasootlive",
         "365akhbar",
-        "kooora4lives",
-        "tv-siir",
-        "panda-wc",
-        "paanda-hd",
-        "futbol-libres",
-        "chatgpt",
-        "siiiir",
-        "worldchampion",
-        "livefootballfree",
-        "openai",
-        "kooora",
-        "3isk",
-        "go4score",
-        "koooramix"
+        "cima4u",
+        "cimaclub",
+        "yalla-shoot"
       ],
       "websites": [
         {
@@ -40798,6 +41894,15 @@
       ]
     },
     "AL": {
+      "hotTerms": [
+        "filma24",
+        "filmashqip",
+        "123moviesfree",
+        "filmaonline",
+        "albfilm",
+        "flixtor",
+        "filmatv"
+      ],
       "websites": [
         {
           "domain": "bfi.org.uk",
@@ -40808,20 +41913,12 @@
           "score": 0.5734
         },
         {
-          "domain": "stubhub.com",
-          "score": 0.5612
-        },
-        {
           "domain": "letterboxd.com",
           "score": 0.5055
         },
         {
           "domain": "vividseats.com",
           "score": 0.4992
-        },
-        {
-          "domain": "ticketmaster.com",
-          "score": 0.4912
         },
         {
           "domain": "nba.com",
@@ -40990,6 +42087,17 @@
       ]
     },
     "AE": {
+      "hotTerms": [
+        "3iskk",
+        "egybest",
+        "akwam",
+        "wecima",
+        "yassflix",
+        "yalla-shoot",
+        "kooorapro",
+        "cimaclub",
+        "cima4u"
+      ],
       "websites": [
         {
           "domain": "iplt20.com",
@@ -41026,14 +42134,6 @@
         {
           "domain": "spotify.com",
           "score": 0.3842
-        },
-        {
-          "domain": "cineworld.co.uk",
-          "score": 0.3831
-        },
-        {
-          "domain": "myvue.com",
-          "score": 0.3803
         },
         {
           "domain": "cinemaakil.com",
@@ -41088,10 +42188,6 @@
           "score": 0.3397
         },
         {
-          "domain": "veloxtickets.com",
-          "score": 0.3337
-        },
-        {
           "domain": "rottentomatoes.com",
           "score": 0.332
         },
@@ -41140,10 +42236,6 @@
           "score": 0.3221
         },
         {
-          "domain": "firstshowing.net",
-          "score": 0.3178
-        },
-        {
           "domain": "redsharknews.com",
           "score": 0.3152
         },
@@ -41176,10 +42268,6 @@
           "score": 0.307
         },
         {
-          "domain": "hoyts.com.au",
-          "score": 0.3061
-        },
-        {
           "domain": "letterboxd.com",
           "score": 0.3058
         },
@@ -41194,6 +42282,18 @@
       ]
     },
     "OM": {
+      "hotTerms": [
+        "egybest",
+        "akwam",
+        "wecima",
+        "yassflix",
+        "3iskk",
+        "cima4u",
+        "shahid",
+        "yalla-shoot",
+        "kooorapro",
+        "cimaclub"
+      ],
       "websites": [
         {
           "domain": "atptour.com",
@@ -41254,10 +42354,6 @@
         {
           "domain": "realmadrid.com",
           "score": 0.4931
-        },
-        {
-          "domain": "hoyts.com.au",
-          "score": 0.4855
         },
         {
           "domain": "criterionchannel.com",
@@ -41403,12 +42499,14 @@
         "librepelota",
         "cuevana3i",
         "pelotaalibre",
-        "mitelefe",
-        "sporticos",
-        "tvpublica",
         "futbolparatodos",
         "tvlibre-online",
-        "futbollibretv"
+        "futbollibretv",
+        "cinecalidad",
+        "pelisplushd",
+        "peliculasflv",
+        "gatonplay",
+        "compartirflix"
       ],
       "websites": [
         {
@@ -41468,10 +42566,6 @@
           "score": 0.3655
         },
         {
-          "domain": "cinepolis.com",
-          "score": 0.3605
-        },
-        {
           "domain": "deportv.gob.ar",
           "score": 0.3542
         },
@@ -41494,10 +42588,6 @@
         {
           "domain": "lahiguera.net",
           "score": 0.3417
-        },
-        {
-          "domain": "todoshowcase.com",
-          "score": 0.338
         },
         {
           "domain": "cineol.net",
@@ -41596,16 +42686,25 @@
           "score": 0.2843
         },
         {
-          "domain": "cinepolis.com.ar",
-          "score": 0.2835
-        },
-        {
           "domain": "passline.com",
           "score": 0.2825
         }
       ]
     },
     "AW": {
+      "hotTerms": [
+        "slashfilm",
+        "filmkrant",
+        "mydramalist",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "primewire",
+        "9anime",
+        "hurawatch"
+      ],
       "websites": [
         {
           "domain": "riotgames.com",
@@ -41620,20 +42719,12 @@
           "score": 0.5793
         },
         {
-          "domain": "imax.com",
-          "score": 0.5647
-        },
-        {
           "domain": "pitchfork.com",
           "score": 0.5542
         },
         {
           "domain": "chess.com",
           "score": 0.5339
-        },
-        {
-          "domain": "viagogo.com",
-          "score": 0.5168
         },
         {
           "domain": "fox.com",
@@ -41810,6 +42901,15 @@
       ]
     },
     "KR": {
+      "hotTerms": [
+        "dramacool",
+        "kissasian",
+        "torrentkim",
+        "torrentsee",
+        "torrentjj",
+        "daumpot",
+        "bamtoki"
+      ],
       "websites": [
         {
           "domain": "the-goodday.com",
@@ -41874,10 +42974,6 @@
         {
           "domain": "letterboxd.com",
           "score": 0.4103
-        },
-        {
-          "domain": "imax.com",
-          "score": 0.4087
         },
         {
           "domain": "mhnse.com",
@@ -42010,6 +43106,20 @@
       ]
     },
     "MK": {
+      "hotTerms": [
+        "bombuj",
+        "gledajsaprevodom",
+        "filmehd",
+        "filmeonline",
+        "123moviesfree",
+        "kinox",
+        "rezka",
+        "mydramalist",
+        "studiocanal",
+        "flixtor",
+        "lookmovie2",
+        "fmovies"
+      ],
       "websites": [
         {
           "domain": "productioncrate.com",
@@ -42214,6 +43324,18 @@
       ]
     },
     "MV": {
+      "hotTerms": [
+        "fmoviesto",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "primewire",
+        "9anime",
+        "hurawatch",
+        "sflix"
+      ],
       "websites": [
         {
           "domain": "dehancer.com",
@@ -42414,6 +43536,18 @@
       ]
     },
     "IM": {
+      "hotTerms": [
+        "mydramalist",
+        "anime2you",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "primewire",
+        "9anime",
+        "hurawatch"
+      ],
       "websites": [
         {
           "domain": "mydramalist.com",
@@ -42472,10 +43606,6 @@
           "score": 0.4326
         },
         {
-          "domain": "imax.com",
-          "score": 0.431
-        },
-        {
           "domain": "flashscore.dk",
           "score": 0.4199
         },
@@ -42518,14 +43648,6 @@
         {
           "domain": "autosport.com",
           "score": 0.4068
-        },
-        {
-          "domain": "showboxmovies.net",
-          "score": 0.4014
-        },
-        {
-          "domain": "cineworld.co.uk",
-          "score": 0.3992
         },
         {
           "domain": "procyclingstats.com",
@@ -42618,6 +43740,14 @@
       ]
     },
     "MW": {
+      "hotTerms": [
+        "fmovies",
+        "kinocheck",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "soap2day"
+      ],
       "websites": [
         {
           "domain": "fmovies.co",
@@ -42800,10 +43930,6 @@
           "score": 0.3471
         },
         {
-          "domain": "amctheatres.com",
-          "score": 0.3442
-        },
-        {
           "domain": "footballtransfers.com",
           "score": 0.3434
         },
@@ -42818,6 +43944,16 @@
       ]
     },
     "MQ": {
+      "hotTerms": [
+        "microfilms",
+        "french-stream",
+        "wiflix",
+        "zone-telechargement",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies"
+      ],
       "websites": [
         {
           "domain": "psnprofiles.com",
@@ -43022,14 +44158,23 @@
       ]
     },
     "MY": {
+      "hotTerms": [
+        "lk21official",
+        "indoxxi",
+        "idlix",
+        "samehadaku",
+        "malayshare",
+        "filem4u",
+        "wayang247",
+        "dramaspark",
+        "dramacool",
+        "kissasian",
+        "myasiantv"
+      ],
       "websites": [
         {
           "domain": "ticket2u.com.my",
           "score": 0.6126
-        },
-        {
-          "domain": "hoyts.com.au",
-          "score": 0.5858
         },
         {
           "domain": "cityonfire.com",
@@ -43148,10 +44293,6 @@
           "score": 0.3238
         },
         {
-          "domain": "eventcinemas.com.au",
-          "score": 0.3218
-        },
-        {
           "domain": "dailymotion.com",
           "score": 0.3212
         },
@@ -43226,6 +44367,17 @@
       ]
     },
     "YT": {
+      "hotTerms": [
+        "wantedcinema",
+        "animehub",
+        "notrecinema",
+        "french-stream",
+        "wiflix",
+        "zone-telechargement",
+        "cpasbien",
+        "123moviesfree",
+        "flixtor"
+      ],
       "websites": [
         {
           "domain": "decathlon.fr",
@@ -43422,6 +44574,13 @@
       ]
     },
     "MH": {
+      "hotTerms": [
+        "filmdaily",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies"
+      ],
       "websites": [
         {
           "domain": "justwatch.com",
@@ -43614,6 +44773,17 @@
       ]
     },
     "MT": {
+      "hotTerms": [
+        "filmaffinity",
+        "onlinesoccermanager",
+        "slashfilm",
+        "filmneweurope",
+        "filmstriben",
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies"
+      ],
       "websites": [
         {
           "domain": "steamgriddb.com",
@@ -43788,10 +44958,6 @@
           "score": 0.3785
         },
         {
-          "domain": "ticketmaster.com",
-          "score": 0.3767
-        },
-        {
           "domain": "effedupmovies.com",
           "score": 0.3762
         },
@@ -43814,6 +44980,14 @@
       ]
     },
     "MG": {
+      "hotTerms": [
+        "footballpredictions",
+        "effedupmovies",
+        "fmovies",
+        "french-stream",
+        "wiflix",
+        "zone-telechargement"
+      ],
       "websites": [
         {
           "domain": "generalhospitaltea.com",
@@ -44018,6 +45192,18 @@
       ]
     },
     "ML": {
+      "hotTerms": [
+        "api-football",
+        "notrecinema",
+        "filmingo",
+        "mydramalist",
+        "french-stream",
+        "wiflix",
+        "zone-telechargement",
+        "cpasbien",
+        "123moviesfree",
+        "flixtor"
+      ],
       "websites": [
         {
           "domain": "amazon.co.uk",
@@ -44214,14 +45400,22 @@
         {
           "domain": "matchendirect.fr",
           "score": 0.3302
-        },
-        {
-          "domain": "myvue.com",
-          "score": 0.3246
         }
       ]
     },
     "LB": {
+      "hotTerms": [
+        "egybest",
+        "akwam",
+        "wecima",
+        "yassflix",
+        "3iskk",
+        "cima4u",
+        "shahid",
+        "yalla-shoot",
+        "kooorapro",
+        "cimaclub"
+      ],
       "websites": [
         {
           "domain": "film-grab.com",
@@ -44414,6 +45608,24 @@
       ]
     },
     "ME": {
+      "hotTerms": [
+        "bombuj",
+        "gledajsaprevodom",
+        "filmehd",
+        "filmeonline",
+        "123moviesfree",
+        "kinox",
+        "rezka",
+        "kinodvor",
+        "filmaffinity",
+        "avangarda",
+        "kinocheck",
+        "hdrezka",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "serijeonline"
+      ],
       "websites": [
         {
           "domain": "kinodvor.org",
@@ -44616,6 +45828,75 @@
           "score": 0.3537
         }
       ]
+    },
+    "CU": {
+      "hotTerms": [
+        "cuevana3i",
+        "cinecalidad",
+        "pelisplushd",
+        "peliculasflv",
+        "futbol-libres",
+        "pelotaalibre",
+        "rojadirecta",
+        "gatonplay",
+        "compartirflix",
+        "123moviesfree"
+      ],
+      "websites": []
+    },
+    "LY": {
+      "hotTerms": [
+        "egybest",
+        "akwam",
+        "wecima",
+        "yassflix",
+        "3iskk",
+        "cima4u",
+        "shahid",
+        "yalla-shoot",
+        "kooorapro",
+        "123moviesfree",
+        "cimaclub"
+      ],
+      "websites": []
+    },
+    "IR": {
+      "hotTerms": [
+        "rezka",
+        "kinozal",
+        "filmix",
+        "shahid",
+        "akwam",
+        "123moviesfree",
+        "flixtor",
+        "3iskk",
+        "egybest"
+      ],
+      "websites": []
+    },
+    "MM": {
+      "hotTerms": [
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "kisskh",
+        "dramacool",
+        "myasiantv",
+        "kissasian"
+      ],
+      "websites": []
+    },
+    "NA": {
+      "hotTerms": [
+        "123moviesfree",
+        "flixtor",
+        "lookmovie2",
+        "fmovies",
+        "soap2day",
+        "hurawatch"
+      ],
+      "websites": []
     }
   }
 }
