@@ -206,7 +206,18 @@
         "nba stream",
         "primewire",
         "solarmovie",
-        "teamstoday"
+        "teamstoday",
+        "mybuffstreams",
+        "crackstreams",
+        "thestreameast",
+        "streameastas",
+        "isportsurge",
+        "streamseast",
+        "cinejoy",
+        "futbollibrefullhd",
+        "tvapp1",
+        "methstreams",
+        "nflbite"
       ],
       "websites": [
         {
@@ -356,6 +367,54 @@
         {
           "domain": "malco.com",
           "score": 0.2932
+        },
+        {
+          "domain": "mybuffstreams.plus",
+          "score": 0.82
+        },
+        {
+          "domain": "crackstreams.mx",
+          "score": 0.8
+        },
+        {
+          "domain": "thestreameast.top",
+          "score": 0.75
+        },
+        {
+          "domain": "streameastas.cx",
+          "score": 0.65
+        },
+        {
+          "domain": "isportsurge.ws",
+          "score": 0.62
+        },
+        {
+          "domain": "streamseast.eu",
+          "score": 0.58
+        },
+        {
+          "domain": "cinejoy.pk",
+          "score": 0.52
+        },
+        {
+          "domain": "futbollibrefullhd.org",
+          "score": 0.5
+        },
+        {
+          "domain": "streamseast.ac",
+          "score": 0.48
+        },
+        {
+          "domain": "tvapp1.com",
+          "score": 0.46
+        },
+        {
+          "domain": "methstreams.gs",
+          "score": 0.42
+        },
+        {
+          "domain": "nflbite.is",
+          "score": 0.4
         }
       ]
     },
@@ -951,7 +1010,14 @@
         "primewire",
         "9anime",
         "french-stream",
-        "zone-telechargement"
+        "zone-telechargement",
+        "crackstreams",
+        "cinejoy",
+        "futbollibrefullhd",
+        "thestreameast",
+        "123moviesplay",
+        "streameastas",
+        "methstreams"
       ],
       "websites": [
         {
@@ -1141,6 +1207,42 @@
         {
           "domain": "espn.com",
           "score": 0.2795
+        },
+        {
+          "domain": "crackstreams.mx",
+          "score": 0.6
+        },
+        {
+          "domain": "streamseast.eu",
+          "score": 0.55
+        },
+        {
+          "domain": "cinejoy.pk",
+          "score": 0.48
+        },
+        {
+          "domain": "streamseast.ac",
+          "score": 0.45
+        },
+        {
+          "domain": "futbollibrefullhd.org",
+          "score": 0.42
+        },
+        {
+          "domain": "thestreameast.top",
+          "score": 0.4
+        },
+        {
+          "domain": "123moviesplay.net",
+          "score": 0.38
+        },
+        {
+          "domain": "streameastas.cx",
+          "score": 0.36
+        },
+        {
+          "domain": "methstreams.gs",
+          "score": 0.34
         }
       ]
     },
@@ -1366,7 +1468,14 @@
         "9xmovies",
         "jalshamoviez",
         "filmywap",
-        "moviezda"
+        "moviezda",
+        "es.epicsportss",
+        "animesalt",
+        "live.epicsports",
+        "moviessda",
+        "cinejoy",
+        "new6.hdhub4u",
+        "watchanimeworld"
       ],
       "websites": [
         {
@@ -1560,6 +1669,34 @@
         {
           "domain": "redbull.com",
           "score": 0.3073
+        },
+        {
+          "domain": "es.epicsportss.com",
+          "score": 0.72
+        },
+        {
+          "domain": "animesalt.cx",
+          "score": 0.55
+        },
+        {
+          "domain": "live.epicsports.in",
+          "score": 0.5
+        },
+        {
+          "domain": "moviessda.com",
+          "score": 0.45
+        },
+        {
+          "domain": "cinejoy.pk",
+          "score": 0.4
+        },
+        {
+          "domain": "new6.hdhub4u.cl",
+          "score": 0.38
+        },
+        {
+          "domain": "watchanimeworld.one",
+          "score": 0.35
         }
       ]
     },
@@ -6342,7 +6479,13 @@
         "filmix",
         "newfilmes",
         "lordfilm",
-        "kinogo"
+        "kinogo",
+        "hotelki",
+        "u-tv",
+        "lordserials",
+        "telik",
+        "anime-bit",
+        "tvin"
       ],
       "websites": [
         {
@@ -6540,6 +6683,30 @@
         {
           "domain": "sport-express.ru",
           "score": 0.2929
+        },
+        {
+          "domain": "hotelki.tv",
+          "score": 0.5
+        },
+        {
+          "domain": "u-tv.ru",
+          "score": 0.4
+        },
+        {
+          "domain": "lordserials.fan",
+          "score": 0.38
+        },
+        {
+          "domain": "telik.live",
+          "score": 0.32
+        },
+        {
+          "domain": "anime-bit.ru",
+          "score": 0.3
+        },
+        {
+          "domain": "tvin.su",
+          "score": 0.28
         }
       ]
     },
@@ -17486,7 +17653,15 @@
         "gatonplay",
         "compartirflix",
         "cuevana3l",
-        "pirlotv"
+        "pirlotv",
+        "cuevana3e",
+        "pelotalibre",
+        "rojadirectatvplus",
+        "tarjetarojatv",
+        "tarjetaroja",
+        "rojadirectatvoficial",
+        "jkanime",
+        "rojatvdirecta.online"
       ],
       "websites": [
         {
@@ -17672,6 +17847,42 @@
         {
           "domain": "warnerbroslatino.com",
           "score": 0.3164
+        },
+        {
+          "domain": "cuevana3e.pro",
+          "score": 0.78
+        },
+        {
+          "domain": "pelotalibre.la",
+          "score": 0.6
+        },
+        {
+          "domain": "rojadirectatvplus.com",
+          "score": 0.52
+        },
+        {
+          "domain": "tarjetarojatv.la",
+          "score": 0.45
+        },
+        {
+          "domain": "pelotalibre.mx",
+          "score": 0.42
+        },
+        {
+          "domain": "tarjetaroja.tax",
+          "score": 0.4
+        },
+        {
+          "domain": "rojadirectatvoficial.sx",
+          "score": 0.38
+        },
+        {
+          "domain": "jkanime.net",
+          "score": 0.35
+        },
+        {
+          "domain": "rojatvdirecta.online",
+          "score": 0.32
         }
       ]
     },
@@ -18938,7 +19149,12 @@
         "vegamovies",
         "filmyzilla",
         "kisskh",
-        "bolly4u"
+        "bolly4u",
+        "sportzfyapk",
+        "animesalt",
+        "movielinkbd",
+        "ctgmovies",
+        "cinefreak"
       ],
       "websites": [
         {
@@ -19140,6 +19356,26 @@
         {
           "domain": "konami.net",
           "score": 0.3099
+        },
+        {
+          "domain": "sportzfyapk.org",
+          "score": 0.4
+        },
+        {
+          "domain": "animesalt.cx",
+          "score": 0.38
+        },
+        {
+          "domain": "movielinkbd.one",
+          "score": 0.35
+        },
+        {
+          "domain": "ctgmovies.com",
+          "score": 0.28
+        },
+        {
+          "domain": "cinefreak.net",
+          "score": 0.25
         }
       ]
     },
@@ -31118,7 +31354,13 @@
         "ball67",
         "baanball4k",
         "pvl ph",
-        "baball"
+        "24-hda",
+        "123-hda",
+        "goseries4k",
+        "24hd.media",
+        "037hddmovies",
+        "adintrend",
+        "25-hd"
       ],
       "websites": [
         {
@@ -31316,6 +31558,34 @@
         {
           "domain": "wedio.com",
           "score": 0.3218
+        },
+        {
+          "domain": "24-hda.com",
+          "score": 0.65
+        },
+        {
+          "domain": "123-hda.com",
+          "score": 0.6
+        },
+        {
+          "domain": "goseries4k.com",
+          "score": 0.55
+        },
+        {
+          "domain": "24hd.media",
+          "score": 0.52
+        },
+        {
+          "domain": "037hddmovies.com",
+          "score": 0.48
+        },
+        {
+          "domain": "adintrend.tv",
+          "score": 0.42
+        },
+        {
+          "domain": "25-hd.com",
+          "score": 0.38
         }
       ]
     },
@@ -35925,7 +36195,15 @@
         "peliculasflv",
         "gatonplay",
         "compartirflix",
-        "cuevana3l"
+        "cuevana3l",
+        "cuevana3e",
+        "futbollibrefullhd",
+        "pelotalibre",
+        "pirlotv",
+        "librefutbol",
+        "rojadirectatvplus",
+        "futbollibrepro",
+        "tarjetaroja"
       ],
       "websites": [
         {
@@ -36111,6 +36389,46 @@
         {
           "domain": "onefootball.com",
           "score": 0.3068
+        },
+        {
+          "domain": "cuevana3e.pro",
+          "score": 0.65
+        },
+        {
+          "domain": "futbollibrefullhd.org",
+          "score": 0.6
+        },
+        {
+          "domain": "pelotalibre.ad",
+          "score": 0.5
+        },
+        {
+          "domain": "pirlotv.la",
+          "score": 0.48
+        },
+        {
+          "domain": "pelotalibre.net.pe",
+          "score": 0.42
+        },
+        {
+          "domain": "librefutbol.vip",
+          "score": 0.4
+        },
+        {
+          "domain": "rojadirectatvplus.com",
+          "score": 0.38
+        },
+        {
+          "domain": "futbollibrepro.pe",
+          "score": 0.35
+        },
+        {
+          "domain": "librefutbol.com.pe",
+          "score": 0.32
+        },
+        {
+          "domain": "tarjetaroja.tax",
+          "score": 0.3
         }
       ]
     },
@@ -41765,7 +42083,18 @@
         "cimaclub",
         "yalla-shoot",
         "tv-siir",
-        "yassirtv"
+        "yassirtv",
+        "kooratv",
+        "z.3isk",
+        "x3os",
+        "yallah-shooot",
+        "qrmzi",
+        "genral-tv",
+        "fabor",
+        "futbollibrefullhd",
+        "french-stream",
+        "yalla1shot",
+        "dimakoora.online"
       ],
       "websites": [
         {
@@ -41963,6 +42292,50 @@
         {
           "domain": "football365.fr",
           "score": 0.3025
+        },
+        {
+          "domain": "kooratv.club",
+          "score": 0.55
+        },
+        {
+          "domain": "z.3isk.news",
+          "score": 0.5
+        },
+        {
+          "domain": "x3os.info",
+          "score": 0.48
+        },
+        {
+          "domain": "yallah-shooot.com",
+          "score": 0.45
+        },
+        {
+          "domain": "qrmzi.tv",
+          "score": 0.42
+        },
+        {
+          "domain": "genral-tv.to",
+          "score": 0.4
+        },
+        {
+          "domain": "fabor.tv",
+          "score": 0.38
+        },
+        {
+          "domain": "futbollibrefullhd.org",
+          "score": 0.35
+        },
+        {
+          "domain": "french-stream.net",
+          "score": 0.32
+        },
+        {
+          "domain": "yalla1shot.com",
+          "score": 0.3
+        },
+        {
+          "domain": "dimakoora.online",
+          "score": 0.28
         }
       ]
     },
@@ -42582,7 +42955,17 @@
         "compartirflix",
         "futbollibrehd",
         "pelotalibre biz",
-        "tvlibreonline"
+        "tvlibreonline",
+        "futbollibrefullhd",
+        "pelotalibre",
+        "cuevana3e",
+        "futbollibre",
+        "rojadirectatvplus",
+        "pelotalibretvhd",
+        "librefutbol",
+        "pirlotv",
+        "rojadirectamas",
+        "alangulotv"
       ],
       "websites": [
         {
@@ -42764,6 +43147,54 @@
         {
           "domain": "passline.com",
           "score": 0.2825
+        },
+        {
+          "domain": "futbollibrefullhd.org",
+          "score": 0.88
+        },
+        {
+          "domain": "pelotalibre.la",
+          "score": 0.85
+        },
+        {
+          "domain": "cuevana3e.pro",
+          "score": 0.72
+        },
+        {
+          "domain": "futbollibre.mobi",
+          "score": 0.65
+        },
+        {
+          "domain": "rojadirectatvplus.com",
+          "score": 0.6
+        },
+        {
+          "domain": "pelotalibretvhd.cl",
+          "score": 0.55
+        },
+        {
+          "domain": "librefutbol.vip",
+          "score": 0.5
+        },
+        {
+          "domain": "futbollibre.chat",
+          "score": 0.45
+        },
+        {
+          "domain": "pirlotv.la",
+          "score": 0.42
+        },
+        {
+          "domain": "pelotalibre.mx",
+          "score": 0.4
+        },
+        {
+          "domain": "rojadirectamas.com",
+          "score": 0.38
+        },
+        {
+          "domain": "alangulotv.cx",
+          "score": 0.35
         }
       ]
     },
